@@ -60,38 +60,8 @@ export default function CreatorsPage() {
     <main style={{ background: "var(--color-linen-100)", minHeight: "100vh" }}>
       <Navbar forceDark />
 
-      {/* Hero header with polaroid background */}
-      <section className="relative overflow-hidden" style={{ background: "var(--color-dark-900)", minHeight: "280px" }}>
-        {/* Polaroid collage */}
-        <div className="absolute inset-0 overflow-hidden">
-          {polaroids.map((p, i) => (
-            <div
-              key={i}
-              className="absolute"
-              style={{
-                top: p.top, left: p.left,
-                transform: `rotate(${p.rot}deg)`,
-                width: "160px",
-                background: "#f2ede6",
-                padding: "6px 6px 22px 6px",
-                boxShadow: "0 8px 24px rgba(0,0,0,0.4)",
-                zIndex: i % 3,
-                opacity: 0.55,
-              }}
-            >
-              <div style={{ width: "100%", height: "120px", overflow: "hidden", background: "#2a2724" }}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={p.src} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Overlay */}
-        <div className="absolute inset-0" style={{ background: "rgba(20,18,16,0.72)" }} />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, transparent 40%, rgba(20,18,16,1) 100%)" }} />
-
-        {/* Text */}
+      {/* Hero header */}
+      <section className="relative overflow-hidden" style={{ background: "var(--color-dark-900)" }}>
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 pt-36 pb-12">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <h1 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(2.2rem, 4vw, 3.8rem)", lineHeight: "1", color: "white" }}>
@@ -138,6 +108,7 @@ export default function CreatorsPage() {
             key={c.name}
             id={c.name.toLowerCase().replace(/\s/g, "-")}
             ref={(el) => { sectionRefs.current[c.name] = el; }}
+            style={{ scrollMarginTop: "116px" }}
           >
             {/* Visual hero per creator */}
             <div className={`relative overflow-hidden min-h-[500px] flex items-end bg-gradient-to-br ${c.gradient}`}>
