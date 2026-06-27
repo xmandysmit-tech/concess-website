@@ -26,7 +26,7 @@
     -webkit-font-smoothing: antialiased;
   }
   body {
-    background-color: var(--color-linen-200);
+    background-color: var(--color-linen-100);
     color: var(--color-dark-700);
   }
   p {

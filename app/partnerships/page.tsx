@@ -22,7 +22,7 @@ const numbers = [
 
 export default function PartnershipsPage() {
   return (
-    <main>
+    <main style={{ background: "var(--color-linen-100)" }}>
       <Navbar />
 
       {/* Hero */}

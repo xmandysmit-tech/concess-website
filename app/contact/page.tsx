@@ -1,14 +1,64 @@
 "use client";
 import { useState } from "react";
+import Image from "next/image";
 import Navbar from "../components/Navbar";
 
-const inputClass = "w-full border rounded-xl px-4 py-3.5 text-sm focus:outline-none transition-colors resize-none";
-const inputStyle = {
-  background: "rgba(163,150,141,0.12)",
-  borderColor: "rgba(163,150,141,0.25)",
-  color: "white",
+const socials = [
+  {
+    name: "Instagram",
+    href: "#",
+    icon: (
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5"/>
+        <circle cx="12" cy="12" r="4"/>
+        <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
+      </svg>
+    ),
+  },
+  {
+    name: "TikTok",
+    href: "#",
+    icon: (
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.95a8.16 8.16 0 004.77 1.52V7.02a4.85 4.85 0 01-1-.33z"/>
+      </svg>
+    ),
+  },
+  {
+    name: "Facebook",
+    href: "#",
+    icon: (
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+      </svg>
+    ),
+  },
+  {
+    name: "LinkedIn",
+    href: "#",
+    icon: (
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
+        <circle cx="4" cy="4" r="2"/>
+      </svg>
+    ),
+  },
+];
+
+const inputStyle: React.CSSProperties = {
+  background: "transparent",
+  borderBottom: "1px solid var(--color-linen-400)",
+  borderTop: "none",
+  borderLeft: "none",
+  borderRight: "none",
+  borderRadius: 0,
+  padding: "10px 0",
+  fontSize: "0.85rem",
+  color: "var(--color-dark-900)",
+  fontFamily: "var(--font-sans)",
+  width: "100%",
+  outline: "none",
 };
-const inputFocusStyle = { borderColor: "var(--color-taupe-400)" };
 
 export default function ContactPage() {
   const [sent, setSent] = useState(false);
@@ -32,101 +82,107 @@ export default function ContactPage() {
   }
 
   return (
-    <main style={{ background: "var(--color-dark-900)", minHeight: "100vh" }}>
-      <Navbar />
+    <main style={{ background: "var(--color-linen-100)", minHeight: "100vh" }}>
+      <Navbar forceDark />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 pt-40 pb-32">
-        <div className="grid md:grid-cols-2 gap-20 items-start">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 pt-28 pb-20">
 
-          {/* Left */}
-          <div>
-            <span className="text-[10px] tracking-widest uppercase text-taupe-500 block mb-6">Contact</span>
-            <h1 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(3rem, 5vw, 5rem)", lineHeight: "0.95", color: "white" }}>
-              Laten we<br /><span className="italic text-taupe-300">praten.</span>
-            </h1>
-            <p className="text-linen-300/60 mt-8 text-sm leading-relaxed max-w-sm">
-              Merk, creator of gewoon een goed idee? Stuur ons een bericht en we reageren snel.
-            </p>
+        {/* Page title */}
+        <div className="mb-12">
+          <span className="text-[10px] tracking-widest uppercase text-taupe-500 block mb-3" style={{ fontFamily: "var(--font-sans)" }}>Contact</span>
+          <h1 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(2.2rem, 4vw, 3.5rem)", lineHeight: "1.05", color: "var(--color-dark-900)" }}>
+            Laten we<br /><span className="italic text-taupe-400">samenwerken.</span>
+          </h1>
+        </div>
 
-            <div className="mt-12 space-y-6">
-              <div>
-                <p className="text-[10px] tracking-widest uppercase text-taupe-500 mb-2">Email</p>
-                <a href="mailto:info@concess.nl" className="text-linen-200 hover:text-white transition-colors">info@concess.nl</a>
-              </div>
-              <div>
-                <p className="text-[10px] tracking-widest uppercase text-taupe-500 mb-2">Socials</p>
-                <div className="flex gap-4 flex-wrap">
-                  {["Instagram", "TikTok", "Facebook", "LinkedIn"].map((s) => (
-                    <a key={s} href="#" className="text-linen-300/50 hover:text-linen-200 text-sm transition-colors">{s}</a>
-                  ))}
-                </div>
-              </div>
-            </div>
+        {/* Main grid */}
+        <div className="grid md:grid-cols-2 gap-12 items-start">
+
+          {/* Left — photo */}
+          <div className="relative overflow-hidden rounded-xl" style={{ aspectRatio: "4/3" }}>
+            <Image
+              src="/images/EnzoKnol_Concess.png"
+              alt="Concess"
+              fill
+              className="object-cover"
+            />
           </div>
 
-          {/* Right — form */}
-          <div>
+          {/* Right — info + form */}
+          <div className="flex flex-col justify-between h-full" style={{ minHeight: "500px" }}>
+
+            {/* Tagline + email */}
+            <div className="mb-10">
+              <p className="text-taupe-500 text-xs mb-3" style={{ fontFamily: "var(--font-sans)" }}>
+                Contact informatie: <a href="mailto:info@concess.nl" className="text-dark-900 hover:text-taupe-600 transition-colors">info@concess.nl</a>
+              </p>
+              <p style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(1.1rem, 2vw, 1.5rem)", lineHeight: "1.4", color: "var(--color-dark-800)" }} className="italic">
+                Merk, creator of gewoon een goed idee? Stuur ons een bericht en we reageren snel.
+              </p>
+            </div>
+
+            {/* Form or confirmation */}
             {sent ? (
-              <div className="rounded-2xl p-10 text-center" style={{ background: "rgba(163,150,141,0.12)", border: "1px solid rgba(163,150,141,0.2)" }}>
-                <p style={{ fontFamily: "'DM Serif Display', Georgia, serif" }} className="text-white text-4xl mb-2">
-                  Bericht<br /><span className="italic text-taupe-300">verstuurd.</span>
+              <div className="py-16">
+                <p style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "2.5rem", lineHeight: "1.1", color: "var(--color-dark-900)" }}>
+                  Bericht<br /><span className="italic text-taupe-400">verstuurd.</span>
                 </p>
-                <p className="text-linen-300/50 text-sm mt-6 leading-relaxed">
-                  We nemen binnen 2 werkdagen contact op.
+                <p className="text-taupe-500 text-sm mt-4" style={{ fontFamily: "var(--font-sans)" }}>
+                  We nemen zo snel mogelijk contact op.
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
-                {[
-                  { field: "naam",    label: "Naam",    type: "text",  placeholder: "Jouw naam",      required: true },
-                  { field: "email",   label: "E-mail",  type: "email", placeholder: "jij@bedrijf.nl", required: true },
-                  { field: "nummer",  label: "Nummer",  type: "tel",   placeholder: "+31 6 12345678", required: true },
-                  { field: "bedrijf", label: "Bedrijf", type: "text",  placeholder: "Optioneel",       required: false },
-                ].map((f) => (
-                  <div key={f.field}>
-                    <label className="text-[10px] tracking-widest uppercase text-taupe-500 block mb-2">
-                      {f.label}{!f.required && <span className="ml-2 opacity-40">optioneel</span>}
-                    </label>
-                    <input
-                      type={f.type}
-                      placeholder={f.placeholder}
-                      required={f.required}
-                      value={form[f.field as keyof typeof form]}
-                      onChange={(e) => set(f.field, e.target.value)}
-                      className={inputClass}
-                      style={inputStyle}
-                      onFocus={(e) => Object.assign(e.target.style, inputFocusStyle)}
-                      onBlur={(e) => Object.assign(e.target.style, { borderColor: "rgba(163,150,141,0.25)" })}
-                    />
+              <form onSubmit={handleSubmit} className="flex flex-col gap-6 flex-1">
+                <div className="grid grid-cols-2 gap-6">
+                  <div>
+                    <label className="text-[9px] tracking-widest uppercase text-taupe-500 block mb-1" style={{ fontFamily: "var(--font-sans)" }}>Naam *</label>
+                    <input type="text" placeholder="Jouw naam" required value={form.naam} onChange={(e) => set("naam", e.target.value)} style={inputStyle} onFocus={(e) => (e.target.style.borderBottomColor = "var(--color-dark-900)")} onBlur={(e) => (e.target.style.borderBottomColor = "var(--color-linen-400)")} />
                   </div>
-                ))}
-
-                <div>
-                  <label className="text-[10px] tracking-widest uppercase text-taupe-500 block mb-2">Bericht</label>
-                  <textarea
-                    rows={4}
-                    placeholder="Wat kan Concess voor jou betekenen?"
-                    required
-                    value={form.bericht}
-                    onChange={(e) => set("bericht", e.target.value)}
-                    className={inputClass}
-                    style={inputStyle}
-                    onFocus={(e) => Object.assign(e.target.style, inputFocusStyle)}
-                    onBlur={(e) => Object.assign(e.target.style, { borderColor: "rgba(163,150,141,0.25)" })}
-                  />
+                  <div>
+                    <label className="text-[9px] tracking-widest uppercase text-taupe-500 block mb-1" style={{ fontFamily: "var(--font-sans)" }}>E-mail *</label>
+                    <input type="email" placeholder="E-mail" required value={form.email} onChange={(e) => set("email", e.target.value)} style={inputStyle} onFocus={(e) => (e.target.style.borderBottomColor = "var(--color-dark-900)")} onBlur={(e) => (e.target.style.borderBottomColor = "var(--color-linen-400)")} />
+                  </div>
+                  <div>
+                    <label className="text-[9px] tracking-widest uppercase text-taupe-500 block mb-1" style={{ fontFamily: "var(--font-sans)" }}>Nummer *</label>
+                    <input type="tel" placeholder="Nummer" required value={form.nummer} onChange={(e) => set("nummer", e.target.value)} style={inputStyle} onFocus={(e) => (e.target.style.borderBottomColor = "var(--color-dark-900)")} onBlur={(e) => (e.target.style.borderBottomColor = "var(--color-linen-400)")} />
+                  </div>
+                  <div>
+                    <label className="text-[9px] tracking-widest uppercase text-taupe-500 block mb-1" style={{ fontFamily: "var(--font-sans)" }}>Bedrijf</label>
+                    <input type="text" placeholder="Optioneel" value={form.bedrijf} onChange={(e) => set("bedrijf", e.target.value)} style={inputStyle} onFocus={(e) => (e.target.style.borderBottomColor = "var(--color-dark-900)")} onBlur={(e) => (e.target.style.borderBottomColor = "var(--color-linen-400)")} />
+                  </div>
                 </div>
 
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="w-full bg-linen-200 text-dark-900 py-4 rounded-full text-xs tracking-widest uppercase font-sans transition-all hover:bg-white disabled:opacity-60"
-                >
-                  {loading ? "Versturen..." : "Verstuur bericht →"}
-                </button>
+                <div>
+                  <label className="text-[9px] tracking-widest uppercase text-taupe-500 block mb-1" style={{ fontFamily: "var(--font-sans)" }}>Bericht *</label>
+                  <textarea rows={3} placeholder="Bericht" required value={form.bericht} onChange={(e) => set("bericht", e.target.value)} style={{ ...inputStyle, resize: "none" }} onFocus={(e) => (e.target.style.borderBottomColor = "var(--color-dark-900)")} onBlur={(e) => (e.target.style.borderBottomColor = "var(--color-linen-400)")} />
+                </div>
+
+                {/* Bottom row: socials + button */}
+                <div className="flex items-center justify-between pt-2">
+                  <div className="flex gap-3">
+                    {socials.map((s) => (
+                      <a key={s.name} href={s.href} title={s.name} className="text-taupe-500 hover:text-dark-900 transition-colors">
+                        {s.icon}
+                      </a>
+                    ))}
+                  </div>
+                  <button
+                    type="submit"
+                    disabled={loading}
+                    className="px-8 py-3 text-xs tracking-widest uppercase transition-all hover:opacity-80 disabled:opacity-60"
+                    style={{ background: "var(--color-dark-900)", color: "white", fontFamily: "var(--font-sans)", borderRadius: "2px" }}
+                  >
+                    {loading ? "Versturen..." : "Verstuur bericht →"}
+                  </button>
+                </div>
               </form>
             )}
-          </div>
 
+            {/* Email */}
+            <div className="mt-8 pt-6" style={{ borderTop: "1px solid var(--color-linen-300)" }}>
+              <a href="mailto:info@concess.nl" className="text-taupe-500 hover:text-dark-900 text-xs transition-colors" style={{ fontFamily: "var(--font-sans)" }}>info@concess.nl</a>
+            </div>
+          </div>
         </div>
       </div>
     </main>

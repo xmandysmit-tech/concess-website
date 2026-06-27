@@ -19,7 +19,7 @@ const services = ["Creator Management", "Brand Partnerships", "Video & Productie
 
 export default function OverOnsPage() {
   return (
-    <main>
+    <main style={{ background: "var(--color-linen-100)" }}>
       <Navbar forceDark />
 
       {/* Full-screen hero */}

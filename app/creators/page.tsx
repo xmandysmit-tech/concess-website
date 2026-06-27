@@ -9,7 +9,7 @@ export default function CreatorsPage() {
   const [activeTab, setActiveTab] = useState<Record<string, string>>({});
 
   return (
-    <main>
+    <main style={{ background: "var(--color-linen-100)" }}>
       <Navbar forceDark />
 
       {/* Hero header */}

@@ -18,7 +18,7 @@ export default function Navbar({ forceDark = false }: { forceDark?: boolean }) {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         dark ? "border-b border-linen-300" : "bg-transparent"
       }`}
-      style={dark ? { backgroundColor: "rgba(242,237,228,0.92)", backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)" } : {}}
+      style={dark ? { backgroundColor: "rgba(250,248,245,0.96)", backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)" } : {}}
     >
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link

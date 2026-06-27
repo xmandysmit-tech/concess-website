@@ -48,7 +48,7 @@ const services = [
 
 export default function StudioPage() {
   return (
-    <main>
+    <main style={{ background: "var(--color-linen-100)" }}>
       <Navbar forceDark />
 
       {/* Header */}
