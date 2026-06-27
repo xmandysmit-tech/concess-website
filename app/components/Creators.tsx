@@ -5,19 +5,19 @@ import Image from "next/image";
 const creators = [
   {
     name: "Enzo Knol",
-    followers: "7,9M volgers",
+    followers: "7,9M+ volgers",
     platforms: ["YouTube", "Instagram", "TikTok", "Snapchat"],
     img: "/images/enzo_knol.jpg",
   },
   {
     name: "Myron Koops",
-    followers: "2,1M volgers",
+    followers: "2,1M+ volgers",
     platforms: ["YouTube", "Instagram", "TikTok", "Snapchat"],
     img: "/images/myron_koops.jpg",
   },
   {
     name: "De Bennies",
-    followers: "373K volgers",
+    followers: "373K+ volgers",
     platforms: ["Instagram", "TikTok", "Podimo", "Spotify"],
     img: "/images/de_bennies.jpg",
   },
