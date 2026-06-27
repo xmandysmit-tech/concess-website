@@ -38,7 +38,7 @@ export default function OverOnsPage() {
               style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(2rem, 3.5vw, 3rem)" }}
               className="text-dark-900 leading-tight"
             >
-              Van concept tot impact —<br /><span className="italic">wij regelen de rest.</span>
+              Van concept tot impact,<br /><span className="italic">wij regelen de rest.</span>
             </h2>
           </div>
           <div className="md:col-span-7 space-y-5 pt-1">
