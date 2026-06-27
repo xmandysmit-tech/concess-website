@@ -2,7 +2,6 @@
 import { useState, useEffect, useRef } from "react";
 import Navbar from "../components/Navbar";
 import CTAFooter from "../components/CTAFooter";
-import HorizontalScroll from "../components/HorizontalScroll";
 import { creators } from "../data/content";
 
 const polaroids = [
@@ -158,29 +157,34 @@ export default function CreatorsPage() {
               </div>
             </div>
 
-            {/* Bio + CTA */}
+            {/* Bio */}
             <div className="bg-linen-100 border-b border-linen-300">
               <div className="max-w-7xl mx-auto px-6 md:px-12 py-12">
-                <div className="grid md:grid-cols-2 gap-12 items-start">
-                  <p className="text-dark-700 text-sm leading-relaxed">{c.bio}</p>
-                  <div className="flex gap-3 flex-wrap">
-                    <a href="/contact" className="inline-flex items-center gap-3 bg-dark-900 text-linen-200 px-6 py-3.5 rounded-full text-xs tracking-widest uppercase transition-all hover:bg-dark-700">
-                      Samenwerken <span>→</span>
-                    </a>
-                    <a href="/werk" className="inline-flex items-center gap-3 border border-linen-300 text-dark-700 px-6 py-3.5 rounded-full text-xs tracking-widest uppercase transition-all hover:border-dark-900">
-                      Alle werk
-                    </a>
-                  </div>
-                </div>
+                <p className="text-dark-700 text-sm leading-relaxed max-w-2xl">{c.bio}</p>
               </div>
             </div>
 
-            {/* Work slider */}
+            {/* Recent partnerships grid */}
             <div className="py-10 max-w-7xl mx-auto px-6 md:px-12">
               <div className="flex items-center justify-between mb-8">
-                <span className="text-[10px] tracking-widest uppercase text-taupe-500">Campagnes</span>
+                <span className="text-[10px] tracking-widest uppercase text-taupe-500">Recente partnerships</span>
+                <a href="/partnerships" className="text-[10px] tracking-widest uppercase text-dark-700 hover:text-dark-900 transition-colors">
+                  Bekijk alle partnerships →
+                </a>
               </div>
-              <HorizontalScroll slides={c.work} />
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {c.work.slice(0, 3).map((w, i) => (
+                  <div key={i} className={`relative overflow-hidden rounded-2xl bg-gradient-to-br ${w.gradient}`} style={{ aspectRatio: "4/3" }}>
+                    {w.img && <img src={w.img} alt={w.brand} className="absolute inset-0 w-full h-full object-cover" />}
+                    <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 60%)" }} />
+                    <div className="absolute bottom-0 left-0 right-0 p-5">
+                      <span className="text-[9px] tracking-widest uppercase text-white/50 block mb-1">{w.type}</span>
+                      <h3 className="text-white text-lg" style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}>{w.brand}</h3>
+                      {w.views && <p className="text-white/40 text-xs mt-0.5">{w.views} views</p>}
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </section>
         ))}
