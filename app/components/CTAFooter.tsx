@@ -63,7 +63,7 @@ export default function CTAFooter() {
         </div>
 
         <div className="mt-8 pt-6 border-t border-dark-700 px-6 md:px-12">
-          <p className="text-[10px] text-linen-300/30 tracking-wider">
+          <p className="text-[10px] text-linen-300/30 tracking-wider" style={{ fontFamily: "var(--font-sans)" }}>
             © {new Date().getFullYear()} Concess. All rights reserved.
           </p>
         </div>
