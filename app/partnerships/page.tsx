@@ -1,24 +1,43 @@
+"use client";
 import Navbar from "../components/Navbar";
 import CTAFooter from "../components/CTAFooter";
-import HorizontalScroll from "../components/HorizontalScroll";
-import { featuredProjects, brands, stats } from "../data/content";
+import { projects } from "../data/content";
 
-const cases = featuredProjects;
+const partnershipProjects = projects.filter((p) => p.type === "Partnerships");
 
-const steps = [
-  { num: "01", title: "Briefing", desc: "Jij vertelt wat je merk wil bereiken. Wij luisteren, stellen vragen en denken mee over doelgroep, boodschap en timing." },
-  { num: "02", title: "Creator Match", desc: "Op basis van jouw doelstellingen selecteren wij de creator(s) die het beste passen — op bereik, authenticiteit en relevantie." },
-  { num: "03", title: "Concept & Strategie", desc: "Wij ontwikkelen een concept dat past bij zowel het merk als de creator — zodat het voelt als eerlijke content, niet als reclame." },
-  { num: "04", title: "Productie", desc: "Van scripting en opnames tot editing en delivery. Wij regelen het volledige productieproces." },
-  { num: "05", title: "Publicatie & Resultaat", desc: "Na goedkeuring gaat de content live. Wij monitoren de performance en leveren een volledig rapport." },
+const brandLogos = [
+  { name: "L'Oréal", logo: "/logos/Loreal.png" },
+  { name: "Garmin", logo: "/logos/Garmin.png" },
+  { name: "Air Up", logo: "/logos/air_up.png" },
+  { name: "Revolut", logo: "/logos/Revolut.png" },
+  { name: "Emma Sleep", logo: "/logos/Emma_sleep.png" },
+  { name: "Netflix", logo: "/logos/Netflix.png" },
+  { name: "Spotify", logo: "/logos/Spotify.png" },
+  { name: "Google", logo: "/logos/Google.png" },
+  { name: "YouTube", logo: "/logos/YouTube.png" },
+  { name: "Xbox", logo: "/logos/Xbox.png" },
+  { name: "Armani", logo: "/logos/Armani_beauty.png" },
+  { name: "Dyson", logo: "/logos/Dyson.png" },
+  { name: "HelloFresh", logo: "/logos/HelloFresh.png" },
+  { name: "Jumbo", logo: "/logos/Jumbo.png" },
+  { name: "Shoeby", logo: "/logos/Shoeby.png" },
+  { name: "Nord VPN", logo: "/logos/Nord_VPN.png" },
+  { name: "Garnier", logo: "/logos/Garnier.png" },
+  { name: "Nivea", logo: "/logos/nivea.png" },
+  { name: "RTL", logo: "/logos/RTL.png" },
+  { name: "Talpa", logo: "/logos/Talpa_Network.png" },
+  { name: "Universal", logo: "/logos/Universal.png" },
+  { name: "EA Sports", logo: "/logos/EA_sports.png" },
+  { name: "Aldi", logo: "/logos/Aldi.png" },
+  { name: "Podimo", logo: "/logos/Podimo.png" },
+  { name: "Parfumado", logo: "/logos/Parfumado.png" },
+  { name: "Upfront", logo: "/logos/Upfront.png" },
+  { name: "Chromebook", logo: "/logos/Chromebook.png" },
+  { name: "LRP", logo: "/logos/LRP.png" },
+  { name: "Kinderpostzegels", logo: "/logos/Kinderpostzegels.png" },
 ];
 
-const numbers = [
-  { value: stats.totalViews,     label: "Totale views" },
-  { value: stats.totalDeals,     label: "Brand deals" },
-  { value: stats.engagementRate, label: "Gem. engagement" },
-  { value: stats.totalCreators,  label: "Exclusieve creators" },
-];
+const doubled = [...brandLogos, ...brandLogos];
 
 export default function PartnershipsPage() {
   return (
@@ -39,63 +58,64 @@ export default function PartnershipsPage() {
         </div>
       </section>
 
-      {/* Cases slider */}
+      {/* Partnerships collage */}
       <section className="py-20 max-w-7xl mx-auto px-6 md:px-12">
-        <div className="flex items-center justify-between mb-10">
-          <div>
-            <span className="text-[10px] tracking-widest uppercase text-taupe-500 block mb-2">Bewezen resultaten</span>
-            <h2 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(2rem, 3.5vw, 3rem)" }} className="text-dark-900">
-              Recent werk
-            </h2>
-          </div>
-          <a href="/werk" className="hidden md:flex items-center gap-2 text-xs tracking-wider uppercase text-dark-700 hover:text-dark-900 transition-colors">
-            Alles bekijken <span>→</span>
-          </a>
-        </div>
-        <HorizontalScroll slides={cases} />
-      </section>
+        <span className="text-[10px] tracking-widest uppercase text-taupe-500 block mb-10">Partnerships</span>
 
-      {/* Process */}
-      <section className="py-20 bg-dark-900">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <span className="text-[10px] tracking-widest uppercase text-taupe-500 block mb-4">Hoe het werkt</span>
-          <h2
-            style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(2rem, 4vw, 3.5rem)" }}
-            className="text-linen-200 mb-14"
-          >
-            Van briefing<br /><span className="italic text-taupe-300">tot resultaat</span>
-          </h2>
-          <div className="divide-y divide-dark-700">
-            {steps.map((s) => (
-              <div key={s.num} className="py-8 flex gap-8 items-start group hover:pl-2 transition-all duration-300">
-                <span className="text-[10px] text-taupe-600 w-8 shrink-0 mt-1">{s.num}</span>
-                <div className="flex-1 md:flex md:gap-12">
-                  <h3
-                    style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}
-                    className="text-linen-200 text-xl md:text-2xl w-44 shrink-0 group-hover:translate-x-1 transition-transform duration-300"
-                  >
-                    {s.title}
-                  </h3>
-                  <p className="text-taupe-500 text-sm leading-relaxed mt-2 md:mt-0">{s.desc}</p>
+        {/* Masonry-style grid */}
+        <div className="columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4">
+          {partnershipProjects.map((p, i) => {
+            const tall = i % 5 === 0 || i % 5 === 3;
+            return (
+              <div
+                key={i}
+                className={`relative overflow-hidden rounded-2xl break-inside-avoid bg-gradient-to-br ${p.gradient}`}
+                style={{ aspectRatio: tall ? "3/4" : "4/3" }}
+              >
+                {p.img && (
+                  <img
+                    src={p.img}
+                    alt={p.brand}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                  />
+                )}
+                <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 55%)" }} />
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <span className="text-[9px] tracking-widest uppercase text-white/50 block mb-1">{p.creator}</span>
+                  <h3 className="text-white text-xl" style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}>{p.brand}</h3>
+                  {p.views && <p className="text-white/40 text-xs mt-1">{p.views} views</p>}
                 </div>
               </div>
-            ))}
-          </div>
+            );
+          })}
         </div>
       </section>
 
-      {/* Brands grid */}
-      <section className="py-20 bg-linen-100">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <span className="text-[10px] tracking-widest uppercase text-taupe-500 block mb-10">Merken die ons vertrouwen</span>
-          <div className="flex flex-wrap gap-3">
-            {brands.map((b) => (
-              <span
-                key={b}
-                className="text-sm tracking-wider uppercase text-taupe-600 border border-linen-300 px-5 py-3 rounded-full hover:border-dark-700 hover:text-dark-900 transition-all cursor-default"
-              >
-                {b}
-              </span>
+      {/* Brands marquee — light version */}
+      <section className="py-16 border-t border-linen-300" style={{ background: "var(--color-linen-100)" }}>
+        <div className="max-w-7xl mx-auto px-6 md:px-12 mb-8">
+          <span className="text-[10px] tracking-widest uppercase text-taupe-500">Brands we&apos;ve worked with</span>
+        </div>
+
+        <div className="overflow-hidden" style={{ WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%)" }}>
+          <div className="flex animate-marquee items-center" style={{ width: "max-content" }}>
+            {doubled.map((brand, i) => (
+              <div key={i} className="flex items-center flex-shrink-0 px-8">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={brand.logo}
+                  alt={brand.name}
+                  style={{
+                    objectFit: "contain",
+                    filter: "brightness(0)",
+                    opacity: 0.2,
+                    height: "28px",
+                    width: "90px",
+                    flexShrink: 0,
+                  }}
+                />
+                <span className="text-taupe-400 text-xs ml-8">·</span>
+              </div>
             ))}
           </div>
         </div>
