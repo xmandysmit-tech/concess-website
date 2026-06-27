@@ -10,7 +10,6 @@ const brands = [
   { name: "Google", logo: "/logos/Google.png" },
   { name: "YouTube", logo: "/logos/YouTube.png" },
   { name: "Xbox", logo: "/logos/Xbox.png" },
-  { name: "Ministerie van Financiën", logo: "/logos/Ministerie_van_Financien.png" },
   { name: "Armani", logo: "/logos/Armani.png" },
   { name: "Dyson", logo: "/logos/Dyson.png" },
   { name: "HelloFresh", logo: "/logos/HelloFresh.png" },
@@ -43,8 +42,8 @@ export default function Brands() {
         </span>
       </div>
 
-      <div className="overflow-hidden">
-        <div className="flex animate-marquee whitespace-nowrap items-center">
+      <div className="overflow-hidden" style={{ WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%)" }}>
+        <div className="flex animate-marquee items-center" style={{ width: "max-content" }}>
           {doubled.map((brand, i) => (
             <div key={i} className="flex items-center flex-shrink-0 px-8">
               {/* eslint-disable-next-line @next/next/no-img-element */}
