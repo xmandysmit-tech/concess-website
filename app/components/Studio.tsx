@@ -9,7 +9,7 @@ const services = [
     icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" className="w-6 h-6"><path d="M15 10l4.553-2.276A1 1 0 0121 8.723v6.554a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z" /></svg>,
   },
   {
-    num: "02", title: "Fotografie", desc: "Editorial & commercial.",
+    num: "02", title: "Fotografie", desc: "Social & events.",
     gradient: "from-zinc-700 to-zinc-900", accent: "#B8A488",
     img: "/images/studio/fotografie.jpg",
     icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" className="w-6 h-6"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z" /><circle cx="12" cy="13" r="4" /></svg>,
@@ -21,7 +21,7 @@ const services = [
     icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" className="w-6 h-6"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" /></svg>,
   },
   {
-    num: "04", title: "AR Filters", desc: "Instagram, Snap & TikTok.",
+    num: "04", title: "AR Filters", desc: "Instagram & TikTok.",
     gradient: "from-stone-700 to-stone-900", accent: "#C9B99A",
     img: "/images/studio/ar_filter.png",
     icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" className="w-6 h-6"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" /></svg>,
@@ -107,7 +107,6 @@ export default function Studio() {
                     >
                       {s.icon}
                     </div>
-                    <span className="text-[9px] tracking-widest text-white/25">{s.num}</span>
                   </div>
                   <div>
                     <h3
