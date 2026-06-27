@@ -29,13 +29,13 @@ const services = [
   {
     num: "05", title: "Graphic Design", desc: "Branding, merch & assets.",
     gradient: "from-zinc-800 to-zinc-950", accent: "#B8A488",
-    img: "/images/studio/graphic_design.png",
+    img: "/images/studio/graphic_design2.png",
     icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" className="w-6 h-6"><path d="M12 19l7-7 3 3-7 7-3-3z" /><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" /><path d="M2 2l7.586 7.586" /><circle cx="11" cy="11" r="2" /></svg>,
   },
   {
     num: "06", title: "Marketing & Social", desc: "Strategie, groei & analytics.",
     gradient: "from-stone-600 to-stone-900", accent: "#9E8B72",
-    img: "/images/studio/marketing.jpg",
+    img: "/images/studio/marketing2.jpg.png",
     icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" className="w-6 h-6"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17" /><polyline points="16 7 22 7 22 13" /></svg>,
   },
   {
@@ -47,7 +47,7 @@ const services = [
   {
     num: "08", title: "Podcasts", desc: "Audio & video productie.",
     gradient: "from-zinc-700 to-zinc-950", accent: "#B8A488",
-    img: "/images/studio/podcasts.jpg",
+    img: "/images/studio/podcasts2.jpg.png",
     icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" className="w-6 h-6"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z" /><path d="M19 10v2a7 7 0 01-14 0v-2M12 19v4M8 23h8" /></svg>,
   },
 ];
@@ -94,7 +94,7 @@ export default function Studio() {
                   <div className={`absolute inset-0 bg-gradient-to-br ${s.gradient} transition-all duration-500`} style={{ transform: isHovered ? "scale(1.05)" : "scale(1)" }} />
                 )}
                 {/* Dark overlay over image */}
-                <div className="absolute inset-0 transition-opacity duration-300" style={{ background: "linear-gradient(to top, rgba(15,12,10,0.92) 0%, rgba(15,12,10,0.78) 100%)", opacity: isHovered ? 0.85 : 1 }} />
+                <div className="absolute inset-0 transition-opacity duration-300" style={{ background: "linear-gradient(to top, rgba(15,12,10,0.75) 0%, rgba(15,12,10,0.45) 100%)", opacity: isHovered ? 0.8 : 1 }} />
                 {/* Dim overlay when another is hovered */}
                 <div className="absolute inset-0 bg-dark-900 transition-opacity duration-300" style={{ opacity: isDimmed ? 0.3 : 0 }} />
 
