@@ -70,13 +70,13 @@ export default function PartnershipsPage() {
         <span className="text-[10px] tracking-widest uppercase text-taupe-500 block mb-10">Partnerships</span>
 
         {/* Masonry-style grid */}
-        <div className="columns-2 md:columns-2 lg:columns-3 gap-4 space-y-4">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
           {shown.map((p, i) => {
             const tall = i % 5 === 0 || i % 5 === 3;
             return (
               <div
                 key={i}
-                className={`relative overflow-hidden rounded-2xl break-inside-avoid bg-gradient-to-br ${p.gradient}`}
+                className={`relative overflow-hidden rounded-2xl bg-gradient-to-br ${p.gradient}`}
                 style={{ aspectRatio: tall ? "3/4" : "4/3" }}
               >
                 {p.img && (
