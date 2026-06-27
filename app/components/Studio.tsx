@@ -105,7 +105,7 @@ export default function Studio() {
             <h2
               style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(2rem, 4vw, 3.2rem)", color: "var(--color-dark-900)", lineHeight: "1.1" }}
             >
-              Wat <span className="italic">Concess Studio</span><br />voor jou maakt
+              Wat wij bij <span className="italic">Concess Studio</span><br />doen
             </h2>
           </div>
           <a href="/studio" className="hidden md:flex items-center gap-2 text-xs tracking-wider uppercase text-dark-700 hover:text-dark-900 transition-colors">
