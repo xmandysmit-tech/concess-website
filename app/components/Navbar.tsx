@@ -98,8 +98,8 @@ export default function Navbar({ forceDark = false }: { forceDark?: boolean }) {
                 <li key={item}>
                   <Link
                     href={href}
-                    className="text-2xl tracking-widest uppercase transition-opacity"
-                    style={{ fontFamily: "'DM Serif Display', Georgia, serif", color: "var(--color-dark-900)", fontWeight: isActive ? "700" : "400", fontStyle: isActive ? "italic" : "normal" }}
+                    className="text-xs tracking-widest uppercase transition-opacity hover:opacity-60"
+                    style={{ color: "var(--color-dark-700)", fontWeight: isActive ? "700" : "400" }}
                   >
                     {item}
                   </Link>
