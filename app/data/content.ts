@@ -142,9 +142,9 @@ export const creators = [
   {
     name: "Enzo Knol",
     handle: "@enzoknol",
-    title: "Nederland's grootste YouTuber",
+    title: "Content creator & vlogger",
     followers: "7,9M+",
-    bio: "Enzo Knol is de pionier van de Nederlandse vlog-scene. Sinds 2013 bouwde hij een van de grootste en meest loyale communities van het land op — dagelijkse content, echte avonturen en een publiek dat hem volledig vertrouwt. Als vader van Riven combineert hij authenticiteit met bereik op een manier die merken niet kunnen kopen, alleen verdienen.",
+    bio: "Enzo filmt al jaren dagelijks zijn leven en neemt zijn kijkers mee in alles wat hij meemaakt. Van gekke avonturen tot gewone momenten thuis met zijn zoontje Riven — hij wordt gezien als een van de meest herkenbare en geliefde YouTubers van Nederland. Zijn community groeit al ruim tien jaar mee, en dat merk je.",
     platforms: ["YouTube", "Instagram", "TikTok", "Snapchat"],
     platformStats: [
       { platform: "YouTube", followers: "2,97M", url: "https://www.youtube.com/@EnzoKnol" },
@@ -166,9 +166,9 @@ export const creators = [
   {
     name: "Myron Koops",
     handle: "@myronkoops",
-    title: "Visueel storyteller & lifestyle creator",
+    title: "Lifestyle & sport content creator",
     followers: "2,1M+",
-    bio: "Van topsportster tot content creator — Myron Koops bouwde samen met partner Enzo Knol het succesvolle sportplatform KP Active op. Ze combineert haar achtergrond als personal trainer met dagelijkse sportvideo's en lifestyle content, en inspireert een community van honderdduizenden volgers die haar op elk platform volgen.",
+    bio: "Myron Koops deelt haar passie voor sport en lifestyle dagelijks met haar community. Als personal trainer bouwde ze samen met Enzo Knol het sportplatform KP Active op, maar het zijn haar persoonlijke verhalen over beweging, gezondheid en het echte leven die haar volgers raken. Ze probeert hiermee haar community te inspireren — niet met grote woorden, maar gewoon door het te doen.",
     platforms: ["YouTube", "Instagram", "TikTok", "Snapchat"],
     platformStats: [
       { platform: "YouTube", followers: "142K", url: "https://www.youtube.com/@kpactive" },
@@ -188,9 +188,9 @@ export const creators = [
   {
     name: "De Bennies",
     handle: "@debennies",
-    title: "Het energiekste duo van NL",
+    title: "Podcast creators & entertainers",
     followers: "373K+",
-    bio: "Noël, Thijs en Enzo zijn De Bennies — elke vrijdag terug met een nieuw spraakmakend verhaal op hun podcast. Ze geven een eerlijk kijkje in hun leven, delen de meest 'Bennie'-achtige avonturen en bespreken dilemma's waar iedereen zich in herkent. Een Bennie is een Brabants woord voor iemand die wel eens iets onhandigs doet — en dat doet iedereen.",
+    bio: "Noël, Thijs en Enzo delen in elke podcastaflevering een spraakmakend verhaal, geven een eerlijk inkijkje in hun leven en bespreken alles wat ze bezighoudt. 'Een Bennie' is een Brabants woord voor iemand die wel eens iets onhandigs doet. Iedereen is wel eens een Bennie, toch? 😉",
     platforms: ["Instagram", "TikTok", "Podimo", "Spotify"],
     platformStats: [
       { platform: "Instagram", followers: "76,5K", url: "https://www.instagram.com/debennies/" },
