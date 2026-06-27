@@ -73,9 +73,11 @@ export default function AnimatedHero() {
         ))}
       </div>
 
-      {/* Gradient overlays */}
-      <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(to bottom, rgba(30,28,26,0.55) 0%, rgba(30,28,26,0.2) 40%, rgba(30,28,26,0.75) 75%, rgba(30,28,26,1) 100%)" }} />
-      <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(to right, rgba(30,28,26,0.8) 0%, rgba(30,28,26,0.3) 50%, transparent 100%)" }} />
+      {/* Dark overlay */}
+      <div className="absolute inset-0 pointer-events-none" style={{ background: "rgba(30,28,26,0.65)" }} />
+      {/* Extra gradient bottom + left for text readability */}
+      <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(to bottom, transparent 40%, rgba(30,28,26,0.9) 80%, rgba(30,28,26,1) 100%)" }} />
+      <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(to right, rgba(30,28,26,0.6) 0%, transparent 60%)" }} />
 
       {/* Main headline */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pb-20 w-full">
