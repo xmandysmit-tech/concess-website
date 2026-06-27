@@ -4,14 +4,18 @@ import { useEffect, useState } from "react";
 const words = ["Campagnes", "die", "mensen", "onthouden."];
 
 const polaroids = [
-  { src: "/images/402-AutoMotive-x-Enzo-Knol-1.png", label: "Enzo × AutoMotive", rot: -7,  top: "4%",  left: "46%" },
-  { src: "/images/Myron_banner.png",                  label: "Myron Koops",        rot:  4,  top: "2%",  left: "60%" },
-  { src: "/images/Bennies-x-Air-up.png",              label: "De Bennies × Air Up",rot: -3,  top: "8%",  left: "73%" },
-  { src: "/images/enzo_banner.png",                   label: "Enzo Knol",          rot:  8,  top: "38%", left: "50%" },
-  { src: "/images/Vrouwmibo-x-Subway.png",            label: "Vrouwmibo × Subway", rot: -5,  top: "42%", left: "65%" },
-  { src: "/images/De-bennies-concess.jpg",            label: "De Bennies",         rot:  6,  top: "36%", left: "78%" },
-  { src: "/images/Vrouwmishow_Concess.png",           label: "Vrouwmishow",        rot: -9,  top: "66%", left: "55%" },
-  { src: "/images/Bookbeattest-1.png",                label: "BookBeat",           rot:  3,  top: "62%", left: "72%" },
+  { src: "/images/402-AutoMotive-x-Enzo-Knol-1.png",   rot: -8,  top: "-2%",  left: "-2%" },
+  { src: "/images/Vrouwmishow_Concess.png",             rot:  5,  top: "-4%",  left: "14%" },
+  { src: "/images/Bennies-x-Air-up.png",               rot: -3,  top: "-3%",  left: "30%" },
+  { src: "/images/Myron_banner.png",                    rot:  7,  top: "-5%",  left: "47%" },
+  { src: "/images/Vrouwmibo-x-Subway.png",             rot: -6,  top: "-2%",  left: "63%" },
+  { src: "/images/De-bennies-concess.jpg",             rot:  4,  top: "-4%",  left: "79%" },
+  { src: "/images/enzo_banner.png",                    rot:  9,  top: "38%",  left: "-3%" },
+  { src: "/images/Bookbeattest-1.png",                 rot: -5,  top: "36%",  left: "13%" },
+  { src: "/images/Snuggstest-1.png",                   rot:  3,  top: "40%",  left: "29%" },
+  { src: "/images/EnzoKnol_Concess.png",               rot: -7,  top: "35%",  left: "46%" },
+  { src: "/images/Vrouwmibo-concess-1024x756.jpg",     rot:  6,  top: "38%",  left: "63%" },
+  { src: "/images/LOGtest-1.png",                      rot: -4,  top: "36%",  left: "80%" },
 ];
 
 export default function AnimatedHero() {
@@ -30,51 +34,48 @@ export default function AnimatedHero() {
       }, 200 + i * 120);
     });
     setTimeout(() => setBtnsVisible(true), 1100);
-    setTimeout(() => setPolaroidsVisible(true), 300);
+    setTimeout(() => setPolaroidsVisible(true), 100);
   }, []);
 
   return (
     <section className="relative h-screen min-h-[640px] flex flex-col justify-end overflow-hidden">
-      {/* Dark background */}
+      {/* Dark base */}
       <div className="absolute inset-0 bg-dark-900" />
 
-      {/* Polaroids */}
+      {/* Polaroid collage background */}
       <div className="absolute inset-0 overflow-hidden">
         {polaroids.map((p, i) => (
           <div
             key={i}
-            className="absolute transition-all duration-700"
+            className="absolute transition-all duration-1000"
             style={{
               top: p.top,
               left: p.left,
-              transform: `rotate(${p.rot}deg) translateY(${polaroidsVisible ? 0 : 40}px)`,
+              transform: `rotate(${p.rot}deg) translateY(${polaroidsVisible ? 0 : 30}px)`,
               opacity: polaroidsVisible ? 1 : 0,
-              transitionDelay: `${i * 80}ms`,
-              width: "160px",
-              background: "#f5f0e8",
-              padding: "8px 8px 28px 8px",
-              boxShadow: "0 10px 30px rgba(0,0,0,0.6), 0 2px 8px rgba(0,0,0,0.4)",
-              zIndex: i,
+              transitionDelay: `${i * 60}ms`,
+              width: "220px",
+              background: "#f2ede6",
+              padding: "9px 9px 32px 9px",
+              boxShadow: "0 12px 32px rgba(0,0,0,0.5), 0 3px 8px rgba(0,0,0,0.3)",
+              zIndex: i % 3,
             }}
           >
-            <div style={{ width: "100%", height: "120px", overflow: "hidden", background: "#2a2724" }}>
+            <div style={{ width: "100%", height: "165px", overflow: "hidden", background: "#2a2724" }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={p.src}
-                alt={p.label}
-                style={{ width: "100%", height: "100%", objectFit: "cover", opacity: 0.9, pointerEvents: "none" }}
+                alt=""
+                style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", pointerEvents: "none" }}
               />
             </div>
-            <p style={{ fontFamily: "'Courier New', monospace", fontSize: "8px", color: "#6e6259", textAlign: "center", marginTop: "6px", letterSpacing: "0.04em" }}>
-              {p.label}
-            </p>
           </div>
         ))}
       </div>
 
-      {/* Gradients over polaroids */}
-      <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(to right, rgba(30,28,26,0.95) 0%, rgba(30,28,26,0.7) 40%, rgba(30,28,26,0.1) 100%)" }} />
-      <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(to top, rgba(30,28,26,1) 0%, rgba(30,28,26,0.4) 30%, transparent 60%)" }} />
+      {/* Gradient overlays */}
+      <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(to bottom, rgba(30,28,26,0.55) 0%, rgba(30,28,26,0.2) 40%, rgba(30,28,26,0.75) 75%, rgba(30,28,26,1) 100%)" }} />
+      <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(to right, rgba(30,28,26,0.8) 0%, rgba(30,28,26,0.3) 50%, transparent 100%)" }} />
 
       {/* Main headline */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pb-20 w-full">
