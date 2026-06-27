@@ -8,10 +8,10 @@ const polaroids = [
   { src: "/images/402-AutoMotive-x-Enzo-Knol-1.png",  rot: -6,  top: "-5%",  left: "-2%" },
   { src: "/images/Vrouwmishow_Concess.png",            rot:  4,  top: "-6%",  left: "14%" },
   { src: "/images/Bennies-x-Air-up.png",              rot: -3,  top: "-4%",  left: "30%" },
-  { src: "/images/Myron_banner.png",                   rot:  6,  top: "-7%",  left: "47%" },
+  { src: "/images/creators/Myron_banner.png",                   rot:  6,  top: "-7%",  left: "47%" },
   { src: "/images/Vrouwmibo-x-Subway.png",            rot: -5,  top: "-5%",  left: "63%" },
   { src: "/images/De-bennies-concess.jpg",            rot:  3,  top: "-6%",  left: "79%" },
-  { src: "/images/enzo_banner.png",                   rot:  7,  top: "35%",  left: "-3%" },
+  { src: "/images/creators/enzo_banner.png",                   rot:  7,  top: "35%",  left: "-3%" },
   { src: "/images/Bookbeattest-1.png",                rot: -4,  top: "33%",  left: "13%" },
   { src: "/images/Snuggstest-1.png",                  rot:  2,  top: "37%",  left: "29%" },
   { src: "/images/EnzoKnol_Concess.png",              rot: -6,  top: "32%",  left: "46%" },
@@ -32,9 +32,9 @@ function PlatformIcon({ platform }: { platform: string }) {
 }
 
 const creatorPortraits: Record<string, string> = {
-  "Enzo Knol": "/images/enzo_knol.jpg",
-  "Myron Koops": "/images/myron_koops.jpg",
-  "De Bennies": "/images/de_bennies.jpg",
+  "Enzo Knol": "/images/creators/enzo_knol.jpg",
+  "Myron Koops": "/images/creators/myron_koops.jpg",
+  "De Bennies": "/images/creators/de_bennies.jpg",
 };
 
 export default function CreatorsPage() {
