@@ -1,24 +1,25 @@
 "use client";
 import { useState } from "react";
+import Image from "next/image";
 
 const creators = [
   {
     name: "Enzo Knol",
     followers: "34M+ volgers",
     platforms: ["YouTube", "Instagram", "TikTok"],
-    gradient: "from-stone-700 to-stone-950",
+    img: "/images/enzo_knol.jpg",
   },
   {
     name: "Myron Koops",
     followers: "3M+ volgers",
     platforms: ["Instagram", "YouTube"],
-    gradient: "from-zinc-700 to-zinc-900",
+    img: "/images/myron_koops.jpg",
   },
   {
     name: "De Bennies",
     followers: "2M+ volgers",
     platforms: ["YouTube", "Instagram"],
-    gradient: "from-neutral-700 to-neutral-900",
+    img: "/images/de_bennies.jpg",
   },
 ];
 
@@ -57,12 +58,15 @@ function CreatorCard({ creator }: { creator: (typeof creators)[0] }) {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      <div
-        className={`absolute inset-0 bg-gradient-to-br ${creator.gradient} transition-transform duration-700 ${
-          hovered ? "scale-105" : "scale-100"
-        }`}
-      />
-      <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 60%)" }} />
+      <div className={`absolute inset-0 transition-transform duration-700 ${hovered ? "scale-105" : "scale-100"}`}>
+        <Image
+          src={creator.img}
+          alt={creator.name}
+          fill
+          style={{ objectFit: "cover", objectPosition: "center top" }}
+        />
+      </div>
+      <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.2) 60%, transparent 100%)" }} />
 
       <div className="relative z-10">
         <p
