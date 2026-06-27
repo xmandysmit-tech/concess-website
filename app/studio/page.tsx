@@ -5,15 +5,25 @@ import CTAFooter from "../components/CTAFooter";
 import { projects } from "../data/content";
 
 const studioProjects = projects.filter((p) =>
-  ["Video", "Fotografie", "Events", "Design"].includes(p.type)
+  ["Video", "Fotografie", "Events", "Design", "AR Filters", "Graphic Design", "Marketing & Social", "Web Design", "Podcasts"].includes(p.type)
 );
 
-const filters = ["Alles", ...Array.from(new Set(studioProjects.map((p) => p.type)))];
+const filters = [
+  { label: "Alles",              type: null },
+  { label: "Video & Productie",  type: "Video" },
+  { label: "Fotografie",         type: "Fotografie" },
+  { label: "Events",             type: "Events" },
+  { label: "AR Filters",         type: "AR Filters" },
+  { label: "Graphic Design",     type: "Graphic Design" },
+  { label: "Marketing & Social", type: "Marketing & Social" },
+  { label: "Web Design",         type: "Web Design" },
+  { label: "Podcasts",           type: "Podcasts" },
+];
 
 export default function StudioPage() {
-  const [activeFilter, setActiveFilter] = useState("Alles");
+  const [activeFilter, setActiveFilter] = useState<string | null>(null);
 
-  const shown = activeFilter === "Alles"
+  const shown = activeFilter === null
     ? studioProjects
     : studioProjects.filter((p) => p.type === activeFilter);
 
@@ -44,24 +54,27 @@ export default function StudioPage() {
             <div>
               <span className="text-[10px] tracking-widest uppercase text-taupe-500 block mb-3">Studio</span>
               <h2 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(1.8rem, 3vw, 3rem)", lineHeight: "1", color: "var(--color-dark-900)" }}>
-                Producties waar we<br /><span className="italic">trots op zijn</span>
+                Producties & Projecten<br /><span className="italic">waar we trots op zijn</span>
               </h2>
             </div>
             <div className="flex flex-wrap gap-2">
-              {filters.map((f) => (
-                <button
-                  key={f}
-                  onClick={() => setActiveFilter(f)}
-                  className="text-[10px] tracking-widest uppercase px-4 py-2 rounded-full border transition-all duration-200"
-                  style={{
-                    background: activeFilter === f ? "var(--color-dark-900)" : "transparent",
-                    color: activeFilter === f ? "var(--color-linen-200)" : "var(--color-taupe-500)",
-                    borderColor: activeFilter === f ? "var(--color-dark-900)" : "var(--color-linen-300)",
-                  }}
-                >
-                  {f}
-                </button>
-              ))}
+              {filters.map((f) => {
+                const isActive = activeFilter === f.type;
+                return (
+                  <button
+                    key={f.label}
+                    onClick={() => setActiveFilter(f.type)}
+                    className="text-[10px] tracking-widest uppercase px-4 py-2 rounded-full border transition-all duration-200"
+                    style={{
+                      background: isActive ? "var(--color-dark-900)" : "transparent",
+                      color: isActive ? "var(--color-linen-200)" : "var(--color-taupe-500)",
+                      borderColor: isActive ? "var(--color-dark-900)" : "var(--color-linen-300)",
+                    }}
+                  >
+                    {f.label}
+                  </button>
+                );
+              })}
             </div>
           </div>
 
