@@ -30,7 +30,7 @@ export default function Navbar({ forceDark = false }: { forceDark?: boolean }) {
         </Link>
 
         <ul className="hidden md:flex items-center gap-8">
-          {["Home", "Werk", "Creators", "Partnerships", "Studio", "Over ons"].map((item) => (
+          {["Home", "Creators", "Partnerships", "Studio", "Over ons"].map((item) => (
             <li key={item}>
               <Link
                 href={item === "Home" ? "/" : `/${item.toLowerCase().replace(/ /g, "-")}`}

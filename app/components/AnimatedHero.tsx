@@ -65,10 +65,9 @@ export default function AnimatedHero() {
 
           <p
             className="text-linen-300/60 text-sm md:text-base leading-relaxed mb-10 max-w-md transition-all duration-700"
-            style={{ opacity: subVisible ? 1 : 0, transform: subVisible ? "translateY(0)" : "translateY(16px)" }}
+            style={{ opacity: subVisible ? 1 : 0, transform: subVisible ? "translateY(0)" : "translateY(16px)", fontFamily: "var(--font-sans)" }}
           >
-            Wij creëren strategische samenwerkingen tussen merken en creators
-            die impact maken en resultaten opleveren.
+            Creatief bureau voor merken en creators die impact maken.
           </p>
 
           <div
@@ -102,23 +101,6 @@ export default function AnimatedHero() {
         <span className="text-[10px] tracking-widest2 uppercase">Scroll</span>
       </div>
 
-      {/* Corner stats */}
-      <div
-        className="absolute bottom-8 right-8 md:right-12 hidden md:flex gap-8 transition-all duration-700"
-        style={{ opacity: btnsVisible ? 1 : 0 }}
-      >
-        {[["150M+", "Views"], ["85+", "Campagnes"], ["3", "Creators"]].map(([v, l]) => (
-          <div key={l} className="text-right">
-            <p
-              style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}
-              className="text-white text-xl opacity-80"
-            >
-              {v}
-            </p>
-            <p className="text-[9px] tracking-widest uppercase text-linen-300/30">{l}</p>
-          </div>
-        ))}
-      </div>
     </section>
   );
 }

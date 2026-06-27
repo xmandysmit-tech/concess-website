@@ -143,13 +143,13 @@ export default function SelectedWork() {
       {/* Header */}
       <div className="flex items-center justify-between mb-10">
         <span className="text-[10px] tracking-widest2 uppercase text-taupe-500">
-          Selected Work
+          Recente projecten
         </span>
         <a
-          href="/werk"
+          href="/partnerships"
           className="flex items-center gap-2 text-xs tracking-wider uppercase text-dark-700 hover:text-dark-900 transition-colors"
         >
-          Bekijk alle werk <span className="text-base">→</span>
+          Bekijk alle partnerships <span className="text-base">→</span>
         </a>
       </div>
 
