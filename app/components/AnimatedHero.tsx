@@ -82,7 +82,7 @@ export default function AnimatedHero() {
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pb-20 w-full">
         <div className="max-w-2xl">
           <h1
-            className="text-white mb-6 flex flex-wrap gap-x-5"
+            className="text-white mb-6 flex flex-wrap gap-x-3"
             style={{
               fontFamily: "'DM Serif Display', Georgia, serif",
               fontSize: "clamp(3.2rem, 7vw, 7.5rem)",
