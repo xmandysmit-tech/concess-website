@@ -11,6 +11,7 @@ const services = [
   { num: "05", title: "Graphic Design", desc: "Branding, merch & assets.", gradient: "from-zinc-800 to-zinc-950", accent: "#B8A488", icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" className="w-5 h-5"><path d="M12 19l7-7 3 3-7 7-3-3z" /><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" /><path d="M2 2l7.586 7.586" /><circle cx="11" cy="11" r="2" /></svg> },
   { num: "06", title: "Marketing & Social", desc: "Strategie, groei & analytics.", gradient: "from-stone-600 to-stone-900", accent: "#9E8B72", icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" className="w-5 h-5"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17" /><polyline points="16 7 22 7 22 13" /></svg> },
   { num: "07", title: "Web Design", desc: "Sites die converteren.", gradient: "from-neutral-800 to-neutral-950", accent: "#C9B99A", icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" className="w-5 h-5"><rect x="3" y="3" width="18" height="18" rx="2" /><path d="M3 9h18M9 21V9" /></svg> },
+  { num: "08", title: "Podcasts", desc: "Audio & video productie.", gradient: "from-zinc-700 to-zinc-950", accent: "#B8A488", icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" className="w-5 h-5"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z" /><path d="M19 10v2a7 7 0 01-14 0v-2M12 19v4M8 23h8" /></svg> },
 ];
 
 const studioProjects = projects.filter((p) =>
