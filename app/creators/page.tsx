@@ -3,76 +3,7 @@ import { useState } from "react";
 import Navbar from "../components/Navbar";
 import CTAFooter from "../components/CTAFooter";
 import HorizontalScroll from "../components/HorizontalScroll";
-
-const creators = [
-  {
-    name: "Enzo Knol",
-    handle: "@enzoknol",
-    title: "Nederland's grootste YouTuber",
-    followers: "34M+",
-    bio: "Enzo bereikt dagelijks miljoenen kijkers met authentieke lifestyle content. Van gaming tot family — zijn publiek vertrouwt hem volledig, en dat vertaalt zich in campagneresultaten die voor zich spreken.",
-    platforms: ["YouTube", "Instagram", "TikTok"],
-    stats: [
-      { label: "Volgers", value: "34M+" },
-      { label: "Gem. views", value: "2M+" },
-      { label: "Campagnes", value: "50+" },
-      { label: "Eng. rate", value: "6.4%" },
-    ],
-    gradient: "from-stone-700 via-stone-800 to-stone-950",
-    accentColor: "#C9B99A",
-    img: "/images/EnzoKnol_Concess.png",
-    work: [
-      { brand: "L'Oréal Paris", creator: "Enzo Knol", views: "18M+", type: "Partnerships", gradient: "from-stone-800 to-stone-950" },
-      { brand: "Revolut", creator: "Enzo Knol", views: "15M+", type: "Partnerships", gradient: "from-zinc-700 to-zinc-950" },
-      { brand: "Berg", creator: "Enzo Knol", views: "12M+", type: "Video", gradient: "from-stone-600 to-stone-900" },
-      { brand: "BookBeat", creator: "Enzo Knol", views: "6M+", type: "Partnerships", gradient: "from-neutral-700 to-neutral-950" },
-    ],
-  },
-  {
-    name: "Myron Koops",
-    handle: "@myronkoops",
-    title: "Visueel storyteller & lifestyle creator",
-    followers: "3M+",
-    bio: "Myron combineert lifestyle, mode en travel in een strak visueel verhaal. Zijn content voelt als editorial fotografie — merken die met hem werken stijgen direct in perceptie bij zijn publiek.",
-    platforms: ["Instagram", "YouTube", "TikTok"],
-    stats: [
-      { label: "Volgers", value: "3M+" },
-      { label: "Eng. rate", value: "8.2%" },
-      { label: "Campagnes", value: "20+" },
-      { label: "Bereik", value: "5M+/mo" },
-    ],
-    gradient: "from-zinc-600 via-zinc-800 to-zinc-950",
-    accentColor: "#B8A488",
-    img: "/images/Dylan-Haegens-Shoeby-1.png",
-    work: [
-      { brand: "L'Oréal Paris", creator: "Myron Koops", views: "18M+", type: "Partnerships", gradient: "from-stone-700 to-stone-950" },
-      { brand: "Garmin", creator: "Myron", views: "10M+", type: "Partnerships", gradient: "from-neutral-700 to-neutral-900" },
-      { brand: "Bud Holland", creator: "Myron", views: "4M+", type: "Partnerships", gradient: "from-zinc-700 to-zinc-950" },
-    ],
-  },
-  {
-    name: "De Bennies",
-    handle: "@debennies",
-    title: "Het energiekste duo van NL",
-    followers: "2M+",
-    bio: "Brett en Joey, beter bekend als De Bennies, zijn het meest herkenbare duo op Nederlands YouTube. Hun loyale fanbase volgt ze op elk platform — en deelt alles wat ze aanraken.",
-    platforms: ["YouTube", "Instagram", "TikTok"],
-    stats: [
-      { label: "Volgers", value: "2M+" },
-      { label: "Gem. views", value: "800K+" },
-      { label: "Campagnes", value: "15+" },
-      { label: "Shares/video", value: "25K+" },
-    ],
-    gradient: "from-neutral-600 via-neutral-800 to-neutral-950",
-    accentColor: "#9E8B72",
-    img: "/images/De-bennies-concess.jpg",
-    work: [
-      { brand: "Air Up", creator: "De Bennies", views: "8M+", type: "Partnerships", gradient: "from-zinc-600 to-zinc-900" },
-      { brand: "Emma", creator: "De Bennies", views: "5M+", type: "Video", gradient: "from-neutral-800 to-neutral-950" },
-      { brand: "De Bennies Podcast", creator: "De Bennies", views: "2M+", type: "Video", gradient: "from-zinc-800 to-zinc-950" },
-    ],
-  },
-];
+import { creators } from "../data/content";
 
 export default function CreatorsPage() {
   const [activeTab, setActiveTab] = useState<Record<string, string>>({});

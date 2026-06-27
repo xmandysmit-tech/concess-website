@@ -1,33 +1,14 @@
 import Navbar from "../components/Navbar";
 import CTAFooter from "../components/CTAFooter";
 import HorizontalScroll from "../components/HorizontalScroll";
+import { featuredProjects, brands, stats } from "../data/content";
 
-const cases = [
-  { brand: "L'Oréal Paris", creator: "Myron Koops", views: "18M+", type: "Partnerships", gradient: "from-stone-700 to-stone-950" },
-  { brand: "Revolut", creator: "Enzo Knol", views: "15M+", type: "Partnerships", gradient: "from-zinc-700 to-zinc-950" },
-  { brand: "Garmin", creator: "Myron", views: "10M+", type: "Partnerships", gradient: "from-neutral-700 to-neutral-950" },
-  { brand: "Air Up", creator: "De Bennies", views: "8M+", type: "Partnerships", gradient: "from-zinc-600 to-zinc-900" },
-  { brand: "BookBeat", creator: "Enzo Knol", views: "6M+", type: "Partnerships", gradient: "from-stone-600 to-stone-900" },
-];
-
-const steps = [
-  { num: "01", title: "Briefing", desc: "Jij vertelt wat je merk wil bereiken. Wij luisteren, stellen vragen en denken mee over doelgroep, boodschap en timing." },
-  { num: "02", title: "Creator Match", desc: "Op basis van jouw doelstellingen selecteren wij de creator(s) die het beste passen — op bereik, authenticiteit en relevantie." },
-  { num: "03", title: "Concept & Strategie", desc: "Wij ontwikkelen een concept dat past bij zowel het merk als de creator — zodat het voelt als eerlijke content, niet als reclame." },
-  { num: "04", title: "Productie", desc: "Van scripting en opnames tot editing en delivery. Wij regelen het volledige productieproces." },
-  { num: "05", title: "Publicatie & Resultaat", desc: "Na goedkeuring gaat de content live. Wij monitoren de performance en leveren een volledig rapport." },
-];
-
-const brands = [
-  "L'Oréal Paris", "Garmin", "Berg", "Air Up", "Revolut",
-  "Emma", "BookBeat", "Bud Holland", "Subway", "Legends of Gaming", "402 Automotive",
-];
-
+const cases = featuredProjects;
 const numbers = [
-  { value: "150M+", label: "Totale views" },
-  { value: "85+", label: "Brand deals" },
-  { value: "8.2%", label: "Gem. engagement" },
-  { value: "3", label: "Exclusieve creators" },
+  { value: stats.totalViews,     label: "Totale views" },
+  { value: stats.totalDeals,     label: "Brand deals" },
+  { value: stats.engagementRate, label: "Gem. engagement" },
+  { value: stats.totalCreators,  label: "Exclusieve creators" },
 ];
 
 export default function PartnershipsPage() {

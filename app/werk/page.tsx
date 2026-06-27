@@ -3,36 +3,11 @@ import { useState } from "react";
 import Navbar from "../components/Navbar";
 import CTAFooter from "../components/CTAFooter";
 import HorizontalScroll from "../components/HorizontalScroll";
+import { projects, featuredProjects } from "../data/content";
 
 const filters = ["Alles", "Partnerships", "Video", "Fotografie", "Events", "Design"];
-
-const BASE = "https://concess.nl/wp-content/uploads";
-
-const featured = [
-  { brand: "L'Oréal Paris", creator: "Myron Koops", views: "18M+", type: "Partnerships", gradient: "from-stone-700 to-stone-950", img: `${BASE}/2024/01/Vrouwmishow_Concess.png` },
-  { brand: "Revolut", creator: "Enzo Knol", views: "15M+", type: "Partnerships", gradient: "from-zinc-700 to-zinc-950", img: `${BASE}/2024/01/EnzoKnol_Concess.png` },
-  { brand: "Berg", creator: "Enzo Knol", views: "12M+", type: "Video", gradient: "from-stone-600 to-stone-900", img: `${BASE}/2024/01/402-AutoMotive-x-Enzo-Knol-1.png` },
-  { brand: "Garmin", creator: "Myron", views: "10M+", type: "Partnerships", gradient: "from-neutral-700 to-neutral-950", img: `${BASE}/2023/04/De-bennies-concess.jpg` },
-  { brand: "Air Up", creator: "De Bennies", views: "8M+", type: "Partnerships", gradient: "from-zinc-600 to-zinc-900", img: `${BASE}/2024/01/Bennies-x-Air-up.png` },
-];
-
-const all = [
-  { brand: "L'Oréal Paris", creator: "Myron Koops", views: "18M+", type: "Partnerships", gradient: "from-stone-800 to-stone-950", img: `${BASE}/2024/01/Vrouwmishow_Concess.png` },
-  { brand: "Revolut", creator: "Enzo Knol", views: "15M+", type: "Partnerships", gradient: "from-zinc-700 to-zinc-900", img: `${BASE}/2024/01/EnzoKnol_Concess.png` },
-  { brand: "Berg", creator: "Enzo Knol", views: "12M+", type: "Video", gradient: "from-stone-700 to-stone-900", img: `${BASE}/2024/01/402-AutoMotive-x-Enzo-Knol-1.png` },
-  { brand: "Garmin", creator: "Myron", views: "10M+", type: "Partnerships", gradient: "from-neutral-700 to-neutral-900", img: `${BASE}/2023/04/De-bennies-concess.jpg` },
-  { brand: "Air Up", creator: "De Bennies", views: "8M+", type: "Partnerships", gradient: "from-zinc-800 to-zinc-950", img: `${BASE}/2024/01/Bennies-x-Air-up.png` },
-  { brand: "BookBeat", creator: "Enzo Knol", views: "6M+", type: "Partnerships", gradient: "from-stone-600 to-stone-900", img: `${BASE}/2024/01/Bookbeattest-1.png` },
-  { brand: "Emma", creator: "De Bennies", views: "5M+", type: "Video", gradient: "from-neutral-800 to-neutral-950", img: `${BASE}/2024/01/Snuggstest-1.png` },
-  { brand: "Bud Holland", creator: "Myron", views: "4M+", type: "Partnerships", gradient: "from-zinc-700 to-zinc-950", img: `${BASE}/2024/01/Verraderstest-1.png` },
-  { brand: "Subway Festival", creator: "Concess", views: "", type: "Events", gradient: "from-stone-700 to-stone-950", img: `${BASE}/2024/01/Vrouwmibo-x-Subway.png` },
-  { brand: "Legends of Gaming", creator: "Enzo Knol", views: "3M+", type: "Events", gradient: "from-neutral-700 to-zinc-900", img: `${BASE}/2024/01/LOGtest-1.png` },
-  { brand: "Vrouwmibo", creator: "Concess", views: "", type: "Fotografie", gradient: "from-stone-600 to-stone-950", img: `${BASE}/2023/05/Vrouwmibo-concess-1024x756.jpg` },
-  { brand: "402 Automotive", creator: "Concess", views: "", type: "Fotografie", gradient: "from-zinc-700 to-zinc-900", img: `${BASE}/2024/01/402-AutoMotive-x-Enzo-Knol-1.png` },
-  { brand: "StukTV", creator: "Concess", views: "", type: "Fotografie", gradient: "from-neutral-600 to-neutral-900", img: `${BASE}/2023/05/Thumbnail-StukTV.jpg` },
-  { brand: "Tantoe Muzikaal", creator: "Concess", views: "", type: "Video", gradient: "from-stone-700 to-stone-900", img: `${BASE}/2023/05/Tantoe-Muzikaal-thumbnail-concess.jpg` },
-  { brand: "De Bennies Podcast", creator: "De Bennies", views: "2M+", type: "Video", gradient: "from-zinc-800 to-zinc-950", img: `${BASE}/2023/04/De-bennies-concess.jpg` },
-];
+const all = projects;
+const featured = featuredProjects;
 
 export default function WerkPage() {
   const [active, setActive] = useState("Alles");
