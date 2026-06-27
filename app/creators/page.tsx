@@ -5,6 +5,18 @@ import CTAFooter from "../components/CTAFooter";
 import HorizontalScroll from "../components/HorizontalScroll";
 import { creators } from "../data/content";
 
+function PlatformIcon({ platform }: { platform: string }) {
+  const p = platform.toLowerCase();
+  const cls = "text-white/40 shrink-0";
+  if (p.includes("youtube")) return <svg className={cls} width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 00.5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 002.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 002.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg>;
+  if (p.includes("instagram")) return <svg className={cls} width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>;
+  if (p.includes("tiktok")) return <svg className={cls} width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 00-.79-.05 6.34 6.34 0 000 12.68 6.34 6.34 0 006.33-6.34V8.95a8.16 8.16 0 004.77 1.52V7.02a4.85 4.85 0 01-1-.33z"/></svg>;
+  if (p.includes("snapchat")) return <svg className={cls} width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.5 2 6 4.5 6 8v.5c-.5.1-1.5.4-2 .9-.3.3-.2.7.1.9.8.5 1.9.5 2.5.4-.1.5-.4 1.5-1.2 2.3C4.6 13.8 3 14 2 14.3c-.3.1-.5.4-.3.7.5 1 1.9 1.4 3.5 1.6.1.3.2.8-.1 1.3-.1.2 0 .4.2.5.6.3 1.5.5 2.7.5 1 0 2.1-.4 3-.4s2 .4 3 .4c1.2 0 2.1-.2 2.7-.5.2-.1.3-.3.2-.5-.3-.5-.2-1-.1-1.3 1.6-.2 3-.6 3.5-1.6.2-.3 0-.6-.3-.7-1-.3-2.6-.5-3.4-1.3-.8-.8-1.1-1.8-1.2-2.3.6.1 1.7.1 2.5-.4.3-.2.4-.6.1-.9-.5-.5-1.5-.8-2-.9V8C18 4.5 15.5 2 12 2z"/></svg>;
+  if (p.includes("spotify")) return <svg className={cls} width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm4.6 14.4c-.2.3-.6.4-.9.2-2.5-1.5-5.6-1.9-9.3-1-.4.1-.7-.1-.8-.5-.1-.4.1-.7.5-.8 4-.9 7.5-.5 10.3 1.2.3.2.4.6.2.9zm1.2-2.7c-.2.4-.7.5-1.1.3-2.8-1.7-7.1-2.2-10.5-1.2-.4.1-.9-.1-1-.5-.1-.4.1-.9.5-1 3.8-1.1 8.5-.6 11.8 1.4.4.2.5.7.3 1zm.1-2.8C14.4 9 8.9 8.8 5.7 9.8c-.5.2-1-.1-1.2-.6-.2-.5.1-1 .6-1.2 3.7-1.1 9.8-1 13.6 1.4.5.3.6.9.3 1.4-.3.5-.9.6-1.1.1z"/></svg>;
+  if (p.includes("podimo")) return <svg className={cls} width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2zm0 3a7 7 0 110 14A7 7 0 0112 5zm0 3a4 4 0 100 8 4 4 0 000-8zm0 2a2 2 0 110 4 2 2 0 010-4z"/></svg>;
+  return <svg className={cls} width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>;
+}
+
 export default function CreatorsPage() {
   const [activeTab, setActiveTab] = useState<Record<string, string>>({});
 
@@ -105,18 +117,22 @@ export default function CreatorsPage() {
                     </div>
                   </div>
 
-                  {/* Stats */}
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                    {c.stats.map((s) => (
-                      <div key={s.label} className="text-center md:text-right">
-                        <p
-                          className="text-white text-2xl"
-                          style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}
-                        >
-                          {s.value}
-                        </p>
-                        <p className="text-white/40 text-[10px] tracking-widest uppercase mt-1">{s.label}</p>
-                      </div>
+                  {/* Platform stats */}
+                  <div className="flex flex-col gap-2">
+                    {c.platformStats.map((s) => (
+                      <a
+                        key={s.platform}
+                        href={s.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-between gap-8 border border-white/10 rounded-xl px-4 py-2.5 hover:border-white/30 hover:bg-white/5 transition-all"
+                      >
+                        <span className="flex items-center gap-2.5">
+                          <PlatformIcon platform={s.platform} />
+                          <span className="text-[10px] tracking-widest uppercase text-white/50">{s.platform}</span>
+                        </span>
+                        <span className="text-white text-sm font-bold" style={{ fontFamily: "var(--font-sans)" }}>{s.followers}</span>
+                      </a>
                     ))}
                   </div>
                 </div>
