@@ -124,9 +124,6 @@ export default function ContactPage() {
                 <p style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "2.5rem", lineHeight: "1.1", color: "var(--color-dark-900)" }}>
                   Bericht<br /><span className="italic text-taupe-400">verstuurd.</span>
                 </p>
-                <p className="text-taupe-500 text-sm mt-4" style={{ fontFamily: "var(--font-sans)" }}>
-                  We nemen zo snel mogelijk contact op.
-                </p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="flex flex-col gap-6 flex-1">
