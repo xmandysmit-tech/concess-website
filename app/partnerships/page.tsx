@@ -71,13 +71,11 @@ export default function PartnershipsPage() {
 
         {/* Masonry-style grid */}
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
-          {shown.map((p, i) => {
-            const tall = i % 5 === 0 || i % 5 === 3;
-            return (
+          {shown.map((p, i) => (
               <div
                 key={i}
                 className={`relative overflow-hidden rounded-2xl bg-gradient-to-br ${p.gradient}`}
-                style={{ aspectRatio: tall ? "3/4" : "4/3" }}
+                style={{ aspectRatio: "4/3" }}
               >
                 {p.img && (
                   <img
@@ -93,8 +91,7 @@ export default function PartnershipsPage() {
                   {p.views && <p className="text-white/40 text-xs mt-1">{p.views} views</p>}
                 </div>
               </div>
-            );
-          })}
+          ))}
         </div>
 
         {hasMore && (
