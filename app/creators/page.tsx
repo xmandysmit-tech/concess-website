@@ -98,7 +98,7 @@ export default function CreatorsPage() {
               Concess <span className="italic" style={{ color: "var(--color-taupe-300)" }}>creators</span>
             </h1>
             <p className="text-linen-300/40 text-sm leading-relaxed max-w-xs">
-              Wij beheren een select gezelschap van creators op basis van talent, authenticiteit en bereik. Niet de meesten — de besten.
+              Wij verzorgen het exclusieve management van een select aantal content creators en podcasts. Van strategie en partnerships tot productie en dagelijkse begeleiding.
             </p>
           </div>
         </div>
