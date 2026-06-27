@@ -89,8 +89,20 @@ export default function Navbar({ forceDark = false }: { forceDark?: boolean }) {
 
       {/* Mobile menu overlay */}
       {menuOpen && (
-        <div className="fixed inset-0 z-50 flex flex-col pt-16" style={{ background: "rgba(250,248,245,0.97)", backdropFilter: "blur(12px)" }}>
-          <ul className="flex flex-col px-8 pt-10 gap-6">
+        <div className="fixed top-0 left-0 right-0 z-50 flex flex-col" style={{ background: "rgba(250,248,245,0.97)", backdropFilter: "blur(12px)", borderBottom: "1px solid var(--color-linen-300)" }}>
+          {/* Logo row */}
+          <div className="px-6 h-16 flex items-center justify-between">
+            <Link href="/" onClick={() => setMenuOpen(false)} style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "1.25rem", color: "var(--color-dark-900)" }}>
+              Concess.
+            </Link>
+            <button className="flex flex-col justify-center items-center w-8 h-8 gap-1.5" onClick={() => setMenuOpen(false)}>
+              <span className="block w-5 h-px" style={{ background: "var(--color-dark-900)", transform: "rotate(45deg) translate(2px, 2px)" }} />
+              <span className="block w-5 h-px" style={{ background: "var(--color-dark-900)", opacity: 0 }} />
+              <span className="block w-5 h-px" style={{ background: "var(--color-dark-900)", transform: "rotate(-45deg) translate(2px, -2px)" }} />
+            </button>
+          </div>
+          {/* Nav items */}
+          <ul className="flex flex-col px-6 pt-4 pb-2 gap-4">
             {navItems.map((item) => {
               const href = item === "Home" ? "/" : `/${item.toLowerCase().replace(/ /g, "-")}`;
               const isActive = pathname === href;
@@ -107,10 +119,12 @@ export default function Navbar({ forceDark = false }: { forceDark?: boolean }) {
               );
             })}
           </ul>
-          <div className="px-8 mt-10">
+          {/* Contact */}
+          <div className="px-6 pt-4 pb-6">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 text-xs tracking-widest uppercase px-6 py-3.5 rounded-full border transition-all"
+              onClick={() => setMenuOpen(false)}
+              className="inline-flex items-center gap-2 text-xs tracking-widest uppercase px-5 py-2.5 rounded-full border transition-all"
               style={{ borderColor: "var(--color-dark-900)", color: "var(--color-dark-900)" }}
             >
               Contact <span>→</span>
