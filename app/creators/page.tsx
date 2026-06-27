@@ -25,49 +25,33 @@ export default function CreatorsPage() {
       <Navbar forceDark />
 
       {/* Hero header */}
-      <section className="relative pt-36 pb-0 overflow-hidden" style={{ background: "var(--color-dark-900)" }}>
-        <div
-          className="absolute inset-0 opacity-10"
-          style={{ backgroundImage: "radial-gradient(circle at 20% 60%, #C9B99A 0%, transparent 50%), radial-gradient(circle at 80% 20%, #7D6D59 0%, transparent 50%)" }}
-        />
-        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 pb-20">
-          <span className="text-[10px] tracking-widest uppercase text-taupe-500 block mb-5">Creator Management</span>
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
-            <h1
-              style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(3.5rem, 7vw, 7rem)", lineHeight: "0.93", color: "white" }}
-            >
-              Exclusief<br /><span className="italic" style={{ color: "var(--color-taupe-300)" }}>talent</span>
-            </h1>
-            <p className="text-linen-300/50 text-sm leading-relaxed max-w-sm pb-2">
-              Wij beheren een select gezelschap van creators op basis van talent, authenticiteit en bereik.
-              Niet de meesten — de besten.
+      <section className="relative overflow-hidden" style={{ background: "var(--color-dark-900)" }}>
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 pt-32 pb-10">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div>
+              <span className="text-[10px] tracking-widest uppercase text-taupe-500 block mb-4">Creator Management</span>
+              <h1
+                style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(2.2rem, 4vw, 3.8rem)", lineHeight: "1", color: "white" }}
+              >
+                Exclusief <span className="italic" style={{ color: "var(--color-taupe-300)" }}>talent</span>
+              </h1>
+            </div>
+            <p className="text-linen-300/40 text-sm leading-relaxed max-w-xs">
+              Wij beheren een select gezelschap van creators op basis van talent, authenticiteit en bereik. Niet de meesten — de besten.
             </p>
           </div>
         </div>
 
-        {/* Stat bar */}
-        <div className="border-t border-dark-700 grid grid-cols-3">
-          {[
-            { v: "39M+", l: "Gecombineerde volgers" },
-            { v: "85+", l: "Brand deals" },
-            { v: "150M+", l: "Totale views" },
-          ].map((s) => (
-            <div key={s.l} className="py-6 px-8 border-r border-dark-700 last:border-r-0">
-              <p style={{ fontFamily: "'DM Serif Display', Georgia, serif" }} className="text-white text-3xl">{s.v}</p>
-              <p className="text-[10px] tracking-widest uppercase text-taupe-500 mt-1">{s.l}</p>
-            </div>
-          ))}
-        </div>
       </section>
 
       {/* Sticky creator nav */}
-      <div className="sticky top-16 z-40 border-b border-linen-300" style={{ backgroundColor: "rgba(242,237,228,0.97)", backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)" }}>
+      <div className="sticky top-16 z-40 border-b border-linen-300" style={{ backgroundColor: "rgba(244,243,241,0.97)", backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)" }}>
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex gap-1 py-2">
-          {creators.map((c) => (
+          {creators.map((c, i) => (
             <a
               key={c.name}
               href={`#${c.name.toLowerCase().replace(/\s/g, "-")}`}
-              className="flex items-center gap-3 px-5 py-2.5 rounded-full text-xs tracking-wider uppercase transition-all duration-200 hover:bg-dark-900 hover:text-linen-200 text-taupe-500"
+              className="flex items-center gap-2.5 px-4 py-2 rounded-full text-xs tracking-widest uppercase transition-all duration-200 text-taupe-500 hover:bg-dark-900 hover:text-linen-200"
             >
               <span
                 className="w-1.5 h-1.5 rounded-full shrink-0"
