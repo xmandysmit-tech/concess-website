@@ -53,7 +53,8 @@ function CreatorCard({ creator }: { creator: (typeof creators)[0] }) {
   const [hovered, setHovered] = useState(false);
 
   return (
-    <div
+    <a
+      href="/creators"
       className="relative overflow-hidden rounded-2xl cursor-pointer min-h-[320px] flex flex-col justify-end p-7 group"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
@@ -97,6 +98,6 @@ function CreatorCard({ creator }: { creator: (typeof creators)[0] }) {
       >
         <span className="text-white text-sm">→</span>
       </div>
-    </div>
+    </a>
   );
 }
