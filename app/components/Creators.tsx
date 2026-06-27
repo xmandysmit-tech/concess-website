@@ -6,19 +6,19 @@ const creators = [
   {
     name: "Enzo Knol",
     followers: "34M+ volgers",
-    platforms: ["YouTube", "Instagram", "TikTok"],
+    platforms: ["YouTube", "Instagram", "TikTok", "Snapchat"],
     img: "/images/enzo_knol.jpg",
   },
   {
     name: "Myron Koops",
     followers: "3M+ volgers",
-    platforms: ["Instagram", "YouTube"],
+    platforms: ["YouTube", "Instagram", "TikTok", "Snapchat"],
     img: "/images/myron_koops.jpg",
   },
   {
     name: "De Bennies",
     followers: "2M+ volgers",
-    platforms: ["YouTube", "Instagram"],
+    platforms: ["Instagram", "TikTok", "Podimo", "Spotify"],
     img: "/images/de_bennies.jpg",
   },
 ];
