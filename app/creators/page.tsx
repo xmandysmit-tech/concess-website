@@ -175,7 +175,6 @@ export default function CreatorsPage() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {c.work.slice(0, 3).map((w, i) => (
                   <div key={i} className={`relative overflow-hidden rounded-2xl bg-gradient-to-br ${w.gradient}`} style={{ aspectRatio: "4/3" }}>
-                    {w.img && <img src={w.img} alt={w.brand} className="absolute inset-0 w-full h-full object-cover" />}
                     <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 60%)" }} />
                     <div className="absolute bottom-0 left-0 right-0 p-5">
                       <span className="text-[9px] tracking-widest uppercase text-white/50 block mb-1">{w.type}</span>
