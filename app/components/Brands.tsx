@@ -1,4 +1,3 @@
-import Image from "next/image";
 
 const brands = [
   { name: "L'Oréal", logo: "/logos/Loreal.png" },
@@ -11,7 +10,6 @@ const brands = [
   { name: "Google", logo: "/logos/Google.png" },
   { name: "YouTube", logo: "/logos/YouTube.png" },
   { name: "Xbox", logo: "/logos/Xbox.png" },
-  { name: "Tommy Hilfiger", logo: "/logos/Tommy_Hilfiger.png" },
   { name: "Armani", logo: "/logos/Armani.png" },
   { name: "Dyson", logo: "/logos/Dyson.png" },
   { name: "HelloFresh", logo: "/logos/HelloFresh.png" },
@@ -48,18 +46,17 @@ export default function Brands() {
         <div className="flex animate-marquee whitespace-nowrap items-center">
           {doubled.map((brand, i) => (
             <div key={i} className="flex items-center flex-shrink-0 px-8">
-              <Image
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
                 src={brand.logo}
                 alt={brand.name}
-                width={90}
-                height={32}
                 style={{
                   objectFit: "contain",
                   filter: "brightness(0) invert(1)",
                   opacity: 0.3,
                   height: "28px",
-                  width: "auto",
-                  maxWidth: "90px",
+                  width: "90px",
+                  flexShrink: 0,
                 }}
               />
               <span className="text-taupe-600 text-xs ml-8">·</span>
