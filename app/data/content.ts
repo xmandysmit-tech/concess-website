@@ -154,7 +154,7 @@ export const creators = [
     ],
     gradient: "from-stone-700 via-stone-800 to-stone-950",
     accentColor: "#C9B99A",
-    img: "/images/EnzoKnol_Concess.png",
+    img: "/images/enzo_banner.png",
     // Projecten van deze creator (verwijst naar brands uit projects hierboven)
     work: [
       { brand: "L'Oréal Paris", creator: "Enzo Knol", views: "18M+", type: "Partnerships", gradient: "from-stone-800 to-stone-950" },
@@ -178,7 +178,7 @@ export const creators = [
     ],
     gradient: "from-zinc-600 via-zinc-800 to-zinc-950",
     accentColor: "#B8A488",
-    img: "/images/Dylan-Haegens-Shoeby-1.png", // vervang door echte Myron foto
+    img: "/images/Myron_banner.png",
     work: [
       { brand: "L'Oréal Paris", creator: "Myron Koops", views: "18M+", type: "Partnerships", gradient: "from-stone-700 to-stone-950" },
       { brand: "Garmin",        creator: "Myron",        views: "10M+", type: "Partnerships", gradient: "from-neutral-700 to-neutral-900" },
@@ -200,7 +200,7 @@ export const creators = [
     ],
     gradient: "from-neutral-600 via-neutral-800 to-neutral-950",
     accentColor: "#9E8B72",
-    img: "/images/De-bennies-concess.jpg",
+    img: "/images/bennies_banner.png",
     work: [
       { brand: "Air Up",             creator: "De Bennies", views: "8M+", type: "Partnerships", gradient: "from-zinc-600 to-zinc-900" },
       { brand: "Emma",               creator: "De Bennies", views: "5M+", type: "Video",        gradient: "from-neutral-800 to-neutral-950" },
