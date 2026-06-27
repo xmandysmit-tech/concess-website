@@ -168,7 +168,7 @@ export const creators = [
     handle: "@myronkoops",
     title: "Lifestyle & sport content creator",
     followers: "2,1M+",
-    bio: "Myron Koops deelt haar passie voor sport en lifestyle dagelijks met haar community. Als personal trainer bouwde ze samen met Enzo Knol het sportplatform KP Active op, maar het zijn haar persoonlijke verhalen over beweging, gezondheid en het echte leven die haar volgers raken. Ze probeert hiermee haar community te inspireren — niet met grote woorden, maar gewoon door het te doen.",
+    bio: "Myron was in haar jeugd een talentvolle schaatsster en nam deel aan verschillende kampioenschappen. Na een lange blessure besloot ze haar wedstrijdcarrière te beëindigen en zich te richten op een opleiding tot Personal Trainer. Samen met haar partner Enzo Knol heeft Myron de succesvolle sportlijn en het platform KP Active opgezet. Hier combineert ze haar passie voor sporten met het creëren van inspirerende content. Dagelijks probeert ze haar volgers te inspireren met haar sportvideo's en lifestyle content.",
     platforms: ["YouTube", "Instagram", "TikTok", "Snapchat"],
     platformStats: [
       { platform: "YouTube", followers: "142K", url: "https://www.youtube.com/@kpactive" },
