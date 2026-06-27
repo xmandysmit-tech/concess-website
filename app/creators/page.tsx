@@ -63,11 +63,11 @@ export default function CreatorsPage() {
       {/* Hero header */}
       <section className="relative overflow-hidden" style={{ background: "var(--color-dark-900)" }}>
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 pt-28 pb-4">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div className="flex flex-col md:flex-row md:items-start justify-between gap-6">
             <h1 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(2.2rem, 4vw, 3.8rem)", lineHeight: "1", color: "white" }}>
               Concess <span className="italic" style={{ color: "var(--color-taupe-300)" }}>creators</span>
             </h1>
-            <p className="text-linen-300/40 text-sm leading-relaxed max-w-xs md:pt-10">
+            <p className="text-linen-300/40 text-sm leading-relaxed max-w-xs">
               Wij verzorgen het exclusieve management van een select aantal content creators. Van strategie en partnerships tot dagelijkse begeleiding.
             </p>
           </div>
