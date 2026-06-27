@@ -1,9 +1,24 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Navbar from "../components/Navbar";
 import CTAFooter from "../components/CTAFooter";
 import HorizontalScroll from "../components/HorizontalScroll";
 import { creators } from "../data/content";
+
+const polaroids = [
+  { src: "/images/402-AutoMotive-x-Enzo-Knol-1.png",  rot: -6,  top: "-5%",  left: "-2%" },
+  { src: "/images/Vrouwmishow_Concess.png",            rot:  4,  top: "-6%",  left: "14%" },
+  { src: "/images/Bennies-x-Air-up.png",              rot: -3,  top: "-4%",  left: "30%" },
+  { src: "/images/Myron_banner.png",                   rot:  6,  top: "-7%",  left: "47%" },
+  { src: "/images/Vrouwmibo-x-Subway.png",            rot: -5,  top: "-5%",  left: "63%" },
+  { src: "/images/De-bennies-concess.jpg",            rot:  3,  top: "-6%",  left: "79%" },
+  { src: "/images/enzo_banner.png",                   rot:  7,  top: "35%",  left: "-3%" },
+  { src: "/images/Bookbeattest-1.png",                rot: -4,  top: "33%",  left: "13%" },
+  { src: "/images/Snuggstest-1.png",                  rot:  2,  top: "37%",  left: "29%" },
+  { src: "/images/EnzoKnol_Concess.png",              rot: -6,  top: "32%",  left: "46%" },
+  { src: "/images/Vrouwmibo-concess-1024x756.jpg",    rot:  5,  top: "35%",  left: "63%" },
+  { src: "/images/LOGtest-1.png",                     rot: -3,  top: "33%",  left: "80%" },
+];
 
 function PlatformIcon({ platform }: { platform: string }) {
   const p = platform.toLowerCase();
@@ -17,58 +32,112 @@ function PlatformIcon({ platform }: { platform: string }) {
   return <svg className={cls} width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>;
 }
 
+const creatorPortraits: Record<string, string> = {
+  "Enzo Knol": "/images/creators/enzo_knol.jpg",
+  "Myron Koops": "/images/creators/myron_koops.jpg",
+  "De Bennies": "/images/creators/de_bennies.jpg",
+};
+
 export default function CreatorsPage() {
-  const [activeTab, setActiveTab] = useState<Record<string, string>>({});
+  const [activeCreator, setActiveCreator] = useState(creators[0].name);
+  const sectionRefs = useRef<Record<string, HTMLElement | null>>({});
+
+  useEffect(() => {
+    const observers = creators.map((c) => {
+      const el = sectionRefs.current[c.name];
+      if (!el) return null;
+      const obs = new IntersectionObserver(
+        ([entry]) => { if (entry.isIntersecting) setActiveCreator(c.name); },
+        { rootMargin: "-40% 0px -40% 0px" }
+      );
+      obs.observe(el);
+      return obs;
+    });
+    return () => observers.forEach((o) => o?.disconnect());
+  }, []);
 
   return (
     <main style={{ background: "var(--color-linen-100)", minHeight: "100vh" }}>
       <Navbar forceDark />
 
-      {/* Hero header */}
-      <section className="relative overflow-hidden" style={{ background: "var(--color-dark-900)" }}>
-        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 pt-32 pb-10">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-            <div>
-              <h1
-                style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(2.2rem, 4vw, 3.8rem)", lineHeight: "1", color: "white" }}
-              >
-                Concess <span className="italic" style={{ color: "var(--color-taupe-300)" }}>creators</span>
-              </h1>
+      {/* Hero header with polaroid background */}
+      <section className="relative overflow-hidden" style={{ background: "var(--color-dark-900)", minHeight: "280px" }}>
+        {/* Polaroid collage */}
+        <div className="absolute inset-0 overflow-hidden">
+          {polaroids.map((p, i) => (
+            <div
+              key={i}
+              className="absolute"
+              style={{
+                top: p.top, left: p.left,
+                transform: `rotate(${p.rot}deg)`,
+                width: "160px",
+                background: "#f2ede6",
+                padding: "6px 6px 22px 6px",
+                boxShadow: "0 8px 24px rgba(0,0,0,0.4)",
+                zIndex: i % 3,
+                opacity: 0.55,
+              }}
+            >
+              <div style={{ width: "100%", height: "120px", overflow: "hidden", background: "#2a2724" }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={p.src} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+              </div>
             </div>
+          ))}
+        </div>
+
+        {/* Overlay */}
+        <div className="absolute inset-0" style={{ background: "rgba(20,18,16,0.72)" }} />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, transparent 40%, rgba(20,18,16,1) 100%)" }} />
+
+        {/* Text */}
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 pt-36 pb-12">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <h1 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(2.2rem, 4vw, 3.8rem)", lineHeight: "1", color: "white" }}>
+              Concess <span className="italic" style={{ color: "var(--color-taupe-300)" }}>creators</span>
+            </h1>
             <p className="text-linen-300/40 text-sm leading-relaxed max-w-xs">
               Wij beheren een select gezelschap van creators op basis van talent, authenticiteit en bereik. Niet de meesten — de besten.
             </p>
           </div>
         </div>
-
       </section>
 
       {/* Sticky creator nav */}
-      <div className="sticky top-16 z-40 border-b border-linen-300" style={{ backgroundColor: "rgba(244,243,241,0.97)", backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)" }}>
-        <div className="max-w-7xl mx-auto px-6 md:px-12 flex gap-1 py-2">
-          {creators.map((c, i) => (
-            <a
-              key={c.name}
-              href={`#${c.name.toLowerCase().replace(/\s/g, "-")}`}
-              className="flex items-center gap-2.5 px-4 py-2 rounded-full text-xs tracking-widest uppercase transition-all duration-200 text-taupe-500 hover:bg-dark-900 hover:text-linen-200"
-            >
-              <span
-                className="w-1.5 h-1.5 rounded-full shrink-0"
-                style={{ background: c.accentColor }}
-              />
-              {c.name}
-            </a>
-          ))}
+      <div className="sticky top-16 z-40" style={{ background: "var(--color-dark-900)", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+        <div className="max-w-7xl mx-auto px-6 md:px-12 flex gap-2 py-3">
+          {creators.map((c) => {
+            const isActive = activeCreator === c.name;
+            return (
+              <a
+                key={c.name}
+                href={`#${c.name.toLowerCase().replace(/\s/g, "-")}`}
+                className="flex items-center gap-3 px-4 py-2 rounded-full transition-all duration-200"
+                style={{
+                  background: isActive ? "rgba(255,255,255,0.1)" : "transparent",
+                  border: `1px solid ${isActive ? "rgba(255,255,255,0.15)" : "transparent"}`,
+                }}
+              >
+                <div className="w-7 h-7 rounded-full overflow-hidden shrink-0" style={{ border: `1.5px solid ${isActive ? c.accentColor : "rgba(255,255,255,0.15)"}` }}>
+                  <img src={creatorPortraits[c.name]} alt={c.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }} />
+                </div>
+                <span className="text-[11px] tracking-widest uppercase transition-colors" style={{ color: isActive ? "white" : "rgba(255,255,255,0.4)" }}>
+                  {c.name}
+                </span>
+              </a>
+            );
+          })}
         </div>
       </div>
 
       {/* Creator sections */}
       <div>
-        {creators.map((c, idx) => (
+        {creators.map((c) => (
           <section
             key={c.name}
             id={c.name.toLowerCase().replace(/\s/g, "-")}
-            className={idx % 2 === 0 ? "py-0" : "py-0"}
+            ref={(el) => { sectionRefs.current[c.name] = el; }}
           >
             {/* Visual hero per creator */}
             <div className={`relative overflow-hidden min-h-[500px] flex items-end bg-gradient-to-br ${c.gradient}`}>
@@ -86,10 +155,7 @@ export default function CreatorsPage() {
                 <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
                   <div>
                     <p className="text-xs tracking-widest uppercase mb-3" style={{ color: c.accentColor }}>{c.handle}</p>
-                    <h2
-                      className="text-white mb-2"
-                      style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(2.5rem, 5vw, 5rem)", lineHeight: "0.95" }}
-                    >
+                    <h2 className="text-white mb-2" style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(2.5rem, 5vw, 5rem)", lineHeight: "0.95" }}>
                       {c.name}
                     </h2>
                     <p className="text-white/50 text-sm">{c.title}</p>
@@ -100,7 +166,6 @@ export default function CreatorsPage() {
                     </div>
                   </div>
 
-                  {/* Platform stats */}
                   <div className="flex flex-col gap-2">
                     {c.platformStats.map((s) => (
                       <a
@@ -122,22 +187,16 @@ export default function CreatorsPage() {
               </div>
             </div>
 
-            {/* Bio + tabs */}
+            {/* Bio + CTA */}
             <div className="bg-linen-100 border-b border-linen-300">
               <div className="max-w-7xl mx-auto px-6 md:px-12 py-12">
                 <div className="grid md:grid-cols-2 gap-12 items-start">
                   <p className="text-dark-700 text-sm leading-relaxed">{c.bio}</p>
                   <div className="flex gap-3 flex-wrap">
-                    <a
-                      href="/contact"
-                      className="inline-flex items-center gap-3 bg-dark-900 text-linen-200 px-6 py-3.5 rounded-full text-xs tracking-widest uppercase transition-all hover:bg-dark-700"
-                    >
+                    <a href="/contact" className="inline-flex items-center gap-3 bg-dark-900 text-linen-200 px-6 py-3.5 rounded-full text-xs tracking-widest uppercase transition-all hover:bg-dark-700">
                       Samenwerken <span>→</span>
                     </a>
-                    <a
-                      href="/werk"
-                      className="inline-flex items-center gap-3 border border-linen-300 text-dark-700 px-6 py-3.5 rounded-full text-xs tracking-widest uppercase transition-all hover:border-dark-900"
-                    >
+                    <a href="/werk" className="inline-flex items-center gap-3 border border-linen-300 text-dark-700 px-6 py-3.5 rounded-full text-xs tracking-widest uppercase transition-all hover:border-dark-900">
                       Alle werk
                     </a>
                   </div>
@@ -145,7 +204,7 @@ export default function CreatorsPage() {
               </div>
             </div>
 
-            {/* Work slider per creator */}
+            {/* Work slider */}
             <div className="py-10 max-w-7xl mx-auto px-6 md:px-12">
               <div className="flex items-center justify-between mb-8">
                 <span className="text-[10px] tracking-widest uppercase text-taupe-500">Campagnes</span>
