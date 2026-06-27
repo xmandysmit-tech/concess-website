@@ -54,7 +54,7 @@ function CreatorCard({ creator }: { creator: (typeof creators)[0] }) {
 
   return (
     <a
-      href="/creators"
+      href={`/creators#${creator.name.toLowerCase().replace(/\s/g, "-")}`}
       className="relative overflow-hidden rounded-2xl cursor-pointer min-h-[320px] flex flex-col justify-end p-7 group"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
