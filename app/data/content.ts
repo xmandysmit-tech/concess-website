@@ -193,6 +193,7 @@ export const creators = [
     bio: "Brett en Joey, beter bekend als De Bennies, zijn het meest herkenbare duo op Nederlands YouTube. Hun loyale fanbase volgt ze op elk platform — en deelt alles wat ze aanraken.",
     platforms: ["Instagram", "TikTok", "Podimo", "Spotify"],
     platformStats: [
+      { platform: "Instagram", followers: "76,5K", url: "https://www.instagram.com/debennies/" },
       { platform: "TikTok", followers: "186K", url: "https://www.tiktok.com/@debennies" },
       { platform: "Podimo", followers: "30K", url: "https://podimo.com/nl/shows/de-bennies-2" },
       { platform: "Spotify", followers: "62K", url: "https://open.spotify.com/show/3oiLRw0TiQySEInqNus2ik" },
