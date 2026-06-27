@@ -36,15 +36,6 @@ export default function AnimatedHero() {
         <div className="absolute inset-0" style={{ background: "linear-gradient(to right, rgba(38,38,38,0.85) 0%, transparent 60%)" }} />
       </div>
 
-      {/* Label */}
-      <div
-        className="absolute top-32 left-8 md:left-12 transition-all duration-700"
-        style={{ opacity: subVisible ? 1 : 0, transform: subVisible ? "translateY(0)" : "translateY(8px)" }}
-      >
-        <span className="text-[10px] tracking-widest2 uppercase text-taupe-300 opacity-60">
-          Creative Partnerships
-        </span>
-      </div>
 
       {/* Main headline */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pb-20 w-full">
