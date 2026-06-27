@@ -22,8 +22,8 @@ const numbers = [
 
 export default function PartnershipsPage() {
   return (
-    <main style={{ background: "var(--color-linen-100)" }}>
-      <Navbar />
+    <main style={{ background: "var(--color-linen-100)", minHeight: "100vh" }}>
+      <Navbar forceDark />
 
       {/* Hero */}
       <section className="relative min-h-screen flex flex-col justify-end overflow-hidden" style={{ background: "var(--color-dark-900)" }}>

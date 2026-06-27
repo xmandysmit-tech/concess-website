@@ -2,18 +2,18 @@
 
 @theme {
   --color-linen-50: #FFFFFF;
-  --color-linen-100: #FAF8F5;
-  --color-linen-200: #FAF8F5;
-  --color-linen-300: #DFDACF;
-  --color-linen-400: #C8C2B6;
-  --color-taupe-300: #BFB8B0;
-  --color-taupe-400: #B0A89F;
-  --color-taupe-500: #A3968D;
-  --color-taupe-600: #7D756D;
-  --color-dark-900: #262626;
-  --color-dark-800: #3A3330;
-  --color-dark-700: #4D403A;
-  --color-dark-600: #5C5450;
+  --color-linen-100: #F4F3F1;
+  --color-linen-200: #F4F3F1;
+  --color-linen-300: #E3E1DD;
+  --color-linen-400: #CBC8C2;
+  --color-taupe-300: #B8B3AD;
+  --color-taupe-400: #A89E96;
+  --color-taupe-500: #96897F;
+  --color-taupe-600: #6E6259;
+  --color-dark-900: #1E1C1A;
+  --color-dark-800: #2E2B28;
+  --color-dark-700: #6E6259;
+  --color-dark-600: #96897F;
 
   --font-sans: "Inter", system-ui, sans-serif;
   --font-serif: "DM Serif Display", Georgia, serif;

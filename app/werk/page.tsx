@@ -14,7 +14,7 @@ export default function WerkPage() {
   const filtered = active === "Alles" ? all : all.filter((p) => p.type === active);
 
   return (
-    <main style={{ background: "var(--color-linen-100)" }}>
+    <main style={{ background: "var(--color-linen-100)", minHeight: "100vh" }}>
       <Navbar forceDark />
 
       {/* Header */}
