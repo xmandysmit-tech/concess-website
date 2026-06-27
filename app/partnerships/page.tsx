@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 import Navbar from "../components/Navbar";
 import CTAFooter from "../components/CTAFooter";
 import { projects } from "../data/content";
@@ -39,7 +40,13 @@ const brandLogos = [
 
 const doubled = [...brandLogos, ...brandLogos];
 
+const PAGE_SIZE = 9;
+
 export default function PartnershipsPage() {
+  const [visible, setVisible] = useState(PAGE_SIZE);
+  const shown = partnershipProjects.slice(0, visible);
+  const hasMore = visible < partnershipProjects.length;
+
   return (
     <main style={{ background: "var(--color-linen-100)", minHeight: "100vh" }}>
       <Navbar forceDark />
@@ -64,7 +71,7 @@ export default function PartnershipsPage() {
 
         {/* Masonry-style grid */}
         <div className="columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4">
-          {partnershipProjects.map((p, i) => {
+          {shown.map((p, i) => {
             const tall = i % 5 === 0 || i % 5 === 3;
             return (
               <div
@@ -89,6 +96,17 @@ export default function PartnershipsPage() {
             );
           })}
         </div>
+
+        {hasMore && (
+          <div className="flex justify-center mt-12">
+            <button
+              onClick={() => setVisible((v) => v + PAGE_SIZE)}
+              className="inline-flex items-center gap-3 border border-linen-300 text-dark-700 px-8 py-3.5 rounded-full text-xs tracking-widest uppercase transition-all hover:border-dark-900 hover:text-dark-900"
+            >
+              Meer laden
+            </button>
+          </div>
+        )}
       </section>
 
       {/* Brands marquee — light version */}
