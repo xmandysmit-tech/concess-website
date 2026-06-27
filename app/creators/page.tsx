@@ -67,7 +67,7 @@ export default function CreatorsPage() {
             <h1 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(2.2rem, 4vw, 3.8rem)", lineHeight: "1", color: "white" }}>
               Concess <span className="italic" style={{ color: "var(--color-taupe-300)" }}>creators</span>
             </h1>
-            <p className="text-linen-300/40 text-sm leading-relaxed max-w-xs">
+            <p className="text-linen-300/40 text-sm leading-relaxed max-w-xs md:pt-10">
               Wij verzorgen het exclusieve management van een select aantal content creators. Van strategie en partnerships tot dagelijkse begeleiding.
             </p>
           </div>
