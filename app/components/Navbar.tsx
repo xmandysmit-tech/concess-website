@@ -23,10 +23,9 @@ export default function Navbar({ forceDark = false }: { forceDark?: boolean }) {
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link
           href="/"
-          className="font-serif text-xl tracking-tight"
-          style={{ color: dark ? "var(--color-dark-900)" : "white" }}
+          style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "1.25rem", color: dark ? "var(--color-dark-900)" : "white" }}
         >
-          CONCESS.
+          Concess.
         </Link>
 
         <ul className="hidden md:flex items-center gap-8">

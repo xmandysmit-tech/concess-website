@@ -33,7 +33,7 @@ export default function CTAFooter() {
             className="text-linen-200 text-lg"
             style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}
           >
-            CONCESS.
+            Concess.
           </span>
 
           <div className="flex flex-wrap justify-center gap-8">
