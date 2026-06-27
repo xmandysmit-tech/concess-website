@@ -32,8 +32,8 @@ export default function AnimatedHero() {
           className="absolute inset-0 w-full h-full object-cover opacity-40"
           style={{ objectPosition: "center top" }}
         />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(to top, #161210 0%, rgba(22,18,16,0.6) 50%, rgba(22,18,16,0.3) 100%)" }} />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(to right, rgba(22,18,16,0.85) 0%, transparent 60%)" }} />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(to top, #262626 0%, rgba(38,38,38,0.6) 50%, rgba(38,38,38,0.3) 100%)" }} />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(to right, rgba(38,38,38,0.85) 0%, transparent 60%)" }} />
       </div>
 
       {/* Label */}

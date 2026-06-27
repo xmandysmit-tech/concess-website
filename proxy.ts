@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 const PASSWORD = "web26";
 const COOKIE = "concess_access";
 
-export function middleware(req: NextRequest) {
+export function proxy(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
   // Allow the login page and its POST action through

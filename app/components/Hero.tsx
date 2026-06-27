@@ -6,13 +6,13 @@ export default function Hero() {
       {/* Background */}
       <div className="absolute inset-0 bg-dark-900">
         {/* Gradient overlay for depth */}
-        <div className="absolute inset-0" style={{ background: "linear-gradient(to top, #161210 0%, rgba(22,18,16,0.4) 50%, rgba(30,25,22,0.6) 100%)" }} />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(to top, #262626 0%, rgba(38,38,38,0.4) 50%, rgba(30,25,22,0.6) 100%)" }} />
         {/* Subtle texture */}
         <div
           className="absolute inset-0 opacity-20"
           style={{
-            backgroundImage: `radial-gradient(circle at 20% 80%, #3D3330 0%, transparent 50%),
-                              radial-gradient(circle at 80% 20%, #2C2420 0%, transparent 50%)`,
+            backgroundImage: `radial-gradient(circle at 20% 80%, #5C5450 0%, transparent 50%),
+                              radial-gradient(circle at 80% 20%, #4D403A 0%, transparent 50%)`,
           }}
         />
         {/* Placeholder — replace with <video> or <Image> */}

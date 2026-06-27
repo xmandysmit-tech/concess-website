@@ -85,8 +85,8 @@ export default function CustomCursor() {
     };
   }, []);
 
-  const color = isLight ? "rgba(242,237,228,0.9)" : "rgba(22,18,16,0.9)";
-  const borderColor = isLight ? "rgba(242,237,228,0.7)" : "rgba(22,18,16,0.7)";
+  const color = isLight ? "rgba(242,237,228,0.9)" : "rgba(38,38,38,0.9)";
+  const borderColor = isLight ? "rgba(242,237,228,0.7)" : "rgba(38,38,38,0.7)";
 
   return (
     <>

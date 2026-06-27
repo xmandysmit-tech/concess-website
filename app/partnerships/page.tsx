@@ -21,7 +21,7 @@ export default function PartnershipsPage() {
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: "radial-gradient(circle at 15% 85%, #3D3330 0%, transparent 40%), radial-gradient(circle at 85% 15%, #2C2420 0%, transparent 50%)",
+            backgroundImage: "radial-gradient(circle at 15% 85%, #5C5450 0%, transparent 40%), radial-gradient(circle at 85% 15%, #4D403A 0%, transparent 50%)",
           }}
         />
         {/* Big background text */}

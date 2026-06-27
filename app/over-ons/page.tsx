@@ -26,7 +26,7 @@ export default function OverOnsPage() {
       <section className="relative min-h-screen flex flex-col justify-end overflow-hidden" style={{ background: "var(--color-dark-900)" }}>
         <div
           className="absolute inset-0"
-          style={{ backgroundImage: "radial-gradient(ellipse at 70% 30%, #3D3330 0%, transparent 50%), radial-gradient(ellipse at 10% 80%, #2C2420 0%, transparent 40%)" }}
+          style={{ backgroundImage: "radial-gradient(ellipse at 70% 30%, #5C5450 0%, transparent 50%), radial-gradient(ellipse at 10% 80%, #4D403A 0%, transparent 40%)" }}
         />
         {/* Background word */}
         <div
