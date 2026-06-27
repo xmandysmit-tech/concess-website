@@ -144,7 +144,7 @@ export const creators = [
     handle: "@enzoknol",
     title: "Nederland's grootste YouTuber",
     followers: "7,9M+",
-    bio: "Enzo bereikt dagelijks miljoenen kijkers met authentieke lifestyle content. Van gaming tot family — zijn publiek vertrouwt hem volledig, en dat vertaalt zich in campagneresultaten die voor zich spreken.",
+    bio: "Enzo Knol is de pionier van de Nederlandse vlog-scene. Sinds 2013 bouwde hij een van de grootste en meest loyale communities van het land op — dagelijkse content, echte avonturen en een publiek dat hem volledig vertrouwt. Als vader van Riven combineert hij authenticiteit met bereik op een manier die merken niet kunnen kopen, alleen verdienen.",
     platforms: ["YouTube", "Instagram", "TikTok", "Snapchat"],
     platformStats: [
       { platform: "YouTube", followers: "2,97M", url: "https://www.youtube.com/@EnzoKnol" },
@@ -168,7 +168,7 @@ export const creators = [
     handle: "@myronkoops",
     title: "Visueel storyteller & lifestyle creator",
     followers: "2,1M+",
-    bio: "Myron combineert lifestyle, mode en travel in een strak visueel verhaal. Zijn content voelt als editorial fotografie — merken die met hem werken stijgen direct in perceptie bij zijn publiek.",
+    bio: "Van topsportster tot content creator — Myron Koops bouwde samen met partner Enzo Knol het succesvolle sportplatform KP Active op. Ze combineert haar achtergrond als personal trainer met dagelijkse sportvideo's en lifestyle content, en inspireert een community van honderdduizenden volgers die haar op elk platform volgen.",
     platforms: ["YouTube", "Instagram", "TikTok", "Snapchat"],
     platformStats: [
       { platform: "YouTube", followers: "142K", url: "https://www.youtube.com/@kpactive" },
@@ -190,7 +190,7 @@ export const creators = [
     handle: "@debennies",
     title: "Het energiekste duo van NL",
     followers: "373K+",
-    bio: "Brett en Joey, beter bekend als De Bennies, zijn het meest herkenbare duo op Nederlands YouTube. Hun loyale fanbase volgt ze op elk platform — en deelt alles wat ze aanraken.",
+    bio: "Noël, Thijs en Enzo zijn De Bennies — elke vrijdag terug met een nieuw spraakmakend verhaal op hun podcast. Ze geven een eerlijk kijkje in hun leven, delen de meest 'Bennie'-achtige avonturen en bespreken dilemma's waar iedereen zich in herkent. Een Bennie is een Brabants woord voor iemand die wel eens iets onhandigs doet — en dat doet iedereen.",
     platforms: ["Instagram", "TikTok", "Podimo", "Spotify"],
     platformStats: [
       { platform: "Instagram", followers: "76,5K", url: "https://www.instagram.com/debennies/" },
