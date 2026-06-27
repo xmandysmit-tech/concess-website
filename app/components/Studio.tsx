@@ -94,9 +94,9 @@ export default function Studio() {
                   <div className={`absolute inset-0 bg-gradient-to-br ${s.gradient} transition-all duration-500`} style={{ transform: isHovered ? "scale(1.05)" : "scale(1)" }} />
                 )}
                 {/* Dark overlay over image */}
-                <div className="absolute inset-0 bg-dark-900 transition-opacity duration-300" style={{ opacity: isHovered ? 0.55 : 0.65 }} />
+                <div className="absolute inset-0 transition-opacity duration-300" style={{ background: "linear-gradient(to top, rgba(15,12,10,0.92) 0%, rgba(15,12,10,0.78) 100%)", opacity: isHovered ? 0.85 : 1 }} />
                 {/* Dim overlay when another is hovered */}
-                <div className="absolute inset-0 bg-dark-900 transition-opacity duration-300" style={{ opacity: isDimmed ? 0.35 : 0 }} />
+                <div className="absolute inset-0 bg-dark-900 transition-opacity duration-300" style={{ opacity: isDimmed ? 0.3 : 0 }} />
 
                 {/* Content */}
                 <div className="relative z-10 h-full flex flex-col justify-between p-5">
