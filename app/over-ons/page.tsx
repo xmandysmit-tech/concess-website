@@ -23,7 +23,7 @@ export default function OverOnsPage() {
               Over <span className="italic" style={{ color: "var(--color-taupe-300)" }}>Concess</span>
             </h1>
             <p className="text-linen-300/40 text-sm leading-relaxed max-w-xs">
-              Creatief gedreven content bureau sinds 2019. Van concept tot upload — en alles daartussen.
+              Creatief gedreven content bureau sinds 2019. Van concept tot upload en alles daartussen.
             </p>
           </div>
         </div>
