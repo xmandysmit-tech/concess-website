@@ -27,7 +27,7 @@ export default function AnimatedHero() {
       {/* Background */}
       <div className="absolute inset-0 bg-dark-900">
         <img
-          src="/images/EnzoKnol_Concess.png"
+          src="/images/Image_bg.png"
           alt=""
           className="absolute inset-0 w-full h-full object-cover opacity-40"
           style={{ objectPosition: "center top" }}
