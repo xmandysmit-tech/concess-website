@@ -47,6 +47,18 @@
   animation: marquee 25s linear infinite;
 }
 
+img, video {
+  -webkit-user-drag: none;
+  user-drag: none;
+  -webkit-user-select: none;
+  user-select: none;
+  pointer-events: none;
+}
+
+a img, button img {
+  pointer-events: auto;
+}
+
 .grain-overlay::after {
   content: "";
   position: fixed;

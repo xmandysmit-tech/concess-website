@@ -37,7 +37,7 @@ export default function CTAFooter() {
           </span>
 
           <div className="flex flex-wrap justify-center gap-8">
-            {["Werk", "Creators", "Partnerships", "Studio", "Over ons", "Contact"].map((item) => (
+            {["Creators", "Partnerships", "Studio", "Over ons", "Contact"].map((item) => (
               <a
                 key={item}
                 href={`/${item.toLowerCase().replace(/ /g, "-")}`}

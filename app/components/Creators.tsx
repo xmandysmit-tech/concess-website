@@ -35,7 +35,7 @@ export default function Creators() {
             href="/creators"
             className="flex items-center gap-2 text-xs tracking-wider uppercase text-linen-400 hover:text-linen-200 transition-colors"
           >
-            Meer over onze creators <span className="text-base">→</span>
+            Meer over de creators <span className="text-base">→</span>
           </a>
         </div>
 

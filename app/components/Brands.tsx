@@ -10,6 +10,7 @@ const brands = [
   { name: "Google", logo: "/logos/Google.png" },
   { name: "YouTube", logo: "/logos/YouTube.png" },
   { name: "Xbox", logo: "/logos/Xbox.png" },
+  { name: "Ministerie van Financiën", logo: "/logos/Ministerie_van_Financien.png" },
   { name: "Armani", logo: "/logos/Armani.png" },
   { name: "Dyson", logo: "/logos/Dyson.png" },
   { name: "HelloFresh", logo: "/logos/HelloFresh.png" },
@@ -38,7 +39,7 @@ export default function Brands() {
     <section className="py-16 bg-dark-900 border-t border-dark-700">
       <div className="max-w-7xl mx-auto px-6 md:px-12 mb-8">
         <span className="text-[10px] tracking-widest uppercase text-taupe-500" style={{ fontFamily: "var(--font-sans)" }}>
-          Merken waarmee we werkten
+          Brands we&apos;ve worked with
         </span>
       </div>
 
