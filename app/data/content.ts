@@ -194,10 +194,8 @@ export const creators = [
     platforms: ["Instagram", "TikTok", "Podimo", "Spotify"],
     platformStats: [
       { platform: "TikTok", followers: "186K", url: "https://www.tiktok.com/@debennies" },
-      { platform: "Snapchat", followers: "4,8K", url: "https://www.snapchat.com/@de.bennies" },
       { platform: "Podimo", followers: "30K+", url: "https://podimo.com/nl/shows/de-bennies-2" },
       { platform: "Spotify", followers: "62K", url: "https://open.spotify.com/show/3oiLRw0TiQySEInqNus2ik" },
-      { platform: "YouTube", followers: "18K", url: "https://www.youtube.com/@DeBenniesPodcast" },
     ],
     gradient: "from-neutral-600 via-neutral-800 to-neutral-950",
     accentColor: "#9E8B72",
