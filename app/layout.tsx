@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
-import { Playfair_Display } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
+});
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
-  variable: "--font-sans",
+  variable: "--font-body",
 });
 
 export const metadata: Metadata = {
@@ -16,7 +21,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="nl" className={`${playfair.variable} h-full`}>
+    <html lang="nl" className={`${inter.variable} ${playfair.variable} h-full`}>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

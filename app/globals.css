@@ -17,6 +17,7 @@
 
   --font-sans: "Inter", system-ui, sans-serif;
   --font-serif: "DM Serif Display", Georgia, serif;
+  --font-body: "Playfair Display", Georgia, serif;
 }
 
 @layer base {
@@ -27,6 +28,9 @@
   body {
     background-color: var(--color-linen-200);
     color: var(--color-dark-700);
+  }
+  p {
+    font-family: var(--font-body);
   }
   ::selection {
     background-color: var(--color-dark-900);
