@@ -160,7 +160,7 @@ export default function CreatorsPage() {
             {/* Bio */}
             <div className="bg-linen-100 border-b border-linen-300">
               <div className="max-w-7xl mx-auto px-6 md:px-12 py-12">
-                <p className="text-dark-700 text-sm leading-relaxed max-w-2xl">{c.bio}</p>
+                <p className="text-dark-700 text-sm leading-relaxed">{c.bio}</p>
               </div>
             </div>
 

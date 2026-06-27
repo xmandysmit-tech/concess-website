@@ -144,7 +144,7 @@ export const creators = [
     handle: "@enzoknol",
     title: "Content creator & vlogger",
     followers: "7,9M+",
-    bio: "Enzo filmt al jaren dagelijks zijn leven en neemt zijn kijkers mee in alles wat hij meemaakt. Van gekke avonturen tot gewone momenten thuis met zijn zoontje Riven — hij wordt gezien als een van de meest herkenbare en geliefde YouTubers van Nederland. Zijn community groeit al ruim tien jaar mee, en dat merk je.",
+    bio: "Enzo Knol is een Nederlandse vlogger die bekend staat om zijn energieke persoonlijkheid, positiviteit en het vermogen om zijn publiek te vermaken. In 2013 begon hij met het maken van dagelijkse video's op YouTube en heeft sindsdien meer dan 2,8 miljoen abonnees opgebouwd. Zijn video's bevatten de gekste avonturen waarmee hij zijn kijkers elke dag weet te entertainen. Naast zijn succesvolle YouTube-kanaal heeft Enzo een eigen merchandise-lijn en is hij actief op verschillende social media platformen. Hij is een van de bekendste YouTubers van Nederland en wordt gezien als een pionier in de Nederlandse vlog-scene.",
     platforms: ["YouTube", "Instagram", "TikTok", "Snapchat"],
     platformStats: [
       { platform: "YouTube", followers: "2,97M", url: "https://www.youtube.com/@EnzoKnol" },
