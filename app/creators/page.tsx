@@ -26,20 +26,11 @@ export default function CreatorsPage() {
 
       {/* Hero header */}
       <section className="relative overflow-hidden" style={{ background: "var(--color-dark-900)" }}>
-        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 pt-32 pb-10">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-            <div>
-              <span className="text-[10px] tracking-widest uppercase text-taupe-500 block mb-4">Creator Management</span>
-              <h1
-                style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(2.2rem, 4vw, 3.8rem)", lineHeight: "1", color: "white" }}
-              >
-                Exclusief <span className="italic" style={{ color: "var(--color-taupe-300)" }}>talent</span>
-              </h1>
-            </div>
-            <p className="text-linen-300/40 text-sm leading-relaxed max-w-xs">
-              Wij beheren een select gezelschap van creators op basis van talent, authenticiteit en bereik. Niet de meesten — de besten.
-            </p>
-          </div>
+        <div className="relative z-10 pt-32 pb-12 flex flex-col items-center text-center">
+          <h1 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(4rem, 10vw, 10rem)", lineHeight: "0.9", color: "white" }}>
+            concess<br />
+            <span className="italic" style={{ color: "var(--color-taupe-300)" }}>creators</span>
+          </h1>
         </div>
 
       </section>
