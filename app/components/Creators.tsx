@@ -78,11 +78,11 @@ function CreatorCard({ creator }: { creator: (typeof creators)[0] }) {
         <p className="text-taupe-400 text-xs tracking-wider uppercase">
           {creator.followers}
         </p>
-        <div className="flex gap-2 mt-3">
+        <div className="flex flex-wrap gap-1.5 mt-3">
           {creator.platforms.map((p) => (
             <span
               key={p}
-              className="text-[10px] tracking-wider uppercase border border-linen-300/20 text-linen-300/60 px-2.5 py-1 rounded-full"
+              className="text-[9px] tracking-wider uppercase border border-linen-300/20 text-linen-300/60 px-2 py-0.5 rounded-full"
             >
               {p}
             </span>
