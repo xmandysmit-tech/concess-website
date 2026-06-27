@@ -63,13 +63,6 @@ export default function AnimatedHero() {
             ))}
           </h1>
 
-          <p
-            className="text-linen-300/60 text-sm md:text-base leading-relaxed mb-10 max-w-md transition-all duration-700"
-            style={{ opacity: subVisible ? 1 : 0, transform: subVisible ? "translateY(0)" : "translateY(16px)", fontFamily: "var(--font-sans)" }}
-          >
-            Creatief bureau voor merken en creators die impact maken.
-          </p>
-
           <div
             className="flex items-center gap-4 transition-all duration-700"
             style={{ opacity: btnsVisible ? 1 : 0, transform: btnsVisible ? "translateY(0)" : "translateY(16px)" }}
