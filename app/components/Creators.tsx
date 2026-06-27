@@ -75,7 +75,7 @@ function CreatorCard({ creator }: { creator: (typeof creators)[0] }) {
         >
           {creator.name}
         </p>
-        <p className="text-taupe-400 text-xs tracking-wider uppercase">
+        <p className="text-taupe-400 text-xs tracking-wider uppercase font-bold" style={{ fontFamily: "var(--font-sans)" }}>
           {creator.followers}
         </p>
         <div className="flex flex-wrap gap-1.5 mt-3">
