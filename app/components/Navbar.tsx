@@ -89,7 +89,7 @@ export default function Navbar({ forceDark = false }: { forceDark?: boolean }) {
 
       {/* Mobile menu overlay */}
       {menuOpen && (
-        <div className="fixed inset-0 z-40 flex flex-col pt-16" style={{ background: "rgba(250,248,245,0.97)", backdropFilter: "blur(12px)" }}>
+        <div className="fixed inset-0 z-50 flex flex-col pt-16" style={{ background: "rgba(250,248,245,0.97)", backdropFilter: "blur(12px)" }}>
           <ul className="flex flex-col px-8 pt-10 gap-6">
             {navItems.map((item) => {
               const href = item === "Home" ? "/" : `/${item.toLowerCase().replace(/ /g, "-")}`;
