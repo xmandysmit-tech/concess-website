@@ -4,6 +4,15 @@ import HorizontalScroll from "../components/HorizontalScroll";
 import { featuredProjects, brands, stats } from "../data/content";
 
 const cases = featuredProjects;
+
+const steps = [
+  { num: "01", title: "Briefing", desc: "Jij vertelt wat je merk wil bereiken. Wij luisteren, stellen vragen en denken mee over doelgroep, boodschap en timing." },
+  { num: "02", title: "Creator Match", desc: "Op basis van jouw doelstellingen selecteren wij de creator(s) die het beste passen — op bereik, authenticiteit en relevantie." },
+  { num: "03", title: "Concept & Strategie", desc: "Wij ontwikkelen een concept dat past bij zowel het merk als de creator — zodat het voelt als eerlijke content, niet als reclame." },
+  { num: "04", title: "Productie", desc: "Van scripting en opnames tot editing en delivery. Wij regelen het volledige productieproces." },
+  { num: "05", title: "Publicatie & Resultaat", desc: "Na goedkeuring gaat de content live. Wij monitoren de performance en leveren een volledig rapport." },
+];
+
 const numbers = [
   { value: stats.totalViews,     label: "Totale views" },
   { value: stats.totalDeals,     label: "Brand deals" },
