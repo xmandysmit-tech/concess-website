@@ -70,7 +70,7 @@ export default function PartnershipsPage() {
         <span className="text-[10px] tracking-widest uppercase text-taupe-500 block mb-10">Partnerships</span>
 
         {/* Masonry-style grid */}
-        <div className="columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4">
+        <div className="columns-2 md:columns-2 lg:columns-3 gap-4 space-y-4">
           {shown.map((p, i) => {
             const tall = i % 5 === 0 || i % 5 === 3;
             return (
