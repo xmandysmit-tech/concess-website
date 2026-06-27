@@ -24,15 +24,17 @@ export default function StudioPage() {
       <Navbar forceDark />
 
       {/* Header */}
-      <section className="pt-40 pb-10 max-w-7xl mx-auto px-6 md:px-12">
-        <span className="text-[10px] tracking-widest uppercase text-taupe-500 block mb-4">Studio</span>
-        <h1 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(3rem, 6vw, 6rem)", lineHeight: "0.95", color: "var(--color-dark-900)" }}>
-          Wat we<br /><span className="italic">maken</span>
-        </h1>
-        <p className="text-taupe-500 mt-6 max-w-lg text-sm leading-relaxed">
-          Naast onze management en partnership tak heeft Concess een volwaardige studio.
-          Van video tot web — wij leveren het volledige creatieve pakket.
-        </p>
+      <section className="relative overflow-hidden" style={{ background: "var(--color-dark-900)" }}>
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 pt-36 pb-12">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <h1 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(2.2rem, 4vw, 3.8rem)", lineHeight: "1", color: "white" }}>
+              Concess <span className="italic" style={{ color: "var(--color-taupe-300)" }}>studio</span>
+            </h1>
+            <p className="text-linen-300/40 text-sm leading-relaxed max-w-xs">
+              Naast onze management en partnership tak heeft Concess een volwaardige studio. Van video tot web — wij leveren het volledige creatieve pakket.
+            </p>
+          </div>
+        </div>
       </section>
 
       {/* Services compact grid */}
