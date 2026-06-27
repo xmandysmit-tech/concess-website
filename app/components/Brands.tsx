@@ -10,7 +10,7 @@ const brands = [
   { name: "Google", logo: "/logos/Google.png" },
   { name: "YouTube", logo: "/logos/YouTube.png" },
   { name: "Xbox", logo: "/logos/Xbox.png" },
-  { name: "Armani", logo: "/logos/Armani_v2.png" },
+  { name: "Armani", logo: "/logos/Armani_beauty.png" },
   { name: "Dyson", logo: "/logos/Dyson.png" },
   { name: "HelloFresh", logo: "/logos/HelloFresh.png" },
   { name: "Jumbo", logo: "/logos/Jumbo.png" },
