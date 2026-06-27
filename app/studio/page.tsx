@@ -50,13 +50,11 @@ export default function StudioPage() {
         <div className="max-w-7xl mx-auto px-6 md:px-12">
 
           {/* Header + filters */}
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
-            <div>
-              <span className="text-[10px] tracking-widest uppercase text-taupe-500 block mb-3">Studio</span>
-              <h2 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(1.8rem, 3vw, 3rem)", lineHeight: "1", color: "var(--color-dark-900)" }}>
-                Producties & Projecten<br /><span className="italic">waar we trots op zijn</span>
-              </h2>
-            </div>
+          <div className="mb-10">
+            <span className="text-[10px] tracking-widest uppercase text-taupe-500 block mb-3">Concess Studio</span>
+            <h2 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(1.8rem, 3vw, 3rem)", lineHeight: "1.1", color: "var(--color-dark-900)" }} className="mb-8">
+              Producties & Projecten <span className="italic">waar we trots op zijn</span>
+            </h2>
             <div className="flex flex-wrap gap-2">
               {filters.map((f) => {
                 const isActive = activeFilter === f.type;
