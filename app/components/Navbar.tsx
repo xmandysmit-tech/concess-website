@@ -95,10 +95,11 @@ export default function Navbar({ forceDark = false }: { forceDark?: boolean }) {
             <Link href="/" onClick={() => setMenuOpen(false)} style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "1.25rem", color: "var(--color-dark-900)" }}>
               Concess.
             </Link>
-            <button className="flex flex-col justify-center items-center w-8 h-8 gap-1.5" onClick={() => setMenuOpen(false)}>
-              <span className="block w-5 h-px" style={{ background: "var(--color-dark-900)", transform: "rotate(45deg) translate(2px, 2px)" }} />
-              <span className="block w-5 h-px" style={{ background: "var(--color-dark-900)", opacity: 0 }} />
-              <span className="block w-5 h-px" style={{ background: "var(--color-dark-900)", transform: "rotate(-45deg) translate(2px, -2px)" }} />
+            <button className="flex items-center justify-center w-10 h-10" onClick={() => setMenuOpen(false)}>
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="var(--color-dark-900)" strokeWidth="1.5" strokeLinecap="round">
+                <line x1="1" y1="1" x2="17" y2="17"/>
+                <line x1="17" y1="1" x2="1" y2="17"/>
+              </svg>
             </button>
           </div>
           {/* Nav items */}
