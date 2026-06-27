@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Navbar from "../components/Navbar";
+import CTAFooter from "../components/CTAFooter";
 
 const socials = [
   {
@@ -175,6 +176,7 @@ export default function ContactPage() {
           </div>
         </div>
       </div>
+      <CTAFooter />
     </main>
   );
 }

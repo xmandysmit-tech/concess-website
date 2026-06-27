@@ -17,7 +17,7 @@ export default function OverOnsPage() {
 
       {/* Header — compact dark, matching other pages */}
       <section className="relative overflow-hidden" style={{ background: "var(--color-dark-900)" }}>
-        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 pt-36 pb-12">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 pt-24 md:pt-36 pb-12">
           <div className="flex flex-col md:flex-row md:items-start justify-between gap-6">
             <h1 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(2.2rem, 4vw, 3.8rem)", lineHeight: "1", color: "white" }}>
               Over <span className="italic" style={{ color: "var(--color-taupe-300)" }}>Concess</span>
@@ -30,7 +30,7 @@ export default function OverOnsPage() {
       </section>
 
       {/* Story */}
-      <section className="py-24 max-w-7xl mx-auto px-6 md:px-12">
+      <section className="py-14 md:py-24 max-w-7xl mx-auto px-6 md:px-12">
         <div className="grid md:grid-cols-12 gap-12">
           <div className="md:col-span-5">
             <span className="text-[10px] tracking-widest uppercase text-taupe-500 block mb-6">Ons verhaal</span>
@@ -73,7 +73,7 @@ export default function OverOnsPage() {
       </section>
 
       {/* Socials */}
-      <section className="py-24 max-w-7xl mx-auto px-6 md:px-12">
+      <section className="py-14 md:py-24 max-w-7xl mx-auto px-6 md:px-12">
         <span className="text-[10px] tracking-widest uppercase text-taupe-500 block mb-4">Volg ons</span>
         <h2
           style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(2rem, 3.5vw, 3rem)" }}

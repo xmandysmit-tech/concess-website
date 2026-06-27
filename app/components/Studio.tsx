@@ -56,7 +56,7 @@ export default function Studio() {
   const [hovered, setHovered] = useState<string | null>(null);
 
   return (
-    <section className="py-24 bg-linen-100">
+    <section className="py-14 md:py-24 bg-linen-100">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="flex items-end justify-between mb-10">
           <div>

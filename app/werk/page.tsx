@@ -18,7 +18,7 @@ export default function WerkPage() {
       <Navbar forceDark />
 
       {/* Header */}
-      <section className="pt-36 pb-10 max-w-7xl mx-auto px-6 md:px-12">
+      <section className="pt-24 md:pt-36 pb-10 max-w-7xl mx-auto px-6 md:px-12">
         <div className="flex items-end justify-between">
           <div>
             <span className="text-[10px] tracking-widest uppercase text-taupe-500 block mb-3">Selected Work</span>

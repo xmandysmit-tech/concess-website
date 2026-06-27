@@ -25,7 +25,7 @@ const creators = [
 
 export default function Creators() {
   return (
-    <section className="py-24 bg-dark-900">
+    <section className="py-14 md:py-24 bg-dark-900">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="flex items-center justify-between mb-10">
           <span className="text-[10px] tracking-widest2 uppercase text-taupe-500">
