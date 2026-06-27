@@ -39,7 +39,7 @@ export default function StudioPage() {
               Concess <span className="italic" style={{ color: "var(--color-taupe-300)" }}>studio</span>
             </h1>
             <p className="text-linen-300/40 text-sm leading-relaxed max-w-xs">
-              Naast onze management en partnership tak heeft Concess een creative studio. Van video tot event, wij leveren verschillende creatieve diensten.
+              Naast onze management en partnership tak heeft Concess een creative studio. Van podcasts en producties tot AR Filters en graphic design.
             </p>
           </div>
         </div>
