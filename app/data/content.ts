@@ -190,7 +190,7 @@ export const creators = [
     handle: "@debennies",
     title: "Podcast creators & entertainers",
     followers: "373K+",
-    bio: "Noël, Thijs en Enzo delen in elke podcastaflevering een spraakmakend verhaal, geven een eerlijk inkijkje in hun leven en bespreken alles wat ze bezighoudt. 'Een Bennie' is een Brabants woord voor iemand die wel eens iets onhandigs doet. Iedereen is wel eens een Bennie, toch? 😉",
+    bio: "De Bennies zijn het entertainmenttrio bestaande uit Noël, Thijs en Enzo. Met hun humor, spontane energie en sterke onderlinge chemie weten ze altijd hun publiek te vermaken. Of het nu gaat om podcasts, online formats of andere creatieve projecten, hun open gesprekken, herkenbare verhalen en onverwachte momenten zorgen keer op keer voor leuke en mooie momenten. Authentiek, toegankelijk en altijd met een flinke dosis gezelligheid.",
     platforms: ["Instagram", "TikTok", "Podimo", "Spotify"],
     platformStats: [
       { platform: "Instagram", followers: "76,5K", url: "https://www.instagram.com/debennies/" },
