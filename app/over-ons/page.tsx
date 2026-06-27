@@ -88,14 +88,13 @@ export default function OverOnsPage() {
               href={s.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex flex-col justify-between p-6 rounded-2xl border border-linen-300 hover:border-dark-900 hover:bg-dark-900 transition-all duration-300"
-              style={{ aspectRatio: "1" }}
+              className="group flex items-center gap-4 p-5 rounded-2xl border border-linen-300 hover:border-dark-900 hover:bg-dark-900 transition-all duration-300"
             >
-              <div className="text-dark-700 group-hover:text-linen-200 transition-colors">
+              <div className="text-dark-700 group-hover:text-linen-200 transition-colors shrink-0">
                 {s.icon}
               </div>
               <div>
-                <p className="text-[10px] tracking-widest uppercase text-taupe-400 group-hover:text-taupe-500 mb-1 transition-colors">{s.platform}</p>
+                <p className="text-[10px] tracking-widest uppercase text-taupe-400 group-hover:text-taupe-500 mb-0.5 transition-colors">{s.platform}</p>
                 <p className="text-dark-900 group-hover:text-white text-sm transition-colors" style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}>{s.handle}</p>
               </div>
             </a>
