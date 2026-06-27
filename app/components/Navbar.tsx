@@ -30,10 +30,10 @@ export default function Navbar({ forceDark = false }: { forceDark?: boolean }) {
         </Link>
 
         <ul className="hidden md:flex items-center gap-8">
-          {["Werk", "Creators", "Partnerships", "Studio", "Over ons"].map((item) => (
+          {["Home", "Werk", "Creators", "Partnerships", "Studio", "Over ons"].map((item) => (
             <li key={item}>
               <Link
-                href={`/${item.toLowerCase().replace(/ /g, "-")}`}
+                href={item === "Home" ? "/" : `/${item.toLowerCase().replace(/ /g, "-")}`}
                 className="text-xs tracking-widest uppercase transition-opacity hover:opacity-60"
                 style={{ color: dark ? "var(--color-dark-700)" : "white" }}
               >
