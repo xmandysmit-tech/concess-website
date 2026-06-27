@@ -24,6 +24,7 @@
   html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
+    background-color: var(--color-dark-900);
   }
   body {
     background-color: var(--color-linen-100);
