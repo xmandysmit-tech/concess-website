@@ -74,10 +74,10 @@ export default function AnimatedHero() {
       </div>
 
       {/* Dark overlay */}
-      <div className="absolute inset-0 pointer-events-none" style={{ background: "rgba(30,28,26,0.65)" }} />
+      <div className="absolute inset-0 pointer-events-none" style={{ background: "rgba(20,18,16,0.82)" }} />
       {/* Extra gradient bottom + left for text readability */}
-      <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(to bottom, transparent 40%, rgba(30,28,26,0.9) 80%, rgba(30,28,26,1) 100%)" }} />
-      <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(to right, rgba(30,28,26,0.6) 0%, transparent 60%)" }} />
+      <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(to bottom, transparent 30%, rgba(20,18,16,0.95) 75%, rgba(20,18,16,1) 100%)" }} />
+      <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(to right, rgba(20,18,16,0.75) 0%, transparent 55%)" }} />
 
       {/* Main headline */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pb-20 w-full">
