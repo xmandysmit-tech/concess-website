@@ -41,7 +41,7 @@ const services = [
   {
     num: "07", title: "Web Design", desc: "Sites die converteren.",
     gradient: "from-neutral-800 to-neutral-950", accent: "#C9B99A",
-    img: "/images/studio/webdesign3.png",
+    img: "/images/studio/webdesign4.png",
     icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" className="w-6 h-6"><rect x="3" y="3" width="18" height="18" rx="2" /><path d="M3 9h18M9 21V9" /></svg>,
   },
   {
