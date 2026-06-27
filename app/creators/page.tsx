@@ -33,9 +33,9 @@ function PlatformIcon({ platform }: { platform: string }) {
 }
 
 const creatorPortraits: Record<string, string> = {
-  "Enzo Knol": "/images/creators/enzo_knol.jpg",
-  "Myron Koops": "/images/creators/myron_koops.jpg",
-  "De Bennies": "/images/creators/de_bennies.jpg",
+  "Enzo Knol": "/images/enzo_knol.jpg",
+  "Myron Koops": "/images/myron_koops.jpg",
+  "De Bennies": "/images/de_bennies.jpg",
 };
 
 export default function CreatorsPage() {
@@ -68,7 +68,7 @@ export default function CreatorsPage() {
               Concess <span className="italic" style={{ color: "var(--color-taupe-300)" }}>creators</span>
             </h1>
             <p className="text-linen-300/40 text-sm leading-relaxed max-w-xs">
-              Wij verzorgen het exclusieve management van een select aantal content creators en podcasts. Van strategie en partnerships tot productie en dagelijkse begeleiding.
+              Wij verzorgen het exclusieve management van een select aantal content creators. Van strategie en partnerships tot dagelijkse begeleiding.
             </p>
           </div>
         </div>
