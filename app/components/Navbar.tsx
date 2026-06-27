@@ -89,9 +89,9 @@ export default function Navbar({ forceDark = false }: { forceDark?: boolean }) {
 
       {/* Mobile menu overlay */}
       {menuOpen && (
-        <div className="fixed top-0 left-0 right-0 z-50 flex flex-col" style={{ background: "rgba(250,248,245,0.97)", backdropFilter: "blur(12px)", borderBottom: "1px solid var(--color-linen-300)" }}>
+        <div className="fixed top-0 left-0 right-0 z-50 flex flex-col" style={{ background: "rgba(250,248,245,0.97)", backdropFilter: "blur(12px)", borderBottom: "1px solid var(--color-linen-300)", paddingTop: "env(safe-area-inset-top)" }}>
           {/* Logo row */}
-          <div className="px-6 h-16 flex items-center justify-between">
+          <div className="px-6 pr-8 h-16 flex items-center justify-between">
             <Link href="/" onClick={() => setMenuOpen(false)} style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "1.25rem", color: "var(--color-dark-900)" }}>
               Concess.
             </Link>
