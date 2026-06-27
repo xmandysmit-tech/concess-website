@@ -120,7 +120,7 @@ export default function Studio() {
             return (
               <div
                 key={s.num}
-                className="relative overflow-hidden rounded-2xl cursor-pointer group"
+                className="relative overflow-hidden rounded-2xl group"
                 style={{ height: "190px" }}
                 onMouseEnter={() => setHovered(s.num)}
                 onMouseLeave={() => setHovered(null)}
