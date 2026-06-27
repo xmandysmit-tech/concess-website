@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Navbar({ forceDark = false }: { forceDark?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
@@ -12,6 +13,7 @@ export default function Navbar({ forceDark = false }: { forceDark?: boolean }) {
   }, []);
 
   const dark = scrolled || forceDark;
+  const pathname = usePathname();
 
   return (
     <nav
@@ -29,17 +31,21 @@ export default function Navbar({ forceDark = false }: { forceDark?: boolean }) {
         </Link>
 
         <ul className="hidden md:flex items-center gap-8">
-          {["Home", "Creators", "Partnerships", "Studio", "Over ons"].map((item) => (
-            <li key={item}>
-              <Link
-                href={item === "Home" ? "/" : `/${item.toLowerCase().replace(/ /g, "-")}`}
-                className="text-xs tracking-widest uppercase transition-opacity hover:opacity-60"
-                style={{ color: dark ? "var(--color-dark-700)" : "white" }}
-              >
-                {item}
-              </Link>
-            </li>
-          ))}
+          {["Home", "Creators", "Partnerships", "Studio", "Over ons"].map((item) => {
+            const href = item === "Home" ? "/" : `/${item.toLowerCase().replace(/ /g, "-")}`;
+            const isActive = pathname === href;
+            return (
+              <li key={item}>
+                <Link
+                  href={href}
+                  className="text-xs tracking-widest uppercase transition-opacity hover:opacity-60"
+                  style={{ color: dark ? "var(--color-dark-700)" : "white", fontWeight: isActive ? "700" : "400" }}
+                >
+                  {item}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
 
         <Link
