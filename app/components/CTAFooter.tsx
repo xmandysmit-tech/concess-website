@@ -55,7 +55,7 @@ export default function CTAFooter() {
               { name: "Facebook", href: "https://www.facebook.com/concess.nl", icon: <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg> },
               { name: "LinkedIn", href: "https://www.linkedin.com/company/68914639/", icon: <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg> },
             ].map((s) => (
-              <a key={s.name} href={s.href} title={s.name} className="text-linen-300/40 hover:text-linen-300 transition-colors">
+              <a key={s.name} href={s.href} title={s.name} target="_blank" rel="noopener noreferrer" className="text-linen-300/40 hover:text-linen-300 transition-colors">
                 {s.icon}
               </a>
             ))}
