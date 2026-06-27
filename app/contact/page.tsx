@@ -91,7 +91,7 @@ export default function ContactPage() {
         <div className="mb-12">
           <span className="text-[10px] tracking-widest uppercase text-taupe-500 block mb-3" style={{ fontFamily: "var(--font-sans)" }}>Contact</span>
           <h1 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(2.2rem, 4vw, 3.5rem)", lineHeight: "1.05", color: "var(--color-dark-900)" }}>
-            Laten we<br /><span className="italic text-taupe-400">samenwerken.</span>
+            Neem<br /><span className="italic text-taupe-400">contact op.</span>
           </h1>
         </div>
 
@@ -111,13 +111,10 @@ export default function ContactPage() {
           {/* Right — info + form */}
           <div className="flex flex-col justify-between h-full" style={{ minHeight: "500px" }}>
 
-            {/* Tagline + email */}
+            {/* Email */}
             <div className="mb-10">
-              <p className="text-taupe-500 text-xs mb-3" style={{ fontFamily: "var(--font-sans)" }}>
+              <p className="text-taupe-500 text-xs mb-1" style={{ fontFamily: "var(--font-sans)" }}>
                 Contact informatie: <a href="mailto:info@concess.nl" className="text-dark-900 hover:text-taupe-600 transition-colors">info@concess.nl</a>
-              </p>
-              <p style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(1.1rem, 2vw, 1.5rem)", lineHeight: "1.4", color: "var(--color-dark-800)" }} className="italic">
-                Merk, creator of gewoon een goed idee? Stuur ons een bericht en we reageren snel.
               </p>
             </div>
 
@@ -178,10 +175,6 @@ export default function ContactPage() {
               </form>
             )}
 
-            {/* Email */}
-            <div className="mt-8 pt-6" style={{ borderTop: "1px solid var(--color-linen-300)" }}>
-              <a href="mailto:info@concess.nl" className="text-taupe-500 hover:text-dark-900 text-xs transition-colors" style={{ fontFamily: "var(--font-sans)" }}>info@concess.nl</a>
-            </div>
           </div>
         </div>
       </div>
