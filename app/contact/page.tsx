@@ -60,29 +60,6 @@ export default function ContactPage() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
-                {/* Type selector */}
-                <div>
-                  <p className="text-[10px] tracking-widest uppercase text-taupe-500 mb-3">Waar gaat het over?</p>
-                  <div className="grid grid-cols-2 gap-2">
-                    {options.map((o) => (
-                      <button
-                        key={o.id}
-                        type="button"
-                        onClick={() => setSelected(o.id)}
-                        className="text-left p-4 rounded-xl border transition-all duration-200"
-                        style={
-                          selected === o.id
-                            ? { borderColor: "var(--color-taupe-400)", background: "var(--color-dark-700)" }
-                            : { borderColor: "var(--color-dark-700)", background: "transparent" }
-                        }
-                      >
-                        <p className="text-white text-sm font-medium">{o.label}</p>
-                        <p className="text-linen-300/40 text-[11px] mt-0.5">{o.desc}</p>
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
                 {/* Fields */}
                 {[
                   { name: "name", label: "Naam", type: "text", placeholder: "Jouw naam" },
