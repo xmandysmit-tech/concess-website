@@ -8,8 +8,9 @@ export function generateStaticParams() {
   return partnershipCases.map((p) => ({ slug: p.slug }));
 }
 
-export default function PartnershipPage({ params }: { params: { slug: string } }) {
-  const project = partnershipCases.find((p) => p.slug === params.slug);
+export default async function PartnershipPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const project = partnershipCases.find((p) => p.slug === slug);
   if (!project) notFound();
 
   const images = project.gallery.filter((g) => g.type === "image");
