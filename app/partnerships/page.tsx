@@ -84,15 +84,15 @@ export default function PartnershipsPage() {
                 alt={p.brand}
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 55%)" }} />
+              <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.3) 50%, transparent 75%)" }} />
               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ background: "rgba(0,0,0,0.25)" }}>
                 <span className="text-[10px] tracking-widest uppercase text-white border border-white/40 px-4 py-2 rounded-full">
                   Bekijk project
                 </span>
               </div>
-              <div className="absolute bottom-0 left-0 right-0 p-5">
-                <span className="text-[9px] tracking-widest uppercase text-white/50 block mb-1">{p.creator} · {p.year}</span>
-                <h3 className="text-white text-lg" style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}>{p.brand}</h3>
+              <div className="absolute bottom-0 left-0 right-0 p-4">
+                <span className="text-[9px] tracking-widest uppercase text-white/60 block mb-0.5" style={{ fontWeight: 600 }}>{p.creator} · {p.year}</span>
+                <h3 className="text-white" style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "1.1rem", lineHeight: 1.2 }}>{p.brand}</h3>
               </div>
             </Link>
           ))}
@@ -108,11 +108,10 @@ export default function PartnershipsPage() {
                 ? <img src={p.img} alt={p.brand} className="absolute inset-0 w-full h-full object-cover" />
                 : <div className={`absolute inset-0 bg-gradient-to-br ${p.gradient}`} />
               }
-              <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 55%)" }} />
-              <div className="absolute bottom-0 left-0 right-0 p-5">
-                <span className="text-[9px] tracking-widest uppercase text-white/50 block mb-1">{p.creator}</span>
-                <h3 className="text-white text-lg" style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}>{p.brand}</h3>
-                {p.views && <p className="text-white/40 text-xs mt-1">{p.views} views</p>}
+              <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.3) 50%, transparent 75%)" }} />
+              <div className="absolute bottom-0 left-0 right-0 p-4">
+                <span className="text-[9px] tracking-widest uppercase text-white/60 block mb-0.5" style={{ fontWeight: 600 }}>{p.creator}</span>
+                <h3 className="text-white" style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "1.1rem", lineHeight: 1.2 }}>{p.brand}</h3>
               </div>
             </div>
           ))}
