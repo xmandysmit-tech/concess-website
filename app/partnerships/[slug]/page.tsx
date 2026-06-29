@@ -97,80 +97,41 @@ export default async function PartnershipPage({ params }: { params: Promise<{ sl
       </section>
 
 
-      {/* ── SEIZOENEN + GASTEN ── */}
-      {seasons.length > 0 && (
-        <section className="py-12 md:py-16 max-w-7xl mx-auto px-6 md:px-12">
-          <span className="text-[10px] tracking-widest uppercase text-taupe-500 block mb-6">De samenwerking</span>
-          <div className="grid md:grid-cols-3 gap-3">
-            {seasons.map((s) => {
-              const seasonGuests = s.guestCount > 0 ? (project.guests?.slice(s.guestOffset, s.guestOffset + s.guestCount) ?? []) : [];
-              return (
-                <div key={s.label} className="rounded-2xl p-6 flex flex-col gap-4" style={{ background: "var(--color-dark-900)" }}>
-                  <div>
-                    <span className="text-[9px] tracking-widest uppercase mb-2 block" style={{ color: "var(--color-taupe-600)" }}>{s.year}</span>
-                    <h3 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "1.2rem", color: "white" }}>{s.label}</h3>
-                    <p className="text-xs leading-relaxed mt-2" style={{ color: "var(--color-taupe-400)", fontFamily: "'Playfair Display', Georgia, serif" }}>{s.desc}</p>
-                  </div>
-                  {/* Gasten */}
-                  {seasonGuests.length > 0 && (
-                    <div className="pt-3 border-t" style={{ borderColor: "rgba(255,255,255,0.07)" }}>
-                      <span className="text-[9px] tracking-widest uppercase mb-3 block" style={{ color: "var(--color-taupe-600)" }}>Gasten</span>
-                      <div className="flex gap-3">
-                        {seasonGuests.map((g, i) => (
-                          <div key={i} className="flex flex-col items-center gap-1.5" style={{ width: 56 }}>
-                            <div className="rounded-xl overflow-hidden w-full flex items-center justify-center" style={{ aspectRatio: "3/4", background: "rgba(255,255,255,0.06)" }}>
-                              {g.img
-                                ? <img src={g.img} alt={g.name} className="w-full h-full object-cover object-top" />
-                                : <span className="text-[8px] text-center px-1" style={{ color: "rgba(255,255,255,0.2)" }}>Foto volgt</span>
-                              }
-                            </div>
-                            <p className="text-[9px] text-center leading-tight" style={{ color: "rgba(255,255,255,0.4)" }}>{g.name}</p>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        </section>
-      )}
+      {/* ── GASTEN + TRAILER naast elkaar ── */}
+      {(project.guests?.length || youtubeId) ? (
+        <section className="pt-4 pb-12 md:pt-6 md:pb-16 max-w-7xl mx-auto px-6 md:px-12">
+          <div className="grid md:grid-cols-2 gap-4 items-start">
 
-      {/* ── MILESTONE + TRAILER naast elkaar ── */}
-      <section className="pb-12 md:pb-16 max-w-7xl mx-auto px-6 md:px-12">
-        <div className="grid md:grid-cols-2 gap-4">
-
-          {/* Milestone */}
-          {project.stats?.some(s => s.label.toLowerCase().includes("stream")) && (
-            <div className="flex flex-col gap-3">
-              <span className="text-[10px] tracking-widest uppercase" style={{ color: "var(--color-taupe-500)" }}>Mijlpaal</span>
-              <div className="rounded-2xl overflow-hidden flex flex-row" style={{ aspectRatio: "16/9", background: "var(--color-dark-900)" }}>
-                {/* Foto links — vierkant (hoogte = kaardhoogte) */}
-                <div className="flex-shrink-0" style={{ aspectRatio: "1/1", height: "100%" }}>
-                  <img
-                    src="/images/Partnerships/de-bennies/podimo-s2/miljoen.jpg"
-                    alt="1 Miljoen Streams"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                {/* Tekst rechts */}
-                <div className="flex-1 px-6 py-5 flex flex-col justify-center overflow-hidden">
-                  <h2 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(1rem, 1.6vw, 1.6rem)", color: "white", lineHeight: 1.1 }}>
-                    Waar we <span className="italic" style={{ color: "var(--color-taupe-300)" }}>trots</span> op zijn
-                  </h2>
-                  <p className="mt-3 text-xs leading-relaxed" style={{ color: "var(--color-taupe-400)", fontFamily: "'Playfair Display', Georgia, serif" }}>
-                    De Bennies podcast stond vrijwel direct op #1 in de Top Podcasts Netherlands chart. Met 10 afleveringen online nog steeds top 5 — en als een van de eersten met video op Spotify. Binnen 5 afleveringen al <strong style={{ color: "white" }}>1 miljoen streams</strong>.
+            {/* Gasten */}
+            {project.guests && project.guests.length > 0 && (
+              <div className="flex flex-col gap-3 h-full">
+                <span className="text-[10px] tracking-widest uppercase" style={{ color: "var(--color-taupe-500)" }}>Gasten</span>
+                <div className="rounded-2xl p-6 flex flex-col flex-1" style={{ background: "var(--color-dark-900)" }}>
+                  <h3 className="mb-1" style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "1.1rem", color: "white", lineHeight: 1.2 }}>
+                    Spraakmakende gasten<br /><span className="italic" style={{ color: "var(--color-taupe-300)" }}>bij de Bennies</span>
+                  </h3>
+                  <p className="text-xs leading-relaxed mb-5" style={{ color: "rgba(255,255,255,0.35)", fontFamily: "'Playfair Display', Georgia, serif" }}>
+                    In seizoen 3 en 4 mochten we een aantal bijzondere gasten verwelkomen in de studio van De Bennies. Van bekende YouTubers tot entertainers uit de Nederlandse scene. Elk gesprek bracht een unieke energie mee en zorgde voor enkele van de meest besproken afleveringen van het seizoen.
                   </p>
+                  <div className="grid grid-cols-2 gap-x-4 gap-y-3">
+                    {project.guests.map((g, i) => (
+                      <div key={i} className="flex items-center gap-3 min-w-0">
+                        <div className="rounded-full overflow-hidden flex-shrink-0" style={{ width: 36, height: 36 }}>
+                          {g.img && <img src={g.img} alt={g.name} className="w-full h-full object-cover object-top" />}
+                        </div>
+                        <span className="text-[11px] leading-tight truncate" style={{ color: "rgba(255,255,255,0.6)" }}>{g.name}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
-          )}
+            )}
 
-          {/* Trailer */}
-          {youtubeId && <TrailerEmbed youtubeId={youtubeId} />}
-        </div>
-      </section>
+            {/* Trailer */}
+            {youtubeId && <TrailerEmbed youtubeId={youtubeId} />}
+          </div>
+        </section>
+      ) : null}
 
       <CTAFooter />
     </main>

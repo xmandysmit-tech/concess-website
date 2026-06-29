@@ -264,7 +264,7 @@ export const partnershipCases: PartnershipCase[] = [
     hoverVideo: "https://www.youtube.com/watch?v=hUpePaNRUc0",
     gradient: "from-pink-900 to-zinc-950",
     tagline: "Exclusief op Podimo",
-    description: "Samen met Podimo produceerde Concess maar liefst drie seizoenen van de De Bennies podcast — seizoen 2, 3 en 4. Het entertainmenttrio Noël, Thijs en Enzo groeide uit tot een van de populairste podcast-formats van Nederland. Concess begeleidde elk seizoen volledig: van contentstrategie en productieplanning tot de promotiecampagne en lancering. De podcast bereikte 1 miljoen streams, stond #1 in de Podimo NL charts en bouwde een trouwe community op van tienduizenden vaste luisteraars.",
+    description: "Samen met Podimo produceerde Concess maar liefst drie seizoenen van de De Bennies podcast: seizoen 2, 3 en 4. Het entertainmenttrio Noël, Thijs en Enzo groeide uit tot een van de populairste podcast-formats van Nederland. Concess begeleidde elk seizoen volledig: van contentstrategie en productieplanning tot de promotiecampagne en lancering. De podcast bereikte 1 miljoen streams, stond #1 in de Podimo NL charts en bouwde een trouwe community op van tienduizenden vaste luisteraars.",
     services: ["Podcast Productie", "Contentstrategie", "Brand Partnership", "Promotie & Marketing"],
     stats: [
       { value: "1M+", label: "Streams" },
@@ -292,9 +292,22 @@ export const partnershipCases: PartnershipCase[] = [
     ],
     gallery: [
       { type: "image", src: "/images/Partnerships/de-bennies/podimo-s2/artwork.jpg", alt: "Podimo x De Bennies artwork" },
-      { type: "image", src: "/images/Partnerships/de-bennies/podimo-s2/persfoto.jpg", alt: "De Bennies persfoto" },
-      { type: "image", src: "/images/Partnerships/de-bennies/podimo-s2/noel.jpg", alt: "Noël persfoto" },
-      { type: "image", src: "/images/Partnerships/de-bennies/podimo-s2/thijs.jpg", alt: "Thijs persfoto" },
+    ],
+  },
+  {
+    slug: "de-bennies-productie",
+    brand: "Concess Studio",
+    creator: "De Bennies",
+    category: "Podcast Productie",
+    year: "2023 – 2026",
+    cover: "/images/Partnerships/De Bennies/Podimo x De Bennies - Seizoen 2/De Bennies - Persfoto 1.jpg",
+    hoverVideo: "https://www.youtube.com/watch?v=hUpePaNRUc0",
+    gradient: "from-stone-700 to-neutral-950",
+    tagline: "Concess Studio",
+    description: "Van opname tot lancering produceerde Concess Studio De Bennies podcast van begin tot eind. Volledige productie, audio-editing, videomontage en distributiestrategie over meerdere seizoenen.",
+    services: ["Podcast Productie", "Audio & Video Editing", "Distributiestrategie", "Contentstrategie"],
+    gallery: [
+      { type: "image", src: "/images/Partnerships/De Bennies/Podimo x De Bennies - Seizoen 2/De Bennies - Persfoto 1.jpg", alt: "De Bennies persfoto" },
     ],
   },
 ];
@@ -332,10 +345,10 @@ export const stats = {
 export const aboutText = {
   heroTitle: "Wij zijn",
   heroTitleItalic: "Concess.",
-  storyTitle: "Niet de meeste campagnes — de beste.",
+  storyTitle: "Niet de meeste campagnes, de beste.",
   storyParagraphs: [
-    "Concess begon met één simpele overtuiging: de beste campagnes zijn niet de luidste, maar de meest authentieke. Wij verbinden merken aan creators die écht passen — en zorgen dat die samenwerking voelt als echte content, niet als advertentie.",
-    "Vanuit Nederland werken wij samen met de grootste creators van het land. Van exclusief creator management tot full-service brand partnerships en studio productie — wij zijn de verbindende schakel tussen talent en merken die willen groeien.",
+    "Concess begon met één simpele overtuiging: de beste campagnes zijn niet de luidste, maar de meest authentieke. Wij verbinden merken aan creators die écht passen en zorgen dat die samenwerking voelt als echte content, niet als advertentie.",
+    "Vanuit Nederland werken wij samen met de grootste creators van het land. Van exclusief creator management tot full-service brand partnerships en studio productie: wij zijn de verbindende schakel tussen talent en merken die willen groeien.",
     "Geen tussenpersonen. Geen overhead. Gewoon mensen die geloven in wat ze maken.",
   ],
   numbers: [
