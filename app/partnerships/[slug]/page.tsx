@@ -157,10 +157,20 @@ export default async function PartnershipPage({ params }: { params: Promise<{ sl
 
           {/* Milestone */}
           {project.stats?.some(s => s.label.toLowerCase().includes("stream")) && (
-            <div className="rounded-2xl p-8 flex flex-col justify-between" style={{ background: "var(--color-dark-900)", minHeight: 280 }}>
-              <span className="text-[10px] tracking-widest uppercase mb-4 block" style={{ color: "var(--color-taupe-500)" }}>Mijlpaal</span>
-              <div>
-                <h2 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(1.6rem, 2.5vw, 2.2rem)", color: "white", lineHeight: 1.1 }}>
+            <div className="rounded-2xl overflow-hidden flex flex-col md:flex-row" style={{ background: "var(--color-dark-900)", minHeight: 280 }}>
+              {/* Foto links */}
+              <div className="flex-shrink-0 md:w-2/5">
+                <img
+                  src="/images/Partnerships/de-bennies/podimo-s2/miljoen.jpg"
+                  alt="1 Miljoen Streams"
+                  className="w-full h-full object-cover"
+                  style={{ minHeight: 240 }}
+                />
+              </div>
+              {/* Tekst rechts */}
+              <div className="flex-1 p-7 flex flex-col justify-center">
+                <span className="text-[10px] tracking-widest uppercase mb-4 block" style={{ color: "var(--color-taupe-500)" }}>Mijlpaal</span>
+                <h2 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(1.4rem, 2vw, 2rem)", color: "white", lineHeight: 1.1 }}>
                   Waar we <span className="italic" style={{ color: "var(--color-taupe-300)" }}>trots</span> op zijn
                 </h2>
                 <p className="mt-4 text-sm leading-relaxed" style={{ color: "var(--color-taupe-400)", fontFamily: "'Playfair Display', Georgia, serif" }}>
@@ -170,8 +180,10 @@ export default async function PartnershipPage({ params }: { params: Promise<{ sl
             </div>
           )}
 
-          {/* Trailer — autoplay muted */}
+          {/* Trailer */}
           {youtubeId && (
+            <div className="flex flex-col gap-3">
+            <span className="text-[10px] tracking-widest uppercase" style={{ color: "var(--color-taupe-500)" }}>Trailer</span>
             <div className="rounded-2xl overflow-hidden" style={{ aspectRatio: "16/9" }}>
               <iframe
                 src={`https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1&mute=1&rel=0&modestbranding=1&loop=1&playlist=${youtubeId}`}
@@ -180,6 +192,7 @@ export default async function PartnershipPage({ params }: { params: Promise<{ sl
                 className="w-full h-full"
                 style={{ border: "none" }}
               />
+            </div>
             </div>
           )}
         </div>
