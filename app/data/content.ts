@@ -215,18 +215,25 @@ export const creators = [
 // ------------------------------------------------------------
 export type GalleryItem = { type: "image"; src: string; alt?: string } | { type: "video"; src: string; poster?: string };
 
+export type CaseStat = { value: string; label: string };
+
 export type PartnershipCase = {
   slug: string;
   brand: string;
   creator: string;
   category: string;
   year: string;
-  cover: string;          // pad naar cover afbeelding
-  hoverVideo?: string;    // optionele video: directe URL (Cloudinary etc.) of YouTube URL (youtu.be/... of youtube.com/watch?v=...)
-  alwaysPlay?: boolean;  // true = video speelt altijd af, niet alleen op hover
-  gradient: string;       // fallback gradient als cover laadt
+  cover: string;
+  hoverVideo?: string;
+  alwaysPlay?: boolean;
+  gradient: string;
+  tagline?: string;           // korte pakkende zin boven de titel
   description: string;
   services: string[];
+  stats?: CaseStat[];         // resultaten / kerncijfers
+  platformLink?: string;      // link naar het platform (bijv. Podimo)
+  platformLinkLabel?: string; // label voor de knop
+  creatorProfiles?: { name: string; role: string; img: string }[];
   gallery: GalleryItem[];
 };
 
@@ -249,13 +256,27 @@ export const partnershipCases: PartnershipCase[] = [
     slug: "podimo-de-bennies-s2",
     brand: "Podimo",
     creator: "De Bennies",
-    category: "Partnerships",
+    category: "Podcast Partnership",
     year: "2025",
     cover: "/images/Partnerships/de-bennies/podimo-s2/artwork.jpg",
     hoverVideo: "https://www.youtube.com/watch?v=hUpePaNRUc0",
     gradient: "from-orange-900 to-zinc-950",
-    description: "Seizoen 2 van de samenwerking tussen Podimo en De Bennies. Het entertainmenttrio bracht hun podcast exclusief uit op Podimo, waarbij Concess de volledige begeleiding verzorgde van concept tot lancering.",
-    services: ["Podcast Productie", "Brand Partnership", "Marketing"],
+    tagline: "Exclusief op Podimo",
+    description: "Seizoen 2 van de succesvolle samenwerking tussen Podimo en De Bennies. Het entertainmenttrio — Noël, Thijs en Enzo — bracht hun podcast exclusief uit op Podimo. Concess begeleidde het volledige traject: van de contentstrategie en productieplanning tot de promotiecampagne en lancering. Het resultaat? Een seizoen dat direct indruk maakte op de Podimo charts.",
+    services: ["Podcast Productie", "Contentstrategie", "Brand Partnership", "Promotie & Marketing"],
+    stats: [
+      { value: "#1", label: "Podimo NL charts" },
+      { value: "4", label: "Seizoenen" },
+      { value: "62K+", label: "Spotify volgers" },
+      { value: "30K+", label: "Podimo luisteraars" },
+    ],
+    platformLink: "https://podimo.com/nl/shows/de-bennies-2",
+    platformLinkLabel: "Luister op Podimo",
+    creatorProfiles: [
+      { name: "Noël Dekkers", role: "Host", img: "/images/Partnerships/de-bennies/podimo-s2/noel.jpg" },
+      { name: "Thijs van Woerkum", role: "Host", img: "/images/Partnerships/de-bennies/podimo-s2/thijs.jpg" },
+      { name: "Enzo Knol", role: "Host", img: "/images/creators/enzo_knol.jpg" },
+    ],
     gallery: [
       { type: "image", src: "/images/Partnerships/de-bennies/podimo-s2/artwork.jpg", alt: "Podimo x De Bennies artwork" },
       { type: "image", src: "/images/Partnerships/de-bennies/podimo-s2/persfoto.jpg", alt: "De Bennies persfoto" },
