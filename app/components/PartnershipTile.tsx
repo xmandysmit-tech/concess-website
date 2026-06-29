@@ -65,18 +65,14 @@ export default function PartnershipTile({ p }: { p: PartnershipCase }) {
             style={{
               border: "none",
               opacity: videoReady ? 1 : 0,
-              transition: "opacity 0.6s ease 0.8s",
+              transition: "opacity 0.8s ease",
               width: "177.78%",
               height: "177.78%",
               top: "-38.89%",
               left: "-38.89%",
             }}
-            onLoad={() => setTimeout(() => setVideoReady(true), 800)}
+            onLoad={() => setTimeout(() => setVideoReady(true), 1800)}
           />
-          {/* Maskeert YouTube UI die bovenin/onderin verschijnt */}
-          <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 2 }}>
-            <div className="absolute top-0 left-0 right-0 h-12" style={{ background: "rgba(0,0,0,0.6)" }} />
-          </div>
         </>
       )}
 
