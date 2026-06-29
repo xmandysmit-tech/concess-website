@@ -38,7 +38,7 @@ export default function AnimatedHero() {
   }, []);
 
   return (
-    <section className="relative h-[80vh] min-h-[560px] flex flex-col justify-end overflow-hidden">
+    <section className="relative h-[75vh] md:h-screen min-h-[560px] flex flex-col justify-end overflow-hidden">
       {/* Dark base */}
       <div className="absolute inset-0 bg-dark-900" />
 
@@ -85,7 +85,7 @@ export default function AnimatedHero() {
             className="text-white mb-6 flex flex-wrap gap-x-3"
             style={{
               fontFamily: "'DM Serif Display', Georgia, serif",
-              fontSize: "clamp(3.2rem, 7vw, 7.5rem)",
+              fontSize: "clamp(2.4rem, 7vw, 7.5rem)",
               lineHeight: "0.95",
             }}
           >
