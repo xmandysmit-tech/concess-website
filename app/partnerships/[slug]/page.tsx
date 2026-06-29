@@ -171,6 +171,22 @@ export default async function PartnershipPage({ params }: { params: Promise<{ sl
         </section>
       )}
 
+      {/* ── TRAILER VIDEO ── */}
+      {project.hoverVideo && project.hoverVideo.includes("youtube") && (
+        <section className="pb-4 max-w-7xl mx-auto px-6 md:px-12">
+          <span className="text-[10px] tracking-widest uppercase text-taupe-500 block mb-8">Trailer</span>
+          <div className="overflow-hidden rounded-2xl" style={{ aspectRatio: "16/9", background: "var(--color-dark-900)" }}>
+            <iframe
+              src={`https://www.youtube-nocookie.com/embed/${project.hoverVideo.match(/(?:watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/)?.[1]}?rel=0&modestbranding=1`}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="w-full h-full"
+              style={{ border: "none" }}
+            />
+          </div>
+        </section>
+      )}
+
       {/* ── GALERIJ ── */}
       {extraImages.length > 0 && (
         <section className="pb-16 max-w-7xl mx-auto px-6 md:px-12">
