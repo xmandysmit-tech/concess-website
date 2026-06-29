@@ -57,21 +57,27 @@ export default function PartnershipTile({ p }: { p: PartnershipCase }) {
 
       {/* YouTube iframe hover */}
       {isYouTube && showIframe && (
-        <iframe
-          src={`https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${youtubeId}&modestbranding=1&rel=0&disablekb=1`}
-          allow="autoplay"
-          className="absolute inset-0 w-full h-full transition-opacity duration-500 pointer-events-none"
-          style={{
-            opacity: 1,
-            border: "none",
-            // YouTube iframe heeft een vaste aspect ratio — schaal op zodat het de tile vult
-            width: "177.78%",
-            height: "177.78%",
-            top: "-38.89%",
-            left: "-38.89%",
-          }}
-          onLoad={() => setVideoReady(true)}
-        />
+        <>
+          <iframe
+            src={`https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${youtubeId}&modestbranding=1&rel=0&disablekb=1&iv_load_policy=3&fs=0`}
+            allow="autoplay"
+            className="absolute pointer-events-none"
+            style={{
+              border: "none",
+              opacity: videoReady ? 1 : 0,
+              transition: "opacity 0.6s ease 0.8s",
+              width: "177.78%",
+              height: "177.78%",
+              top: "-38.89%",
+              left: "-38.89%",
+            }}
+            onLoad={() => setTimeout(() => setVideoReady(true), 800)}
+          />
+          {/* Maskeert YouTube UI die bovenin/onderin verschijnt */}
+          <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 2 }}>
+            <div className="absolute top-0 left-0 right-0 h-12" style={{ background: "rgba(0,0,0,0.6)" }} />
+          </div>
+        </>
       )}
 
       {/* Directe video hover (Cloudinary etc.) */}
