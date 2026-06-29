@@ -38,7 +38,7 @@ export default function AnimatedHero() {
   }, []);
 
   return (
-    <section className="relative h-screen min-h-[640px] flex flex-col justify-end overflow-hidden">
+    <section className="relative h-[80vh] min-h-[560px] flex flex-col justify-end overflow-hidden">
       {/* Dark base */}
       <div className="absolute inset-0 bg-dark-900" />
 
