@@ -111,7 +111,7 @@ export default async function PartnershipPage({ params }: { params: Promise<{ sl
                     Spraakmakende gasten<br /><span className="italic" style={{ color: "var(--color-taupe-300)" }}>bij de Bennies</span>
                   </h3>
                   <p className="text-xs leading-relaxed mb-5" style={{ color: "rgba(255,255,255,0.35)", fontFamily: "'Playfair Display', Georgia, serif" }}>
-                    In seizoen 3 en 4 mochten we een aantal bijzondere gasten verwelkomen in de studio van De Bennies. Van bekende YouTubers tot entertainers uit de Nederlandse scene. Elk gesprek bracht een unieke energie mee en zorgde voor enkele van de meest besproken afleveringen van het seizoen.
+                    In seizoen 3 en 4 mochten we een aantal spraakmakende gasten verwelkomen in de studio van De Bennies. Van bekende YouTubers tot entertainers uit de Nederlandse scene. Elk gesprek bracht een unieke energie mee en zorgde voor enkele van de meest besproken afleveringen van het seizoen.
                   </p>
                   <div className="grid grid-cols-2 gap-x-4 gap-y-3">
                     {project.guests.map((g, i) => (
