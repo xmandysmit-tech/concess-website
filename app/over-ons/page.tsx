@@ -57,7 +57,7 @@ export default function OverOnsPage() {
 
       {/* Services ticker */}
       <section className="py-16 bg-dark-900 overflow-hidden">
-        <div className="flex animate-marquee whitespace-nowrap">
+        <div className="flex animate-marquee-fast whitespace-nowrap">
           {[...services, ...services].map((s, i) => (
             <div key={i} className="flex items-center flex-shrink-0">
               <span
