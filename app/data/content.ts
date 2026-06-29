@@ -260,7 +260,7 @@ export const partnershipCases: PartnershipCase[] = [
     creator: "De Bennies",
     category: "Podcast Partnership",
     year: "2025 – 2026",
-    cover: "/images/Partnerships/de-bennies/podimo-s4/cover.png",
+    cover: "/images/Partnerships/de-bennies/podimo-s2/artwork.jpg",
     hoverVideo: "https://www.youtube.com/watch?v=hUpePaNRUc0",
     gradient: "from-pink-900 to-zinc-950",
     tagline: "Exclusief op Podimo",
@@ -288,7 +288,6 @@ export const partnershipCases: PartnershipCase[] = [
       { name: "Gast seizoen 4" },
     ],
     gallery: [
-      { type: "image", src: "/images/Partnerships/de-bennies/podimo-s4/cover.png", alt: "De Bennies Podcast cover" },
       { type: "image", src: "/images/Partnerships/de-bennies/podimo-s2/artwork.jpg", alt: "Podimo x De Bennies artwork" },
       { type: "image", src: "/images/Partnerships/de-bennies/podimo-s2/persfoto.jpg", alt: "De Bennies persfoto" },
       { type: "image", src: "/images/Partnerships/de-bennies/podimo-s2/noel.jpg", alt: "Noël persfoto" },
