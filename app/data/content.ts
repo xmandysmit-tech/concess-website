@@ -234,6 +234,7 @@ export type PartnershipCase = {
   platformLink?: string;      // link naar het platform (bijv. Podimo)
   platformLinkLabel?: string; // label voor de knop
   creatorProfiles?: { name: string; role: string; img: string }[];
+  guests?: { name: string; img?: string }[];   // seizoensgasten — img optioneel
   gallery: GalleryItem[];
 };
 
@@ -276,7 +277,15 @@ export const partnershipCases: PartnershipCase[] = [
     creatorProfiles: [
       { name: "Noël Dekkers", role: "Host", img: "/images/Partnerships/de-bennies/podimo-s2/noel.jpg" },
       { name: "Thijs van Woerkum", role: "Host", img: "/images/Partnerships/de-bennies/podimo-s2/thijs.jpg" },
-      { name: "Enzo Knol", role: "Host", img: "/images/creators/enzo_knol.jpg" },
+      { name: "Enzo Knol", role: "Host", img: "/images/Partnerships/de-bennies/podimo-s2/enzo.jpg" },
+    ],
+    guests: [
+      { name: "Gast seizoen 2" },
+      { name: "Gast seizoen 2" },
+      { name: "Gast seizoen 3" },
+      { name: "Gast seizoen 3" },
+      { name: "Gast seizoen 4" },
+      { name: "Gast seizoen 4" },
     ],
     gallery: [
       { type: "image", src: "/images/Partnerships/de-bennies/podimo-s4/cover.png", alt: "De Bennies Podcast cover" },

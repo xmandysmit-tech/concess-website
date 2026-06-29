@@ -149,22 +149,68 @@ export default async function PartnershipPage({ params }: { params: Promise<{ sl
         </section>
       )}
 
-      {/* ── CREATORS ── */}
-      {project.creatorProfiles && project.creatorProfiles.length > 0 && (
+      {/* ── MILESTONE BANNER ── */}
+      {project.stats?.some(s => s.label.toLowerCase().includes("stream")) && (
         <section className="py-14 md:py-20 max-w-7xl mx-auto px-6 md:px-12">
+          <div className="rounded-3xl overflow-hidden flex flex-col md:flex-row" style={{ background: "var(--color-dark-900)" }}>
+            {/* Artwork blok */}
+            <div className="flex-shrink-0 flex items-center justify-center p-10 md:p-14" style={{ background: "rgba(255,255,255,0.03)" }}>
+              <div className="rounded-2xl overflow-hidden shadow-2xl" style={{ width: "clamp(140px, 18vw, 220px)", aspectRatio: "1/1" }}>
+                <img src={project.cover} alt="Milestone" className="w-full h-full object-cover" />
+              </div>
+            </div>
+            {/* Tekst */}
+            <div className="flex-1 flex flex-col justify-center p-8 md:p-14">
+              <span className="text-[10px] tracking-widest uppercase mb-4 block" style={{ color: "var(--color-taupe-500)" }}>Mijlpaal</span>
+              <h2 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(2rem, 4vw, 3.2rem)", color: "white", lineHeight: 1.1 }}>
+                Waar we <span className="italic" style={{ color: "var(--color-taupe-300)" }}>trots</span> op zijn
+              </h2>
+              <p className="mt-5 text-sm leading-relaxed max-w-lg" style={{ color: "var(--color-taupe-400)", fontFamily: "'Playfair Display', Georgia, serif" }}>
+                De Bennies podcast heeft sinds de lancering indrukwekkend gepresteerd. Het seizoen stond vrijwel direct op #1 in de Top Podcasts Netherlands chart. Ruim 2,5 maand later, met 10 afleveringen online, stond de podcast nog steeds in de top 5. Bovendien behoort De Bennies tot de eerste grote podcastmakers die video toevoegden aan hun podcast op Spotify — en dat alles binnen 5 afleveringen al goed voor <strong style={{ color: "white" }}>1 miljoen streams</strong>.
+              </p>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ── HOSTS ── */}
+      {project.creatorProfiles && project.creatorProfiles.length > 0 && (
+        <section className="pb-14 max-w-7xl mx-auto px-6 md:px-12">
           <span className="text-[10px] tracking-widest uppercase text-taupe-500 block mb-8">De hosts</span>
-          <div className="flex gap-6 flex-wrap">
+          <div className="grid grid-cols-3 md:grid-cols-6 gap-4">
             {project.creatorProfiles.map((c) => (
-              <div key={c.name} className="flex items-center gap-4">
-                <div className="rounded-full overflow-hidden flex-shrink-0" style={{ width: 56, height: 56 }}>
-                  <img src={c.img} alt={c.name} className="w-full h-full object-cover" />
+              <div key={c.name} className="flex flex-col items-center text-center gap-3">
+                <div className="rounded-2xl overflow-hidden w-full" style={{ aspectRatio: "3/4" }}>
+                  <img src={c.img} alt={c.name} className="w-full h-full object-cover object-top" />
                 </div>
                 <div>
-                  <p style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "1rem" }} className="text-dark-900">
+                  <p style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "0.9rem" }} className="text-dark-900 leading-tight">
                     {c.name}
                   </p>
-                  <p className="text-[10px] tracking-widest uppercase text-taupe-500">{c.role}</p>
+                  <p className="text-[9px] tracking-widest uppercase text-taupe-500 mt-0.5">{c.role}</p>
                 </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* ── GASTEN ── */}
+      {project.guests && project.guests.length > 0 && (
+        <section className="pb-14 max-w-7xl mx-auto px-6 md:px-12">
+          <span className="text-[10px] tracking-widest uppercase text-taupe-500 block mb-8">Seizoensgasten</span>
+          <div className="grid grid-cols-3 md:grid-cols-6 gap-4">
+            {project.guests.map((g, i) => (
+              <div key={i} className="flex flex-col items-center text-center gap-3">
+                <div className="rounded-2xl overflow-hidden w-full flex items-center justify-center" style={{ aspectRatio: "3/4", background: "var(--color-linen-300)" }}>
+                  {g.img
+                    ? <img src={g.img} alt={g.name} className="w-full h-full object-cover object-top" />
+                    : <span className="text-[10px] tracking-widest uppercase text-taupe-400">Foto volgt</span>
+                  }
+                </div>
+                <p style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "0.9rem" }} className="text-dark-900 leading-tight">
+                  {g.name}
+                </p>
               </div>
             ))}
           </div>
