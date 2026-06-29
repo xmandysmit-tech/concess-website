@@ -264,7 +264,7 @@ export const partnershipCases: PartnershipCase[] = [
     hoverVideo: "https://www.youtube.com/watch?v=hUpePaNRUc0",
     gradient: "from-pink-900 to-zinc-950",
     tagline: "Exclusief op Podimo",
-    description: "Samen met Podimo produceerde Concess maar liefst drie seizoenen van de De Bennies podcast: seizoen 2, 3 en 4. Het entertainmenttrio Noël, Thijs en Enzo groeide uit tot een van de populairste podcast-formats van Nederland. Concess begeleidde elk seizoen volledig: van contentstrategie en productieplanning tot de promotiecampagne en lancering. De podcast bereikte 1 miljoen streams, stond #1 in de Podimo NL charts en bouwde een trouwe community op van tienduizenden vaste luisteraars.",
+    description: "Concess verzorgde van het begin af aan de volledige productie van de De Bennies podcast. Na het succes van het eerste seizoen gingen we een exclusieve partnership aan met Podimo voor seizoen 2, 3 en 4. Het entertainmenttrio Noël, Thijs en Enzo groeide uit tot een van de populairste podcast-formats van Nederland. Concess begeleidde elk seizoen volledig: van contentstrategie en productieplanning tot de promotiecampagne, lancering en social media.",
     services: ["Podcast Productie", "Contentstrategie", "Brand Partnership", "Promotie & Marketing"],
     stats: [
       { value: "1M+", label: "Streams" },
