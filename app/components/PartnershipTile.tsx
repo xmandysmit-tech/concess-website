@@ -11,7 +11,7 @@ function getYouTubeId(url: string): string | null {
 export default function PartnershipTile({ p }: { p: PartnershipCase }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoReady, setVideoReady] = useState(false);
-  const [showIframe, setShowIframe] = useState(false);
+  const [showIframe, setShowIframe] = useState(!!p.alwaysPlay);
 
   const youtubeId = p.hoverVideo ? getYouTubeId(p.hoverVideo) : null;
   const isYouTube = !!youtubeId;
@@ -26,7 +26,7 @@ export default function PartnershipTile({ p }: { p: PartnershipCase }) {
   }
 
   function handleMouseLeave() {
-    if (isYouTube) {
+    if (isYouTube && !p.alwaysPlay) {
       setShowIframe(false);
       setVideoReady(false);
     } else if (videoRef.current) {

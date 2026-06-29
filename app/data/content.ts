@@ -223,6 +223,7 @@ export type PartnershipCase = {
   year: string;
   cover: string;          // pad naar cover afbeelding
   hoverVideo?: string;    // optionele video: directe URL (Cloudinary etc.) of YouTube URL (youtu.be/... of youtube.com/watch?v=...)
+  alwaysPlay?: boolean;  // true = video speelt altijd af, niet alleen op hover
   gradient: string;       // fallback gradient als cover laadt
   description: string;
   services: string[];
@@ -251,6 +252,8 @@ export const partnershipCases: PartnershipCase[] = [
     category: "Partnerships",
     year: "2025",
     cover: "/images/Partnerships/de-bennies/podimo-s2/artwork.jpg",
+    hoverVideo: "https://youtube.com/shorts/HuM9mxWnQRU",
+    alwaysPlay: true,
     gradient: "from-orange-900 to-zinc-950",
     description: "Seizoen 2 van de samenwerking tussen Podimo en De Bennies. Het entertainmenttrio bracht hun podcast exclusief uit op Podimo, waarbij Concess de volledige begeleiding verzorgde van concept tot lancering.",
     services: ["Podcast Productie", "Brand Partnership", "Marketing"],
