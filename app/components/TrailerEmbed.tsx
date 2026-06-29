@@ -17,7 +17,7 @@ export default function TrailerEmbed({ youtubeId }: { youtubeId: string }) {
             opacity: visible ? 1 : 0,
             transition: "opacity 0.7s ease",
           }}
-          onLoad={() => setTimeout(() => setVisible(true), 3500)}
+          onLoad={() => setVisible(true)}
         />
       </div>
     </div>
