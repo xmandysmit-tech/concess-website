@@ -210,6 +210,73 @@ export const creators = [
 ];
 
 // ------------------------------------------------------------
+//  PARTNERSHIP CASES (klikbare projecten met gallery)
+//  Voeg hier echte campagnes toe — ze verschijnen op de partnerships pagina
+// ------------------------------------------------------------
+export type GalleryItem = { type: "image"; src: string; alt?: string } | { type: "video"; src: string; poster?: string };
+
+export type PartnershipCase = {
+  slug: string;
+  brand: string;
+  creator: string;
+  category: string;
+  year: string;
+  cover: string;          // pad naar cover afbeelding
+  gradient: string;       // fallback gradient als cover laadt
+  description: string;
+  services: string[];
+  gallery: GalleryItem[];
+};
+
+export const partnershipCases: PartnershipCase[] = [
+  {
+    slug: "air-up-de-bennies",
+    brand: "Air up",
+    creator: "De Bennies",
+    category: "Partnerships",
+    year: "2023",
+    cover: "/images/partnerships/de-bennies/air-up/cover.png",
+    gradient: "from-blue-900 to-zinc-950",
+    description: "Een authentieke samenwerking tussen Air up en De Bennies waarbij het trio de smaakdopjes op hun eigen humoristische manier introduceerde aan hun publiek. De campagne resulteerde in een organische integratie die perfect aansloot bij de stijl van De Bennies.",
+    services: ["Brand Partnership", "Content Creatie", "Social Media"],
+    gallery: [
+      { type: "image", src: "/images/partnerships/de-bennies/air-up/cover.png", alt: "Air up x De Bennies" },
+    ],
+  },
+  {
+    slug: "podimo-de-bennies-s2",
+    brand: "Podimo",
+    creator: "De Bennies",
+    category: "Partnerships",
+    year: "2025",
+    cover: "/images/partnerships/de-bennies/podimo-s2/artwork.jpg",
+    gradient: "from-orange-900 to-zinc-950",
+    description: "Seizoen 2 van de samenwerking tussen Podimo en De Bennies. Het entertainmenttrio bracht hun podcast exclusief uit op Podimo, waarbij Concess de volledige begeleiding verzorgde van concept tot lancering.",
+    services: ["Podcast Productie", "Brand Partnership", "Marketing"],
+    gallery: [
+      { type: "image", src: "/images/partnerships/de-bennies/podimo-s2/artwork.jpg", alt: "Podimo x De Bennies artwork" },
+      { type: "image", src: "/images/partnerships/de-bennies/podimo-s2/persfoto.jpg", alt: "De Bennies persfoto" },
+      { type: "image", src: "/images/partnerships/de-bennies/podimo-s2/noel.jpg", alt: "Noël persfoto" },
+      { type: "image", src: "/images/partnerships/de-bennies/podimo-s2/thijs.jpg", alt: "Thijs persfoto" },
+    ],
+  },
+  {
+    slug: "podimo-de-bennies-s4",
+    brand: "Podimo",
+    creator: "De Bennies",
+    category: "Partnerships",
+    year: "2025",
+    cover: "/images/partnerships/de-bennies/podimo-s4/cover.png",
+    gradient: "from-purple-900 to-zinc-950",
+    description: "Seizoen 4 van De Bennies op Podimo. Met een nieuw seizoen bewezen De Bennies wederom dat hun formule werkt: herkenbare verhalen, open gesprekken en gezelligheid die hun trouwe luisterpubliek blijft aanspreken.",
+    services: ["Podcast Productie", "Brand Partnership", "Content Strategie"],
+    gallery: [
+      { type: "image", src: "/images/partnerships/de-bennies/podimo-s4/cover.png", alt: "Podimo x De Bennies Seizoen 4" },
+    ],
+  },
+];
+
+// ------------------------------------------------------------
 //  MERKEN (logo ticker + partnerships pagina)
 // ------------------------------------------------------------
 export const brands = [

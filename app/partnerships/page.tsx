@@ -2,9 +2,11 @@
 import { useState } from "react";
 import Navbar from "../components/Navbar";
 import CTAFooter from "../components/CTAFooter";
-import { projects } from "../data/content";
+import ProjectModal from "../components/ProjectModal";
+import { projects, partnershipCases, PartnershipCase } from "../data/content";
 
-const partnershipProjects = projects.filter((p) => p.type === "Partnerships");
+// Reguliere projecten (zonder modal) die NIET al in partnershipCases zitten
+const extraProjects = projects.filter((p) => p.type === "Partnerships");
 
 const brandLogos = [
   { name: "L'Oréal", logo: "/logos/Loreal.png" },
@@ -39,13 +41,14 @@ const brandLogos = [
 ];
 
 const doubled = [...brandLogos, ...brandLogos];
-
 const PAGE_SIZE = 9;
 
 export default function PartnershipsPage() {
   const [visible, setVisible] = useState(PAGE_SIZE);
-  const shown = partnershipProjects.slice(0, visible);
-  const hasMore = visible < partnershipProjects.length;
+  const [activeProject, setActiveProject] = useState<PartnershipCase | null>(null);
+
+  const shown = extraProjects.slice(0, visible);
+  const hasMore = visible < extraProjects.length;
 
   return (
     <main style={{ background: "var(--color-linen-100)", minHeight: "100vh" }}>
@@ -65,32 +68,72 @@ export default function PartnershipsPage() {
         </div>
       </section>
 
-      {/* Partnerships collage */}
-      <section className="py-12 md:py-20 max-w-7xl mx-auto px-6 md:px-12">
-        <span className="text-[10px] tracking-widest uppercase text-taupe-500 block mb-10">Partnerships</span>
+      {/* Featured cases — klikbaar */}
+      {partnershipCases.length > 0 && (
+        <section className="pt-12 md:pt-20 max-w-7xl mx-auto px-6 md:px-12">
+          <span className="text-[10px] tracking-widest uppercase text-taupe-500 block mb-10">Uitgelichte campagnes</span>
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
+            {partnershipCases.map((p) => (
+              <button
+                key={p.slug}
+                onClick={() => setActiveProject(p)}
+                className="group relative overflow-hidden rounded-2xl text-left focus:outline-none"
+                style={{ aspectRatio: "4/3", background: `linear-gradient(to bottom right, var(--tw-gradient-stops))` }}
+              >
+                <div className={`absolute inset-0 bg-gradient-to-br ${p.gradient}`} />
+                <img
+                  src={p.cover}
+                  alt={p.brand}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 55%)" }} />
+                {/* Hover overlay */}
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ background: "rgba(0,0,0,0.3)" }}>
+                  <span className="text-[10px] tracking-widest uppercase text-white border border-white/40 px-4 py-2 rounded-full">
+                    Bekijk project
+                  </span>
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 p-5">
+                  <span className="text-[9px] tracking-widest uppercase text-white/50 block mb-1">{p.creator} · {p.year}</span>
+                  <h3 className="text-white text-lg" style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}>{p.brand}</h3>
+                </div>
+              </button>
+            ))}
+          </div>
+        </section>
+      )}
 
-        {/* Masonry-style grid */}
+      {/* All partnerships grid */}
+      <section className="py-12 md:py-20 max-w-7xl mx-auto px-6 md:px-12">
+        {partnershipCases.length > 0 && (
+          <span className="text-[10px] tracking-widest uppercase text-taupe-500 block mb-10">Alle partnerships</span>
+        )}
+        {partnershipCases.length === 0 && (
+          <span className="text-[10px] tracking-widest uppercase text-taupe-500 block mb-10">Partnerships</span>
+        )}
+
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
           {shown.map((p, i) => (
-              <div
-                key={i}
-                className={`relative overflow-hidden rounded-2xl bg-gradient-to-br ${p.gradient}`}
-                style={{ aspectRatio: "4/3" }}
-              >
-                {p.img && (
-                  <img
-                    src={p.img}
-                    alt={p.brand}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-                  />
-                )}
-                <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 55%)" }} />
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <span className="text-[9px] tracking-widest uppercase text-white/50 block mb-1">{p.creator}</span>
-                  <h3 className="text-white text-xl" style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}>{p.brand}</h3>
-                  {p.views && <p className="text-white/40 text-xs mt-1">{p.views} views</p>}
-                </div>
+            <div
+              key={i}
+              className="relative overflow-hidden rounded-2xl"
+              style={{ aspectRatio: "4/3", background: "var(--color-linen-300)" }}
+            >
+              {p.img && (
+                <img
+                  src={p.img}
+                  alt={p.brand}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                />
+              )}
+              {!p.img && <div className={`absolute inset-0 bg-gradient-to-br ${p.gradient}`} />}
+              <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 55%)" }} />
+              <div className="absolute bottom-0 left-0 right-0 p-5">
+                <span className="text-[9px] tracking-widest uppercase text-white/50 block mb-1">{p.creator}</span>
+                <h3 className="text-white text-lg" style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}>{p.brand}</h3>
+                {p.views && <p className="text-white/40 text-xs mt-1">{p.views} views</p>}
               </div>
+            </div>
           ))}
         </div>
 
@@ -106,12 +149,11 @@ export default function PartnershipsPage() {
         )}
       </section>
 
-      {/* Brands marquee — light version */}
+      {/* Brands marquee */}
       <section className="py-16 border-t border-linen-300" style={{ background: "var(--color-linen-100)" }}>
         <div className="max-w-7xl mx-auto px-6 md:px-12 mb-8">
           <span className="text-[10px] tracking-widest uppercase text-taupe-500">Brands we&apos;ve worked with</span>
         </div>
-
         <div className="overflow-hidden" style={{ WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%)" }}>
           <div className="flex animate-marquee items-center" style={{ width: "max-content" }}>
             {doubled.map((brand, i) => (
@@ -120,14 +162,7 @@ export default function PartnershipsPage() {
                 <img
                   src={brand.logo}
                   alt={brand.name}
-                  style={{
-                    objectFit: "contain",
-                    filter: "brightness(0)",
-                    opacity: 0.2,
-                    height: "28px",
-                    width: "90px",
-                    flexShrink: 0,
-                  }}
+                  style={{ objectFit: "contain", filter: "brightness(0)", opacity: 0.2, height: "28px", width: "90px", flexShrink: 0 }}
                 />
                 <span className="text-taupe-400 text-xs ml-8">·</span>
               </div>
@@ -137,6 +172,11 @@ export default function PartnershipsPage() {
       </section>
 
       <CTAFooter />
+
+      {/* Modal */}
+      {activeProject && (
+        <ProjectModal project={activeProject} onClose={() => setActiveProject(null)} />
+      )}
     </main>
   );
 }
