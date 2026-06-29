@@ -178,10 +178,16 @@ export default function CreatorsPage() {
                     <div className={`relative overflow-hidden rounded-2xl bg-gradient-to-br ${w.gradient}`} style={{ aspectRatio: "4/3" }}>
                       {w.img && <img src={w.img} alt={w.brand} className="absolute inset-0 w-full h-full object-cover" />}
                       <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%)" }} />
-                      <div className="absolute bottom-0 left-0 right-0 p-5">
-                        <span className="text-[9px] tracking-widest uppercase text-white/50 block mb-1">{w.type}</span>
-                        <h3 className="text-white text-lg" style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}>{w.brand}</h3>
-                        {w.views && <p className="text-white/40 text-xs mt-0.5">{w.views}</p>}
+                      <div className="absolute bottom-0 left-0 right-0 p-5 flex items-end justify-between">
+                        <div>
+                          <span className="text-[9px] tracking-widest uppercase text-white/50 block mb-1">{w.type}</span>
+                          <h3 className="text-white text-lg" style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}>{w.brand}</h3>
+                        </div>
+                        {w.slug && (
+                          <div className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center" style={{ border: "1.5px solid rgba(255,255,255,0.4)", background: "rgba(255,255,255,0.08)" }}>
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L7.5 2.5M12 7L7.5 11.5" stroke="white" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                          </div>
+                        )}
                       </div>
                     </div>
                   );

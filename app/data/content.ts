@@ -126,8 +126,8 @@ export const projects = [
     brand: "De Bennies Podcast",
     creator: "De Bennies",
     views: "2M+",
-    type: "Video",
-    img: "/images/De-bennies-concess.jpg",
+    type: "Podcasts",
+    img: "/images/Partnerships/de-bennies/podimo-s2/artwork.jpg",
     gradient: "from-zinc-800 to-zinc-950",
   },
 ];
@@ -202,9 +202,8 @@ export const creators = [
     accentColor: "#9E8B72",
     img: "/images/creators/bennies_banner.png",
     work: [
-      { brand: "Podimo",  creator: "De Bennies", views: "1M+ streams", type: "Podcast Partnership", gradient: "from-pink-900 to-zinc-950",    img: "/images/Partnerships/de-bennies/podimo-s2/artwork.jpg",   slug: "podimo-de-bennies" },
-      { brand: "Air Up",  creator: "De Bennies", views: "8M+",         type: "Brand Partnership",   gradient: "from-blue-900 to-zinc-950",    img: "/images/Partnerships/de-bennies/air-up/cover.png",         slug: "air-up-de-bennies" },
-      { brand: "Emma",    creator: "De Bennies", views: "5M+",         type: "Video",               gradient: "from-neutral-800 to-neutral-950" },
+      { brand: "Podimo", creator: "De Bennies", type: "Podcast Partnership", gradient: "from-pink-900 to-zinc-950", img: "/images/Partnerships/de-bennies/podimo-s2/artwork.jpg", slug: "podimo-de-bennies" },
+      { brand: "Air Up", creator: "De Bennies", type: "Brand Partnership",   gradient: "from-blue-900 to-zinc-950", img: "/images/Partnerships/de-bennies/air-up/cover.png",      slug: "air-up-de-bennies" },
     ],
   },
 ];
@@ -239,21 +238,6 @@ export type PartnershipCase = {
 };
 
 export const partnershipCases: PartnershipCase[] = [
-  {
-    slug: "air-up-de-bennies",
-    brand: "Air up",
-    creator: "De Bennies",
-    category: "Partnerships",
-    year: "2023",
-    cover: "/images/Partnerships/de-bennies/air-up/cover.png",
-    hoverVideo: "https://www.tiktok.com/@debennies/video/7232297966965378330",
-    gradient: "from-blue-900 to-zinc-950",
-    description: "Een authentieke samenwerking tussen Air up en De Bennies waarbij het trio de smaakdopjes op hun eigen humoristische manier introduceerde aan hun publiek. De campagne resulteerde in een organische integratie die perfect aansloot bij de stijl van De Bennies.",
-    services: ["Brand Partnership", "Content Creatie", "Social Media"],
-    gallery: [
-      { type: "image", src: "/images/Partnerships/de-bennies/air-up/cover.png", alt: "Air up x De Bennies" },
-    ],
-  },
   {
     slug: "podimo-de-bennies",
     brand: "Podimo",
@@ -295,19 +279,18 @@ export const partnershipCases: PartnershipCase[] = [
     ],
   },
   {
-    slug: "de-bennies-productie",
-    brand: "Concess Studio",
+    slug: "air-up-de-bennies",
+    brand: "Air up",
     creator: "De Bennies",
-    category: "Podcast Productie",
-    year: "2023 – 2026",
-    cover: "/images/Partnerships/De Bennies/Podimo x De Bennies - Seizoen 2/De Bennies - Persfoto 1.jpg",
-    hoverVideo: "https://www.youtube.com/watch?v=hUpePaNRUc0",
-    gradient: "from-stone-700 to-neutral-950",
-    tagline: "Concess Studio",
-    description: "Van opname tot lancering produceerde Concess Studio De Bennies podcast van begin tot eind. Volledige productie, audio-editing, videomontage en distributiestrategie over meerdere seizoenen.",
-    services: ["Podcast Productie", "Audio & Video Editing", "Distributiestrategie", "Contentstrategie"],
+    category: "Brand Partnership",
+    year: "2023",
+    cover: "/images/Partnerships/de-bennies/air-up/cover.png",
+    hoverVideo: "https://www.tiktok.com/@debennies/video/7232297966965378330",
+    gradient: "from-blue-900 to-zinc-950",
+    description: "Een authentieke samenwerking tussen Air up en De Bennies waarbij het trio de smaakdopjes op hun eigen humoristische manier introduceerde aan hun publiek. De campagne resulteerde in een organische integratie die perfect aansloot bij de stijl van De Bennies.",
+    services: ["Brand Partnership", "Content Creatie", "Social Media"],
     gallery: [
-      { type: "image", src: "/images/Partnerships/De Bennies/Podimo x De Bennies - Seizoen 2/De Bennies - Persfoto 1.jpg", alt: "De Bennies persfoto" },
+      { type: "image", src: "/images/Partnerships/de-bennies/air-up/cover.png", alt: "Air up x De Bennies" },
     ],
   },
 ];
