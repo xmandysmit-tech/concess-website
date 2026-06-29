@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect, useId } from "react";
 import Link from "next/link";
 import { PartnershipCase } from "../data/content";
 
@@ -12,14 +12,40 @@ export default function PartnershipTile({ p }: { p: PartnershipCase }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoReady, setVideoReady] = useState(false);
   const [showIframe, setShowIframe] = useState(!!p.alwaysPlay);
+  const playerId = useId().replace(/:/g, "");
 
   const youtubeId = p.hoverVideo ? getYouTubeId(p.hoverVideo) : null;
   const isYouTube = !!youtubeId;
 
+  // Luister naar YouTube IFrame API events — zichtbaar zodra video echt speelt
+  useEffect(() => {
+    if (!isYouTube || !showIframe) return;
+
+    function onMessage(e: MessageEvent) {
+      try {
+        const data = typeof e.data === "string" ? JSON.parse(e.data) : e.data;
+        // playerState 1 = playing
+        if (data?.event === "onStateChange" && data?.info === 1 && data?.id === playerId) {
+          setVideoReady(true);
+        }
+        if (data?.event === "onStateChange" && data?.info !== 1 && data?.id === playerId) {
+          // paused/ended — reset zodat cover terugkomt
+        }
+      } catch {}
+    }
+
+    window.addEventListener("message", onMessage);
+    return () => window.removeEventListener("message", onMessage);
+  }, [isYouTube, showIframe, playerId]);
+
+  // Reset videoReady als iframe verborgen wordt
+  useEffect(() => {
+    if (!showIframe) setVideoReady(false);
+  }, [showIframe]);
+
   function handleMouseEnter() {
-    if (isYouTube) {
-      setShowIframe(true);
-    } else if (videoRef.current) {
+    if (isYouTube) setShowIframe(true);
+    else if (videoRef.current) {
       videoRef.current.currentTime = 0;
       videoRef.current.play().catch(() => {});
     }
@@ -36,6 +62,10 @@ export default function PartnershipTile({ p }: { p: PartnershipCase }) {
     }
   }
 
+  const iframeSrc = youtubeId
+    ? `https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${youtubeId}&modestbranding=1&rel=0&disablekb=1&iv_load_policy=3&fs=0&enablejsapi=1&origin=${encodeURIComponent(typeof window !== "undefined" ? window.location.origin : "")}&widgetid=${playerId}`
+    : "";
+
   return (
     <Link
       href={`/partnerships/${p.slug}`}
@@ -47,36 +77,33 @@ export default function PartnershipTile({ p }: { p: PartnershipCase }) {
       {/* Gradient fallback */}
       <div className={`absolute inset-0 bg-gradient-to-br ${p.gradient}`} />
 
-      {/* Cover foto */}
+      {/* Cover foto — vervaagt zodra video speelt */}
       <img
         src={p.cover}
         alt={p.brand}
-        className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500"
+        className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
         style={{ opacity: videoReady ? 0 : 1 }}
       />
 
-      {/* YouTube iframe hover */}
+      {/* YouTube iframe */}
       {isYouTube && showIframe && (
-        <>
-          <iframe
-            src={`https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${youtubeId}&modestbranding=1&rel=0&disablekb=1&iv_load_policy=3&fs=0`}
-            allow="autoplay"
-            className="absolute pointer-events-none"
-            style={{
-              border: "none",
-              opacity: videoReady ? 1 : 0,
-              transition: "opacity 0.8s ease",
-              width: "177.78%",
-              height: "177.78%",
-              top: "-38.89%",
-              left: "-38.89%",
-            }}
-            onLoad={() => setTimeout(() => setVideoReady(true), 1800)}
-          />
-        </>
+        <iframe
+          src={iframeSrc}
+          allow="autoplay; encrypted-media"
+          className="absolute pointer-events-none"
+          style={{
+            border: "none",
+            opacity: videoReady ? 1 : 0,
+            transition: "opacity 0.7s ease",
+            width: "177.78%",
+            height: "177.78%",
+            top: "-38.89%",
+            left: "-38.89%",
+          }}
+        />
       )}
 
-      {/* Directe video hover (Cloudinary etc.) */}
+      {/* Directe video (Cloudinary etc.) */}
       {p.hoverVideo && !isYouTube && (
         <video
           ref={videoRef}
@@ -87,12 +114,12 @@ export default function PartnershipTile({ p }: { p: PartnershipCase }) {
           preload="none"
           onCanPlay={() => setVideoReady(true)}
           onPause={() => setVideoReady(false)}
-          className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500"
+          className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
           style={{ opacity: videoReady ? 1 : 0 }}
         />
       )}
 
-      {/* Gradient overlay — altijd zichtbaar zodat tekst leesbaar blijft */}
+      {/* Gradient overlay */}
       <div
         className="absolute inset-0"
         style={{ background: "linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.2) 50%, transparent 75%)" }}
