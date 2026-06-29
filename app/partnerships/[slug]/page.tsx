@@ -107,19 +107,44 @@ export default async function PartnershipPage({ params }: { params: Promise<{ sl
       {/* ── STATS ── */}
       {project.stats && project.stats.length > 0 && (
         <section style={{ background: "var(--color-dark-800)" }}>
-          <div className="max-w-7xl mx-auto px-6 md:px-12 py-10">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="max-w-7xl mx-auto px-6 md:px-12 py-12">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {project.stats.map((s) => (
-                <div key={s.label} className="text-center md:text-left">
-                  <p style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(1.8rem, 3vw, 2.5rem)", color: "white", lineHeight: 1 }}>
+                <div key={s.label} className="relative">
+                  {/* Subtiele scheidingslijn links, behalve eerste */}
+                  <p style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(2rem, 3.5vw, 3rem)", color: "white", lineHeight: 1 }}>
                     {s.value}
                   </p>
-                  <p className="text-[10px] tracking-widest uppercase mt-1" style={{ color: "var(--color-taupe-500)" }}>
+                  <p className="text-[10px] tracking-widest uppercase mt-2" style={{ color: "var(--color-taupe-500)" }}>
                     {s.label}
                   </p>
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+      )}
+
+      {/* ── SEIZOENEN TIJDLIJN ── */}
+      {project.slug === "podimo-de-bennies" && (
+        <section className="py-14 md:py-20 max-w-7xl mx-auto px-6 md:px-12">
+          <span className="text-[10px] tracking-widest uppercase text-taupe-500 block mb-10">De samenwerking</span>
+          <div className="grid md:grid-cols-3 gap-4">
+            {[
+              { label: "Seizoen 2", year: "2024", desc: "Lancering van de exclusieve Podimo samenwerking. Direct een hit — het seizoen stond vrijwel meteen in de top van de charts." },
+              { label: "Seizoen 3", year: "2025", desc: "Voortbouwend op het succes van seizoen 2 groeide de fanbase verder. Meer episodes, meer bereik en de eerste grote mijlpaal: 1 miljoen streams." },
+              { label: "Seizoen 4", year: "2025 – 2026", desc: "Het meest ambitieuze seizoen tot nu toe. Met een frisse look en vernieuwde productiestijl zette Concess de lat nog hoger." },
+            ].map((s) => (
+              <div key={s.label} className="rounded-2xl p-7" style={{ background: "var(--color-dark-900)" }}>
+                <span className="text-[9px] tracking-widest uppercase mb-3 block" style={{ color: "var(--color-taupe-600)" }}>{s.year}</span>
+                <h3 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "1.4rem", color: "white" }} className="mb-3">
+                  {s.label}
+                </h3>
+                <p className="text-sm leading-relaxed" style={{ color: "var(--color-taupe-400)", fontFamily: "'Playfair Display', Georgia, serif" }}>
+                  {s.desc}
+                </p>
+              </div>
+            ))}
           </div>
         </section>
       )}
