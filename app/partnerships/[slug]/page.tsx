@@ -76,6 +76,20 @@ export default async function PartnershipPage({ params }: { params: Promise<{ sl
                   <span key={s} className="text-[9px] tracking-wider uppercase px-3 py-1 rounded-full" style={{ border: "1px solid rgba(255,255,255,0.1)", color: "rgba(255,255,255,0.3)" }}>{s}</span>
                 ))}
               </div>
+
+              {/* Hosts inline onder intro */}
+              {project.creatorProfiles && (
+                <div className="flex items-center gap-5 mt-7 pt-6" style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
+                  {project.creatorProfiles.map((c) => (
+                    <div key={c.name} className="flex items-center gap-2.5">
+                      <div className="rounded-full overflow-hidden flex-shrink-0" style={{ width: 36, height: 36 }}>
+                        <img src={c.img} alt={c.name} className="w-full h-full object-cover object-top" />
+                      </div>
+                      <p className="text-sm" style={{ color: "rgba(255,255,255,0.6)", fontFamily: "'DM Serif Display', Georgia, serif" }}>{c.name}</p>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -153,13 +167,6 @@ export default async function PartnershipPage({ params }: { params: Promise<{ sl
                   De Bennies podcast stond vrijwel direct op #1 in de Top Podcasts Netherlands chart. Met 10 afleveringen online nog steeds top 5 — en als een van de eersten met video op Spotify. Binnen 5 afleveringen al <strong style={{ color: "white" }}>1 miljoen streams</strong>.
                 </p>
               </div>
-              <div className="flex gap-3 mt-6">
-                {project.creatorProfiles?.map((c) => (
-                  <div key={c.name} className="rounded-xl overflow-hidden flex-shrink-0" style={{ width: 44, height: 56 }}>
-                    <img src={c.img} alt={c.name} className="w-full h-full object-cover object-top" />
-                  </div>
-                ))}
-              </div>
             </div>
           )}
 
@@ -177,20 +184,6 @@ export default async function PartnershipPage({ params }: { params: Promise<{ sl
           )}
         </div>
       </section>
-
-      {/* ── GALERIJ ── */}
-      {extraImages.length > 0 && (
-        <section className="pb-14 max-w-7xl mx-auto px-6 md:px-12">
-          <span className="text-[10px] tracking-widest uppercase text-taupe-500 block mb-6">Beeldmateriaal</span>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-            {extraImages.map((img, i) => (
-              <div key={i} className="overflow-hidden rounded-xl" style={{ aspectRatio: "3/4" }}>
-                <img src={img.src} alt={"alt" in img ? img.alt ?? project.brand : project.brand} className="w-full h-full object-cover object-top" />
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
 
       <CTAFooter />
     </main>
