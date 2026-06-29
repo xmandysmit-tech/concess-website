@@ -45,10 +45,10 @@ export default async function PartnershipPage({ params }: { params: Promise<{ sl
             Partnerships
           </Link>
 
-          <div className="flex flex-col lg:flex-row lg:items-end gap-8 lg:gap-16">
+          <div className="flex flex-col lg:flex-row lg:items-stretch gap-8 lg:gap-16">
             {/* Artwork */}
             <div className="flex-shrink-0">
-              <div className="rounded-2xl overflow-hidden shadow-2xl" style={{ width: "clamp(120px, 18vw, 200px)", aspectRatio: "1/1" }}>
+              <div className="rounded-2xl overflow-hidden shadow-2xl h-full" style={{ width: "clamp(200px, 28vw, 340px)", minHeight: 240, aspectRatio: "1/1" }}>
                 <img src={project.cover} alt={project.brand} className="w-full h-full object-cover" />
               </div>
             </div>
@@ -170,11 +170,11 @@ export default async function PartnershipPage({ params }: { params: Promise<{ sl
             </div>
           )}
 
-          {/* Trailer */}
+          {/* Trailer — autoplay muted */}
           {youtubeId && (
             <div className="rounded-2xl overflow-hidden" style={{ aspectRatio: "16/9" }}>
               <iframe
-                src={`https://www.youtube-nocookie.com/embed/${youtubeId}?rel=0&modestbranding=1`}
+                src={`https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1&mute=1&rel=0&modestbranding=1&loop=1&playlist=${youtubeId}`}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
                 className="w-full h-full"
