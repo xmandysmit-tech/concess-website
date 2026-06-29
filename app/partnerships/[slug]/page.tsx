@@ -95,21 +95,6 @@ export default async function PartnershipPage({ params }: { params: Promise<{ sl
         </div>
       </section>
 
-      {/* ── STATS ── */}
-      {project.stats && (
-        <section style={{ background: "var(--color-dark-800)" }}>
-          <div className="max-w-7xl mx-auto px-6 md:px-12 py-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {project.stats.map((s) => (
-                <div key={s.label}>
-                  <p style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(1.6rem, 2.5vw, 2.4rem)", color: "white", lineHeight: 1 }}>{s.value}</p>
-                  <p className="text-[10px] tracking-widest uppercase mt-1.5" style={{ color: "var(--color-taupe-500)" }}>{s.label}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* ── SEIZOENEN + GASTEN ── */}
       {seasons.length > 0 && (
