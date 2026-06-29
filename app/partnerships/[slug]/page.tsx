@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import Navbar from "../../components/Navbar";
 import CTAFooter from "../../components/CTAFooter";
+import TrailerEmbed from "../../components/TrailerEmbed";
 import { partnershipCases } from "../../data/content";
 
 export function generateStaticParams() {
@@ -166,20 +167,7 @@ export default async function PartnershipPage({ params }: { params: Promise<{ sl
           )}
 
           {/* Trailer */}
-          {youtubeId && (
-            <div className="flex flex-col gap-3">
-            <span className="text-[10px] tracking-widest uppercase" style={{ color: "var(--color-taupe-500)" }}>Trailer</span>
-            <div className="rounded-2xl overflow-hidden" style={{ aspectRatio: "16/9" }}>
-              <iframe
-                src={`https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1&mute=1&rel=0&modestbranding=1&loop=1&playlist=${youtubeId}`}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="w-full h-full"
-                style={{ border: "none" }}
-              />
-            </div>
-            </div>
-          )}
+          {youtubeId && <TrailerEmbed youtubeId={youtubeId} />}
         </div>
       </section>
 
