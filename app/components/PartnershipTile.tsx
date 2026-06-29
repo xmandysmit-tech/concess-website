@@ -8,6 +8,11 @@ function getYouTubeId(url: string): string | null {
   return match ? match[1] : null;
 }
 
+function getTikTokId(url: string): string | null {
+  const match = url.match(/tiktok\.com\/@[^/]+\/video\/(\d+)/);
+  return match ? match[1] : null;
+}
+
 export default function PartnershipTile({ p }: { p: PartnershipCase }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -15,10 +20,13 @@ export default function PartnershipTile({ p }: { p: PartnershipCase }) {
   const [videoVisible, setVideoVisible] = useState(false);
 
   const youtubeId = p.hoverVideo ? getYouTubeId(p.hoverVideo) : null;
+  const tiktokId = p.hoverVideo ? getTikTokId(p.hoverVideo) : null;
   const isYouTube = !!youtubeId;
+  const isTikTok = !!tiktokId;
+  const isEmbed = isYouTube || isTikTok;
 
   function handleMouseEnter() {
-    if (isYouTube) {
+    if (isEmbed) {
       setShowIframe(true);
       // Wacht tot controls verdwenen zijn, dan pas zichtbaar maken
       timerRef.current = setTimeout(() => setVideoVisible(true), 3500);
@@ -32,8 +40,7 @@ export default function PartnershipTile({ p }: { p: PartnershipCase }) {
   function handleMouseLeave() {
     if (timerRef.current) clearTimeout(timerRef.current);
     setVideoVisible(false);
-    if (isYouTube) {
-      // Kleine vertraging zodat fade-out klaar is voor iframe verwijderd wordt
+    if (isEmbed) {
       setTimeout(() => setShowIframe(false), 700);
     } else if (videoRef.current) {
       videoRef.current.pause();
@@ -43,7 +50,14 @@ export default function PartnershipTile({ p }: { p: PartnershipCase }) {
 
   const iframeSrc = youtubeId
     ? `https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${youtubeId}&modestbranding=1&rel=0&disablekb=1&iv_load_policy=3&fs=0`
+    : tiktokId
+    ? `https://www.tiktok.com/embed/v2/${tiktokId}?autoplay=1&muted=1&loop=1`
     : "";
+
+  // TikTok is verticaal (9:16) — schaal zodat het de 4:3 tile vult
+  const iframeStyle = isTikTok
+    ? { width: "56.25%", height: "177.78%", top: "-38.89%", left: "21.875%" }
+    : { width: "177.78%", height: "177.78%", top: "-38.89%", left: "-38.89%" };
 
   return (
     <Link
@@ -64,8 +78,8 @@ export default function PartnershipTile({ p }: { p: PartnershipCase }) {
         style={{ opacity: videoVisible ? 0 : 1 }}
       />
 
-      {/* YouTube iframe */}
-      {isYouTube && showIframe && (
+      {/* YouTube / TikTok iframe */}
+      {isEmbed && showIframe && (
         <iframe
           src={iframeSrc}
           allow="autoplay; encrypted-media"
@@ -74,10 +88,7 @@ export default function PartnershipTile({ p }: { p: PartnershipCase }) {
             border: "none",
             opacity: videoVisible ? 1 : 0,
             transition: "opacity 0.7s ease",
-            width: "177.78%",
-            height: "177.78%",
-            top: "-38.89%",
-            left: "-38.89%",
+            ...iframeStyle,
           }}
         />
       )}

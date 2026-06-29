@@ -245,6 +245,7 @@ export const partnershipCases: PartnershipCase[] = [
     category: "Partnerships",
     year: "2023",
     cover: "/images/Partnerships/de-bennies/air-up/cover.png",
+    hoverVideo: "https://www.tiktok.com/@debennies/video/7232297966965378330",
     gradient: "from-blue-900 to-zinc-950",
     description: "Een authentieke samenwerking tussen Air up en De Bennies waarbij het trio de smaakdopjes op hun eigen humoristische manier introduceerde aan hun publiek. De campagne resulteerde in een organische integratie die perfect aansloot bij de stijl van De Bennies.",
     services: ["Brand Partnership", "Content Creatie", "Social Media"],
