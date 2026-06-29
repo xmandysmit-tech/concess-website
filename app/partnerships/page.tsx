@@ -1,9 +1,9 @@
 "use client";
 import { useState } from "react";
+import Link from "next/link";
 import Navbar from "../components/Navbar";
 import CTAFooter from "../components/CTAFooter";
-import ProjectModal from "../components/ProjectModal";
-import { projects, partnershipCases, PartnershipCase } from "../data/content";
+import { projects, partnershipCases } from "../data/content";
 
 // Reguliere projecten (zonder modal) die NIET al in partnershipCases zitten
 const extraProjects = projects.filter((p) => p.type === "Partnerships");
@@ -45,7 +45,6 @@ const PAGE_SIZE = 9;
 
 export default function PartnershipsPage() {
   const [visible, setVisible] = useState(PAGE_SIZE);
-  const [activeProject, setActiveProject] = useState<PartnershipCase | null>(null);
 
   const shown = extraProjects.slice(0, visible);
   const hasMore = visible < extraProjects.length;
@@ -74,11 +73,11 @@ export default function PartnershipsPage() {
           <span className="text-[10px] tracking-widest uppercase text-taupe-500 block mb-10">Uitgelichte campagnes</span>
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
             {partnershipCases.map((p) => (
-              <button
+              <Link
                 key={p.slug}
-                onClick={() => setActiveProject(p)}
-                className="group relative overflow-hidden rounded-2xl text-left focus:outline-none"
-                style={{ aspectRatio: "4/3", background: `linear-gradient(to bottom right, var(--tw-gradient-stops))` }}
+                href={`/partnerships/${p.slug}`}
+                className="group relative overflow-hidden rounded-2xl"
+                style={{ aspectRatio: "4/3", display: "block" }}
               >
                 <div className={`absolute inset-0 bg-gradient-to-br ${p.gradient}`} />
                 <img
@@ -87,8 +86,7 @@ export default function PartnershipsPage() {
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 55%)" }} />
-                {/* Hover overlay */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ background: "rgba(0,0,0,0.3)" }}>
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ background: "rgba(0,0,0,0.25)" }}>
                   <span className="text-[10px] tracking-widest uppercase text-white border border-white/40 px-4 py-2 rounded-full">
                     Bekijk project
                   </span>
@@ -97,7 +95,7 @@ export default function PartnershipsPage() {
                   <span className="text-[9px] tracking-widest uppercase text-white/50 block mb-1">{p.creator} · {p.year}</span>
                   <h3 className="text-white text-lg" style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}>{p.brand}</h3>
                 </div>
-              </button>
+              </Link>
             ))}
           </div>
         </section>
@@ -172,11 +170,6 @@ export default function PartnershipsPage() {
       </section>
 
       <CTAFooter />
-
-      {/* Modal */}
-      {activeProject && (
-        <ProjectModal project={activeProject} onClose={() => setActiveProject(null)} />
-      )}
     </main>
   );
 }
