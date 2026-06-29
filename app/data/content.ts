@@ -280,12 +280,15 @@ export const partnershipCases: PartnershipCase[] = [
       { name: "Noël Dekkers", role: "Host", img: "/images/Partnerships/de-bennies/podimo-s2/noel.jpg" },
     ],
     guests: [
-      { name: "Gast seizoen 2" },
-      { name: "Gast seizoen 2" },
-      { name: "Gast seizoen 3" },
-      { name: "Gast seizoen 3" },
-      { name: "Gast seizoen 4" },
-      { name: "Gast seizoen 4" },
+      // Seizoen 2 — geen gasten
+      // Seizoen 3
+      { name: "Qucee", img: "/images/Partnerships/De Bennies/Gasten de bennies/qucee.jpeg.webp" },
+      { name: "Bram Krikke", img: "/images/Partnerships/De Bennies/Gasten de bennies/bram.jpg" },
+      { name: "Raoul de Graaf", img: "/images/Partnerships/De Bennies/Gasten de bennies/raoul.jpg" },
+      // Seizoen 4
+      { name: "Bas Reijgwart", img: "/images/Partnerships/De Bennies/Gasten de bennies/bas.jpg" },
+      { name: "Acid (Nathan Vandergunst)", img: "/images/Partnerships/De Bennies/Gasten de bennies/nathan.jpg" },
+      { name: "Robbie van de Graaf", img: "/images/Partnerships/De Bennies/Gasten de bennies/robbie.jpg" },
     ],
     gallery: [
       { type: "image", src: "/images/Partnerships/de-bennies/podimo-s2/artwork.jpg", alt: "Podimo x De Bennies artwork" },

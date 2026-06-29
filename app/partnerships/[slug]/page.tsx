@@ -25,9 +25,9 @@ export default async function PartnershipPage({ params }: { params: Promise<{ sl
   // Verdeel gasten over seizoenen (max 2 per seizoen)
   const seasons = project.slug === "podimo-de-bennies"
     ? [
-        { label: "Seizoen 2", year: "2024", desc: "Lancering exclusieve Podimo samenwerking. Direct in de top van de charts.", guestOffset: 0 },
-        { label: "Seizoen 3", year: "2025", desc: "Fanbase groeide verder. Eerste grote mijlpaal: 1 miljoen streams.", guestOffset: 2 },
-        { label: "Seizoen 4", year: "2025–2026", desc: "Meest ambitieuze seizoen met vernieuwde productiestijl.", guestOffset: 4 },
+        { label: "Seizoen 2", year: "2024", desc: "Lancering exclusieve Podimo samenwerking. Direct in de top van de charts.", guestOffset: -1, guestCount: 0 },
+        { label: "Seizoen 3", year: "2025", desc: "Fanbase groeide verder. Eerste grote mijlpaal: 1 miljoen streams.", guestOffset: 0, guestCount: 3 },
+        { label: "Seizoen 4", year: "2025–2026", desc: "Meest ambitieuze seizoen met vernieuwde productiestijl.", guestOffset: 3, guestCount: 3 },
       ]
     : [];
 
@@ -103,7 +103,7 @@ export default async function PartnershipPage({ params }: { params: Promise<{ sl
           <span className="text-[10px] tracking-widest uppercase text-taupe-500 block mb-6">De samenwerking</span>
           <div className="grid md:grid-cols-3 gap-3">
             {seasons.map((s) => {
-              const seasonGuests = project.guests?.slice(s.guestOffset, s.guestOffset + 2) ?? [];
+              const seasonGuests = s.guestCount > 0 ? (project.guests?.slice(s.guestOffset, s.guestOffset + s.guestCount) ?? []) : [];
               return (
                 <div key={s.label} className="rounded-2xl p-6 flex flex-col gap-4" style={{ background: "var(--color-dark-900)" }}>
                   <div>
@@ -143,25 +143,26 @@ export default async function PartnershipPage({ params }: { params: Promise<{ sl
 
           {/* Milestone */}
           {project.stats?.some(s => s.label.toLowerCase().includes("stream")) && (
-            <div className="rounded-2xl overflow-hidden flex flex-col md:flex-row" style={{ background: "var(--color-dark-900)", minHeight: 280 }}>
-              {/* Foto links */}
-              <div className="flex-shrink-0 md:w-2/5">
-                <img
-                  src="/images/Partnerships/de-bennies/podimo-s2/miljoen.jpg"
-                  alt="1 Miljoen Streams"
-                  className="w-full h-full object-cover"
-                  style={{ minHeight: 240 }}
-                />
-              </div>
-              {/* Tekst rechts */}
-              <div className="flex-1 p-7 flex flex-col justify-center">
-                <span className="text-[10px] tracking-widest uppercase mb-4 block" style={{ color: "var(--color-taupe-500)" }}>Mijlpaal</span>
-                <h2 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(1.4rem, 2vw, 2rem)", color: "white", lineHeight: 1.1 }}>
-                  Waar we <span className="italic" style={{ color: "var(--color-taupe-300)" }}>trots</span> op zijn
-                </h2>
-                <p className="mt-4 text-sm leading-relaxed" style={{ color: "var(--color-taupe-400)", fontFamily: "'Playfair Display', Georgia, serif" }}>
-                  De Bennies podcast stond vrijwel direct op #1 in de Top Podcasts Netherlands chart. Met 10 afleveringen online nog steeds top 5 — en als een van de eersten met video op Spotify. Binnen 5 afleveringen al <strong style={{ color: "white" }}>1 miljoen streams</strong>.
-                </p>
+            <div className="flex flex-col gap-3">
+              <span className="text-[10px] tracking-widest uppercase" style={{ color: "var(--color-taupe-500)" }}>Mijlpaal</span>
+              <div className="rounded-2xl overflow-hidden flex flex-row" style={{ aspectRatio: "16/9", background: "var(--color-dark-900)" }}>
+                {/* Foto links — vierkant (hoogte = kaardhoogte) */}
+                <div className="flex-shrink-0" style={{ aspectRatio: "1/1", height: "100%" }}>
+                  <img
+                    src="/images/Partnerships/de-bennies/podimo-s2/miljoen.jpg"
+                    alt="1 Miljoen Streams"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                {/* Tekst rechts */}
+                <div className="flex-1 px-6 py-5 flex flex-col justify-center overflow-hidden">
+                  <h2 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(1rem, 1.6vw, 1.6rem)", color: "white", lineHeight: 1.1 }}>
+                    Waar we <span className="italic" style={{ color: "var(--color-taupe-300)" }}>trots</span> op zijn
+                  </h2>
+                  <p className="mt-3 text-xs leading-relaxed" style={{ color: "var(--color-taupe-400)", fontFamily: "'Playfair Display', Georgia, serif" }}>
+                    De Bennies podcast stond vrijwel direct op #1 in de Top Podcasts Netherlands chart. Met 10 afleveringen online nog steeds top 5 — en als een van de eersten met video op Spotify. Binnen 5 afleveringen al <strong style={{ color: "white" }}>1 miljoen streams</strong>.
+                  </p>
+                </div>
               </div>
             </div>
           )}
