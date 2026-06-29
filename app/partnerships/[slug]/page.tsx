@@ -58,7 +58,7 @@ export default async function PartnershipPage({ params }: { params: Promise<{ sl
             <div className="flex-1">
               {project.tagline && (
                 <span className="text-[10px] tracking-widest uppercase block mb-2" style={{ color: "var(--color-taupe-400)" }}>
-                  {project.tagline} <span style={{ opacity: 0.4 }}>·</span> <span className="italic normal-case" style={{ fontFamily: "'Playfair Display', Georgia, serif", letterSpacing: "0.02em" }}>{project.category} · {project.year}</span>
+                  {project.tagline} <span style={{ opacity: 0.4, fontWeight: 700 }}>|</span> {project.category} · {project.year}
                 </span>
               )}
               <h1 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(2rem, 4.5vw, 4rem)", lineHeight: "1", color: "white" }}>
