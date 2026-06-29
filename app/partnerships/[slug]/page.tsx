@@ -56,7 +56,11 @@ export default async function PartnershipPage({ params }: { params: Promise<{ sl
 
             {/* Info */}
             <div className="flex-1">
-              {project.tagline && <span className="text-[10px] tracking-widest uppercase mb-2 block" style={{ color: "var(--color-taupe-400)" }}>{project.tagline}</span>}
+              {project.tagline && (
+                <span className="text-[10px] tracking-widest uppercase block mb-2" style={{ color: "var(--color-taupe-400)" }}>
+                  {project.tagline} <span style={{ opacity: 0.4 }}>·</span> <span className="italic normal-case" style={{ fontFamily: "'Playfair Display', Georgia, serif", letterSpacing: "0.02em" }}>{project.category} · {project.year}</span>
+                </span>
+              )}
               <h1 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(2rem, 4.5vw, 4rem)", lineHeight: "1", color: "white" }}>
                 {project.brand} <span className="italic" style={{ color: "var(--color-taupe-300)" }}>× {project.creator}</span>
               </h1>
@@ -70,7 +74,7 @@ export default async function PartnershipPage({ params }: { params: Promise<{ sl
                     <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 8L8 2M8 2H3.5M8 2V6.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
                   </a>
                 )}
-                <span className="text-[10px] tracking-widest uppercase" style={{ color: "rgba(255,255,255,0.2)" }}>{project.category} · {project.year}</span>
+{!project.tagline && <span className="text-[10px] tracking-widest uppercase" style={{ color: "rgba(255,255,255,0.2)" }}>{project.category} · {project.year}</span>}
               </div>
               <div className="flex flex-wrap gap-2 mt-4">
                 {project.services.map((s) => (
