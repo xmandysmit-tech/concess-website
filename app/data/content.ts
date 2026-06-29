@@ -275,9 +275,9 @@ export const partnershipCases: PartnershipCase[] = [
     platformLink: "https://podimo.com/nl/shows/de-bennies-2",
     platformLinkLabel: "Luister op Podimo",
     creatorProfiles: [
-      { name: "Noël Dekkers", role: "Host", img: "/images/Partnerships/de-bennies/podimo-s2/noel.jpg" },
-      { name: "Thijs van Woerkum", role: "Host", img: "/images/Partnerships/de-bennies/podimo-s2/thijs.jpg" },
       { name: "Enzo Knol", role: "Host", img: "/images/Partnerships/de-bennies/podimo-s2/enzo.jpg" },
+      { name: "Thijs van Woerkum", role: "Host", img: "/images/Partnerships/de-bennies/podimo-s2/thijs.jpg" },
+      { name: "Noël Dekkers", role: "Host", img: "/images/Partnerships/de-bennies/podimo-s2/noel.jpg" },
     ],
     guests: [
       { name: "Gast seizoen 2" },
