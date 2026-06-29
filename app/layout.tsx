@@ -13,7 +13,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Concess — Creative Partnerships",
+  title: "Concess",
   description: "Wij creëren strategische samenwerkingen tussen merken en creators die impact maken en resultaten opleveren.",
 };
 
