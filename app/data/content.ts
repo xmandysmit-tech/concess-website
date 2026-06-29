@@ -202,9 +202,9 @@ export const creators = [
     accentColor: "#9E8B72",
     img: "/images/creators/bennies_banner.png",
     work: [
-      { brand: "Air Up",             creator: "De Bennies", views: "8M+", type: "Partnerships", gradient: "from-zinc-600 to-zinc-900" },
-      { brand: "Emma",               creator: "De Bennies", views: "5M+", type: "Video",        gradient: "from-neutral-800 to-neutral-950" },
-      { brand: "De Bennies Podcast", creator: "De Bennies", views: "2M+", type: "Video",        gradient: "from-zinc-800 to-zinc-950" },
+      { brand: "Podimo",  creator: "De Bennies", views: "1M+ streams", type: "Podcast Partnership", gradient: "from-pink-900 to-zinc-950",    img: "/images/Partnerships/de-bennies/podimo-s2/artwork.jpg",   slug: "podimo-de-bennies" },
+      { brand: "Air Up",  creator: "De Bennies", views: "8M+",         type: "Brand Partnership",   gradient: "from-blue-900 to-zinc-950",    img: "/images/Partnerships/de-bennies/air-up/cover.png",         slug: "air-up-de-bennies" },
+      { brand: "Emma",    creator: "De Bennies", views: "5M+",         type: "Video",               gradient: "from-neutral-800 to-neutral-950" },
     ],
   },
 ];
