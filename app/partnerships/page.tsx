@@ -1,8 +1,8 @@
 "use client";
 import { useState } from "react";
-import Link from "next/link";
 import Navbar from "../components/Navbar";
 import CTAFooter from "../components/CTAFooter";
+import PartnershipTile from "../components/PartnershipTile";
 import { projects, partnershipCases } from "../data/content";
 
 const extraProjects = projects.filter((p) => p.type === "Partnerships");
@@ -70,31 +70,9 @@ export default function PartnershipsPage() {
         <span className="text-[10px] tracking-widest uppercase text-taupe-500 block mb-10">Partnerships</span>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-          {/* Klikbare cases */}
+          {/* Klikbare cases met optionele hover video */}
           {partnershipCases.map((p) => (
-            <Link
-              key={p.slug}
-              href={`/partnerships/${p.slug}`}
-              className="group relative overflow-hidden rounded-2xl"
-              style={{ aspectRatio: "4/3", display: "block" }}
-            >
-              <div className={`absolute inset-0 bg-gradient-to-br ${p.gradient}`} />
-              <img
-                src={p.cover}
-                alt={p.brand}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.3) 50%, transparent 75%)" }} />
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ background: "rgba(0,0,0,0.25)" }}>
-                <span className="text-[10px] tracking-widest uppercase text-white border border-white/40 px-4 py-2 rounded-full">
-                  Bekijk project
-                </span>
-              </div>
-              <div className="absolute bottom-0 left-0 right-0 p-4">
-                <span className="text-[9px] tracking-widest uppercase text-white/60 block mb-0.5" style={{ fontWeight: 600 }}>{p.creator} · {p.year}</span>
-                <h3 className="text-white" style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "1.1rem", lineHeight: 1.2 }}>{p.brand}</h3>
-              </div>
-            </Link>
+            <PartnershipTile key={p.slug} p={p} />
           ))}
 
           {/* Reguliere projecten */}

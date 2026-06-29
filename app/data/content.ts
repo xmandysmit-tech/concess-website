@@ -222,6 +222,7 @@ export type PartnershipCase = {
   category: string;
   year: string;
   cover: string;          // pad naar cover afbeelding
+  hoverVideo?: string;    // optionele video URL voor hover preview (host op Cloudinary o.i.d.)
   gradient: string;       // fallback gradient als cover laadt
   description: string;
   services: string[];
