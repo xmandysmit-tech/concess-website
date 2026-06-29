@@ -5,7 +5,6 @@ import Navbar from "../components/Navbar";
 import CTAFooter from "../components/CTAFooter";
 import { projects, partnershipCases } from "../data/content";
 
-// Reguliere projecten (zonder modal) die NIET al in partnershipCases zitten
 const extraProjects = projects.filter((p) => p.type === "Partnerships");
 
 const brandLogos = [
@@ -45,7 +44,6 @@ const PAGE_SIZE = 9;
 
 export default function PartnershipsPage() {
   const [visible, setVisible] = useState(PAGE_SIZE);
-
   const shown = extraProjects.slice(0, visible);
   const hasMore = visible < extraProjects.length;
 
@@ -67,64 +65,49 @@ export default function PartnershipsPage() {
         </div>
       </section>
 
-      {/* Featured cases — klikbaar */}
-      {partnershipCases.length > 0 && (
-        <section className="pt-12 md:pt-20 max-w-7xl mx-auto px-6 md:px-12">
-          <span className="text-[10px] tracking-widest uppercase text-taupe-500 block mb-10">Uitgelichte campagnes</span>
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
-            {partnershipCases.map((p) => (
-              <Link
-                key={p.slug}
-                href={`/partnerships/${p.slug}`}
-                className="group relative overflow-hidden rounded-2xl"
-                style={{ aspectRatio: "4/3", display: "block" }}
-              >
-                <div className={`absolute inset-0 bg-gradient-to-br ${p.gradient}`} />
-                <img
-                  src={p.cover}
-                  alt={p.brand}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 55%)" }} />
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ background: "rgba(0,0,0,0.25)" }}>
-                  <span className="text-[10px] tracking-widest uppercase text-white border border-white/40 px-4 py-2 rounded-full">
-                    Bekijk project
-                  </span>
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 p-5">
-                  <span className="text-[9px] tracking-widest uppercase text-white/50 block mb-1">{p.creator} · {p.year}</span>
-                  <h3 className="text-white text-lg" style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}>{p.brand}</h3>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </section>
-      )}
-
-      {/* All partnerships grid */}
+      {/* Grid — cases bovenaan (klikbaar), dan reguliere projecten */}
       <section className="py-12 md:py-20 max-w-7xl mx-auto px-6 md:px-12">
-        {partnershipCases.length > 0 && (
-          <span className="text-[10px] tracking-widest uppercase text-taupe-500 block mb-10">Alle partnerships</span>
-        )}
-        {partnershipCases.length === 0 && (
-          <span className="text-[10px] tracking-widest uppercase text-taupe-500 block mb-10">Partnerships</span>
-        )}
+        <span className="text-[10px] tracking-widest uppercase text-taupe-500 block mb-10">Partnerships</span>
 
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
+          {/* Klikbare cases */}
+          {partnershipCases.map((p) => (
+            <Link
+              key={p.slug}
+              href={`/partnerships/${p.slug}`}
+              className="group relative overflow-hidden rounded-2xl"
+              style={{ aspectRatio: "4/3", display: "block" }}
+            >
+              <div className={`absolute inset-0 bg-gradient-to-br ${p.gradient}`} />
+              <img
+                src={p.cover}
+                alt={p.brand}
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 55%)" }} />
+              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ background: "rgba(0,0,0,0.25)" }}>
+                <span className="text-[10px] tracking-widest uppercase text-white border border-white/40 px-4 py-2 rounded-full">
+                  Bekijk project
+                </span>
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 p-5">
+                <span className="text-[9px] tracking-widest uppercase text-white/50 block mb-1">{p.creator} · {p.year}</span>
+                <h3 className="text-white text-lg" style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}>{p.brand}</h3>
+              </div>
+            </Link>
+          ))}
+
+          {/* Reguliere projecten */}
           {shown.map((p, i) => (
             <div
               key={i}
               className="relative overflow-hidden rounded-2xl"
-              style={{ aspectRatio: "4/3", background: "var(--color-linen-300)" }}
+              style={{ aspectRatio: "4/3" }}
             >
-              {p.img && (
-                <img
-                  src={p.img}
-                  alt={p.brand}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-                />
-              )}
-              {!p.img && <div className={`absolute inset-0 bg-gradient-to-br ${p.gradient}`} />}
+              {p.img
+                ? <img src={p.img} alt={p.brand} className="absolute inset-0 w-full h-full object-cover" />
+                : <div className={`absolute inset-0 bg-gradient-to-br ${p.gradient}`} />
+              }
               <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 55%)" }} />
               <div className="absolute bottom-0 left-0 right-0 p-5">
                 <span className="text-[9px] tracking-widest uppercase text-white/50 block mb-1">{p.creator}</span>
