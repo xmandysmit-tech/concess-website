@@ -253,7 +253,6 @@ export const partnershipCases: PartnershipCase[] = [
     year: "2025",
     cover: "/images/Partnerships/de-bennies/podimo-s2/artwork.jpg",
     hoverVideo: "https://www.youtube.com/watch?v=hUpePaNRUc0",
-    alwaysPlay: true,
     gradient: "from-orange-900 to-zinc-950",
     description: "Seizoen 2 van de samenwerking tussen Podimo en De Bennies. Het entertainmenttrio bracht hun podcast exclusief uit op Podimo, waarbij Concess de volledige begeleiding verzorgde van concept tot lancering.",
     services: ["Podcast Productie", "Brand Partnership", "Marketing"],

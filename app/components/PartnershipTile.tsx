@@ -25,11 +25,14 @@ export default function PartnershipTile({ p }: { p: PartnershipCase }) {
       try {
         const data = typeof e.data === "string" ? JSON.parse(e.data) : e.data;
         // playerState 1 = playing
-        if (data?.event === "onStateChange" && data?.info === 1 && data?.id === playerId) {
+        if (data?.event === "onStateChange" && data?.info === 1) {
           setVideoReady(true);
         }
-        if (data?.event === "onStateChange" && data?.info !== 1 && data?.id === playerId) {
-          // paused/ended — reset zodat cover terugkomt
+        // State 0 = ended — herlaad iframe voor naadloze loop
+        if (data?.event === "onStateChange" && data?.info === 0) {
+          setVideoReady(false);
+          setShowIframe(false);
+          setTimeout(() => setShowIframe(true), 100);
         }
       } catch {}
     }
