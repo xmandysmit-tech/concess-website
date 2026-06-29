@@ -3,21 +3,37 @@ import { useRef, useState } from "react";
 import Link from "next/link";
 import { PartnershipCase } from "../data/content";
 
+function getYouTubeId(url: string): string | null {
+  const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([a-zA-Z0-9_-]{11})/);
+  return match ? match[1] : null;
+}
+
 export default function PartnershipTile({ p }: { p: PartnershipCase }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoReady, setVideoReady] = useState(false);
+  const [showIframe, setShowIframe] = useState(false);
+
+  const youtubeId = p.hoverVideo ? getYouTubeId(p.hoverVideo) : null;
+  const isYouTube = !!youtubeId;
 
   function handleMouseEnter() {
-    if (!videoRef.current) return;
-    videoRef.current.currentTime = 0;
-    videoRef.current.play().catch(() => {});
+    if (isYouTube) {
+      setShowIframe(true);
+    } else if (videoRef.current) {
+      videoRef.current.currentTime = 0;
+      videoRef.current.play().catch(() => {});
+    }
   }
 
   function handleMouseLeave() {
-    if (!videoRef.current) return;
-    videoRef.current.pause();
-    videoRef.current.currentTime = 0;
-    setVideoReady(false);
+    if (isYouTube) {
+      setShowIframe(false);
+      setVideoReady(false);
+    } else if (videoRef.current) {
+      videoRef.current.pause();
+      videoRef.current.currentTime = 0;
+      setVideoReady(false);
+    }
   }
 
   return (
@@ -39,8 +55,27 @@ export default function PartnershipTile({ p }: { p: PartnershipCase }) {
         style={{ opacity: videoReady ? 0 : 1 }}
       />
 
-      {/* Hover video */}
-      {p.hoverVideo && (
+      {/* YouTube iframe hover */}
+      {isYouTube && showIframe && (
+        <iframe
+          src={`https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${youtubeId}&modestbranding=1&rel=0&disablekb=1`}
+          allow="autoplay"
+          className="absolute inset-0 w-full h-full transition-opacity duration-500 pointer-events-none"
+          style={{
+            opacity: 1,
+            border: "none",
+            // YouTube iframe heeft een vaste aspect ratio — schaal op zodat het de tile vult
+            width: "177.78%",
+            height: "177.78%",
+            top: "-38.89%",
+            left: "-38.89%",
+          }}
+          onLoad={() => setVideoReady(true)}
+        />
+      )}
+
+      {/* Directe video hover (Cloudinary etc.) */}
+      {p.hoverVideo && !isYouTube && (
         <video
           ref={videoRef}
           src={p.hoverVideo}
@@ -55,10 +90,10 @@ export default function PartnershipTile({ p }: { p: PartnershipCase }) {
         />
       )}
 
-      {/* Gradient overlay */}
+      {/* Gradient overlay — altijd zichtbaar zodat tekst leesbaar blijft */}
       <div
         className="absolute inset-0"
-        style={{ background: "linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.3) 50%, transparent 75%)" }}
+        style={{ background: "linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.2) 50%, transparent 75%)" }}
       />
 
       {/* Hover label */}
