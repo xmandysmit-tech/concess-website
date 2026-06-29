@@ -50,7 +50,7 @@
 }
 
 .animate-marquee-fast {
-  animation: marquee 35s linear infinite;
+  animation: marquee 15s linear infinite;
   will-change: transform;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
