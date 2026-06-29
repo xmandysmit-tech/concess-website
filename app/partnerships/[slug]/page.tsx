@@ -8,6 +8,10 @@ export function generateStaticParams() {
   return partnershipCases.map((p) => ({ slug: p.slug }));
 }
 
+function getYouTubeId(url: string) {
+  return url.match(/(?:watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/)?.[1] ?? null;
+}
+
 export default async function PartnershipPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const project = partnershipCases.find((p) => p.slug === slug);
@@ -15,6 +19,16 @@ export default async function PartnershipPage({ params }: { params: Promise<{ sl
 
   const images = project.gallery.filter((g) => g.type === "image");
   const extraImages = images.slice(1);
+  const youtubeId = project.hoverVideo ? getYouTubeId(project.hoverVideo) : null;
+
+  // Verdeel gasten over seizoenen (max 2 per seizoen)
+  const seasons = project.slug === "podimo-de-bennies"
+    ? [
+        { label: "Seizoen 2", year: "2024", desc: "Lancering exclusieve Podimo samenwerking. Direct in de top van de charts.", guestOffset: 0 },
+        { label: "Seizoen 3", year: "2025", desc: "Fanbase groeide verder. Eerste grote mijlpaal: 1 miljoen streams.", guestOffset: 2 },
+        { label: "Seizoen 4", year: "2025–2026", desc: "Meest ambitieuze seizoen met vernieuwde productiestijl.", guestOffset: 4 },
+      ]
+    : [];
 
   return (
     <main style={{ background: "var(--color-linen-100)", minHeight: "100vh" }}>
@@ -22,81 +36,44 @@ export default async function PartnershipPage({ params }: { params: Promise<{ sl
 
       {/* ── HERO ── */}
       <section className="relative overflow-hidden" style={{ background: "var(--color-dark-900)" }}>
-        {/* Vage achtergrond van de cover */}
-        <div
-          className="absolute inset-0 opacity-20"
-          style={{
-            backgroundImage: `url(${project.cover})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            filter: "blur(40px)",
-            transform: "scale(1.1)",
-          }}
-        />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(30,28,26,0.6) 0%, var(--color-dark-900) 100%)" }} />
+        <div className="absolute inset-0 opacity-15" style={{ backgroundImage: `url(${project.cover})`, backgroundSize: "cover", backgroundPosition: "center", filter: "blur(40px)", transform: "scale(1.1)" }} />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(30,28,26,0.5) 0%, var(--color-dark-900) 100%)" }} />
 
-        <div className="relative max-w-7xl mx-auto px-6 md:px-12 pt-24 md:pt-36 pb-16">
-          <Link
-            href="/partnerships"
-            className="inline-flex items-center gap-2 hover:text-white/60 transition-colors text-xs tracking-widest uppercase mb-12"
-            style={{ color: "rgba(255,255,255,0.3)" }}
-          >
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <path d="M9 2L4 7l5 5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+        <div className="relative max-w-7xl mx-auto px-6 md:px-12 pt-24 md:pt-32 pb-12">
+          <Link href="/partnerships" className="inline-flex items-center gap-2 hover:text-white/60 transition-colors text-xs tracking-widest uppercase mb-10" style={{ color: "rgba(255,255,255,0.3)" }}>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 2L4 7l5 5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
             Partnerships
           </Link>
 
-          <div className="flex flex-col lg:flex-row lg:items-end gap-10 lg:gap-20">
-            {/* Artwork / cover */}
+          <div className="flex flex-col lg:flex-row lg:items-end gap-8 lg:gap-16">
+            {/* Artwork */}
             <div className="flex-shrink-0">
-              <div className="rounded-2xl overflow-hidden shadow-2xl" style={{ width: "clamp(160px, 25vw, 260px)", aspectRatio: "1/1" }}>
+              <div className="rounded-2xl overflow-hidden shadow-2xl" style={{ width: "clamp(120px, 18vw, 200px)", aspectRatio: "1/1" }}>
                 <img src={project.cover} alt={project.brand} className="w-full h-full object-cover" />
               </div>
             </div>
 
             {/* Info */}
-            <div className="flex-1 pb-2">
-              {project.tagline && (
-                <span className="text-[10px] tracking-widest uppercase mb-3 block" style={{ color: "var(--color-taupe-400)" }}>
-                  {project.tagline}
-                </span>
-              )}
-              <h1 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(2.4rem, 5vw, 4.5rem)", lineHeight: "1", color: "white" }}>
-                {project.brand}{" "}
-                <span className="italic" style={{ color: "var(--color-taupe-300)" }}>
-                  × {project.creator}
-                </span>
+            <div className="flex-1">
+              {project.tagline && <span className="text-[10px] tracking-widest uppercase mb-2 block" style={{ color: "var(--color-taupe-400)" }}>{project.tagline}</span>}
+              <h1 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(2rem, 4.5vw, 4rem)", lineHeight: "1", color: "white" }}>
+                {project.brand} <span className="italic" style={{ color: "var(--color-taupe-300)" }}>× {project.creator}</span>
               </h1>
-              <p className="mt-4 text-sm leading-relaxed max-w-lg" style={{ color: "rgba(255,255,255,0.4)", fontFamily: "'Playfair Display', Georgia, serif" }}>
+              <p className="mt-3 text-sm leading-relaxed max-w-lg" style={{ color: "rgba(255,255,255,0.35)", fontFamily: "'Playfair Display', Georgia, serif" }}>
                 {project.description}
               </p>
-
-              <div className="flex flex-wrap items-center gap-3 mt-8">
+              <div className="flex flex-wrap items-center gap-3 mt-6">
                 {project.platformLink && (
-                  <a
-                    href={project.platformLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs tracking-widest uppercase transition-all"
-                    style={{ background: "white", color: "var(--color-dark-900)", fontWeight: 600 }}
-                  >
+                  <a href={project.platformLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-xs tracking-widest uppercase" style={{ background: "white", color: "var(--color-dark-900)", fontWeight: 600 }}>
                     {project.platformLinkLabel ?? "Bekijk"}
-                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                      <path d="M2 8L8 2M8 2H3.5M8 2V6.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 8L8 2M8 2H3.5M8 2V6.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
                   </a>
                 )}
-                <span className="text-[10px] tracking-widest uppercase" style={{ color: "rgba(255,255,255,0.25)" }}>
-                  {project.category} · {project.year}
-                </span>
+                <span className="text-[10px] tracking-widest uppercase" style={{ color: "rgba(255,255,255,0.2)" }}>{project.category} · {project.year}</span>
               </div>
-
-              <div className="flex flex-wrap gap-2 mt-5">
+              <div className="flex flex-wrap gap-2 mt-4">
                 {project.services.map((s) => (
-                  <span key={s} className="text-[9px] tracking-wider uppercase px-3 py-1 rounded-full" style={{ border: "1px solid rgba(255,255,255,0.12)", color: "rgba(255,255,255,0.35)" }}>
-                    {s}
-                  </span>
+                  <span key={s} className="text-[9px] tracking-wider uppercase px-3 py-1 rounded-full" style={{ border: "1px solid rgba(255,255,255,0.1)", color: "rgba(255,255,255,0.3)" }}>{s}</span>
                 ))}
               </div>
             </div>
@@ -105,19 +82,14 @@ export default async function PartnershipPage({ params }: { params: Promise<{ sl
       </section>
 
       {/* ── STATS ── */}
-      {project.stats && project.stats.length > 0 && (
+      {project.stats && (
         <section style={{ background: "var(--color-dark-800)" }}>
-          <div className="max-w-7xl mx-auto px-6 md:px-12 py-12">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="max-w-7xl mx-auto px-6 md:px-12 py-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {project.stats.map((s) => (
-                <div key={s.label} className="relative">
-                  {/* Subtiele scheidingslijn links, behalve eerste */}
-                  <p style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(2rem, 3.5vw, 3rem)", color: "white", lineHeight: 1 }}>
-                    {s.value}
-                  </p>
-                  <p className="text-[10px] tracking-widest uppercase mt-2" style={{ color: "var(--color-taupe-500)" }}>
-                    {s.label}
-                  </p>
+                <div key={s.label}>
+                  <p style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(1.6rem, 2.5vw, 2.4rem)", color: "white", lineHeight: 1 }}>{s.value}</p>
+                  <p className="text-[10px] tracking-widest uppercase mt-1.5" style={{ color: "var(--color-taupe-500)" }}>{s.label}</p>
                 </div>
               ))}
             </div>
@@ -125,126 +97,95 @@ export default async function PartnershipPage({ params }: { params: Promise<{ sl
         </section>
       )}
 
-      {/* ── SEIZOENEN TIJDLIJN ── */}
-      {project.slug === "podimo-de-bennies" && (
-        <section className="py-14 md:py-20 max-w-7xl mx-auto px-6 md:px-12">
-          <span className="text-[10px] tracking-widest uppercase text-taupe-500 block mb-10">De samenwerking</span>
-          <div className="grid md:grid-cols-3 gap-4">
-            {[
-              { label: "Seizoen 2", year: "2024", desc: "Lancering van de exclusieve Podimo samenwerking. Direct een hit — het seizoen stond vrijwel meteen in de top van de charts." },
-              { label: "Seizoen 3", year: "2025", desc: "Voortbouwend op het succes van seizoen 2 groeide de fanbase verder. Meer episodes, meer bereik en de eerste grote mijlpaal: 1 miljoen streams." },
-              { label: "Seizoen 4", year: "2025 – 2026", desc: "Het meest ambitieuze seizoen tot nu toe. Met een frisse look en vernieuwde productiestijl zette Concess de lat nog hoger." },
-            ].map((s) => (
-              <div key={s.label} className="rounded-2xl p-7" style={{ background: "var(--color-dark-900)" }}>
-                <span className="text-[9px] tracking-widest uppercase mb-3 block" style={{ color: "var(--color-taupe-600)" }}>{s.year}</span>
-                <h3 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "1.4rem", color: "white" }} className="mb-3">
-                  {s.label}
-                </h3>
-                <p className="text-sm leading-relaxed" style={{ color: "var(--color-taupe-400)", fontFamily: "'Playfair Display', Georgia, serif" }}>
-                  {s.desc}
-                </p>
-              </div>
-            ))}
+      {/* ── SEIZOENEN + GASTEN ── */}
+      {seasons.length > 0 && (
+        <section className="py-12 md:py-16 max-w-7xl mx-auto px-6 md:px-12">
+          <span className="text-[10px] tracking-widest uppercase text-taupe-500 block mb-6">De samenwerking</span>
+          <div className="grid md:grid-cols-3 gap-3">
+            {seasons.map((s) => {
+              const seasonGuests = project.guests?.slice(s.guestOffset, s.guestOffset + 2) ?? [];
+              return (
+                <div key={s.label} className="rounded-2xl p-6 flex flex-col gap-4" style={{ background: "var(--color-dark-900)" }}>
+                  <div>
+                    <span className="text-[9px] tracking-widest uppercase mb-2 block" style={{ color: "var(--color-taupe-600)" }}>{s.year}</span>
+                    <h3 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "1.2rem", color: "white" }}>{s.label}</h3>
+                    <p className="text-xs leading-relaxed mt-2" style={{ color: "var(--color-taupe-400)", fontFamily: "'Playfair Display', Georgia, serif" }}>{s.desc}</p>
+                  </div>
+                  {/* Gasten */}
+                  {seasonGuests.length > 0 && (
+                    <div className="pt-3 border-t" style={{ borderColor: "rgba(255,255,255,0.07)" }}>
+                      <span className="text-[9px] tracking-widest uppercase mb-3 block" style={{ color: "var(--color-taupe-600)" }}>Gasten</span>
+                      <div className="flex gap-3">
+                        {seasonGuests.map((g, i) => (
+                          <div key={i} className="flex flex-col items-center gap-1.5" style={{ width: 56 }}>
+                            <div className="rounded-xl overflow-hidden w-full flex items-center justify-center" style={{ aspectRatio: "3/4", background: "rgba(255,255,255,0.06)" }}>
+                              {g.img
+                                ? <img src={g.img} alt={g.name} className="w-full h-full object-cover object-top" />
+                                : <span className="text-[8px] text-center px-1" style={{ color: "rgba(255,255,255,0.2)" }}>Foto volgt</span>
+                              }
+                            </div>
+                            <p className="text-[9px] text-center leading-tight" style={{ color: "rgba(255,255,255,0.4)" }}>{g.name}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </section>
       )}
 
-      {/* ── MILESTONE BANNER ── */}
-      {project.stats?.some(s => s.label.toLowerCase().includes("stream")) && (
-        <section className="py-14 md:py-20 max-w-7xl mx-auto px-6 md:px-12">
-          <div className="rounded-3xl overflow-hidden flex flex-col md:flex-row" style={{ background: "var(--color-dark-900)" }}>
-            {/* Artwork blok */}
-            <div className="flex-shrink-0 flex items-center justify-center p-10 md:p-14" style={{ background: "rgba(255,255,255,0.03)" }}>
-              <div className="rounded-2xl overflow-hidden shadow-2xl" style={{ width: "clamp(140px, 18vw, 220px)", aspectRatio: "1/1" }}>
-                <img src={project.cover} alt="Milestone" className="w-full h-full object-cover" />
-              </div>
-            </div>
-            {/* Tekst */}
-            <div className="flex-1 flex flex-col justify-center p-8 md:p-14">
+      {/* ── MILESTONE + TRAILER naast elkaar ── */}
+      <section className="pb-12 md:pb-16 max-w-7xl mx-auto px-6 md:px-12">
+        <div className="grid md:grid-cols-2 gap-4">
+
+          {/* Milestone */}
+          {project.stats?.some(s => s.label.toLowerCase().includes("stream")) && (
+            <div className="rounded-2xl p-8 flex flex-col justify-between" style={{ background: "var(--color-dark-900)", minHeight: 280 }}>
               <span className="text-[10px] tracking-widest uppercase mb-4 block" style={{ color: "var(--color-taupe-500)" }}>Mijlpaal</span>
-              <h2 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(2rem, 4vw, 3.2rem)", color: "white", lineHeight: 1.1 }}>
-                Waar we <span className="italic" style={{ color: "var(--color-taupe-300)" }}>trots</span> op zijn
-              </h2>
-              <p className="mt-5 text-sm leading-relaxed max-w-lg" style={{ color: "var(--color-taupe-400)", fontFamily: "'Playfair Display', Georgia, serif" }}>
-                De Bennies podcast heeft sinds de lancering indrukwekkend gepresteerd. Het seizoen stond vrijwel direct op #1 in de Top Podcasts Netherlands chart. Ruim 2,5 maand later, met 10 afleveringen online, stond de podcast nog steeds in de top 5. Bovendien behoort De Bennies tot de eerste grote podcastmakers die video toevoegden aan hun podcast op Spotify — en dat alles binnen 5 afleveringen al goed voor <strong style={{ color: "white" }}>1 miljoen streams</strong>.
-              </p>
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* ── HOSTS ── */}
-      {project.creatorProfiles && project.creatorProfiles.length > 0 && (
-        <section className="pb-14 max-w-7xl mx-auto px-6 md:px-12">
-          <span className="text-[10px] tracking-widest uppercase text-taupe-500 block mb-8">De hosts</span>
-          <div className="grid grid-cols-3 md:grid-cols-6 gap-4">
-            {project.creatorProfiles.map((c) => (
-              <div key={c.name} className="flex flex-col items-center text-center gap-3">
-                <div className="rounded-2xl overflow-hidden w-full" style={{ aspectRatio: "3/4" }}>
-                  <img src={c.img} alt={c.name} className="w-full h-full object-cover object-top" />
-                </div>
-                <div>
-                  <p style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "0.9rem" }} className="text-dark-900 leading-tight">
-                    {c.name}
-                  </p>
-                  <p className="text-[9px] tracking-widest uppercase text-taupe-500 mt-0.5">{c.role}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
-
-      {/* ── GASTEN ── */}
-      {project.guests && project.guests.length > 0 && (
-        <section className="pb-14 max-w-7xl mx-auto px-6 md:px-12">
-          <span className="text-[10px] tracking-widest uppercase text-taupe-500 block mb-8">Seizoensgasten</span>
-          <div className="grid grid-cols-3 md:grid-cols-6 gap-4">
-            {project.guests.map((g, i) => (
-              <div key={i} className="flex flex-col items-center text-center gap-3">
-                <div className="rounded-2xl overflow-hidden w-full flex items-center justify-center" style={{ aspectRatio: "3/4", background: "var(--color-linen-300)" }}>
-                  {g.img
-                    ? <img src={g.img} alt={g.name} className="w-full h-full object-cover object-top" />
-                    : <span className="text-[10px] tracking-widest uppercase text-taupe-400">Foto volgt</span>
-                  }
-                </div>
-                <p style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "0.9rem" }} className="text-dark-900 leading-tight">
-                  {g.name}
+              <div>
+                <h2 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(1.6rem, 2.5vw, 2.2rem)", color: "white", lineHeight: 1.1 }}>
+                  Waar we <span className="italic" style={{ color: "var(--color-taupe-300)" }}>trots</span> op zijn
+                </h2>
+                <p className="mt-4 text-sm leading-relaxed" style={{ color: "var(--color-taupe-400)", fontFamily: "'Playfair Display', Georgia, serif" }}>
+                  De Bennies podcast stond vrijwel direct op #1 in de Top Podcasts Netherlands chart. Met 10 afleveringen online nog steeds top 5 — en als een van de eersten met video op Spotify. Binnen 5 afleveringen al <strong style={{ color: "white" }}>1 miljoen streams</strong>.
                 </p>
               </div>
-            ))}
-          </div>
-        </section>
-      )}
+              <div className="flex gap-3 mt-6">
+                {project.creatorProfiles?.map((c) => (
+                  <div key={c.name} className="rounded-xl overflow-hidden flex-shrink-0" style={{ width: 44, height: 56 }}>
+                    <img src={c.img} alt={c.name} className="w-full h-full object-cover object-top" />
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
 
-      {/* ── TRAILER VIDEO ── */}
-      {project.hoverVideo && project.hoverVideo.includes("youtube") && (
-        <section className="pb-4 max-w-7xl mx-auto px-6 md:px-12">
-          <span className="text-[10px] tracking-widest uppercase text-taupe-500 block mb-8">Trailer</span>
-          <div className="overflow-hidden rounded-2xl" style={{ aspectRatio: "16/9", background: "var(--color-dark-900)" }}>
-            <iframe
-              src={`https://www.youtube-nocookie.com/embed/${project.hoverVideo.match(/(?:watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/)?.[1]}?rel=0&modestbranding=1`}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="w-full h-full"
-              style={{ border: "none" }}
-            />
-          </div>
-        </section>
-      )}
+          {/* Trailer */}
+          {youtubeId && (
+            <div className="rounded-2xl overflow-hidden" style={{ aspectRatio: "16/9" }}>
+              <iframe
+                src={`https://www.youtube-nocookie.com/embed/${youtubeId}?rel=0&modestbranding=1`}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full"
+                style={{ border: "none" }}
+              />
+            </div>
+          )}
+        </div>
+      </section>
 
       {/* ── GALERIJ ── */}
       {extraImages.length > 0 && (
-        <section className="pb-16 max-w-7xl mx-auto px-6 md:px-12">
-          <span className="text-[10px] tracking-widest uppercase text-taupe-500 block mb-8">Beeldmateriaal</span>
-          <div className={`grid gap-3 ${extraImages.length === 1 ? "grid-cols-1" : extraImages.length === 2 ? "grid-cols-2" : "grid-cols-2 md:grid-cols-3"}`}>
+        <section className="pb-14 max-w-7xl mx-auto px-6 md:px-12">
+          <span className="text-[10px] tracking-widest uppercase text-taupe-500 block mb-6">Beeldmateriaal</span>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             {extraImages.map((img, i) => (
-              <div key={i} className="overflow-hidden rounded-2xl" style={{ aspectRatio: "3/4" }}>
-                <img
-                  src={img.src}
-                  alt={"alt" in img ? img.alt ?? project.brand : project.brand}
-                  className="w-full h-full object-cover object-top"
-                />
+              <div key={i} className="overflow-hidden rounded-xl" style={{ aspectRatio: "3/4" }}>
+                <img src={img.src} alt={"alt" in img ? img.alt ?? project.brand : project.brand} className="w-full h-full object-cover object-top" />
               </div>
             ))}
           </div>
