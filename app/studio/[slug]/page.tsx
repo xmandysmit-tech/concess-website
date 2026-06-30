@@ -51,7 +51,7 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
                 </span>
               )}
               <h1 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(2rem, 4.5vw, 4rem)", lineHeight: "1", color: "white" }}>
-                {project.title} {project.subtitle && <span className="italic" style={{ color: "var(--color-taupe-300)" }}>— {project.subtitle}</span>}
+                {project.title}{project.subtitle && <span className="italic" style={{ color: "var(--color-taupe-300)" }}>, {project.subtitle}</span>}
               </h1>
               <p className="mt-3 text-sm leading-relaxed max-w-lg" style={{ color: "rgba(255,255,255,0.35)", fontFamily: "'Playfair Display', Georgia, serif" }}>
                 {project.description}
@@ -60,6 +60,12 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
                 {project.platformLink && (
                   <a href={project.platformLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-xs tracking-widest uppercase" style={{ background: "white", color: "var(--color-dark-900)", fontWeight: 600 }}>
                     {project.platformLinkLabel ?? "Bekijk"}
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 8L8 2M8 2H3.5M8 2V6.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                  </a>
+                )}
+                {project.platformLink2 && (
+                  <a href={project.platformLink2} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-xs tracking-widest uppercase" style={{ border: "1px solid rgba(255,255,255,0.2)", color: "rgba(255,255,255,0.6)", fontWeight: 600 }}>
+                    {project.platformLinkLabel2 ?? "Bekijk"}
                     <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 8L8 2M8 2H3.5M8 2V6.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
                   </a>
                 )}
@@ -159,6 +165,23 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
       {youtubeId && (
         <section className="pt-4 pb-12 md:pb-16 max-w-7xl mx-auto px-6 md:px-12">
           <TrailerEmbed youtubeId={youtubeId} />
+        </section>
+      )}
+
+      {/* ── SOCIALS ── */}
+      {project.socials && project.socials.length > 0 && (
+        <section className="pb-12 md:pb-16 max-w-7xl mx-auto px-6 md:px-12">
+          <span className="text-[10px] tracking-widest uppercase block mb-4" style={{ color: "var(--color-taupe-500)" }}>Volg De Bennies</span>
+          <div className="flex flex-wrap gap-3">
+            {project.socials.map((s) => (
+              <a key={s.platform} href={s.url} target="_blank" rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs tracking-wide"
+                style={{ border: "1px solid var(--color-linen-300)", color: "var(--color-dark-900)" }}>
+                <span className="font-medium">{s.platform}</span>
+                <span style={{ color: "var(--color-taupe-400)" }}>{s.handle}</span>
+              </a>
+            ))}
+          </div>
         </section>
       )}
 

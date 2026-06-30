@@ -312,6 +312,9 @@ export type StudioCase = {
   hoverVideo?: string;
   platformLink?: string;
   platformLinkLabel?: string;
+  platformLink2?: string;
+  platformLinkLabel2?: string;
+  socials?: { platform: string; handle: string; url: string }[];
   creatorProfiles?: { name: string; role: string; img: string }[];
   guests?: { name: string; img?: string }[];
   milestoneImg?: string;
@@ -332,13 +335,21 @@ export const studioCases: StudioCase[] = [
     tagline: "Concess Studio",
     description: "Van seizoen 1 tot en met 4 verzorgde Concess de volledige productie van de De Bennies podcast. Audio-opnames, videomontage, artwork, social media en distributiestrategie, alles onder één dak. De podcast groeide uit tot een van de meest beluisterde podcasts van Nederland en België.",
     stats: [
-      { value: "1M+",  label: "Streams" },
       { value: "#1",   label: "Spotify NL charts bij lancering" },
       { value: "#2",   label: "Spotify BE charts bij lancering" },
       { value: "4",    label: "Seizoenen geproduceerd" },
+      { value: "1M+",  label: "Streams" },
     ],
     platformLink: "https://open.spotify.com/show/3oiLRw0TiQySEInqNus2ik",
     platformLinkLabel: "Luister op Spotify",
+    platformLink2: "https://podimo.com/nl/shows/de-bennies-2",
+    platformLinkLabel2: "Luister op Podimo",
+    socials: [
+      { platform: "Instagram", handle: "@debennies", url: "https://www.instagram.com/debennies/" },
+      { platform: "TikTok",    handle: "@debennies",  url: "https://www.tiktok.com/@debennies" },
+      { platform: "Spotify",   handle: "De Bennies Podcast", url: "https://open.spotify.com/show/3oiLRw0TiQySEInqNus2ik" },
+      { platform: "Podimo",    handle: "De Bennies Podcast", url: "https://podimo.com/nl/shows/de-bennies-2" },
+    ],
     creatorProfiles: [
       { name: "Enzo Knol",        role: "Host", img: "/images/Partnerships/de-bennies/podimo-s2/enzo.jpg" },
       { name: "Thijs van Woerkum",role: "Host", img: "/images/Partnerships/de-bennies/podimo-s2/thijs.jpg" },
