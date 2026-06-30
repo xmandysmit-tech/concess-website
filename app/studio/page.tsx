@@ -87,8 +87,8 @@ export default function StudioPage() {
               <Link
                 key={c.slug}
                 href={`/studio/${c.slug}`}
-                className="relative overflow-hidden rounded-xl group col-span-2"
-                style={{ aspectRatio: "16/9" }}
+                className="relative overflow-hidden rounded-xl group"
+                style={{ aspectRatio: "4/3" }}
               >
                 <img src={c.cover} alt={c.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                 <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%)" }} />
