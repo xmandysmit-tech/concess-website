@@ -157,10 +157,10 @@ export const creators = [
     accentColor: "#C9B99A",
     img: "/images/creators/enzo_banner.png",
     work: [
-      { brand: "L'Oréal Paris", creator: "Enzo Knol", views: "18M+", type: "Partnerships", gradient: "from-stone-800 to-stone-950" },
-      { brand: "Revolut",       creator: "Enzo Knol", views: "15M+", type: "Partnerships", gradient: "from-zinc-700 to-zinc-950" },
-      { brand: "Berg",          creator: "Enzo Knol", views: "12M+", type: "Video",        gradient: "from-stone-600 to-stone-900" },
-      { brand: "BookBeat",      creator: "Enzo Knol", views: "6M+",  type: "Partnerships", gradient: "from-neutral-700 to-neutral-950" },
+      { brand: "L'Oréal Paris", creator: "Enzo Knol", views: "18M+", type: "Partnerships", gradient: "from-stone-800 to-stone-950", img: undefined, slug: undefined },
+      { brand: "Revolut",       creator: "Enzo Knol", views: "15M+", type: "Partnerships", gradient: "from-zinc-700 to-zinc-950",  img: undefined, slug: undefined },
+      { brand: "Berg",          creator: "Enzo Knol", views: "12M+", type: "Video",        gradient: "from-stone-600 to-stone-900", img: undefined, slug: undefined },
+      { brand: "BookBeat",      creator: "Enzo Knol", views: "6M+",  type: "Partnerships", gradient: "from-neutral-700 to-neutral-950", img: undefined, slug: undefined },
     ],
   },
   {
@@ -180,9 +180,9 @@ export const creators = [
     accentColor: "#B8A488",
     img: "/images/creators/Myron_banner.png",
     work: [
-      { brand: "L'Oréal Paris", creator: "Myron Koops", views: "18M+", type: "Partnerships", gradient: "from-stone-700 to-stone-950" },
-      { brand: "Garmin",        creator: "Myron",        views: "10M+", type: "Partnerships", gradient: "from-neutral-700 to-neutral-900" },
-      { brand: "Bud Holland",   creator: "Myron",        views: "4M+",  type: "Partnerships", gradient: "from-zinc-700 to-zinc-950" },
+      { brand: "L'Oréal Paris", creator: "Myron Koops", views: "18M+", type: "Partnerships", gradient: "from-stone-700 to-stone-950", img: undefined, slug: undefined },
+      { brand: "Garmin",        creator: "Myron",        views: "10M+", type: "Partnerships", gradient: "from-neutral-700 to-neutral-900", img: undefined, slug: undefined },
+      { brand: "Bud Holland",   creator: "Myron",        views: "4M+",  type: "Partnerships", gradient: "from-zinc-700 to-zinc-950", img: undefined, slug: undefined },
     ],
   },
   {
@@ -203,7 +203,7 @@ export const creators = [
     img: "/images/creators/bennies_banner.png",
     work: [
       { brand: "Podimo", creator: "De Bennies", type: "Podcast Partnership", gradient: "from-pink-900 to-zinc-950", img: "/images/Partnerships/de-bennies/podimo-s2/artwork.jpg", slug: "podimo-de-bennies" },
-      { brand: "Air Up", creator: "De Bennies", type: "Brand Partnership",   gradient: "from-blue-900 to-zinc-950", img: "/images/Partnerships/de-bennies/air-up/cover.png",      slug: "air-up-de-bennies" },
+      { brand: "Air Up", creator: "De Bennies", type: "Brand Partnership",   gradient: "from-blue-900 to-zinc-950", img: "/images/Partnerships/de-bennies/air-up/cover.png" },
     ],
   },
 ];
@@ -291,6 +291,71 @@ export const partnershipCases: PartnershipCase[] = [
     services: ["Brand Partnership", "Content Creatie", "Social Media"],
     gallery: [
       { type: "image", src: "/images/Partnerships/de-bennies/air-up/cover.png", alt: "Air up x De Bennies" },
+    ],
+  },
+];
+
+// ------------------------------------------------------------
+//  STUDIO CASES (klikbare producties op de studio pagina)
+// ------------------------------------------------------------
+export type StudioCase = {
+  slug: string;
+  title: string;
+  subtitle?: string;
+  tags: string[];
+  year: string;
+  cover: string;
+  gradient: string;
+  tagline?: string;
+  description: string;
+  stats?: CaseStat[];
+  hoverVideo?: string;
+  platformLink?: string;
+  platformLinkLabel?: string;
+  creatorProfiles?: { name: string; role: string; img: string }[];
+  guests?: { name: string; img?: string }[];
+  milestoneImg?: string;
+  milestoneText?: string;
+  gallery: GalleryItem[];
+};
+
+export const studioCases: StudioCase[] = [
+  {
+    slug: "de-bennies-podcast",
+    title: "De Bennies Podcast",
+    subtitle: "Productie van begin tot eind",
+    tags: ["Podcasts", "Graphic Design", "Marketing & Social"],
+    year: "2022 – 2026",
+    cover: "/images/Partnerships/de-bennies/podimo-s2/artwork.jpg",
+    hoverVideo: "https://www.youtube.com/watch?v=hUpePaNRUc0",
+    gradient: "from-pink-900 to-zinc-950",
+    tagline: "Concess Studio",
+    description: "Van seizoen 1 tot en met 4 verzorgde Concess de volledige productie van de De Bennies podcast. Audio-opnames, videomontage, artwork, social media en distributiestrategie, alles onder één dak. De podcast groeide uit tot een van de meest beluisterde podcasts van Nederland en België.",
+    stats: [
+      { value: "1M+",  label: "Streams" },
+      { value: "#1",   label: "Spotify NL charts bij lancering" },
+      { value: "#2",   label: "Spotify BE charts bij lancering" },
+      { value: "4",    label: "Seizoenen geproduceerd" },
+    ],
+    platformLink: "https://open.spotify.com/show/3oiLRw0TiQySEInqNus2ik",
+    platformLinkLabel: "Luister op Spotify",
+    creatorProfiles: [
+      { name: "Enzo Knol",        role: "Host", img: "/images/Partnerships/de-bennies/podimo-s2/enzo.jpg" },
+      { name: "Thijs van Woerkum",role: "Host", img: "/images/Partnerships/de-bennies/podimo-s2/thijs.jpg" },
+      { name: "Noël Dekkers",     role: "Host", img: "/images/Partnerships/de-bennies/podimo-s2/noel.jpg" },
+    ],
+    guests: [
+      { name: "Qucee",                    img: "/images/Partnerships/De Bennies/Gasten de bennies/qucee.jpeg.webp" },
+      { name: "Bram Krikke",              img: "/images/Partnerships/De Bennies/Gasten de bennies/bram.jpg" },
+      { name: "Raoul de Graaf",           img: "/images/Partnerships/De Bennies/Gasten de bennies/raoul.jpg" },
+      { name: "Bas Reijgwart",            img: "/images/Partnerships/De Bennies/Gasten de bennies/bas.jpg" },
+      { name: "Acid (Nathan Vandergunst)",img: "/images/Partnerships/De Bennies/Gasten de bennies/nathan.jpg" },
+      { name: "Robbie van de Graaf",      img: "/images/Partnerships/De Bennies/Gasten de bennies/robbie.jpg" },
+    ],
+    milestoneImg: "/images/Partnerships/de-bennies/podimo-s2/miljoen.jpg",
+    milestoneText: "De Bennies podcast stond bij de lancering direct op #1 in de Nederlandse Spotify charts en op #2 in de Belgische Spotify charts. Binnen 5 afleveringen had de podcast al 1 miljoen streams bereikt. Met video op Spotify als een van de eersten in Nederland bleven we maanden in de top 5.",
+    gallery: [
+      { type: "image", src: "/images/Partnerships/de-bennies/podimo-s2/artwork.jpg", alt: "De Bennies artwork" },
     ],
   },
 ];
