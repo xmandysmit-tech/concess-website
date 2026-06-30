@@ -338,7 +338,6 @@ export const studioCases: StudioCase[] = [
       { value: "#1",   label: "Spotify NL charts bij lancering" },
       { value: "#2",   label: "Spotify BE charts bij lancering" },
       { value: "4",    label: "Seizoenen geproduceerd" },
-      { value: "1M+",  label: "Streams" },
     ],
     platformLink: "https://open.spotify.com/show/3oiLRw0TiQySEInqNus2ik",
     platformLinkLabel: "Luister op Spotify",
