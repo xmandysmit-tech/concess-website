@@ -89,6 +89,19 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
                   ))}
                 </div>
               )}
+
+              {/* Socials */}
+              {project.socials && project.socials.length > 0 && (
+                <div className="flex flex-wrap gap-2 mt-5 pt-5" style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
+                  {project.socials.map((s) => (
+                    <a key={s.platform} href={s.url} target="_blank" rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[10px] tracking-widest uppercase transition-colors hover:border-white/40"
+                      style={{ border: "1px solid rgba(255,255,255,0.15)", color: "rgba(255,255,255,0.5)" }}>
+                      {s.platform}
+                    </a>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -165,23 +178,6 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
       {youtubeId && (
         <section className="pt-4 pb-12 md:pb-16 max-w-7xl mx-auto px-6 md:px-12">
           <TrailerEmbed youtubeId={youtubeId} />
-        </section>
-      )}
-
-      {/* ── SOCIALS ── */}
-      {project.socials && project.socials.length > 0 && (
-        <section className="pb-12 md:pb-16 max-w-7xl mx-auto px-6 md:px-12">
-          <span className="text-[10px] tracking-widest uppercase block mb-4" style={{ color: "var(--color-taupe-500)" }}>Volg De Bennies</span>
-          <div className="flex flex-wrap gap-3">
-            {project.socials.map((s) => (
-              <a key={s.platform} href={s.url} target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs tracking-wide"
-                style={{ border: "1px solid var(--color-linen-300)", color: "var(--color-dark-900)" }}>
-                <span className="font-medium">{s.platform}</span>
-                <span style={{ color: "var(--color-taupe-400)" }}>{s.handle}</span>
-              </a>
-            ))}
-          </div>
         </section>
       )}
 
