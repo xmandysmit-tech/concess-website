@@ -230,6 +230,7 @@ export type PartnershipCase = {
   description: string;
   services: string[];
   stats?: CaseStat[];         // resultaten / kerncijfers
+  featured?: boolean;          // grote tile in collage (col-span-2, liggend)
   platformLink?: string;      // link naar het platform (bijv. Podimo)
   platformLinkLabel?: string; // label voor de knop
   creatorProfiles?: { name: string; role: string; img: string }[];
@@ -240,6 +241,7 @@ export type PartnershipCase = {
 export const partnershipCases: PartnershipCase[] = [
   {
     slug: "podimo-de-bennies",
+    featured: true,
     brand: "Podimo",
     creator: "De Bennies",
     category: "Podcast Partnership",

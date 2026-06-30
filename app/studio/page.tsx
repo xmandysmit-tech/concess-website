@@ -96,8 +96,8 @@ export default function StudioPage() {
                   <div>
                     <h3 className="text-white" style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "1.2rem" }}>{c.title}</h3>
                   </div>
-                  <div className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center" style={{ border: "1.5px solid rgba(255,255,255,0.4)", background: "rgba(255,255,255,0.08)" }}>
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L7.5 2.5M12 7L7.5 11.5" stroke="white" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                  <div className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center" style={{ border: "1px solid rgba(255,255,255,0.3)", background: "rgba(255,255,255,0.06)" }}>
+                    <svg width="10" height="10" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L7.5 2.5M12 7L7.5 11.5" stroke="white" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/></svg>
                   </div>
                 </div>
               </Link>
