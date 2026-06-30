@@ -246,7 +246,7 @@ export const partnershipCases: PartnershipCase[] = [
     creator: "De Bennies",
     category: "Podcast Partnership",
     year: "2025 – 2026",
-    cover: "/images/Partnerships/de-bennies/podimo-s2/artwork.jpg",
+    cover: "/images/Tegels/De Bennies - tegel.png",
     hoverVideo: "https://www.youtube.com/watch?v=hUpePaNRUc0",
     gradient: "from-pink-900 to-zinc-950",
     tagline: "Exclusief op Podimo",
