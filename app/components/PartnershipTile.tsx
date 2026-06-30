@@ -63,7 +63,7 @@ export default function PartnershipTile({ p }: { p: PartnershipCase }) {
     <Link
       href={`/partnerships/${p.slug}`}
       className="group relative overflow-hidden rounded-2xl"
-      style={{ aspectRatio: "4/3", display: "block" }}
+      style={{ aspectRatio: "3/4", display: "block" }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >

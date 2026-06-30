@@ -329,7 +329,7 @@ export const studioCases: StudioCase[] = [
     subtitle: "Productie van begin tot eind",
     tags: ["Podcasts", "Graphic Design", "Marketing & Social"],
     year: "2022 – 2026",
-    cover: "/images/Partnerships/de-bennies/podimo-s2/artwork.jpg",
+    cover: "/images/Tegels/De Bennies - tegel.png",
     hoverVideo: "https://www.youtube.com/watch?v=hUpePaNRUc0",
     gradient: "from-pink-900 to-zinc-950",
     tagline: "Concess Studio",

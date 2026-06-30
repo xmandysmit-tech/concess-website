@@ -69,7 +69,7 @@ export default function PartnershipsPage() {
       <section className="py-12 md:py-20 max-w-7xl mx-auto px-6 md:px-12">
         <span className="text-[10px] tracking-widest uppercase text-taupe-500 block mb-10">Partnerships</span>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 items-start">
           {/* Klikbare cases met optionele hover video */}
           {partnershipCases.map((p) => (
             <PartnershipTile key={p.slug} p={p} />
@@ -80,7 +80,7 @@ export default function PartnershipsPage() {
             <div
               key={i}
               className="relative overflow-hidden rounded-2xl"
-              style={{ aspectRatio: "4/3" }}
+              style={{ aspectRatio: "3/4" }}
             >
               {p.img
                 ? <img src={p.img} alt={p.brand} className="absolute inset-0 w-full h-full object-cover" />
