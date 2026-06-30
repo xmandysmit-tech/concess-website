@@ -94,9 +94,7 @@ export default function StudioPage() {
                 <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%)" }} />
                 <div className="absolute bottom-0 left-0 right-0 p-5 flex items-end justify-between">
                   <div>
-                    <span className="text-[8px] tracking-widest uppercase text-white/40 block mb-0.5">{c.tags.join(" · ")}</span>
                     <h3 className="text-white" style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "1.2rem" }}>{c.title}</h3>
-                    {c.subtitle && <p className="text-white/40 text-xs mt-0.5 italic">{c.subtitle}</p>}
                   </div>
                   <div className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center" style={{ border: "1.5px solid rgba(255,255,255,0.4)", background: "rgba(255,255,255,0.08)" }}>
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L7.5 2.5M12 7L7.5 11.5" stroke="white" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/></svg>
