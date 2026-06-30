@@ -54,8 +54,6 @@ export default function PartnershipTile({ p }: { p: PartnershipCase }) {
     ? `https://www.tiktok.com/embed/v2/${tiktokId}?autoplay=1&muted=1&loop=1`
     : "";
 
-  const isFeatured = p.featured ?? false;
-
   // TikTok is verticaal (9:16) — schaal zodat het de tile vult
   const iframeStyle = isTikTok
     ? { width: "56.25%", height: "177.78%", top: "-38.89%", left: "21.875%" }
@@ -64,8 +62,8 @@ export default function PartnershipTile({ p }: { p: PartnershipCase }) {
   return (
     <Link
       href={`/partnerships/${p.slug}`}
-      className={`group relative overflow-hidden rounded-2xl${isFeatured ? " col-span-2" : ""}`}
-      style={{ aspectRatio: isFeatured ? "4/3" : "3/4", display: "block" }}
+      className="group relative overflow-hidden rounded-2xl"
+      style={{ aspectRatio: "3/4", display: "block" }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
