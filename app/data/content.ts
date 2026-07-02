@@ -318,6 +318,8 @@ export type StudioCase = {
   guests?: { name: string; img?: string }[];
   milestoneImg?: string;
   milestoneText?: string;
+  posters?: string[];
+  instagramEmbed?: string;
   gallery: GalleryItem[];
 };
 
@@ -366,6 +368,38 @@ export const studioCases: StudioCase[] = [
     gallery: [
       { type: "image", src: "/images/Partnerships/de-bennies/podimo-s2/artwork.jpg", alt: "De Bennies artwork" },
     ],
+  },
+  {
+    slug: "vrouwmibo-podcast",
+    title: "Vrouwmibo",
+    subtitle: "De podcast",
+    tags: ["Podcasts", "Marketing & Social"],
+    year: "2023 – heden",
+    cover: "/images/Tegels/Vrouwmibo - tegel.png",
+    gradient: "from-rose-800 to-stone-950",
+    tagline: "Concess Studio",
+    description: "Vrouwmibo is de openhartige en hilarische podcast van Iris Enthoven, Nina Warink en Sophie Milzink. Concess verzorgt de volledige productie en distributie van de podcast, die uitgroeide tot een van de populairste vrouwenpodcasts van Nederland. Van studio-opnames en artwork tot theatertours en partnerships, Concess begeleidt Vrouwmibo op elk vlak.",
+    platformLink: "https://open.spotify.com/show/7BDsOLrwQCnCcKsJsmrogY",
+    platformLinkLabel: "Luister op Spotify",
+    platformLink2: "https://podimo.com/nl/shows/vrouwmibo",
+    platformLinkLabel2: "Luister op Podimo",
+    creatorProfiles: [
+      { name: "Iris Enthoven",  role: "Host", img: "/images/Projecten/Vrouwmibo/Iris-Enthoven-Vrouwmibo.png" },
+      { name: "Nina Warink",    role: "Host", img: "/images/Projecten/Vrouwmibo/Nina-Warink-Vrouwmibo.png" },
+      { name: "Sophie Milzink", role: "Host", img: "/images/Projecten/Vrouwmibo/Sophie-Milzink-Vrrouwmibo.png" },
+    ],
+    socials: [
+      { platform: "Instagram", handle: "@vrouwmibo", url: "https://www.instagram.com/vrouwmibo/" },
+      { platform: "TikTok",    handle: "@vrouwmibo", url: "https://www.tiktok.com/@vrouwmibo" },
+      { platform: "Spotify",   handle: "Vrouwmibo",  url: "https://open.spotify.com/show/7BDsOLrwQCnCcKsJsmrogY" },
+      { platform: "Podimo",    handle: "Vrouwmibo",  url: "https://podimo.com/nl/shows/vrouwmibo" },
+    ],
+    posters: [
+      "/images/Projecten/Vrouwmibo/Poster - Vrouwmishow 1.jpg",
+      "/images/Projecten/Vrouwmibo/Poster - Vrouwmishow 2.png",
+    ],
+    instagramEmbed: "https://www.instagram.com/p/C8HqOqbt9JV/",
+    gallery: [],
   },
 ];
 

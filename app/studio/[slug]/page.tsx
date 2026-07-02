@@ -121,6 +121,36 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
         </section>
       )}
 
+      {/* ── THEATERPOSTERS ── */}
+      {project.posters && project.posters.length > 0 && (
+        <section className="pb-10 max-w-7xl mx-auto px-6 md:px-12">
+          <span className="text-[10px] tracking-widest uppercase block mb-3" style={{ color: "var(--color-taupe-500)" }}>Theatertours</span>
+          <div className="grid grid-cols-2 gap-4">
+            {project.posters.map((src, i) => (
+              <div key={i} className="rounded-2xl overflow-hidden" style={{ aspectRatio: "2/3" }}>
+                <img src={src} alt={`Poster ${i + 1}`} className="w-full h-full object-cover" />
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* ── INSTAGRAM EMBED ── */}
+      {project.instagramEmbed && (
+        <section className="pb-10 max-w-7xl mx-auto px-6 md:px-12">
+          <span className="text-[10px] tracking-widest uppercase block mb-3" style={{ color: "var(--color-taupe-500)" }}>Recap</span>
+          <div className="flex justify-center">
+            <iframe
+              src={`${project.instagramEmbed}embed/`}
+              className="rounded-2xl border-0"
+              style={{ width: "100%", maxWidth: 540, minHeight: 600 }}
+              scrolling="no"
+              allowTransparency
+            />
+          </div>
+        </section>
+      )}
+
       {/* ── MILESTONE + GASTEN naast elkaar ── */}
       {(project.milestoneImg || project.guests?.length) && (
         <section className="pb-10 max-w-7xl mx-auto px-6 md:px-12">
