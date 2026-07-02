@@ -202,8 +202,6 @@ export const creators = [
     accentColor: "#9E8B72",
     img: "/images/creators/bennies_banner.png",
     work: [
-      { brand: "Podimo", creator: "De Bennies", type: "Podcast Partnership", gradient: "from-pink-900 to-zinc-950", img: "/images/Partnerships/de-bennies/podimo-s2/artwork.jpg", slug: "podimo-de-bennies" },
-      { brand: "Air Up", creator: "De Bennies", type: "Brand Partnership",   gradient: "from-blue-900 to-zinc-950", img: "/images/Partnerships/de-bennies/air-up/cover.png" },
     ],
   },
 ];
@@ -217,7 +215,7 @@ export type GalleryItem = { type: "image"; src: string; alt?: string } | { type:
 export type CaseStat = { value: string; label: string };
 
 export type PartnershipCase = {
-  slug: string;
+  slug?: string;
   brand: string;
   creator: string;
   category: string;
@@ -281,7 +279,6 @@ export const partnershipCases: PartnershipCase[] = [
     ],
   },
   {
-    slug: "air-up-de-bennies",
     brand: "Air up",
     creator: "De Bennies",
     category: "Brand Partnership",

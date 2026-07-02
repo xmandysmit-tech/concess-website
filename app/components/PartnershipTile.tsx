@@ -1,129 +1,33 @@
 "use client";
-import { useRef, useState } from "react";
 import Link from "next/link";
 import { PartnershipCase } from "../data/content";
 
-function getYouTubeId(url: string): string | null {
-  const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([a-zA-Z0-9_-]{11})/);
-  return match ? match[1] : null;
-}
-
-function getTikTokId(url: string): string | null {
-  const match = url.match(/tiktok\.com\/@[^/]+\/video\/(\d+)/);
-  return match ? match[1] : null;
-}
-
 export default function PartnershipTile({ p }: { p: PartnershipCase }) {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const [showIframe, setShowIframe] = useState(false);
-  const [videoVisible, setVideoVisible] = useState(false);
+  const cls = "group relative overflow-hidden rounded-2xl";
+  const style = { aspectRatio: "3/4", display: "block" };
 
-  const youtubeId = p.hoverVideo ? getYouTubeId(p.hoverVideo) : null;
-  const tiktokId = p.hoverVideo ? getTikTokId(p.hoverVideo) : null;
-  const isYouTube = !!youtubeId;
-  const isTikTok = !!tiktokId;
-  const isEmbed = isYouTube || isTikTok;
-
-  function handleMouseEnter() {
-    if (isEmbed) {
-      setShowIframe(true);
-      // Wacht tot controls verdwenen zijn, dan pas zichtbaar maken
-      timerRef.current = setTimeout(() => setVideoVisible(true), 3500);
-    } else if (videoRef.current) {
-      videoRef.current.currentTime = 0;
-      videoRef.current.play().catch(() => {});
-      setVideoVisible(true);
-    }
-  }
-
-  function handleMouseLeave() {
-    if (timerRef.current) clearTimeout(timerRef.current);
-    setVideoVisible(false);
-    if (isEmbed) {
-      setTimeout(() => setShowIframe(false), 700);
-    } else if (videoRef.current) {
-      videoRef.current.pause();
-      videoRef.current.currentTime = 0;
-    }
-  }
-
-  const iframeSrc = youtubeId
-    ? `https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${youtubeId}&modestbranding=1&rel=0&disablekb=1&iv_load_policy=3&fs=0`
-    : tiktokId
-    ? `https://www.tiktok.com/embed/v2/${tiktokId}?autoplay=1&muted=1&loop=1`
-    : "";
-
-  // TikTok is verticaal (9:16) — schaal zodat het de tile vult
-  const iframeStyle = isTikTok
-    ? { width: "56.25%", height: "177.78%", top: "-38.89%", left: "21.875%" }
-    : { width: "177.78%", height: "177.78%", top: "-38.89%", left: "-38.89%" };
-
-  return (
-    <Link
-      href={`/partnerships/${p.slug}`}
-      className="group relative overflow-hidden rounded-2xl"
-      style={{ aspectRatio: "3/4", display: "block" }}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
-      {/* Gradient fallback */}
+  const inner = (
+    <>
       <div className={`absolute inset-0 bg-gradient-to-br ${p.gradient}`} />
-
-      {/* Cover foto */}
       <img
         src={p.cover}
         alt={p.brand}
-        className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
-        style={{ opacity: videoVisible ? 0 : 1 }}
+        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
       />
-
-      {/* YouTube / TikTok iframe */}
-      {isEmbed && showIframe && (
-        <iframe
-          src={iframeSrc}
-          allow="autoplay; encrypted-media"
-          className="absolute pointer-events-none"
-          style={{
-            border: "none",
-            opacity: videoVisible ? 1 : 0,
-            transition: "opacity 0.7s ease",
-            ...iframeStyle,
-          }}
-        />
-      )}
-
-      {/* Directe video (Cloudinary etc.) */}
-      {p.hoverVideo && !isYouTube && (
-        <video
-          ref={videoRef}
-          src={p.hoverVideo}
-          muted
-          playsInline
-          loop
-          preload="none"
-          className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
-          style={{ opacity: videoVisible ? 1 : 0 }}
-        />
-      )}
-
-      {/* Gradient overlay */}
       <div
         className="absolute inset-0"
         style={{ background: "linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.2) 50%, transparent 75%)" }}
       />
-
-      {/* Hover label */}
-      <div
-        className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-        style={{ background: "rgba(0,0,0,0.15)" }}
-      >
-        <span className="text-[10px] tracking-widest uppercase text-white border border-white/40 px-4 py-2 rounded-full">
-          Bekijk project
-        </span>
-      </div>
-
-      {/* Tekst */}
+      {p.slug && (
+        <div
+          className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          style={{ background: "rgba(0,0,0,0.15)" }}
+        >
+          <span className="text-[10px] tracking-widest uppercase text-white border border-white/40 px-4 py-2 rounded-full">
+            Bekijk project
+          </span>
+        </div>
+      )}
       <div className="absolute bottom-0 left-0 right-0 p-4">
         <span className="text-[9px] tracking-widest uppercase text-white/60 block mb-0.5" style={{ fontWeight: 600 }}>
           {p.creator} · {p.year}
@@ -132,6 +36,16 @@ export default function PartnershipTile({ p }: { p: PartnershipCase }) {
           {p.brand}
         </h3>
       </div>
+    </>
+  );
+
+  return p.slug ? (
+    <Link href={`/partnerships/${p.slug}`} className={cls} style={style}>
+      {inner}
     </Link>
+  ) : (
+    <div className={cls} style={style}>
+      {inner}
+    </div>
   );
 }

@@ -2,7 +2,7 @@
 import { useState, useEffect, useRef } from "react";
 import Navbar from "../components/Navbar";
 import CTAFooter from "../components/CTAFooter";
-import { creators } from "../data/content";
+import { creators, partnershipCases } from "../data/content";
 
 const polaroids = [
   { src: "/images/402-AutoMotive-x-Enzo-Knol-1.png",  rot: -6,  top: "-5%",  left: "-2%" },
@@ -172,11 +172,19 @@ export default function CreatorsPage() {
                   Bekijk alle partnerships →
                 </a>
               </div>
+              {(() => {
+                const cases = partnershipCases.filter((p) => p.creator === c.name);
+                const manual = c.work.filter((w) => !cases.find((p) => p.brand === w.brand));
+                const merged = [
+                  ...cases.map((p) => ({ brand: p.brand, type: p.category, gradient: p.gradient, img: p.cover, slug: p.slug, year: p.year })),
+                  ...manual.map((w) => ({ brand: w.brand, type: w.type, gradient: w.gradient, img: w.img, slug: w.slug, year: undefined })),
+                ].slice(0, 3);
+                return (
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {c.work.slice(0, 3).map((w, i) => {
+                {merged.map((w, i) => {
                   const inner = (
-                    <div className={`relative overflow-hidden rounded-2xl bg-gradient-to-br ${w.gradient}`} style={{ aspectRatio: "4/3" }}>
-                      {w.img && <img src={w.img} alt={w.brand} className="absolute inset-0 w-full h-full object-cover" />}
+                    <div className={`relative overflow-hidden rounded-2xl bg-gradient-to-br ${w.gradient}`} style={{ aspectRatio: "3/4" }}>
+                      {w.img && <img src={w.img} alt={w.brand} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />}
                       <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%)" }} />
                       <div className="absolute bottom-0 left-0 right-0 p-5 flex items-end justify-between">
                         <div>
@@ -184,18 +192,20 @@ export default function CreatorsPage() {
                           <h3 className="text-white text-lg" style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}>{w.brand}</h3>
                         </div>
                         {w.slug && (
-                          <div className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center" style={{ border: "1.5px solid rgba(255,255,255,0.4)", background: "rgba(255,255,255,0.08)" }}>
-                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L7.5 2.5M12 7L7.5 11.5" stroke="white" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                          <div className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center" style={{ border: "1px solid rgba(255,255,255,0.3)", background: "rgba(255,255,255,0.06)" }}>
+                            <svg width="10" height="10" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L7.5 2.5M12 7L7.5 11.5" stroke="white" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/></svg>
                           </div>
                         )}
                       </div>
                     </div>
                   );
                   return w.slug
-                    ? <a key={i} href={`/partnerships/${w.slug}`}>{inner}</a>
+                    ? <a key={i} href={`/partnerships/${w.slug}`} className="group">{inner}</a>
                     : <div key={i}>{inner}</div>;
                 })}
               </div>
+                );
+              })()}
             </div>
           </section>
         ))}
