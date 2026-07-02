@@ -379,7 +379,7 @@ export const studioCases: StudioCase[] = [
     cover: "/images/Tegels/Vrouwmibo - tegel v2.png",
     gradient: "from-rose-800 to-stone-950",
     tagline: "Concess Studio",
-    description: "Het is vrijdag, dus trek die fles maar open. Je bent aangekomen bij de gezelligste vrijdagmiddagborrel van Spotify! Elke week bespreken Nina Warink, Iris Enthoven en Sophie Milzink de week met op de borrelplank enkel ongefilterde meningen en ongegeneerde verhalen. Pak een glas en schuif aan bij de Vrouwmibo!",
+    description: "Het is vrijdag, dus trek die fles maar open. Je bent aangekomen bij de gezelligste vrijdagmiddagborrel van Podimo! Elke week bespreken Nina Warink, Iris Enthoven en Sophie Milzink de week met op de borrelplank enkel ongefilterde meningen en ongegeneerde verhalen. Pak een glas en schuif aan bij de Vrouwmibo!",
     platformLink: "https://open.spotify.com/show/7BDsOLrwQCnCcKsJsmrogY",
     platformLinkLabel: "Luister op Spotify",
     platformLink2: "https://podimo.com/nl/shows/vrouwmibo",
