@@ -123,13 +123,13 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
 
       {/* ── THEATERPOSTERS ── */}
       {project.posters && project.posters.length > 0 && (
-        <section className="pb-10 max-w-7xl mx-auto px-6 md:px-12">
+        <section className="pt-6 pb-10 max-w-7xl mx-auto px-6 md:px-12">
           <span className="text-[10px] tracking-widest uppercase block mb-3" style={{ color: "var(--color-taupe-500)" }}>Theatertours</span>
           <div className="grid md:grid-cols-2 gap-4">
             {/* Tekst */}
             <div className="rounded-2xl p-6 flex flex-col justify-center" style={{ background: "var(--color-dark-900)", aspectRatio: "16/9" }}>
               <h3 className="mb-3" style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(1rem, 1.6vw, 1.6rem)", color: "white", lineHeight: 1.1 }}>
-                Twee keer het theater <span className="italic" style={{ color: "var(--color-taupe-300)" }}>in</span>
+                Twee keer het <span className="italic" style={{ color: "var(--color-taupe-300)" }}>theater</span> in
               </h3>
               <p className="text-xs leading-relaxed" style={{ color: "var(--color-taupe-400)", fontFamily: "'Playfair Display', Georgia, serif" }}>
                 {project.postersText}
