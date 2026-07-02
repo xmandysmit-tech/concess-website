@@ -125,7 +125,7 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
       {project.posters && project.posters.length > 0 && (
         <section className="pt-6 pb-10 max-w-7xl mx-auto px-6 md:px-12">
           <span className="text-[10px] tracking-widest uppercase block mb-3" style={{ color: "var(--color-taupe-500)" }}>Theatertours</span>
-          <div className="grid gap-4" style={{ gridTemplateColumns: "1fr 200px 200px 260px", height: 420 }}>
+          <div className="grid gap-4" style={{ gridTemplateColumns: "280px 1fr 1fr 260px", height: 420 }}>
             {/* Tekst */}
             <div className="rounded-2xl p-7 flex flex-col justify-center" style={{ background: "var(--color-dark-900)" }}>
               <h3 className="mb-3" style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "1.2rem", color: "white", lineHeight: 1.1 }}>
