@@ -164,7 +164,7 @@ export const partnershipCases: PartnershipCase[] = [
     gallery: [],
   },
   {
-    brand: "Subway",
+    brand: "Subway Festival",
     creator: "Vrouwmibo",
     category: "Brand Partnership",
     year: "2023",
