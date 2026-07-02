@@ -9,128 +9,9 @@
 //  type: "Partnerships" | "Video" | "Fotografie" | "Events" | "Design"
 //  img:  pad naar foto in /public/images/ (of weglaten voor donkere gradient)
 // ------------------------------------------------------------
-export const projects = [
-  {
-    brand: "L'Oréal Paris",
-    creator: "Myron Koops",
-    views: "18M+",
-    type: "Partnerships",
-    img: "/images/Vrouwmishow_Concess.png",
-    gradient: "from-stone-700 to-stone-950",
-  },
-  {
-    brand: "Revolut",
-    creator: "Enzo Knol",
-    views: "15M+",
-    type: "Partnerships",
-    img: "/images/EnzoKnol_Concess.png",
-    gradient: "from-zinc-700 to-zinc-950",
-  },
-  {
-    brand: "Berg",
-    creator: "Enzo Knol",
-    views: "12M+",
-    type: "Video",
-    img: "/images/402-AutoMotive-x-Enzo-Knol-1.png",
-    gradient: "from-stone-600 to-stone-900",
-  },
-  {
-    brand: "Garmin",
-    creator: "Myron",
-    views: "10M+",
-    type: "Partnerships",
-    img: "/images/De-bennies-concess.jpg",
-    gradient: "from-neutral-700 to-neutral-950",
-  },
-  {
-    brand: "Air Up",
-    creator: "De Bennies",
-    views: "8M+",
-    type: "Partnerships",
-    img: "/images/Bennies-x-Air-up.png",
-    gradient: "from-zinc-600 to-zinc-900",
-  },
-  {
-    brand: "BookBeat",
-    creator: "Enzo Knol",
-    views: "6M+",
-    type: "Partnerships",
-    img: "/images/Bookbeattest-1.png",
-    gradient: "from-stone-600 to-stone-900",
-  },
-  {
-    brand: "Emma",
-    creator: "De Bennies",
-    views: "5M+",
-    type: "Video",
-    img: "/images/Snuggstest-1.png",
-    gradient: "from-neutral-800 to-neutral-950",
-  },
-  {
-    brand: "Bud Holland",
-    creator: "Myron",
-    views: "4M+",
-    type: "Partnerships",
-    img: "/images/Verraderstest-1.png",
-    gradient: "from-zinc-700 to-zinc-950",
-  },
-  {
-    brand: "Legends of Gaming",
-    creator: "Enzo Knol",
-    views: "3M+",
-    type: "Events",
-    img: "/images/LOGtest-1.png",
-    gradient: "from-neutral-700 to-zinc-900",
-  },
-  {
-    brand: "Subway Festival",
-    creator: "Concess",
-    views: "",
-    type: "Events",
-    img: "/images/Vrouwmibo-x-Subway.png",
-    gradient: "from-stone-700 to-stone-950",
-  },
-  {
-    brand: "Vrouwmibo",
-    creator: "Concess",
-    views: "",
-    type: "Fotografie",
-    img: "/images/Vrouwmibo-concess-1024x756.jpg",
-    gradient: "from-stone-600 to-stone-950",
-  },
-  {
-    brand: "402 Automotive",
-    creator: "Concess",
-    views: "",
-    type: "Fotografie",
-    img: "/images/402-AutoMotive-x-Enzo-Knol-1.png",
-    gradient: "from-zinc-700 to-zinc-900",
-  },
-  {
-    brand: "StukTV",
-    creator: "Concess",
-    views: "",
-    type: "Fotografie",
-    img: "/images/Thumbnail-StukTV.jpg",
-    gradient: "from-neutral-600 to-neutral-900",
-  },
-  {
-    brand: "Tantoe Muzikaal",
-    creator: "Concess",
-    views: "",
-    type: "Video",
-    img: "/images/Tantoe-Muzikaal-thumbnail-concess.jpg",
-    gradient: "from-stone-700 to-stone-900",
-  },
-  {
-    brand: "De Bennies Podcast",
-    creator: "De Bennies",
-    views: "2M+",
-    type: "Podcasts",
-    img: "/images/Partnerships/de-bennies/podimo-s2/artwork.jpg",
-    gradient: "from-zinc-800 to-zinc-950",
-  },
-];
+export const projects: {
+  brand: string; creator: string; views: string; type: string; img?: string; gradient: string;
+}[] = [];
 
 // De eerste 5 projecten worden uitgelicht op de homepage en partnerships pagina
 export const featuredProjects = projects.slice(0, 5);
@@ -138,6 +19,8 @@ export const featuredProjects = projects.slice(0, 5);
 // ------------------------------------------------------------
 //  CREATORS
 // ------------------------------------------------------------
+type CreatorWork = { brand: string; creator: string; views?: string; type: string; gradient: string; img?: string; slug?: string };
+
 export const creators = [
   {
     name: "Enzo Knol",
@@ -156,12 +39,7 @@ export const creators = [
     gradient: "from-stone-700 via-stone-800 to-stone-950",
     accentColor: "#C9B99A",
     img: "/images/creators/enzo_banner.png",
-    work: [
-      { brand: "L'Oréal Paris", creator: "Enzo Knol", views: "18M+", type: "Partnerships", gradient: "from-stone-800 to-stone-950", img: undefined, slug: undefined },
-      { brand: "Revolut",       creator: "Enzo Knol", views: "15M+", type: "Partnerships", gradient: "from-zinc-700 to-zinc-950",  img: undefined, slug: undefined },
-      { brand: "Berg",          creator: "Enzo Knol", views: "12M+", type: "Video",        gradient: "from-stone-600 to-stone-900", img: undefined, slug: undefined },
-      { brand: "BookBeat",      creator: "Enzo Knol", views: "6M+",  type: "Partnerships", gradient: "from-neutral-700 to-neutral-950", img: undefined, slug: undefined },
-    ],
+    work: [] as CreatorWork[],
   },
   {
     name: "Myron Koops",
@@ -179,11 +57,7 @@ export const creators = [
     gradient: "from-zinc-600 via-zinc-800 to-zinc-950",
     accentColor: "#B8A488",
     img: "/images/creators/Myron_banner.png",
-    work: [
-      { brand: "L'Oréal Paris", creator: "Myron Koops", views: "18M+", type: "Partnerships", gradient: "from-stone-700 to-stone-950", img: undefined, slug: undefined },
-      { brand: "Garmin",        creator: "Myron",        views: "10M+", type: "Partnerships", gradient: "from-neutral-700 to-neutral-900", img: undefined, slug: undefined },
-      { brand: "Bud Holland",   creator: "Myron",        views: "4M+",  type: "Partnerships", gradient: "from-zinc-700 to-zinc-950", img: undefined, slug: undefined },
-    ],
+    work: [] as CreatorWork[],
   },
   {
     name: "De Bennies",
