@@ -399,7 +399,7 @@ export const studioCases: StudioCase[] = [
       "/images/Projecten/Vrouwmibo/Poster - Vrouwmishow 1.jpg",
       "/images/Projecten/Vrouwmibo/Poster - Vrouwmishow 2.png",
     ],
-    postersText: "Naast de podcast mochten we de meiden het theater in begeleiden met hun eigen shows. De eerste Vrouwmishow vond plaats in Tivoli, als een unieke eenmalige avond. Het succes smaakte naar meer, want de tweede show, All In, groeide uit tot een volwaardige theatertour langs zalen als DeLaMar Amsterdam, World Forum Den Haag, Martini Plaza Groningen en Oude Luxor Rotterdam. Concess verzorgde de volledige productie, van concept en planning tot de theaterposters.",
+    postersText: "Naast de podcast mochten we de meiden het theater in begeleiden. Bij de eerste Vrouwmishow in Tivoli verzorgde Concess de volledige productie: van concept en creatieve begeleiding tot planning, artwork en uitvoering. Voor de tweede show, All In, een volwaardige tour langs zalen als DeLaMar Amsterdam, World Forum Den Haag en Oude Luxor Rotterdam, mochten we het artwork verzorgen.",
     instagramEmbed: "https://www.instagram.com/p/C8HqOqbt9JV/",
     gallery: [],
   },
