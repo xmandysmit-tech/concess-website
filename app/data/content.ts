@@ -279,7 +279,7 @@ export const partnershipCases: PartnershipCase[] = [
     ],
   },
   {
-    brand: "Ex on the Beach",
+    brand: "MTV: Ex on the Beach",
     creator: "Vrouwmibo",
     category: "Brand Partnership",
     year: "2023",
