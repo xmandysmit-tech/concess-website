@@ -180,7 +180,7 @@ export default function CreatorsPage() {
                   ...manual.map((w) => ({ brand: w.brand, type: w.type, gradient: w.gradient, img: w.img, slug: w.slug, year: undefined })),
                 ].slice(0, 3);
                 return (
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                 {merged.map((w, i) => {
                   const inner = (
                     <div className={`relative overflow-hidden rounded-2xl bg-gradient-to-br ${w.gradient}`} style={{ aspectRatio: "3/4" }}>
