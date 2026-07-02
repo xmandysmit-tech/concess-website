@@ -110,7 +110,7 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
       {/* ── STATS ── */}
       {project.stats && (
         <section className="py-10 md:py-14 max-w-7xl mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {project.stats.map((s, i) => (
               <div key={i} className="rounded-2xl p-6 flex flex-col gap-1" style={{ background: "var(--color-dark-900)" }}>
                 <span style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(1.6rem, 2.5vw, 2.2rem)", color: "white", lineHeight: 1 }}>{s.value}</span>
