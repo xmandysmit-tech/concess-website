@@ -125,12 +125,24 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
       {project.posters && project.posters.length > 0 && (
         <section className="pb-10 max-w-7xl mx-auto px-6 md:px-12">
           <span className="text-[10px] tracking-widest uppercase block mb-3" style={{ color: "var(--color-taupe-500)" }}>Theatertours</span>
-          <div className="grid grid-cols-2 gap-4">
-            {project.posters.map((src, i) => (
-              <div key={i} className="rounded-2xl overflow-hidden" style={{ aspectRatio: "2/3" }}>
-                <img src={src} alt={`Poster ${i + 1}`} className="w-full h-full object-cover" />
-              </div>
-            ))}
+          <div className="grid md:grid-cols-2 gap-4">
+            {/* Tekst */}
+            <div className="rounded-2xl p-6 flex flex-col justify-center" style={{ background: "var(--color-dark-900)", aspectRatio: "16/9" }}>
+              <h3 className="mb-3" style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(1rem, 1.6vw, 1.6rem)", color: "white", lineHeight: 1.1 }}>
+                Twee keer het theater <span className="italic" style={{ color: "var(--color-taupe-300)" }}>in</span>
+              </h3>
+              <p className="text-xs leading-relaxed" style={{ color: "var(--color-taupe-400)", fontFamily: "'Playfair Display', Georgia, serif" }}>
+                {project.postersText}
+              </p>
+            </div>
+            {/* Posters */}
+            <div className="flex gap-3" style={{ aspectRatio: "16/9" }}>
+              {project.posters.map((src, i) => (
+                <div key={i} className="flex-1 rounded-2xl overflow-hidden" style={{ background: "var(--color-dark-900)" }}>
+                  <img src={src} alt={`Vrouwmishow ${i + 1}`} className="w-full h-full object-contain" />
+                </div>
+              ))}
+            </div>
           </div>
         </section>
       )}

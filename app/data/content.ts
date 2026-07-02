@@ -319,6 +319,7 @@ export type StudioCase = {
   milestoneImg?: string;
   milestoneText?: string;
   posters?: string[];
+  postersText?: string;
   instagramEmbed?: string;
   gallery: GalleryItem[];
 };
@@ -398,6 +399,7 @@ export const studioCases: StudioCase[] = [
       "/images/Projecten/Vrouwmibo/Poster - Vrouwmishow 1.jpg",
       "/images/Projecten/Vrouwmibo/Poster - Vrouwmishow 2.png",
     ],
+    postersText: "Naast de podcast mochten we de meiden twee keer het theater in begeleiden met hun eigen show, de Vrouwmishow. Concess verzorgde de volledige productie van beide tours, van concept en planning tot de theaterposters die door heel Nederland te zien waren. Een bijzonder project dat laat zien hoe een podcast kan uitgroeien tot een volwaardig liveconcept.",
     instagramEmbed: "https://www.instagram.com/p/C8HqOqbt9JV/",
     gallery: [],
   },
