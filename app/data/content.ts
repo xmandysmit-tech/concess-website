@@ -158,7 +158,7 @@ export const partnershipCases: PartnershipCase[] = [
     brand: "'t Zusje",
     creator: "Vrouwmibo",
     category: "Brand Partnership",
-    year: "2023 – 2024",
+    year: "2024",
     cover: "/images/Partnerships/vrouwmibo/zusje x vrouwmibo.jpg",
     gradient: "from-amber-900 to-stone-950",
     description: "Een langdurige samenwerking tussen Vrouwmibo en 't Zusje waarbij de meiden hun eigen signature cocktail op de menukaart kregen. De samenwerking werd afgetrapt met een ballonvaart en resulteerde in een covershoot voor het 't Zusje Magazine. Daarnaast waren ze aanwezig bij de theatershow, wat voor een bijzondere aanwezigheid zorgde.",
