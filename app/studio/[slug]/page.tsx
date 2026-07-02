@@ -82,7 +82,7 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
                   {project.creatorProfiles.map((c) => (
                     <div key={c.name} className="flex items-center gap-2.5">
                       <div className="rounded-full overflow-hidden flex-shrink-0" style={{ width: 36, height: 36 }}>
-                        <img src={c.img} alt={c.name} className="w-full h-full object-cover object-top" />
+                        <img src={c.img} alt={c.name} className="w-full h-full object-cover object-center" style={{ transform: "scale(1.15)" }} />
                       </div>
                       <p className="text-sm" style={{ color: "rgba(255,255,255,0.6)", fontFamily: "'DM Serif Display', Georgia, serif" }}>{c.name}</p>
                     </div>
