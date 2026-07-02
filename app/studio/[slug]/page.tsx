@@ -125,9 +125,9 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
       {project.posters && project.posters.length > 0 && (
         <section className="pt-6 pb-10 max-w-7xl mx-auto px-6 md:px-12">
           <span className="text-[10px] tracking-widest uppercase block mb-3" style={{ color: "var(--color-taupe-500)" }}>Theatertours</span>
-          <div className="grid md:grid-cols-3 gap-4 items-stretch">
+          <div className="flex gap-4" style={{ height: 460 }}>
             {/* Tekst */}
-            <div className="rounded-2xl p-6 flex flex-col justify-center" style={{ background: "var(--color-dark-900)" }}>
+            <div className="rounded-2xl p-7 flex flex-col justify-center flex-1" style={{ background: "var(--color-dark-900)" }}>
               <h3 className="mb-3" style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(1rem, 1.4vw, 1.4rem)", color: "white", lineHeight: 1.1 }}>
                 Twee keer het <span className="italic" style={{ color: "var(--color-taupe-300)" }}>theater</span> in
               </h3>
@@ -135,21 +135,19 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
                 {project.postersText}
               </p>
             </div>
-            {/* Posters gestapeld */}
-            <div className="flex gap-3">
-              {project.posters.map((src, i) => (
-                <div key={i} className="flex-1 rounded-2xl overflow-hidden" style={{ background: "var(--color-dark-900)" }}>
-                  <img src={src} alt={`Vrouwmishow ${i + 1}`} className="w-full h-full object-contain" />
-                </div>
-              ))}
-            </div>
+            {/* Posters */}
+            {project.posters.map((src, i) => (
+              <div key={i} className="rounded-2xl overflow-hidden flex-shrink-0" style={{ width: 130 }}>
+                <img src={src} alt={`Vrouwmishow ${i + 1}`} className="w-full h-full object-cover object-top" />
+              </div>
+            ))}
             {/* Instagram recap */}
             {project.instagramEmbed && (
-              <div className="rounded-2xl overflow-hidden" style={{ background: "var(--color-dark-900)" }}>
+              <div className="rounded-2xl overflow-hidden flex-shrink-0" style={{ width: 300 }}>
                 <iframe
                   src={`${project.instagramEmbed}embed/`}
-                  className="border-0 w-full h-full"
-                  style={{ minHeight: 480 }}
+                  className="border-0"
+                  style={{ width: "100%", height: "100%" }}
                   scrolling="no"
                   allowTransparency
                 />
