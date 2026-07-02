@@ -143,11 +143,10 @@ export default async function PartnershipPage({ params }: { params: Promise<{ sl
           <span className="text-[10px] tracking-widest uppercase block mb-3" style={{ color: "var(--color-taupe-500)" }}>Recap</span>
           <div className="grid md:grid-cols-2 gap-4 items-start">
             <TrailerEmbed youtubeId={youtubeId} />
-            <div className="flex justify-center">
+            <div className="rounded-2xl overflow-hidden" style={{ aspectRatio: "16/9", background: "var(--color-dark-900)" }}>
               <iframe
                 src={`${project.instagramEmbed}embed/`}
-                className="rounded-2xl border-0"
-                style={{ width: "100%", maxWidth: 540, minHeight: 560 }}
+                className="border-0 w-full h-full"
                 scrolling="no"
                 allowTransparency
               />
