@@ -374,7 +374,7 @@ export const studioCases: StudioCase[] = [
     title: "Vrouwmibo",
     subtitle: "De podcast",
     tags: ["Podcasts", "Marketing & Social"],
-    year: "2023 – heden",
+    year: "2022 – 2024",
     cover: "/images/Tegels/Vrouwmibo - tegel.png",
     gradient: "from-rose-800 to-stone-950",
     tagline: "Concess Studio",
