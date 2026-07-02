@@ -6,7 +6,7 @@ import TrailerEmbed from "../../components/TrailerEmbed";
 import { partnershipCases } from "../../data/content";
 
 export function generateStaticParams() {
-  return partnershipCases.map((p) => ({ slug: p.slug }));
+  return partnershipCases.filter((p) => p.slug).map((p) => ({ slug: p.slug }));
 }
 
 function getYouTubeId(url: string) {
