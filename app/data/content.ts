@@ -385,9 +385,9 @@ export const studioCases: StudioCase[] = [
     platformLink2: "https://podimo.com/nl/shows/vrouwmibo",
     platformLinkLabel2: "Luister op Podimo",
     creatorProfiles: [
-      { name: "Nina Warink",    role: "Host", img: "/images/Projecten/Vrouwmibo/Nina-Warink-Vrouwmibo.png" },
-      { name: "Iris Enthoven",  role: "Host", img: "/images/Projecten/Vrouwmibo/Iris-Enthoven-Vrouwmibo.png" },
-      { name: "Sophie Milzink", role: "Host", img: "/images/Projecten/Vrouwmibo/Sophie-Milzink-Vrrouwmibo.png" },
+      { name: "Nina Warink",    role: "Host", img: "/images/Projecten/Vrouwmibo/nina.jpg" },
+      { name: "Iris Enthoven",  role: "Host", img: "/images/Projecten/Vrouwmibo/iris.jpg" },
+      { name: "Sophie Milzink", role: "Host", img: "/images/Projecten/Vrouwmibo/sophie.jpg" },
     ],
     socials: [
       { platform: "Instagram", handle: "@vrouwmibo", url: "https://www.instagram.com/vrouwmibo/" },
