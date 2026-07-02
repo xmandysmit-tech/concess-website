@@ -137,6 +137,22 @@ export default async function PartnershipPage({ params }: { params: Promise<{ sl
         </section>
       ) : null}
 
+      {/* ── INSTAGRAM EMBED ── */}
+      {project.instagramEmbed && (
+        <section className="pb-12 max-w-7xl mx-auto px-6 md:px-12">
+          <span className="text-[10px] tracking-widest uppercase block mb-3" style={{ color: "var(--color-taupe-500)" }}>Recap</span>
+          <div className="flex justify-center">
+            <iframe
+              src={`${project.instagramEmbed}embed/`}
+              className="rounded-2xl border-0"
+              style={{ width: "100%", maxWidth: 540, minHeight: 600 }}
+              scrolling="no"
+              allowTransparency
+            />
+          </div>
+        </section>
+      )}
+
       <CTAFooter />
     </main>
   );
