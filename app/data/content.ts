@@ -380,7 +380,7 @@ export const studioCases: StudioCase[] = [
   // ── 2022 ─────────────────────────────────────────────────
   {
     title: "Morning Aftertalk",
-    tags: ["Podcasts", "Graphic Design"],
+    tags: ["Podcasts"],
     year: "2022",
     cover: "/images/Tegels/Morning Aftertalk met Gaby Blaaser.jpg",
     gradient: "from-stone-700 to-stone-950",
