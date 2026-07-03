@@ -91,7 +91,9 @@ export default function StudioPage() {
                   <div className="absolute bottom-0 left-0 right-0 p-5 flex items-end justify-between">
                     <div>
                       <h3 className="text-white" style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "1.2rem" }}>{c.title}</h3>
-                      <span className="text-[9px] tracking-wider uppercase block mt-0.5 truncate" style={{ color: "rgba(255,255,255,0.5)" }}>{c.tags.join(" · ")}</span>
+                      <span className="text-[9px] tracking-wider uppercase block mt-0.5" style={{ color: "rgba(255,255,255,0.5)" }}>
+                        {c.tags.slice(0, 2).join(" · ")}{c.tags.length > 2 ? ` +${c.tags.length - 2}` : ""}
+                      </span>
                     </div>
                     {c.slug && (
                       <div className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center" style={{ border: "1px solid rgba(255,255,255,0.3)", background: "rgba(255,255,255,0.06)" }}>
