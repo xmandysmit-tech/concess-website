@@ -81,28 +81,36 @@ export default function StudioPage() {
             </div>
           </div>
 
-          {/* Grid — studio cases bovenaan (klikbaar), dan reguliere projecten */}
+          {/* Grid — studio cases bovenaan, dan reguliere projecten */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-            {shownCases.map((c) => (
-              <Link
-                key={c.slug}
-                href={`/studio/${c.slug}`}
-                className="relative overflow-hidden rounded-xl group"
-                style={{ aspectRatio: "4/3" }}
-              >
-                <img src={c.cover} alt={c.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%)" }} />
-                <div className="absolute bottom-0 left-0 right-0 p-5 flex items-end justify-between">
-                  <div>
-                    <h3 className="text-white" style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "1.2rem" }}>{c.title}</h3>
-                    <span className="text-[7px] tracking-widest uppercase text-white/30 block mt-0.5 truncate">{c.tags.join(" · ")}</span>
+            {shownCases.map((c) => {
+              const tileInner = (
+                <>
+                  <img src={c.cover} alt={c.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%)" }} />
+                  <div className="absolute bottom-0 left-0 right-0 p-5 flex items-end justify-between">
+                    <div>
+                      <h3 className="text-white" style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "1.2rem" }}>{c.title}</h3>
+                      <span className="text-[9px] tracking-wider uppercase block mt-0.5 truncate" style={{ color: "rgba(255,255,255,0.5)" }}>{c.tags.join(" · ")}</span>
+                    </div>
+                    {c.slug && (
+                      <div className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center" style={{ border: "1px solid rgba(255,255,255,0.3)", background: "rgba(255,255,255,0.06)" }}>
+                        <svg width="10" height="10" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L7.5 2.5M12 7L7.5 11.5" stroke="white" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                      </div>
+                    )}
                   </div>
-                  <div className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center" style={{ border: "1px solid rgba(255,255,255,0.3)", background: "rgba(255,255,255,0.06)" }}>
-                    <svg width="10" height="10" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L7.5 2.5M12 7L7.5 11.5" stroke="white" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                  </div>
+                </>
+              );
+              return c.slug ? (
+                <Link key={c.slug} href={`/studio/${c.slug}`} className="relative overflow-hidden rounded-xl group" style={{ aspectRatio: "4/3" }}>
+                  {tileInner}
+                </Link>
+              ) : (
+                <div key={c.title} className="relative overflow-hidden rounded-xl group" style={{ aspectRatio: "4/3" }}>
+                  {tileInner}
                 </div>
-              </Link>
-            ))}
+              );
+            })}
 
             {shown.map((p, i) => (
               <div

@@ -162,7 +162,7 @@ export const partnershipCases: PartnershipCase[] = [
     cover: "/images/Partnerships/vrouwmibo/zusje x vrouwmibo.jpg",
     gradient: "from-amber-900 to-stone-950",
     description: "Een langdurige samenwerking tussen Vrouwmibo en 't Zusje waarbij de meiden hun eigen signature cocktail op de menukaart kregen. De samenwerking werd afgetrapt met een ballonvaart en resulteerde in een covershoot voor het 't Zusje Magazine. Daarnaast waren ze aanwezig bij de theatershow, wat voor een bijzondere aanwezigheid zorgde.",
-    services: ["Brand Partnership", "Content Creatie", "Magazine Feature"],
+    services: ["Brand Partnership", "Content Creatie", "Magazine Cover"],
     hoverVideo: "https://www.youtube.com/watch?v=QssvsnBD_8Y",
     instagramEmbed: "https://www.instagram.com/p/DClm74Ft0YU/",
     gallery: [],
@@ -209,7 +209,7 @@ export const partnershipCases: PartnershipCase[] = [
 //  STUDIO CASES (klikbare producties op de studio pagina)
 // ------------------------------------------------------------
 export type StudioCase = {
-  slug: string;
+  slug?: string;
   title: string;
   subtitle?: string;
   tags: string[];
@@ -282,27 +282,14 @@ export const studioCases: StudioCase[] = [
     ],
   },
   {
-    slug: "vrouwmishow-1",
-    title: "Vrouwmishow 1",
-    subtitle: "Podcast Liveshow",
-    tags: ["Graphic Design"],
-    year: "2023",
-    cover: "/images/Tegels/Vrouwmishow 1.png",
-    gradient: "from-rose-900 to-stone-950",
-    tagline: "Concess Studio",
-    description: "Voor de eerste Vrouwmishow in Tivoli Vredenburg verzorgde Concess het volledige artwork, van theaterposters tot promotiemateriaal.",
-    gallery: [],
-  },
-  {
-    slug: "vrouwmishow-2",
-    title: "Vrouwmishow 2",
+    title: "Vrouwmishow",
     subtitle: "Nog één keer: All-In",
     tags: ["Graphic Design"],
     year: "2024",
     cover: "/images/Tegels/Vrouwmishow 2.png",
     gradient: "from-amber-900 to-stone-950",
     tagline: "Concess Studio",
-    description: "Voor de tweede Vrouwmishow, een volwaardige theatertour langs zalen als DeLaMar Amsterdam, World Forum Den Haag en Oude Luxor Rotterdam, verzorgde Concess het artwork.",
+    description: "Voor de Vrouwmishow, een volwaardige theatertour langs zalen als DeLaMar Amsterdam, World Forum Den Haag en Oude Luxor Rotterdam, verzorgde Concess het artwork.",
     gallery: [],
   },
   {
