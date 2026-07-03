@@ -34,7 +34,8 @@ function WorkCard({
       <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 60%, transparent 100%)" }} />
       <div className={`relative z-10 flex flex-col justify-end h-full ${large ? "min-h-[480px] p-8" : "min-h-[230px] p-5"}`}>
         <p
-          className={`font-serif text-white leading-tight ${large ? "text-3xl md:text-4xl" : "text-xl"}`}
+          className={`font-serif text-white ${large ? "text-3xl md:text-4xl" : "text-xl"}`}
+          style={{ lineHeight: 1.1 }}
           style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}
         >
           {work.brand}
