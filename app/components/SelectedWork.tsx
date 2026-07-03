@@ -34,8 +34,8 @@ function WorkCard({
       <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 60%, transparent 100%)" }} />
       <div className={`relative z-10 flex flex-col justify-end h-full ${large ? "min-h-[480px] p-8" : "min-h-[230px] p-5"}`}>
         <div style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}>
-          <p className={`text-white m-0 ${large ? "text-3xl md:text-4xl" : "text-xl"}`} style={{ lineHeight: 1 }}>{work.brand}</p>
-          <p className={`text-white opacity-70 italic m-0 ${large ? "text-3xl md:text-4xl" : "text-xl"}`} style={{ lineHeight: 1, marginTop: "0.05em" }}>{work.creator}</p>
+          <p className={`text-white m-0 font-bold ${large ? "text-3xl md:text-4xl" : "text-xl"}`} style={{ lineHeight: 1 }}>{work.brand}</p>
+          <p className={`text-white opacity-70 italic m-0 font-bold ${large ? "text-3xl md:text-4xl" : "text-xl"}`} style={{ lineHeight: 1, marginTop: "0.05em" }}>{work.creator}</p>
         </div>
         {href && (
           <div className={`absolute right-5 bottom-5 w-8 h-8 rounded-full border border-white/30 flex items-center justify-center transition-all duration-300 ${hovered ? "bg-white/20 border-white/60" : ""}`}>
