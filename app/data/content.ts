@@ -56,8 +56,8 @@ export const homepageFeatured = [
     type: "studio" as const,
   },
   {
-    brand: "De Bennies Podcast",
-    creator: "Concess Studio",
+    brand: "De Bennies",
+    creator: "Podcast",
     img: "/images/Tegels/De Bennies - tegel.png",
     gradient: "from-neutral-700 to-neutral-950",
     slug: "de-bennies-podcast",
