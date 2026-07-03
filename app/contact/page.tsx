@@ -99,14 +99,33 @@ export default function ContactPage() {
         {/* Main grid */}
         <div className="grid md:grid-cols-2 gap-12 items-start">
 
-          {/* Left — photo */}
-          <div className="relative overflow-hidden rounded-xl" style={{ aspectRatio: "4/3" }}>
-            <Image
-              src="/images/EnzoKnol_Concess.png"
-              alt="Concess"
-              fill
-              className="object-cover"
-            />
+          {/* Left — polaroid collage */}
+          <div className="relative" style={{ aspectRatio: "4/3" }}>
+            {[
+              { src: "/images/Vrouwmibo-concess-1024x756.jpg", alt: "Vrouwmibo", rotate: -6, x: "2%",  y: "8%",  z: 1 },
+              { src: "/images/De-bennies-concess.jpg",         alt: "De Bennies", rotate: 4,  x: "18%", y: "2%",  z: 2 },
+              { src: "/images/Vrouwmishow_Concess.png",        alt: "Vrouwmishow", rotate: -3, x: "10%", y: "20%", z: 3 },
+              { src: "/images/EnzoKnol_Concess.png",           alt: "Enzo Knol",  rotate: 5,  x: "28%", y: "12%", z: 4 },
+              { src: "/images/Bennies-x-Air-up.png",           alt: "Air Up",     rotate: -8, x: "4%",  y: "38%", z: 5 },
+            ].map((p) => (
+              <div
+                key={p.src}
+                className="absolute bg-white shadow-xl"
+                style={{
+                  width: "52%",
+                  padding: "5% 5% 14% 5%",
+                  left: p.x,
+                  top: p.y,
+                  transform: `rotate(${p.rotate}deg)`,
+                  zIndex: p.z,
+                  boxShadow: "0 4px 24px rgba(0,0,0,0.13)",
+                }}
+              >
+                <div className="relative w-full" style={{ aspectRatio: "4/3" }}>
+                  <Image src={p.src} alt={p.alt} fill className="object-cover" />
+                </div>
+              </div>
+            ))}
           </div>
 
           {/* Right — info + form */}
