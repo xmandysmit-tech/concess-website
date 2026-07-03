@@ -17,6 +17,55 @@ export const projects: {
 export const featuredProjects = projects.slice(0, 5);
 
 // ------------------------------------------------------------
+//  HOMEPAGE — Recente projecten (1 groot + 4 klein)
+//  Pas deze lijst aan om andere projecten uit te lichten.
+//  slug: link naar /partnerships/[slug] of /studio/[slug]
+//  type: "partnership" | "studio" (bepaalt de link prefix)
+// ------------------------------------------------------------
+export const homepageFeatured = [
+  {
+    brand: "Vrouwmibo",
+    creator: "de podcast",
+    img: "/images/Tegels/Vrouwmibo - tegel v2.png",
+    gradient: "from-stone-700 to-stone-950",
+    slug: "vrouwmibo-podcast",
+    type: "studio" as const,
+  },
+  {
+    brand: "De Bennies",
+    creator: "× Podimo",
+    img: "/images/Tegels/De Bennies - tegel.png",
+    gradient: "from-neutral-700 to-neutral-950",
+    slug: "podimo-de-bennies",
+    type: "partnership" as const,
+  },
+  {
+    brand: "'t Zusje",
+    creator: "× Vrouwmibo",
+    img: "/images/Partnerships/vrouwmibo/zusje x vrouwmibo.jpg",
+    gradient: "from-amber-900 to-stone-950",
+    slug: "zusje-vrouwmibo",
+    type: "partnership" as const,
+  },
+  {
+    brand: "Vrouwmishow",
+    creator: "Nog één keer: All-In",
+    img: "/images/Tegels/Vrouwmishow 2.png",
+    gradient: "from-amber-900 to-stone-950",
+    slug: undefined,
+    type: "studio" as const,
+  },
+  {
+    brand: "De Bennies Podcast",
+    creator: "Concess Studio",
+    img: "/images/Tegels/De Bennies - tegel.png",
+    gradient: "from-neutral-700 to-neutral-950",
+    slug: "de-bennies-podcast",
+    type: "studio" as const,
+  },
+];
+
+// ------------------------------------------------------------
 //  CREATORS
 // ------------------------------------------------------------
 type CreatorWork = { brand: string; creator: string; views?: string; type: string; gradient: string; img?: string; slug?: string };
