@@ -281,6 +281,7 @@ export type StudioCase = {
   posters?: string[];
   postersText?: string;
   instagramEmbed?: string;
+  photos?: string[];
   gallery: GalleryItem[];
 };
 
@@ -341,6 +342,22 @@ export const studioCases: StudioCase[] = [
     gradient: "from-amber-900 to-stone-950",
     tagline: "Concess Studio",
     description: "Voor de Vrouwmishow, een volwaardige theatertour langs zalen als DeLaMar Amsterdam, World Forum Den Haag en Oude Luxor Rotterdam, verzorgde Concess het artwork.",
+    gallery: [],
+  },
+  // ── Fotografie ───────────────────────────────────────────
+  {
+    slug: "fotografie",
+    title: "Fotografie",
+    subtitle: "shoots & campagnes",
+    tags: ["Fotografie"],
+    year: "2020 – heden",
+    cover: "/images/studio/fotografie.jpg",
+    gradient: "from-stone-700 to-stone-950",
+    tagline: "Concess Studio",
+    description: "Van persshots tot campagnebeelden — een verzameling van fotografie die Concess door de jaren heen verzorgd heeft. Losse shoots, contentdagen en alles daartussenin.",
+    photos: [
+      // Voeg hier foto's toe: "/images/Projecten/Fotografie/bestandsnaam.jpg"
+    ],
     gallery: [],
   },
   // ── 2022 – 2024 ──────────────────────────────────────────
