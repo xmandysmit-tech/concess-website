@@ -291,7 +291,7 @@ export const studioCases: StudioCase[] = [
     slug: "de-bennies-podcast",
     title: "De Bennies Podcast",
     subtitle: "Productie van begin tot eind",
-    tags: ["Podcasts", "Graphic Design", "Marketing & Social"],
+    tags: ["Podcasts", "Graphic Design", "Marketing & Social", "Fotografie"],
     year: "2022 – 2026",
     cover: "/images/Tegels/De Bennies - tegel.png",
     hoverVideo: "https://www.youtube.com/watch?v=hUpePaNRUc0",
@@ -461,7 +461,7 @@ export const studioCases: StudioCase[] = [
   },
   {
     title: "Morning Aftertalk",
-    tags: ["Podcasts"],
+    tags: ["Podcasts", "Fotografie"],
     year: "2021 – 2022",
     cover: "/images/Tegels/Morning Aftertalk met Gaby Blaaser.jpg",
     gradient: "from-stone-700 to-stone-950",
