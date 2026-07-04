@@ -433,7 +433,7 @@ export const studioCases: StudioCase[] = [
     title: "Met Z'n Allen",
     tags: ["Podcasts"],
     year: "2020 – 2021",
-    cover: "/images/Tegels/Metznallen.jpg",
+    cover: "/images/Tegels/Metznallen V2. jpg.jpg",
     gradient: "from-zinc-800 to-zinc-950",
     tagline: "Concess Studio",
     description: "",
