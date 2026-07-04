@@ -350,7 +350,7 @@ export const studioCases: StudioCase[] = [
     title: "KP Active",
     subtitle: "fotografie",
     tags: ["Fotografie"],
-    year: "2025",
+    year: "2026",
     cover: "/images/Tegels/KP active Fotografie.jpg",
     gradient: "from-stone-700 to-stone-950",
     tagline: "Concess Studio",
