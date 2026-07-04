@@ -100,28 +100,29 @@ export default function ContactPage() {
         <div className="grid md:grid-cols-2 gap-12 items-start">
 
           {/* Left — polaroid collage */}
-          <div className="relative" style={{ aspectRatio: "4/3" }}>
+          <div className="relative w-full" style={{ height: 460 }}>
             {[
-              { src: "/images/Vrouwmibo-concess-1024x756.jpg", alt: "Vrouwmibo", rotate: -6, x: "2%",  y: "8%",  z: 1 },
-              { src: "/images/De-bennies-concess.jpg",         alt: "De Bennies", rotate: 4,  x: "18%", y: "2%",  z: 2 },
-              { src: "/images/Vrouwmishow_Concess.png",        alt: "Vrouwmishow", rotate: -3, x: "10%", y: "20%", z: 3 },
-              { src: "/images/EnzoKnol_Concess.png",           alt: "Enzo Knol",  rotate: 5,  x: "28%", y: "12%", z: 4 },
-              { src: "/images/Bennies-x-Air-up.png",           alt: "Air Up",     rotate: -8, x: "4%",  y: "38%", z: 5 },
+              { src: "/images/Vrouwmibo-concess-1024x756.jpg",  alt: "Vrouwmibo",   rotate: -14, left: 20,  top: 30,  z: 1 },
+              { src: "/images/EnzoKnol_Concess.png",            alt: "Enzo Knol",   rotate: 9,   left: 210, top: 10,  z: 2 },
+              { src: "/images/De-bennies-concess.jpg",          alt: "De Bennies",  rotate: -7,  left: 130, top: 160, z: 3 },
+              { src: "/images/Vrouwmishow_Concess.png",         alt: "Vrouwmishow", rotate: 13,  left: 300, top: 120, z: 4 },
+              { src: "/images/Bennies-x-Air-up.png",            alt: "Air Up",      rotate: -4,  left: 60,  top: 270, z: 5 },
+              { src: "/images/Vrouwmibo-x-Subway.png",          alt: "Subway",      rotate: 11,  left: 250, top: 270, z: 6 },
             ].map((p) => (
               <div
                 key={p.src}
-                className="absolute bg-white shadow-xl"
+                className="absolute bg-white"
                 style={{
-                  width: "52%",
-                  padding: "5% 5% 14% 5%",
-                  left: p.x,
-                  top: p.y,
+                  width: 160,
+                  padding: "8px 8px 28px 8px",
+                  left: p.left,
+                  top: p.top,
                   transform: `rotate(${p.rotate}deg)`,
                   zIndex: p.z,
-                  boxShadow: "0 4px 24px rgba(0,0,0,0.13)",
+                  boxShadow: "0 4px 20px rgba(0,0,0,0.15), 0 1px 4px rgba(0,0,0,0.08)",
                 }}
               >
-                <div className="relative w-full" style={{ aspectRatio: "4/3" }}>
+                <div className="relative w-full" style={{ aspectRatio: "1/1" }}>
                   <Image src={p.src} alt={p.alt} fill className="object-cover" />
                 </div>
               </div>
