@@ -373,7 +373,7 @@ export const studioCases: StudioCase[] = [
     cover: "/images/studio/fotografie.jpg",
     gradient: "from-stone-700 to-stone-950",
     tagline: "Concess Studio",
-    description: "Van persshots tot campagnebeelden — een verzameling van fotografie die Concess door de jaren heen verzorgd heeft. Losse shoots, contentdagen en alles daartussenin.",
+    description: "Van persshots tot campagnebeelden, een verzameling van fotografie die Concess door de jaren heen verzorgd heeft. Losse shoots, contentdagen en alles daartussenin.",
     photos: [
       "/images/Fotografie/1dd607db-f3e9-45c0-b681-fe8f7579be42-2_orig.jpg",
       "/images/Fotografie/2130bb6d-5728-4b1b-a493-26a6a672ce05-2.jpg",
