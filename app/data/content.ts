@@ -356,7 +356,7 @@ export const studioCases: StudioCase[] = [
     tagline: "Concess Studio",
     description: "Campagnebeelden en contentfotografie voor KP Active.",
     photos: [
-      "/images/studio/KP Active fotografie/DSC02502.jpg",
+      "/images/studio/KP Active fotografie/DSC02502 V2.jpg",
       "/images/studio/KP Active fotografie/instasave.website_567114569_17962950986989048_4375552415413974260_n.jpg",
       "/images/studio/KP Active fotografie/instasave.website_568355484_17963316740989048_2806702618017743612_n.jpg",
       "/images/studio/KP Active fotografie/instasave.website_570364021_17963474759989048_2306078750872651062_n.jpg",
