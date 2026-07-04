@@ -72,7 +72,7 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
               </div>
               <div className="flex flex-wrap gap-2 mt-4">
                 {project.tags.map((t) => (
-                  <span key={t} className="text-[9px] tracking-wider uppercase px-3 py-1 rounded-full" style={{ border: "1px solid rgba(255,255,255,0.1)", color: "rgba(255,255,255,0.3)" }}>{t}</span>
+                  <span key={t} className="text-[9px] tracking-wider uppercase" style={{ color: "rgba(255,255,255,0.3)" }}>{t}</span>
                 ))}
               </div>
 
