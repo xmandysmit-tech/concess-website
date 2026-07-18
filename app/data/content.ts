@@ -293,6 +293,7 @@ export type StudioCase = {
   postersText?: string;
   instagramEmbed?: string;
   photos?: string[];
+  photosLabel?: string;
   gallery: GalleryItem[];
 };
 
@@ -515,6 +516,7 @@ export const studioCases: StudioCase[] = [
     photos: [
       "/images/studio/Taboe_2.png",
     ],
+    photosLabel: "Web Design",
     gallery: [],
   },
   // ── 2020 – 2021 ──────────────────────────────────────────

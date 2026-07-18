@@ -210,25 +210,39 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
         </section>
       )}
 
-      {/* ── FOTOGRAFIE COLLAGE ── */}
-      {project.photos && project.photos.length > 0 && (
-        <section className="pb-12 max-w-7xl mx-auto px-6 md:px-12">
-          <span className="text-[10px] tracking-widest uppercase block mb-4" style={{ color: "var(--color-taupe-500)" }}>Beelden</span>
-          <div style={{ columns: "3 280px", gap: "12px" }}>
-            {project.photos.map((src, i) => (
-              <div key={i} className="rounded-xl overflow-hidden mb-3 break-inside-avoid">
-                <img src={src} alt="" className="w-full h-auto block" />
-              </div>
-            ))}
+      {/* ── FOTO + TRAILER naast elkaar (bij 1 foto) of masonry (meerdere) ── */}
+      {project.photos && project.photos.length === 1 && youtubeId ? (
+        <section className="pb-12 md:pb-16 max-w-7xl mx-auto px-6 md:px-12">
+          <span className="text-[10px] tracking-widest uppercase block mb-6" style={{ color: "var(--color-taupe-500)" }}>{project.photosLabel ?? "Beelden"}</span>
+          <div className="flex gap-6 items-start">
+            <div className="flex-shrink-0 rounded-2xl overflow-hidden" style={{ width: "38%" }}>
+              <img src={project.photos[0]} alt="" className="w-full h-auto block" />
+            </div>
+            <div className="flex-1 rounded-2xl overflow-hidden" style={{ aspectRatio: "16/9", background: "var(--color-dark-900)" }}>
+              <TrailerEmbed youtubeId={youtubeId} />
+            </div>
           </div>
         </section>
-      )}
-
-      {/* ── TRAILER ── */}
-      {youtubeId && (
-        <section className="pt-4 pb-12 md:pb-16 max-w-7xl mx-auto px-6 md:px-12">
-          <TrailerEmbed youtubeId={youtubeId} />
-        </section>
+      ) : (
+        <>
+          {project.photos && project.photos.length > 0 && (
+            <section className="pb-12 max-w-7xl mx-auto px-6 md:px-12">
+              <span className="text-[10px] tracking-widest uppercase block mb-4" style={{ color: "var(--color-taupe-500)" }}>{project.photosLabel ?? "Beelden"}</span>
+              <div style={{ columns: "3 280px", gap: "12px" }}>
+                {project.photos.map((src, i) => (
+                  <div key={i} className="rounded-xl overflow-hidden mb-3 break-inside-avoid">
+                    <img src={src} alt="" className="w-full h-auto block" />
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+          {youtubeId && (
+            <section className="pt-4 pb-12 md:pb-16 max-w-7xl mx-auto px-6 md:px-12">
+              <TrailerEmbed youtubeId={youtubeId} />
+            </section>
+          )}
+        </>
       )}
 
       <CTAFooter />
