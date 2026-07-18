@@ -518,7 +518,7 @@ export const studioCases: StudioCase[] = [
     photos: [
       "/images/studio/Taboe_2.png",
     ],
-    photosLabel: "Web Design",
+    photosLabel: "Website Design",
     gallery: [],
   },
   // ── 2020 – 2021 ──────────────────────────────────────────
