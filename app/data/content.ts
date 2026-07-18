@@ -292,6 +292,7 @@ export type StudioCase = {
   posters?: string[];
   postersText?: string;
   instagramEmbed?: string;
+  coverFit?: "cover" | "contain";
   photos?: string[];
   photosLabel?: string;
   gallery: GalleryItem[];
@@ -509,6 +510,7 @@ export const studioCases: StudioCase[] = [
     tags: ["Video & Productie", "Graphic Design", "Web Design"],
     year: "2021",
     cover: "/images/Tegels/Taboe.jpg",
+    coverFit: "contain",
     gradient: "from-neutral-800 to-neutral-950",
     tagline: "Concess Studio",
     description: "YouTuber en presentator Nesim el Ahmadi gaat het theater in met zijn allereerste cabaretvoorstelling! In zijn eerste voorstelling Taboe! bespreekt Nesim taboes en verhalen die voor hem belangrijk zijn. Hij vertelt over hoe het is om de zoon van een vluchteling te zijn, over zijn zoektocht naar zijn geloof en over het op jonge leeftijd trouwen met een christelijke vrouw. Daarnaast komen onder andere haartransplantaties, de ontvoering van zijn vrouw en vastzitten in de cel aan bod. Een vlammende, komische avond, waarin niets taboe is!",
