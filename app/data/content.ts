@@ -252,6 +252,17 @@ export const partnershipCases: PartnershipCase[] = [
       { type: "image", src: "/images/Partnerships/de-bennies/air-up/cover.png", alt: "Air up x De Bennies" },
     ],
   },
+  {
+    brand: "Body & Fit",
+    creator: "Nesim el Ahmadi",
+    category: "Brand Partnership",
+    year: "2020",
+    cover: "/images/Partnerships/Body-Fit-x-Nesim.gif",
+    gradient: "from-neutral-800 to-neutral-950",
+    description: "",
+    services: ["Brand Partnership", "Content Creatie"],
+    gallery: [],
+  },
 ];
 
 // ------------------------------------------------------------
