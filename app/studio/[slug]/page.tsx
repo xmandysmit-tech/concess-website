@@ -212,7 +212,7 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
 
       {/* ── FOTO + TRAILER naast elkaar (bij 1 foto) of masonry (meerdere) ── */}
       {project.photos && project.photos.length === 1 && youtubeId ? (
-        <section className="pb-12 md:pb-16 max-w-7xl mx-auto px-6 md:px-12">
+        <section className="pt-10 pb-12 md:pb-16 max-w-7xl mx-auto px-6 md:px-12">
           <span className="text-[10px] tracking-widest uppercase block mb-6" style={{ color: "var(--color-taupe-500)" }}>{project.photosLabel ?? "Beelden"}</span>
           <div className="flex gap-6 items-start">
             <div className="flex-shrink-0 rounded-2xl overflow-hidden" style={{ width: "38%" }}>
