@@ -489,6 +489,23 @@ export const studioCases: StudioCase[] = [
     description: "",
     gallery: [],
   },
+  // ── 2021 ─────────────────────────────────────────────────
+  {
+    slug: "taboe-nesim",
+    title: "Taboe",
+    subtitle: "Nesim el Ahmadi",
+    tags: ["Video & Productie", "Graphic Design", "Web Design"],
+    year: "2021",
+    cover: "/images/Tegels/Taboe.jpg",
+    gradient: "from-neutral-800 to-neutral-950",
+    tagline: "Concess Studio",
+    description: "YouTuber en presentator Nesim el Ahmadi gaat het theater in met zijn allereerste cabaretvoorstelling! In zijn eerste voorstelling Taboe! bespreekt Nesim taboes en verhalen die voor hem belangrijk zijn. Hij vertelt over hoe het is om de zoon van een vluchteling te zijn, over zijn zoektocht naar zijn geloof en over het op jonge leeftijd trouwen met een christelijke vrouw. Daarnaast komen onder andere haartransplantaties, de ontvoering van zijn vrouw en vastzitten in de cel aan bod. Een vlammende, komische avond, waarin niets taboe is!",
+    hoverVideo: "https://www.youtube.com/watch?v=dUr9SGzSRLk",
+    photos: [
+      "/images/studio/Taboe_2.png",
+    ],
+    gallery: [],
+  },
   // ── 2020 – 2021 ──────────────────────────────────────────
   {
     title: "Monica's Podcast",
