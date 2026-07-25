@@ -319,6 +319,17 @@ export const partnershipCases: PartnershipCase[] = [
     gallery: [],
   },
   {
+    brand: "Netflix – The Mitchells vs. The Machines",
+    creator: "Dylan Haegens",
+    category: "Brand Partnership",
+    year: "2021",
+    cover: "/images/Partnerships/Netflix x Dylan Haegens.mp4",
+    gradient: "from-red-900 to-neutral-950",
+    description: "",
+    services: ["Brand Partnership", "Content Creatie"],
+    gallery: [],
+  },
+  {
     brand: "JBC",
     creator: "Dylan Haegens",
     category: "Brand Partnership",
