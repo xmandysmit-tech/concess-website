@@ -616,7 +616,6 @@ export const studioCases: StudioCase[] = [
       "/images/studio/Bootje/STORY-2_Teaser-Bootje_OUT-NOW.mp4",
       "/images/studio/Bootje/OutNow_PaulTijn2.mp4",
       "/images/studio/Bootje/TikTok-meme.mp4",
-      "/images/studio/Bootje/48650bab28234d4bb61a1511a9fb78ab.mov",
     ],
     stats: [
       { value: "1M+", label: "Streams in < 1 maand op Spotify" },
