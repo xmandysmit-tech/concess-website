@@ -656,7 +656,7 @@ export const studioCases: StudioCase[] = [
   // ── 2022 ─────────────────────────────────────────────────
   {
     title: "Moordcast",
-    tags: ["Podcasts", "Graphic Design"],
+    tags: ["Podcasts", "Graphic Design", "Marketing & Social"],
     year: "2022",
     cover: "/images/Tegels/Moordcast.png",
     gradient: "from-neutral-800 to-neutral-950",
