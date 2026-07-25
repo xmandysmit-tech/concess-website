@@ -826,7 +826,7 @@ export const studioCases: StudioCase[] = [
     slug: "kinderpostzegelactie",
     title: "Kinderpostzegelactie",
     subtitle: "Dylan Haegens",
-    tags: ["Marketing & Social", "Conceptontwikkeling", "Videoproductie"],
+    tags: ["Marketing & Social", "Conceptontwikkeling", "Videoproductie", "Productie"],
     year: "2021",
     cover: "/images/studio/Kinderpostzegels-Dylan-Haegens-1thumbnail-concess.jpg",
     hoverVideo: "https://www.youtube.com/watch?v=zYEERVvzOsI",
