@@ -210,6 +210,27 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
         </section>
       )}
 
+      {/* ── SHORT-FORM VIDEO GRID ── */}
+      {project.videos && project.videos.length > 0 && (
+        <section className="pt-12 pb-6 max-w-7xl mx-auto px-6 md:px-12">
+          <span className="text-[10px] tracking-widest uppercase block mb-4" style={{ color: "var(--color-taupe-500)" }}>Short-form content</span>
+          <div className="grid gap-3" style={{ gridTemplateColumns: `repeat(${project.videos.length}, 1fr)` }}>
+            {project.videos.map((src, i) => (
+              <div key={i} className="rounded-2xl overflow-hidden" style={{ aspectRatio: "9/16", background: "var(--color-dark-900)" }}>
+                <video
+                  src={src}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
       {/* ── EERSTE FOTO + VIDEO naast elkaar ── */}
       {project.photos && project.photos.length > 0 && youtubeId && (
         <section className="pt-12 pb-6 max-w-7xl mx-auto px-6 md:px-12">
