@@ -253,6 +253,17 @@ export const partnershipCases: PartnershipCase[] = [
     ],
   },
   {
+    brand: "L'Oréal Paris",
+    creator: "Vrouwmibo",
+    category: "Brand Partnership",
+    year: "2023",
+    cover: "/images/Partnerships/L'Oréal Paris x Vrouwmibo.jpg",
+    gradient: "from-orange-900 to-neutral-950",
+    description: "",
+    services: ["Brand Partnership", "Content Creatie"],
+    gallery: [],
+  },
+  {
     brand: "MyJewellery",
     creator: "Vrouwmibo",
     category: "Brand Partnership",
