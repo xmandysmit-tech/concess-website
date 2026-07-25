@@ -3,6 +3,7 @@ import Link from "next/link";
 import Navbar from "../../components/Navbar";
 import CTAFooter from "../../components/CTAFooter";
 import TrailerEmbed from "../../components/TrailerEmbed";
+import VideoGrid from "../../components/VideoGrid";
 import { studioCases } from "../../data/content";
 
 export function generateStaticParams() {
@@ -109,7 +110,7 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
 
       {/* ── STATS ── */}
       {project.stats && (
-        <section className="py-10 md:py-14 max-w-7xl mx-auto px-6 md:px-12">
+        <section className={`pt-10 md:pt-14 ${project.videos ? "pb-4" : "pb-10 md:pb-14"} max-w-7xl mx-auto px-6 md:px-12`}>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {project.stats.map((s, i) => (
               <div key={i} className="rounded-2xl p-6 flex flex-col gap-1" style={{ background: "var(--color-dark-900)" }}>
@@ -212,22 +213,9 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
 
       {/* ── SHORT-FORM VIDEO GRID ── */}
       {project.videos && project.videos.length > 0 && (
-        <section className="pt-12 pb-6 max-w-7xl mx-auto px-6 md:px-12">
+        <section className="pt-6 pb-6 max-w-7xl mx-auto px-6 md:px-12">
           <span className="text-[10px] tracking-widest uppercase block mb-4" style={{ color: "var(--color-taupe-500)" }}>Short-form content</span>
-          <div className="grid gap-3" style={{ gridTemplateColumns: `repeat(${project.videos.length}, 1fr)` }}>
-            {project.videos.map((src, i) => (
-              <div key={i} className="rounded-2xl overflow-hidden" style={{ aspectRatio: "9/16", background: "var(--color-dark-900)" }}>
-                <video
-                  src={src}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            ))}
-          </div>
+          <VideoGrid videos={project.videos} />
         </section>
       )}
 
@@ -237,8 +225,8 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
           <div className="flex gap-6 items-stretch" style={{ height: 400 }}>
             <div className="flex-shrink-0 flex flex-col gap-2" style={{ width: "42%" }}>
               <span className="text-[10px] tracking-widest uppercase" style={{ color: "var(--color-taupe-500)" }}>{project.photosLabel ?? "Beelden"}</span>
-              <div className="rounded-2xl overflow-hidden flex-1">
-                <img src={project.photos[0]} alt="" className="w-full h-full object-cover" />
+              <div className="rounded-2xl overflow-hidden flex-1" style={{ background: project.photosFit === "contain" ? "var(--color-linen-200)" : undefined }}>
+                <img src={project.photos[0]} alt="" className={`w-full h-full ${project.photosFit === "contain" ? "object-contain p-4" : "object-cover"}`} />
               </div>
             </div>
             <div className="flex-1 flex flex-col gap-2">
@@ -286,6 +274,40 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
           </div>
         </section>
       )}
+
+      {/* ── EXTRA SECTIES (marketingactie, fotografie etc.) ── */}
+      {project.extraSections && project.extraSections.map((sec, i) => (
+        <section key={i} className="pt-10 pb-10 max-w-7xl mx-auto px-6 md:px-12">
+          <span className="text-[10px] tracking-widest uppercase block mb-4" style={{ color: "var(--color-taupe-500)" }}>{sec.label}</span>
+          {sec.title || sec.text ? (
+            <div className="flex gap-8 items-start">
+              <div className="flex-shrink-0" style={{ width: "35%" }}>
+                {sec.title && (
+                  <h3 className="mb-3" style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(1.4rem, 2.5vw, 2rem)", color: "var(--color-dark-900)", lineHeight: 1.1 }}>{sec.title}</h3>
+                )}
+                {sec.text && (
+                  <p className="text-sm leading-relaxed" style={{ color: "var(--color-taupe-500)", fontFamily: "'Playfair Display', Georgia, serif" }}>{sec.text}</p>
+                )}
+              </div>
+              <div className="flex-1 grid gap-3" style={{ gridTemplateColumns: `repeat(${Math.min(sec.photos.length, 3)}, 1fr)` }}>
+                {sec.photos.map((src, j) => (
+                  <div key={j} className="rounded-xl overflow-hidden">
+                    <img src={src} alt="" className="w-full h-auto block" />
+                  </div>
+                ))}
+              </div>
+            </div>
+          ) : (
+            <div style={{ columns: "3 280px", gap: "12px" }}>
+              {sec.photos.map((src, j) => (
+                <div key={j} className="rounded-xl overflow-hidden mb-3 break-inside-avoid">
+                  <img src={src} alt="" className="w-full h-auto block" />
+                </div>
+              ))}
+            </div>
+          )}
+        </section>
+      ))}
 
       <CTAFooter />
     </main>

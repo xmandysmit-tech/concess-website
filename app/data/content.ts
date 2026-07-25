@@ -296,7 +296,14 @@ export type StudioCase = {
   videos?: string[];
   photos?: string[];
   photosLabel?: string;
+  photosFit?: "cover" | "contain";
   trailerLabel?: string;
+  extraSections?: {
+    label: string;
+    title?: string;
+    text?: string;
+    photos: string[];
+  }[];
   gallery: GalleryItem[];
 };
 
@@ -596,13 +603,27 @@ export const studioCases: StudioCase[] = [
     description: "Voor Paul Sinha verzorgde Concess de social media — foto's, marketingacties, video's en releases. We ontwikkelden zijn eerste IGTV-format 'Paul's Pokoe Presentatie', waarin hij het proces achter zijn muziek deelt. Als aanvulling op zijn release 'Dans Met Mij' ft. Numidia bedachten en creëerden we een marketingactie in samenwerking met T-Mobile: een TikTok challenge én een Instagram AR filter waarmee fans kans maakten op een intiem concert.",
     photos: [
       "/images/studio/Paul Sinha/Paul-sinha-socials.png",
-      "/images/studio/Paul Sinha/Dans-met-mij-filter.png",
-      "/images/studio/Paul Sinha/Post_TmobilexPaul-1536x1536-1.png",
-      "/images/studio/Paul Sinha/Schermafbeelding-2021-07-01-om-21.32.26.png",
-      "/images/studio/Paul Sinha/DSC01221-scaled-e1625167805414.jpg",
-      "/images/studio/Paul Sinha/DSC09385-scaled-e1625167840118.jpg",
     ],
-    photosLabel: "Social Media & Fotografie",
+    photosLabel: "Social Media",
+    extraSections: [
+      {
+        label: "Marketingactie",
+        title: "Dans met mij",
+        text: "Als aanvulling op Paul Sinha zijn release 'Dans Met Mij' ft. Numidia en zijn samenwerking met T-Mobile hebben we een leuke marketingactie mogen bedenken en creëren! Door mee te doen met de 'Dans Met Mij challenge' via TikTok of via Paul zijn Instagram AR filter maak je kans op een intiem concert van Paul én op een OPPO Reno 4 Pro (5G)!",
+        photos: [
+          "/images/studio/Paul Sinha/Dans-met-mij-filter.png",
+          "/images/studio/Paul Sinha/Post_TmobilexPaul-1536x1536-1.png",
+          "/images/studio/Paul Sinha/Schermafbeelding-2021-07-01-om-21.32.26.png",
+        ],
+      },
+      {
+        label: "Fotografie",
+        photos: [
+          "/images/studio/Paul Sinha/DSC01221-scaled-e1625167805414.jpg",
+          "/images/studio/Paul Sinha/DSC09385-scaled-e1625167840118.jpg",
+        ],
+      },
+    ],
     socials: [
       { platform: "Instagram", handle: "@paulsinha", url: "https://www.instagram.com/paulsinha" },
       { platform: "TikTok", handle: "@paulsinha", url: "https://www.tiktok.com/@paulsinha" },
@@ -626,6 +647,7 @@ export const studioCases: StudioCase[] = [
       "/images/studio/Taboe_2.png",
     ],
     photosLabel: "Website Design",
+    photosFit: "contain",
     gallery: [],
   },
   // ── 2020 – 2021 ──────────────────────────────────────────
