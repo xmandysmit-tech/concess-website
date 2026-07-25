@@ -364,6 +364,7 @@ export const studioCases: StudioCase[] = [
     tags: ["Graphic Design", "Web Design"],
     year: "2023",
     cover: "/images/studio/The Right Place/Tegel The Right Place.png",
+    coverFit: "contain",
     gradient: "from-neutral-700 to-neutral-950",
     tagline: "Concess Studio",
     description: "Voor The Right Place verzorgde Concess het logo ontwerp en de volledige website. Van huisstijl tot online aanwezigheid — alles onder één dak.",
