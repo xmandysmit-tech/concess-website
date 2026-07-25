@@ -289,10 +289,10 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
                   <p className="text-sm leading-relaxed" style={{ color: "var(--color-taupe-500)", fontFamily: "'Playfair Display', Georgia, serif" }}>{sec.text}</p>
                 )}
               </div>
-              <div className="flex-1 grid gap-3" style={{ gridTemplateColumns: `repeat(${Math.min(sec.photos.length, 3)}, 1fr)` }}>
+              <div className="flex-1 grid gap-3" style={{ gridTemplateColumns: `repeat(${Math.min(sec.photos.length, 3)}, 1fr)`, height: 360 }}>
                 {sec.photos.map((src, j) => (
-                  <div key={j} className="rounded-xl overflow-hidden">
-                    <img src={src} alt="" className="w-full h-auto block" />
+                  <div key={j} className="rounded-xl overflow-hidden h-full">
+                    <img src={src} alt="" className="w-full h-full object-contain block" />
                   </div>
                 ))}
               </div>
