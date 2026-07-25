@@ -253,6 +253,17 @@ export const partnershipCases: PartnershipCase[] = [
     ],
   },
   {
+    brand: "NA-KD",
+    creator: "Vrouwmibo",
+    category: "Brand Partnership",
+    year: "2023",
+    cover: "/images/Partnerships/Vrouwmibo x NA-KD.jpg",
+    gradient: "from-rose-900 to-neutral-950",
+    description: "",
+    services: ["Brand Partnership", "Content Creatie"],
+    gallery: [],
+  },
+  {
     brand: "Body & Fit",
     creator: "Nesim el Ahmadi",
     category: "Brand Partnership",
