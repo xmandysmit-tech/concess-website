@@ -511,13 +511,20 @@ export const studioCases: StudioCase[] = [
     gallery: [],
   },
   {
+    slug: "146-podcast",
     title: "146 Podcast",
-    tags: ["Podcasts"],
+    tags: ["Podcasts", "Marketing & Social"],
     year: "2022",
     cover: "/images/Tegels/146 podcast.jpg",
     gradient: "from-zinc-700 to-zinc-950",
     tagline: "Concess Studio",
-    description: "",
+    description: "In samenwerking met FunX maakten we een vervolg op de ADF Podcast. In de 146 Podcast praten Cartiez en zijn co-host Lips je wekelijks bij over de actualiteit — samen met bekende gasten én afwisselende hosts als Ronnie Flex, Jack $hirak, Kid de Blits, DJ Dylan, Maximilli, Caza Kimpeman en Rollan. Elke week ontvangt het duo een artiest voor een live optreden in de studio. Naast de podcast verzorgde Concess ook de social media: dagelijkse fragmenten, challenges en interactie met de fans op Instagram en TikTok.",
+    socials: [
+      { platform: "Spotify", handle: "146 Podcast", url: "https://open.spotify.com/show/146podcast" },
+      { platform: "Instagram", handle: "@146podcast", url: "https://www.instagram.com/146podcast" },
+      { platform: "TikTok", handle: "@146podcast", url: "https://www.tiktok.com/@146podcast" },
+      { platform: "YouTube", handle: "FunX", url: "https://www.youtube.com/@FunX" },
+    ],
     gallery: [],
   },
   // ── 2021 ─────────────────────────────────────────────────
