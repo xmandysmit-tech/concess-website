@@ -511,7 +511,6 @@ export const studioCases: StudioCase[] = [
     gallery: [],
   },
   {
-    slug: "146-podcast",
     title: "146 Podcast",
     tags: ["Podcasts", "Marketing & Social"],
     year: "2022",
