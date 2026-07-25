@@ -636,7 +636,6 @@ export const studioCases: StudioCase[] = [
     photos: [
       "/images/studio/Paul Sinha/Paul-sinha-socials.png",
     ],
-    photosLabel: "Social Media",
     extraSections: [
       {
         label: "Marketingactie",
