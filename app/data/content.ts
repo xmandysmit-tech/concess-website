@@ -319,7 +319,7 @@ export const partnershipCases: PartnershipCase[] = [
     gallery: [],
   },
   {
-    brand: "Pokémon",
+    brand: "Pokémon Celebrations",
     creator: "Dylan Haegens",
     category: "Brand Partnership",
     year: "2021",
