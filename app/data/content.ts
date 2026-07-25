@@ -307,6 +307,17 @@ export const partnershipCases: PartnershipCase[] = [
     services: ["Brand Partnership", "Content Creatie"],
     gallery: [],
   },
+  {
+    brand: "Shoeby",
+    creator: "Dylan Haegens",
+    category: "Brand Partnership",
+    year: "2022",
+    cover: "/images/Partnerships/Shoeby x Dylan Haegens 2.mp4",
+    gradient: "from-blue-900 to-neutral-950",
+    description: "",
+    services: ["Brand Partnership", "Content Creatie"],
+    gallery: [],
+  },
 ];
 
 // ------------------------------------------------------------
