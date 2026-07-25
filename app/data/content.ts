@@ -519,6 +519,10 @@ export const studioCases: StudioCase[] = [
     cover: "/images/Tegels/146 podcast.jpg",
     gradient: "from-zinc-700 to-zinc-950",
     tagline: "Concess Studio",
+    photos: [
+      "/images/studio/146 Podcast/146-socials.png",
+    ],
+    photosLabel: "Social Media",
     description: "In samenwerking met FunX maakten we een vervolg op de ADF Podcast. In de 146 Podcast praten Cartiez en zijn co-host Lips je wekelijks bij over de actualiteit — samen met bekende gasten én afwisselende hosts als Ronnie Flex, Jack $hirak, Kid de Blits, DJ Dylan, Maximilli, Caza Kimpeman en Rollan. Elke week ontvangt het duo een artiest voor een live optreden in de studio. Naast de podcast verzorgde Concess ook de social media: dagelijkse fragmenten, challenges en interactie met de fans op Instagram en TikTok.",
     socials: [
       { platform: "Spotify", handle: "146 Podcast", url: "https://open.spotify.com/show/146podcast" },
