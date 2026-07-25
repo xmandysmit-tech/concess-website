@@ -634,9 +634,6 @@ export const studioCases: StudioCase[] = [
     gradient: "from-indigo-900 to-neutral-950",
     tagline: "Concess Studio",
     description: "Voor Paul Sinha verzorgde Concess de social media — foto's, marketingacties, video's en releases. We ontwikkelden zijn eerste IGTV-format 'Paul's Pokoe Presentatie', waarin hij het proces achter zijn muziek deelt. Als aanvulling op zijn release 'Dans Met Mij' ft. Numidia bedachten en creëerden we een marketingactie in samenwerking met T-Mobile: een TikTok challenge én een Instagram AR filter waarmee fans kans maakten op een intiem concert.",
-    photos: [
-      "/images/studio/Paul Sinha/Paul-sinha-socials.png",
-    ],
     extraSections: [
       {
         label: "Marketingactie",
