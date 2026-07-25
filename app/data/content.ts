@@ -359,7 +359,6 @@ export const studioCases: StudioCase[] = [
   },
   // ── 2023 ─────────────────────────────────────────────────
   {
-    slug: "the-right-place",
     title: "The Right Place",
     tags: ["Graphic Design", "Web Design"],
     year: "2023",
