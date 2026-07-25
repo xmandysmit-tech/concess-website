@@ -319,6 +319,17 @@ export const partnershipCases: PartnershipCase[] = [
     gallery: [],
   },
   {
+    brand: "Pokémon",
+    creator: "Dylan Haegens",
+    category: "Brand Partnership",
+    year: "2021",
+    cover: "/images/Partnerships/Pokemon x Dylan Haegens.jpg",
+    gradient: "from-yellow-800 to-neutral-950",
+    description: "",
+    services: ["Brand Partnership", "Content Creatie"],
+    gallery: [],
+  },
+  {
     brand: "Netflix – The Mitchells vs. The Machines",
     creator: "Dylan Haegens",
     category: "Brand Partnership",
