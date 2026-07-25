@@ -558,6 +558,27 @@ export const studioCases: StudioCase[] = [
     ],
     gallery: [],
   },
+  // ── 2020 – Social Media ───────────────────────────────────
+  {
+    slug: "paul-sinha",
+    title: "Paul Sinha",
+    tags: ["Marketing & Social", "Fotografie", "AR Filters"],
+    year: "2020",
+    cover: "/images/studio/Paul Sinha/Paul-Sinha-thumbnail-concess.jpg",
+    gradient: "from-indigo-900 to-neutral-950",
+    tagline: "Concess Studio",
+    description: "Voor Paul Sinha verzorgde Concess de social media — foto's, marketingacties, video's en releases. We ontwikkelden zijn eerste IGTV-format 'Paul's Pokoe Presentatie', waarin hij het proces achter zijn muziek deelt. Als aanvulling op zijn release 'Dans Met Mij' ft. Numidia bedachten en creëerden we een marketingactie in samenwerking met T-Mobile: een TikTok challenge én een Instagram AR filter waarmee fans kans maakten op een intiem concert.",
+    photos: [
+      "/images/studio/Paul Sinha/Paul-sinha-socials.png",
+      "/images/studio/Paul Sinha/Post_TmobilexPaul-1536x1536-1.png",
+    ],
+    photosLabel: "Social Media",
+    socials: [
+      { platform: "Instagram", handle: "@paulsinha", url: "https://www.instagram.com/paulsinha" },
+      { platform: "TikTok", handle: "@paulsinha", url: "https://www.tiktok.com/@paulsinha" },
+    ],
+    gallery: [],
+  },
   // ── 2021 ─────────────────────────────────────────────────
   {
     slug: "taboe-nesim",
