@@ -357,6 +357,24 @@ export const studioCases: StudioCase[] = [
     description: "Voor de Vrouwmishow, een volwaardige theatertour langs zalen als DeLaMar Amsterdam, World Forum Den Haag en Oude Luxor Rotterdam, verzorgde Concess het artwork.",
     gallery: [],
   },
+  // ── 2023 ─────────────────────────────────────────────────
+  {
+    slug: "the-right-place",
+    title: "The Right Place",
+    tags: ["Graphic Design", "Web Design"],
+    year: "2023",
+    cover: "/images/studio/The Right Place/Tegel The Right Place.png",
+    gradient: "from-neutral-700 to-neutral-950",
+    tagline: "Concess Studio",
+    description: "Voor The Right Place verzorgde Concess het logo ontwerp en de volledige website. Van huisstijl tot online aanwezigheid — alles onder één dak.",
+    photosLabel: "Website Design & Graphic Design",
+    photos: [
+      "/images/studio/The Right Place/Logo-2-1920x880.png",
+      "/images/studio/The Right Place/Webdesign-TRP-1920x798.png",
+      "/images/studio/The Right Place/trp_2-1920x798.png",
+    ],
+    gallery: [],
+  },
   // ── Fotografie ───────────────────────────────────────────
   {
     slug: "kp-active-fotografie",
