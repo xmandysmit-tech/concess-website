@@ -642,7 +642,6 @@ export const studioCases: StudioCase[] = [
         photos: [
           "/images/studio/Paul Sinha/Dans-met-mij-filter.png",
           "/images/studio/Paul Sinha/Post_TmobilexPaul-1536x1536-1.png",
-          "/images/studio/Paul Sinha/Schermafbeelding-2021-07-01-om-21.32.26.png",
         ],
       },
       {
@@ -650,6 +649,7 @@ export const studioCases: StudioCase[] = [
         photos: [
           "/images/studio/Paul Sinha/DSC01221-scaled-e1625167805414.jpg",
           "/images/studio/Paul Sinha/DSC09385-scaled-e1625167840118.jpg",
+          "/images/studio/Paul Sinha/Schermafbeelding-2021-07-01-om-21.32.26.png",
         ],
       },
     ],
