@@ -295,6 +295,7 @@ export type StudioCase = {
   coverFit?: "cover" | "contain";
   photos?: string[];
   photosLabel?: string;
+  trailerLabel?: string;
   gallery: GalleryItem[];
 };
 
@@ -527,6 +528,27 @@ export const studioCases: StudioCase[] = [
       { platform: "Instagram", handle: "@146podcast", url: "https://www.instagram.com/146podcast" },
       { platform: "TikTok", handle: "@146podcast", url: "https://www.tiktok.com/@146podcast" },
       { platform: "YouTube", handle: "FunX", url: "https://www.youtube.com/@FunX" },
+    ],
+    gallery: [],
+  },
+  // ── 2022 – Social Media ───────────────────────────────────
+  {
+    slug: "lash-paris",
+    title: "Lash Paris",
+    tags: ["Marketing & Social", "Video & Productie"],
+    year: "2022",
+    cover: "/images/studio/Lash Paris /Lash-Paris-thumbnail-concess.jpg",
+    gradient: "from-pink-900 to-neutral-950",
+    tagline: "Concess Studio",
+    description: "Voor Lash Paris verzorgde Concess de volledige social media — van productfoto's en modelshoot tot grafische posts en video's. Het doel: een exclusieve, unieke en moderne uitstraling op Instagram. Daarnaast produceerden we een commercial voor de academy van Lash Paris.",
+    hoverVideo: "https://www.youtube.com/watch?v=CWrj6EXGl3g",
+    photos: [
+      "/images/studio/Lash Paris /Lash-Paris-Socials.png",
+    ],
+    photosLabel: "Social Media",
+    trailerLabel: "Commercial",
+    socials: [
+      { platform: "Instagram", handle: "@lashparisofficial", url: "https://www.instagram.com/lashparisofficial" },
     ],
     gallery: [],
   },

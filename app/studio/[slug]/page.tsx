@@ -221,7 +221,7 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
               </div>
             </div>
             <div className="flex-1 flex flex-col gap-2">
-              <span className="text-[10px] tracking-widest uppercase" style={{ color: "var(--color-taupe-500)" }}>Trailer</span>
+              <span className="text-[10px] tracking-widest uppercase" style={{ color: "var(--color-taupe-500)" }}>{project.trailerLabel ?? "Trailer"}</span>
               <div className="rounded-2xl overflow-hidden flex-1" style={{ background: "var(--color-dark-900)" }}>
                 <TrailerEmbed youtubeId={youtubeId} />
               </div>
