@@ -558,6 +558,25 @@ export const studioCases: StudioCase[] = [
     ],
     gallery: [],
   },
+  // ── 2021 – Marketing ─────────────────────────────────────
+  {
+    slug: "bootje-antoon-paul-sinha",
+    title: "Bootje",
+    subtitle: "Antoon & Paul Sinha",
+    tags: ["Marketing & Social"],
+    year: "2021",
+    cover: "https://img.youtube.com/vi/pz_2LcuAI6A/maxresdefault.jpg",
+    gradient: "from-blue-900 to-neutral-950",
+    tagline: "Concess Studio",
+    description: "Voor Antoon & Paul Sinha verzorgde Concess de online marketing van hun top 50 hit 'Bootje'. Het nummer behaalde 1 miljoen streams in minder dan één maand op Spotify en was veel te horen op TikTok. Concess creëerde de short-form content strategie rondom de release.",
+    hoverVideo: "https://www.youtube.com/watch?v=pz_2LcuAI6A",
+    trailerLabel: "Bootje",
+    stats: [
+      { value: "1M+", label: "Streams in < 1 maand op Spotify" },
+      { value: "Top 50", label: "Nederlandse hitlijst" },
+    ],
+    gallery: [],
+  },
   // ── 2020 – Social Media ───────────────────────────────────
   {
     slug: "paul-sinha",
