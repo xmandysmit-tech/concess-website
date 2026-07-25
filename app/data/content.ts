@@ -319,6 +319,16 @@ export const partnershipCases: PartnershipCase[] = [
     gallery: [],
   },
   {
+    brand: "Ministerie van Financiën",
+    creator: "Dylan Haegens",
+    category: "Brand Partnership",
+    year: "2021",
+    gradient: "from-sky-900 to-neutral-950",
+    description: "",
+    services: ["Brand Partnership", "Content Creatie"],
+    gallery: [],
+  },
+  {
     brand: "VanReusel",
     creator: "Dylan Haegens",
     category: "Brand Partnership",
