@@ -572,7 +572,7 @@ export const studioCases: StudioCase[] = [
   },
   {
     title: "ADF Podcast",
-    tags: ["Podcasts"],
+    tags: ["Podcasts", "Marketing & Social"],
     year: "2020 – 2021",
     cover: "/images/Tegels/ADF podcast.jpg",
     gradient: "from-neutral-700 to-neutral-950",
