@@ -319,6 +319,17 @@ export const partnershipCases: PartnershipCase[] = [
     gallery: [],
   },
   {
+    brand: "Veilig op Weg",
+    creator: "Dylan Haegens",
+    category: "Brand Partnership",
+    year: "2021",
+    cover: "/images/Partnerships/Veilig op Weg x Dylan Haegens.png",
+    gradient: "from-blue-900 to-neutral-950",
+    description: "",
+    services: ["Brand Partnership", "Content Creatie"],
+    gallery: [],
+  },
+  {
     brand: "Pokémon Celebrations",
     creator: "Dylan Haegens",
     category: "Brand Partnership",
