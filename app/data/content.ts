@@ -143,7 +143,7 @@ export type PartnershipCase = {
   creator: string;
   category: string;
   year: string;
-  cover: string;
+  cover?: string;
   hoverVideo?: string;
   alwaysPlay?: boolean;
   gradient: string;
@@ -314,6 +314,16 @@ export const partnershipCases: PartnershipCase[] = [
     year: "2022",
     cover: "/images/Partnerships/Shoeby x Dylan Haegens 2.mp4",
     gradient: "from-blue-900 to-neutral-950",
+    description: "",
+    services: ["Brand Partnership", "Content Creatie"],
+    gallery: [],
+  },
+  {
+    brand: "VanReusel",
+    creator: "Dylan Haegens",
+    category: "Brand Partnership",
+    year: "2021",
+    gradient: "from-green-900 to-neutral-950",
     description: "",
     services: ["Brand Partnership", "Content Creatie"],
     gallery: [],

@@ -9,7 +9,7 @@ export default function PartnershipTile({ p }: { p: PartnershipCase }) {
   const inner = (
     <>
       <div className={`absolute inset-0 bg-gradient-to-br ${p.gradient}`} />
-      {p.cover.endsWith(".mp4") ? (
+      {p.cover && (p.cover.endsWith(".mp4") ? (
         <video
           src={p.cover}
           autoPlay
@@ -24,7 +24,7 @@ export default function PartnershipTile({ p }: { p: PartnershipCase }) {
           alt={p.brand}
           className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
-      )}
+      ))}
       <div
         className="absolute inset-0"
         style={{ background: "linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.2) 50%, transparent 75%)" }}
