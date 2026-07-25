@@ -210,9 +210,9 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
         </section>
       )}
 
-      {/* ── FOTO + TRAILER naast elkaar (bij 1 foto) of masonry (meerdere) ── */}
-      {project.photos && project.photos.length === 1 && youtubeId ? (
-        <section className="pt-12 pb-12 md:pb-16 max-w-7xl mx-auto px-6 md:px-12">
+      {/* ── EERSTE FOTO + VIDEO naast elkaar ── */}
+      {project.photos && project.photos.length > 0 && youtubeId && (
+        <section className="pt-12 pb-6 max-w-7xl mx-auto px-6 md:px-12">
           <div className="flex gap-6 items-stretch" style={{ height: 400 }}>
             <div className="flex-shrink-0 flex flex-col gap-2" style={{ width: "42%" }}>
               <span className="text-[10px] tracking-widest uppercase" style={{ color: "var(--color-taupe-500)" }}>{project.photosLabel ?? "Beelden"}</span>
@@ -228,26 +228,42 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
             </div>
           </div>
         </section>
-      ) : (
-        <>
-          {project.photos && project.photos.length > 0 && (
-            <section className="pt-12 pb-12 max-w-7xl mx-auto px-6 md:px-12">
-              <span className="text-[10px] tracking-widest uppercase block mb-4" style={{ color: "var(--color-taupe-500)" }}>{project.photosLabel ?? "Beelden"}</span>
-              <div style={{ columns: "3 280px", gap: "12px" }}>
-                {project.photos.map((src, i) => (
-                  <div key={i} className="rounded-xl overflow-hidden mb-3 break-inside-avoid">
-                    <img src={src} alt="" className="w-full h-auto block" />
-                  </div>
-                ))}
+      )}
+
+      {/* ── EXTRA FOTO'S (masonry, vanaf foto 2) ── */}
+      {project.photos && project.photos.length > 1 && (
+        <section className="pt-10 pb-12 max-w-7xl mx-auto px-6 md:px-12">
+          <span className="text-[10px] tracking-widest uppercase block mb-4" style={{ color: "var(--color-taupe-500)" }}>Fotografie</span>
+          <div style={{ columns: "3 280px", gap: "12px" }}>
+            {project.photos.slice(1).map((src, i) => (
+              <div key={i} className="rounded-xl overflow-hidden mb-3 break-inside-avoid">
+                <img src={src} alt="" className="w-full h-auto block" />
               </div>
-            </section>
-          )}
-          {youtubeId && (
-            <section className="pt-4 pb-12 md:pb-16 max-w-7xl mx-auto px-6 md:px-12">
-              <TrailerEmbed youtubeId={youtubeId} />
-            </section>
-          )}
-        </>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* ── VIDEO ALLEEN (geen foto's) ── */}
+      {(!project.photos || project.photos.length === 0) && youtubeId && (
+        <section className="pt-12 pb-12 md:pb-16 max-w-7xl mx-auto px-6 md:px-12">
+          <span className="text-[10px] tracking-widest uppercase block mb-4" style={{ color: "var(--color-taupe-500)" }}>{project.trailerLabel ?? "Trailer"}</span>
+          <TrailerEmbed youtubeId={youtubeId} />
+        </section>
+      )}
+
+      {/* ── MASONRY ALLEEN (geen video) ── */}
+      {project.photos && project.photos.length > 0 && !youtubeId && (
+        <section className="pt-12 pb-12 max-w-7xl mx-auto px-6 md:px-12">
+          <span className="text-[10px] tracking-widest uppercase block mb-4" style={{ color: "var(--color-taupe-500)" }}>{project.photosLabel ?? "Beelden"}</span>
+          <div style={{ columns: "3 280px", gap: "12px" }}>
+            {project.photos.map((src, i) => (
+              <div key={i} className="rounded-xl overflow-hidden mb-3 break-inside-avoid">
+                <img src={src} alt="" className="w-full h-auto block" />
+              </div>
+            ))}
+          </div>
+        </section>
       )}
 
       <CTAFooter />

@@ -535,7 +535,7 @@ export const studioCases: StudioCase[] = [
   {
     slug: "lash-paris",
     title: "Lash Paris",
-    tags: ["Marketing & Social", "Video & Productie"],
+    tags: ["Marketing & Social", "Fotografie"],
     year: "2022",
     cover: "/images/studio/Lash Paris /Lash-Paris-thumbnail-concess.jpg",
     gradient: "from-pink-900 to-neutral-950",
@@ -544,6 +544,12 @@ export const studioCases: StudioCase[] = [
     hoverVideo: "https://www.youtube.com/watch?v=CWrj6EXGl3g",
     photos: [
       "/images/studio/Lash Paris /Lash-Paris-Socials.png",
+      "/images/studio/Lash Paris /ZOE-1.png",
+      "/images/studio/Lash Paris /VIENNA-3.png",
+      "/images/studio/Lash Paris /Fast-Volume-2.jpg",
+      "/images/studio/Lash Paris /Lift-adhesive-2.jpg",
+      "/images/studio/Lash Paris /Tweezers.jpg",
+      "/images/studio/Lash Paris /Schermafbeelding-2021-06-14-om-14.30.23-2.png",
     ],
     photosLabel: "Social Media",
     trailerLabel: "Commercial",
