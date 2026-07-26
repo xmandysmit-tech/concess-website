@@ -12,7 +12,7 @@ const studioProjects = projects.filter((p) =>
 
 const filters = [
   { label: "Alles",              type: null },
-  { label: "Video & Productie",  type: "Video" },
+  { label: "Video & Productie",  type: "Productie" },
   { label: "Fotografie",         type: "Fotografie" },
   { label: "Events",             type: "Events" },
   { label: "AR Filters",         type: "AR Filters" },
