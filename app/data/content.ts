@@ -1066,7 +1066,7 @@ export const studioCases: StudioCase[] = [
     tags: ["AR Filters"],
     year: "2021",
     cover: "/images/studio/AR Filters/Nina Warink - Mijn tweede liefde/Mijn-Tweede-liefde-nina-warink-thumbnail-concess.jpg",
-    heroImage: "/images/studio/AR Filters/Nina Warink - Mijn tweede liefde/Nina-Warink-Simpel-Sexy.png",
+    heroImage: "/images/studio/AR Filters/Nina Warink - Mijn tweede liefde/Nina-Warink-Mijn-tweede-liefde-AR-filters-Concess-1920x1771.png",
     heroImageLarge: true,
     gradient: "from-rose-900 to-neutral-950",
     tagline: "Concess Studio",
