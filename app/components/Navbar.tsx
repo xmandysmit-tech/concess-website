@@ -5,10 +5,12 @@ import { usePathname } from "next/navigation";
 
 export default function Navbar({ forceDark = false }: { forceDark?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
@@ -18,14 +20,14 @@ export default function Navbar({ forceDark = false }: { forceDark?: boolean }) {
     setMenuOpen(false);
   }, [pathname]);
 
-  const dark = scrolled || forceDark || menuOpen;
+  const dark = isMobile || scrolled || forceDark || menuOpen;
 
   const navItems = ["Home", "Creators", "Partnerships", "Studio", "Over ons"];
 
   return (
     <>
       <nav
-        className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+        className="sticky top-0 z-50 md:fixed md:left-0 md:right-0 transition-all duration-300"
         style={
           dark
             ? { backgroundColor: "rgba(250,248,245,0.97)", backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)", borderBottom: "1px solid var(--color-linen-300)" }
