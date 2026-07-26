@@ -96,11 +96,17 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
           </Link>
 
           <div className="flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-12">
+            {project.heroIsTrailer && youtubeId ? (
+              <div className="flex-shrink-0 rounded-2xl overflow-hidden shadow-2xl" style={{ width: "clamp(280px, 42vw, 580px)", aspectRatio: "16/9" }}>
+                <TrailerEmbed youtubeId={youtubeId} />
+              </div>
+            ) : (
             <div className="flex-shrink-0">
               <div className="rounded-2xl overflow-hidden shadow-2xl" style={{ width: "clamp(200px, 28vw, 340px)", aspectRatio: "1/1" }}>
                 <img src={project.cover} alt={project.title} className={`w-full h-full ${project.coverFit === "contain" ? "object-contain" : "object-cover"}`} />
               </div>
             </div>
+            )}
 
             <div className="flex-1 min-w-0">
               {project.tagline && (
@@ -296,7 +302,7 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
       )}
 
       {/* ── EERSTE FOTO + VIDEO naast elkaar ── */}
-      {project.photos && project.photos.length > 0 && youtubeId && (
+      {project.photos && project.photos.length > 0 && youtubeId && !project.trailerSeparate && (
         <section className="pt-12 pb-6 max-w-7xl mx-auto px-6 md:px-12">
           <div className="flex gap-6 items-stretch" style={{ height: 400 }}>
             <div className="flex-shrink-0 flex flex-col gap-2" style={{ width: "42%" }}>
@@ -315,8 +321,30 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
         </section>
       )}
 
+      {/* ── TRAILER APART (trailerSeparate, alleen als geen large extraSection) ── */}
+      {project.trailerSeparate && youtubeId && !project.extraSections?.some(s => s.large) && (
+        <section className="pt-12 pb-6 max-w-7xl mx-auto px-6 md:px-12">
+          <span className="text-[10px] tracking-widest uppercase block mb-4" style={{ color: "var(--color-taupe-500)" }}>{project.trailerLabel ?? "Trailer"}</span>
+          <TrailerEmbed youtubeId={youtubeId} />
+        </section>
+      )}
+
+      {/* ── ALLE FOTO'S masonry (trailerSeparate) ── */}
+      {project.trailerSeparate && project.photos && project.photos.length > 0 && (
+        <section className="pt-6 pb-12 max-w-7xl mx-auto px-6 md:px-12">
+          <span className="text-[10px] tracking-widest uppercase block mb-4" style={{ color: "var(--color-taupe-500)" }}>{project.photosLabel ?? "Beelden"}</span>
+          <div style={{ columns: "3 280px", gap: "12px" }}>
+            {project.photos.map((src, i) => (
+              <div key={i} className="rounded-xl overflow-hidden mb-3 break-inside-avoid">
+                <img src={src} alt="" className="w-full h-auto block" />
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
       {/* ── EXTRA FOTO'S (masonry, vanaf foto 2) ── */}
-      {project.photos && project.photos.length > 1 && (
+      {project.photos && project.photos.length > 1 && !project.trailerSeparate && (
         <section className="pt-10 pb-12 max-w-7xl mx-auto px-6 md:px-12">
           <span className="text-[10px] tracking-widest uppercase block mb-4" style={{ color: "var(--color-taupe-500)" }}>Fotografie</span>
           <div style={{ columns: "3 280px", gap: "12px" }}>
@@ -330,7 +358,7 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
       )}
 
       {/* ── VIDEO ALLEEN (geen foto's, geen short-form) ── */}
-      {(!project.photos || project.photos.length === 0) && youtubeId && (!project.videos || project.videos.length === 0) && (
+      {(!project.photos || project.photos.length === 0) && youtubeId && (!project.videos || project.videos.length === 0) && !project.trailerSeparate && !project.heroIsTrailer && (
         <section className="pt-12 pb-12 md:pb-16 max-w-7xl mx-auto px-6 md:px-12">
           <span className="text-[10px] tracking-widest uppercase block mb-4" style={{ color: "var(--color-taupe-500)" }}>{project.trailerLabel ?? "Trailer"}</span>
           <TrailerEmbed youtubeId={youtubeId} />
@@ -356,6 +384,31 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
         <section key={i} className="pt-10 pb-10 max-w-7xl mx-auto px-6 md:px-12">
           <span className="text-[10px] tracking-widest uppercase block mb-4" style={{ color: "var(--color-taupe-500)" }}>{sec.label}</span>
           {sec.title || sec.text ? (
+            sec.large ? (
+              /* Large: links filter visual + tekst ernaast, foto's eronder */
+              <div className="flex flex-col gap-8">
+                {/* Filter: visual links, tekst rechts */}
+                <div className="flex flex-col lg:flex-row lg:items-center gap-8">
+                  <div className="flex-shrink-0">
+                    <img src={sec.photos[0]} alt="" style={{ width: "clamp(180px, 22vw, 320px)", objectFit: "contain", display: "block" }} />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    {sec.title && <h3 className="mb-3" style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(1.4rem, 2.5vw, 2rem)", color: "var(--color-dark-900)", lineHeight: 1.1 }}>{sec.title}</h3>}
+                    {sec.text && <p className="text-sm leading-relaxed" style={{ color: "var(--color-taupe-500)", fontFamily: "'Playfair Display', Georgia, serif" }}>{sec.text}</p>}
+                  </div>
+                </div>
+                {/* Foto's eronder */}
+                {sec.photos.length > 1 && (
+                  <div style={{ columns: "3 200px", gap: "12px" }}>
+                    {sec.photos.slice(1).map((src, j) => (
+                      <div key={j} className="rounded-xl overflow-hidden mb-3 break-inside-avoid">
+                        <img src={src} alt="" className="w-full h-auto block" />
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ) : (
             <div className="flex gap-8 items-start">
               <div className="flex-shrink-0" style={{ width: "35%" }}>
                 {sec.title && (
@@ -373,6 +426,7 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
                 ))}
               </div>
             </div>
+            )
           ) : (
             <div style={{ columns: "3 280px", gap: "12px" }}>
               {sec.photos.map((src, j) => (

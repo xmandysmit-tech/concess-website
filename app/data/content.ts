@@ -466,11 +466,14 @@ export type StudioCase = {
   photosLabel?: string;
   photosFit?: "cover" | "contain";
   trailerLabel?: string;
+  trailerSeparate?: boolean;
+  heroIsTrailer?: boolean;
   extraSections?: {
     label: string;
     title?: string;
     text?: string;
     photos: string[];
+    large?: boolean;
   }[];
   gallery: GalleryItem[];
 };
@@ -871,26 +874,27 @@ export const studioCases: StudioCase[] = [
     slug: "whip-my-hair",
     title: "Whip My Hair",
     tags: ["Productie", "AR Filters"],
-    year: "2021",
+    year: "2020",
+    heroIsTrailer: true,
     cover: "/images/studio/Whip My Hair/whip-my-hair-thumbnail-concess.png",
-    heroImage: "/images/studio/Whip My Hair/Whip-my-hair-filter.png",
     hoverVideo: "https://www.youtube.com/watch?v=dKfOPNmYDoU",
     gradient: "from-violet-900 to-neutral-950",
     tagline: "Concess Studio",
     description: "In Whip my Hair verrast haarinfluencer Randy van Rijsbergen acht verschillende influencers/BN'ers met een nieuwe hair-look. In deze serie neemt Randy je mee in het hele make-over-proces terwijl hij een gezellig gesprek heeft met de gast. Daarnaast geeft Randy ook de beste tips & tricks op het gebied van haar om thuis uit te proberen.\n\nMede mogelijk gemaakt door L'Oréal Professionnel.",
     platformLink: "https://www.youtube.com/channel/UCiAN9M50bGpQzfcbYBXuiGw",
     platformLinkLabel: "Bekijk op YouTube",
-    photos: [
-      "/images/studio/Whip My Hair/WMH-Daphne.jpg",
-      "/images/studio/Whip My Hair/WMH-Jessie.jpg",
-      "/images/studio/Whip My Hair/WMH-Victoria.jpg",
-    ],
     extraSections: [
       {
         label: "AR Filters",
         title: "Whip My Hair Filter",
         text: "Met de 'Whip My Hair' AR Filter kan je meedoen aan de winacties in samenwerking met L'Oréal Professionnel! Klik op het scherm zodat het rad begint te draaien. Het product waarop het rad eindigt kan jij winnen door de story te plaatsen en Randy hierin te taggen.",
-        photos: ["/images/studio/Whip My Hair/Whip-my-hair-filter.png"],
+        photos: [
+          "/images/studio/Whip My Hair/Whip-my-hair-filter.png",
+          "/images/studio/Whip My Hair/WMH-Daphne.jpg",
+          "/images/studio/Whip My Hair/WMH-Jessie.jpg",
+          "/images/studio/Whip My Hair/WMH-Victoria.jpg",
+        ],
+        large: true,
       },
     ],
     gallery: [],
