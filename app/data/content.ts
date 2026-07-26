@@ -467,6 +467,7 @@ export type StudioCase = {
   photosFit?: "cover" | "contain";
   trailerLabel?: string;
   trailerSeparate?: boolean;
+  trailer2?: string;
   heroIsTrailer?: boolean;
   extraSections?: {
     label: string;
@@ -1140,22 +1141,21 @@ export const studioCases: StudioCase[] = [
     title: "TANtoe Muzikaal",
     tags: ["Productie", "AR Filters"],
     year: "2022",
-    heroIsTrailer: true,
     cover: "/images/studio/Tantoe Muzikaal/Tantoe-Muzikaal-thumbnail-concess.jpg",
     hoverVideo: "https://www.youtube.com/watch?v=JJJG2MP9H6I",
+    trailer2: "https://www.youtube.com/watch?v=oEyXA1ovCOc",
     gradient: "from-amber-900 to-neutral-950",
     tagline: "Concess Studio",
     description: "In TANtoe Muzikaal testen Julia en Humberto Tan de muziekkennis van hun gasten en zichzelf. Er worden in 2 rondes 10 woorden en 10 artiesten voorgeschoteld waarna Julia, Humberto en de gasten bij ieder woord en iedere artiest een zin uit een liedje moeten zingen. De verliezer krijgt een 'kak-vraag', als de verliezer deze vraag niet wil beantwoorden moet hij of zij een willekeurig bedrag overmaken naar een goed doel.",
-    platformLink: "https://www.youtube.com/watch?v=oEyXA1ovCOc",
-    platformLinkLabel: "Bekijk seizoen 2",
-    platformLink2: "https://www.youtube.com/@JuliaTan22",
-    platformLinkLabel2: "YouTube kanaal",
+    platformLink: "https://www.youtube.com/@JuliaTan22",
+    platformLinkLabel: "YouTube kanaal",
     extraSections: [
       {
         label: "AR Filter",
         title: "TANtoe Muzikaal Filter",
         text: "TANtoe Muzikaal wist de kijkers thuis vaak te betrekken, waarbij velen enthousiast meespeelden. Om deze interactie nog verder te versterken, hebben wij een unieke Instagram AR-filter ontwikkeld. Met dit filter kun je het spel zelfs vanuit huis ervaren en spelen, waardoor je de kans krijgt om je muziekkennis te testen en te delen met je vrienden. Het is de perfecte manier om plezier te beleven, uitdagingen aan te gaan en een gezellige competitieve sfeer te creëren, allemaal via je eigen telefoon.",
         photos: [],
+        large: false,
       },
     ],
     gallery: [],
@@ -1210,7 +1210,6 @@ export const studioCases: StudioCase[] = [
     description: "In Bram Krikke zijn YouTube serie 'Bram in Controle' neemt hij 1 dag de controle over van zijn gasten, welke hij via een oortje instructies geeft over wat hij of zij moet doen. Uiteraard worden de rollen ook omgedraaid en mag de gast ook Bram instructies in fluisteren. Concess heeft de productie mogen ondersteunen van deze serie.",
     platformLink: "https://www.youtube.com/@bramkrikke",
     platformLinkLabel: "YouTube kanaal",
-    photos: ["/images/studio/Bram in controle/Bram-in-controle-thumbnail-concess.jpg"],
     gallery: [],
   },
   {
@@ -1224,7 +1223,6 @@ export const studioCases: StudioCase[] = [
     description: "Voor de samenwerking tussen Milan Knol en World of Warships hebben wij een dedicated YouTube video mogen produceren. In deze video hebben wij door middel van het spel 'Zeeslag', het concept en de schepen van World of Warships uitgelicht.",
     platformLink: "https://www.youtube.com/milanknol",
     platformLinkLabel: "YouTube kanaal",
-    photos: ["/images/studio/Milan Knol x World of Warships/world-of-warships-milan-knol-thumbnail-concess.jpg"],
     gallery: [],
   },
   {

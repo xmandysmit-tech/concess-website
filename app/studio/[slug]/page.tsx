@@ -183,6 +183,29 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
       </section>
       )}
 
+      {/* ── TWEE TRAILERS naast elkaar ── */}
+      {youtubeId && project.trailer2 && (() => {
+        const id2 = getYouTubeId(project.trailer2);
+        return id2 ? (
+          <section className="pt-12 pb-6 max-w-7xl mx-auto px-6 md:px-12">
+            <div className="flex gap-5 items-stretch" style={{ height: 340 }}>
+              <div className="flex flex-col gap-2 flex-1">
+                <span className="text-[10px] tracking-widest uppercase" style={{ color: "var(--color-taupe-500)" }}>Trailer seizoen 1</span>
+                <div className="rounded-2xl overflow-hidden flex-1" style={{ background: "var(--color-dark-900)" }}>
+                  <TrailerEmbed youtubeId={youtubeId} />
+                </div>
+              </div>
+              <div className="flex flex-col gap-2 flex-1">
+                <span className="text-[10px] tracking-widest uppercase" style={{ color: "var(--color-taupe-500)" }}>Trailer seizoen 2</span>
+                <div className="rounded-2xl overflow-hidden flex-1" style={{ background: "var(--color-dark-900)" }}>
+                  <TrailerEmbed youtubeId={id2} />
+                </div>
+              </div>
+            </div>
+          </section>
+        ) : null;
+      })()}
+
       {/* ── STATS ── */}
       {project.stats && (
         <section className={`pt-10 md:pt-14 ${project.videos ? "pb-4" : "pb-10 md:pb-14"} max-w-7xl mx-auto px-6 md:px-12`}>
@@ -371,7 +394,7 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
       )}
 
       {/* ── VIDEO ALLEEN (geen foto's, geen short-form) ── */}
-      {(!project.photos || project.photos.length === 0) && youtubeId && (!project.videos || project.videos.length === 0) && !project.trailerSeparate && !project.heroIsTrailer && (
+      {(!project.photos || project.photos.length === 0) && youtubeId && (!project.videos || project.videos.length === 0) && !project.trailerSeparate && !project.heroIsTrailer && !project.trailer2 && (
         <section className="pt-12 pb-12 md:pb-16 max-w-7xl mx-auto px-6 md:px-12">
           <span className="text-[10px] tracking-widest uppercase block mb-4" style={{ color: "var(--color-taupe-500)" }}>{project.trailerLabel ?? "Trailer"}</span>
           <TrailerEmbed youtubeId={youtubeId} />
@@ -425,22 +448,22 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
                 )}
               </div>
             ) : (
-            <div className="flex gap-8 items-start">
-              <div className="flex-shrink-0" style={{ width: "35%" }}>
+            <div className={sec.photos.length > 0 ? "flex gap-8 items-start" : ""}>
+              <div className="flex-shrink-0" style={sec.photos.length > 0 ? { width: "35%" } : {}}>
                 {sec.title && (
                   <h3 className="mb-3" style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(1.4rem, 2.5vw, 2rem)", color: "var(--color-dark-900)", lineHeight: 1.1 }}>{sec.title}</h3>
                 )}
                 {sec.text && (
-                  <p className="text-sm leading-relaxed" style={{ color: "var(--color-taupe-500)", fontFamily: "'Playfair Display', Georgia, serif" }}>{sec.text}</p>
+                  <p className="text-sm leading-relaxed max-w-2xl" style={{ color: "var(--color-taupe-500)", fontFamily: "'Playfair Display', Georgia, serif" }}>{sec.text}</p>
                 )}
               </div>
-              <div className="flex-1 grid gap-3" style={{ gridTemplateColumns: `repeat(${Math.min(sec.photos.length, 3)}, 1fr)`, height: 360 }}>
+              {sec.photos.length > 0 && <div className="flex-1 grid gap-3" style={{ gridTemplateColumns: `repeat(${Math.min(sec.photos.length, 3)}, 1fr)`, height: 360 }}>
                 {sec.photos.map((src, j) => (
                   <div key={j} className="rounded-xl overflow-hidden h-full">
                     <img src={src} alt="" className="w-full h-full object-contain block" />
                   </div>
                 ))}
-              </div>
+              </div>}
             </div>
             )
           ) : (
