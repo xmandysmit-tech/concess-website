@@ -183,21 +183,21 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
       </section>
       )}
 
-      {/* ── TWEE TRAILERS naast elkaar ── */}
+      {/* ── TWEE TRAILERS gestapeld op mobile, naast elkaar op desktop ── */}
       {youtubeId && project.trailer2 && (() => {
         const id2 = getYouTubeId(project.trailer2);
         return id2 ? (
           <section className="pt-12 pb-6 max-w-7xl mx-auto px-6 md:px-12">
-            <div className="flex gap-5 items-stretch" style={{ height: 340 }}>
-              <div className="flex flex-col gap-2 flex-1">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div className="flex flex-col gap-2">
                 <span className="text-[10px] tracking-widest uppercase" style={{ color: "var(--color-taupe-500)" }}>Trailer seizoen 1</span>
-                <div className="rounded-2xl overflow-hidden flex-1" style={{ background: "var(--color-dark-900)" }}>
+                <div className="rounded-2xl overflow-hidden" style={{ background: "var(--color-dark-900)" }}>
                   <TrailerEmbed youtubeId={youtubeId} />
                 </div>
               </div>
-              <div className="flex flex-col gap-2 flex-1">
+              <div className="flex flex-col gap-2">
                 <span className="text-[10px] tracking-widest uppercase" style={{ color: "var(--color-taupe-500)" }}>Trailer seizoen 2</span>
-                <div className="rounded-2xl overflow-hidden flex-1" style={{ background: "var(--color-dark-900)" }}>
+                <div className="rounded-2xl overflow-hidden" style={{ background: "var(--color-dark-900)" }}>
                   <TrailerEmbed youtubeId={id2} />
                 </div>
               </div>
@@ -224,9 +224,9 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
       {project.posters && project.posters.length > 0 && (
         <section className="pt-12 pb-10 max-w-7xl mx-auto px-6 md:px-12">
           <span className="text-[10px] tracking-widest uppercase block mb-3" style={{ color: "var(--color-taupe-500)" }}>Theatertours</span>
-          <div className="grid gap-4" style={{ gridTemplateColumns: "280px 1fr 1fr 260px", height: 420 }}>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4" style={{ minHeight: undefined }}>
             {/* Tekst */}
-            <div className="rounded-2xl p-7 flex flex-col justify-center" style={{ background: "var(--color-dark-900)" }}>
+            <div className="col-span-2 md:col-span-1 rounded-2xl p-7 flex flex-col justify-center" style={{ background: "var(--color-dark-900)" }}>
               <h3 className="mb-3" style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "1.2rem", color: "white", lineHeight: 1.1 }}>
                 Twee keer het <span className="italic" style={{ color: "var(--color-taupe-300)" }}>theater</span> in
               </h3>
@@ -335,19 +335,19 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
         </section>
       )}
 
-      {/* ── EERSTE FOTO + VIDEO naast elkaar ── */}
+      {/* ── EERSTE FOTO + VIDEO: gestapeld op mobile, naast elkaar op desktop ── */}
       {project.photos && project.photos.length > 0 && youtubeId && !project.trailerSeparate && (
         <section className="pt-12 pb-6 max-w-7xl mx-auto px-6 md:px-12">
-          <div className="flex gap-6 items-stretch" style={{ height: 400 }}>
-            <div className="flex-shrink-0 flex flex-col gap-2" style={{ width: "42%" }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="flex flex-col gap-2">
               <span className="text-[10px] tracking-widest uppercase" style={{ color: "var(--color-taupe-500)" }}>{project.photosLabel ?? "Beelden"}</span>
-              <div className="rounded-2xl overflow-hidden flex-1" style={{ background: project.photosFit === "contain" ? "var(--color-linen-200)" : undefined }}>
+              <div className="rounded-2xl overflow-hidden" style={{ background: project.photosFit === "contain" ? "var(--color-linen-200)" : undefined, aspectRatio: "16/9" }}>
                 <img src={project.photos[0]} alt="" className={`w-full h-full ${project.photosFit === "contain" ? "object-contain p-4" : "object-cover"}`} />
               </div>
             </div>
-            <div className="flex-1 flex flex-col gap-2">
+            <div className="flex flex-col gap-2">
               <span className="text-[10px] tracking-widest uppercase" style={{ color: "var(--color-taupe-500)" }}>{project.trailerLabel ?? "Trailer"}</span>
-              <div className="rounded-2xl overflow-hidden flex-1" style={{ background: "var(--color-dark-900)" }}>
+              <div className="rounded-2xl overflow-hidden" style={{ background: "var(--color-dark-900)" }}>
                 <TrailerEmbed youtubeId={youtubeId} />
               </div>
             </div>
@@ -367,7 +367,7 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
       {project.trailerSeparate && project.photos && project.photos.length > 0 && (
         <section className="pt-6 pb-12 max-w-7xl mx-auto px-6 md:px-12">
           <span className="text-[10px] tracking-widest uppercase block mb-4" style={{ color: "var(--color-taupe-500)" }}>{project.photosLabel ?? "Beelden"}</span>
-          <div style={{ columns: "3 280px", gap: "12px" }}>
+          <div style={{ columns: "2 160px", gap: "12px" }}>
             {project.photos.map((src, i) => (
               <div key={i} className="rounded-xl overflow-hidden mb-3 break-inside-avoid">
                 <img src={src} alt="" className="w-full h-auto block" />
@@ -381,7 +381,7 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
       {project.photos && project.photos.length > 1 && !project.trailerSeparate && youtubeId && (
         <section className="pt-10 pb-12 max-w-7xl mx-auto px-6 md:px-12">
           <span className="text-[10px] tracking-widest uppercase block mb-4" style={{ color: "var(--color-taupe-500)" }}>Fotografie</span>
-          <div style={{ columns: "3 280px", gap: "12px" }}>
+          <div style={{ columns: "2 160px", gap: "12px" }}>
             {project.photos.slice(1).map((src, i) => (
               <div key={i} className="rounded-xl overflow-hidden mb-3 break-inside-avoid">
                 <img src={src} alt="" className="w-full h-auto block" />
@@ -403,12 +403,14 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
       {project.photosBanner && project.photosBanner.length > 0 && !youtubeId && (
         <section className="pt-12 pb-3 max-w-7xl mx-auto px-6 md:px-12">
           <span className="text-[10px] tracking-widest uppercase block mb-4" style={{ color: "var(--color-taupe-500)" }}>{project.photosLabel ?? "Fotografie"}</span>
-          <div style={{ display: "grid", gridTemplateColumns: `repeat(${project.photosBanner.length}, 1fr)`, gap: "12px" }}>
-            {project.photosBanner.map((src, i) => (
-              <div key={i} className="rounded-xl overflow-hidden">
-                <img src={src} alt="" className="w-full h-auto block" />
-              </div>
-            ))}
+          <div className="grid grid-cols-1 gap-3" style={{ gridTemplateColumns: project.photosBanner.length > 1 ? undefined : "1fr" }}>
+            <div className="grid grid-cols-2 gap-3">
+              {project.photosBanner.map((src, i) => (
+                <div key={i} className="rounded-xl overflow-hidden">
+                  <img src={src} alt="" className="w-full h-auto block" />
+                </div>
+              ))}
+            </div>
           </div>
         </section>
       )}
@@ -418,7 +420,7 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
         <section className={`${project.photosBanner ? "pt-3" : "pt-12"} pb-12 max-w-7xl mx-auto px-6 md:px-12`}>
           {!project.photosBanner && <span className="text-[10px] tracking-widest uppercase block mb-4" style={{ color: "var(--color-taupe-500)" }}>{project.photosLabel ?? "Beelden"}</span>}
           {project.photosGrid ? (
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "12px" }}>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
               {project.photos.map((src, i) => (
                 <div key={i} className="rounded-xl overflow-hidden">
                   <img src={src} alt="" className="w-full h-auto block" />
@@ -426,7 +428,7 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
               ))}
             </div>
           ) : (
-            <div style={{ columns: "3 280px", gap: "12px" }}>
+            <div style={{ columns: "2 160px", gap: "12px" }}>
               {project.photos.map((src, i) => (
                 <div key={i} className="rounded-xl overflow-hidden mb-3 break-inside-avoid">
                   <img src={src} alt="" className="w-full h-auto block" />
@@ -459,7 +461,7 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
                 {sec.photos.length > 1 && (
                   <div>
                   <span className="text-[10px] tracking-widest uppercase block mb-4" style={{ color: "var(--color-taupe-500)" }}>Fotografie</span>
-                  <div style={{ display: "grid", gridTemplateColumns: `repeat(${sec.photos.length - 1}, 1fr)`, gap: "12px" }}>
+                  <div className="grid grid-cols-2 gap-3" style={{ gridTemplateColumns: sec.photos.length - 1 <= 2 ? undefined : `repeat(${Math.min(sec.photos.length - 1, 4)}, 1fr)` }}>
                     {sec.photos.slice(1).map((src, j) => (
                       <div key={j} className="rounded-xl overflow-hidden">
                         <img src={src} alt="" className="w-full h-auto block" />
@@ -470,26 +472,28 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
                 )}
               </div>
             ) : (
-            <div className={sec.photos.length > 0 ? "flex gap-8 items-start" : ""}>
-              <div className="flex-shrink-0" style={sec.photos.length > 0 ? { width: "35%" } : {}}>
+            <div className={sec.photos.length > 0 ? "flex flex-col md:flex-row gap-6 md:gap-8 items-start" : ""}>
+              <div className={sec.photos.length > 0 ? "md:w-[35%]" : ""}>
                 {sec.title && (
                   <h3 className="mb-3" style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(1.4rem, 2.5vw, 2rem)", color: "var(--color-dark-900)", lineHeight: 1.1 }}>{sec.title}</h3>
                 )}
                 {sec.text && (
-                  <p className="text-sm leading-relaxed max-w-2xl" style={{ color: "var(--color-taupe-500)", fontFamily: "'Playfair Display', Georgia, serif" }}>{sec.text}</p>
+                  <p className="text-sm leading-relaxed" style={{ color: "var(--color-taupe-500)", fontFamily: "'Playfair Display', Georgia, serif" }}>{sec.text}</p>
                 )}
               </div>
-              {sec.photos.length > 0 && <div className="flex-1 grid gap-3" style={{ gridTemplateColumns: `repeat(${Math.min(sec.photos.length, 3)}, 1fr)`, height: 360 }}>
-                {sec.photos.map((src, j) => (
-                  <div key={j} className="rounded-xl overflow-hidden h-full">
-                    <img src={src} alt="" className="w-full h-full object-contain block" />
-                  </div>
-                ))}
-              </div>}
+              {sec.photos.length > 0 && (
+                <div className="flex-1 grid grid-cols-2 gap-3" style={{ gridTemplateColumns: sec.photos.length === 1 ? "1fr" : undefined }}>
+                  {sec.photos.map((src, j) => (
+                    <div key={j} className="rounded-xl overflow-hidden" style={{ aspectRatio: "1/1" }}>
+                      <img src={src} alt="" className="w-full h-full object-contain block" />
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
             )
           ) : sec.grid ? (
-            <div style={{ display: "grid", gridTemplateColumns: `repeat(${sec.photos.length}, 1fr)`, gap: "12px", alignItems: "center" }}>
+            <div className="grid grid-cols-2 gap-3" style={{ gridTemplateColumns: sec.photos.length <= 2 ? undefined : `repeat(${Math.min(sec.photos.length, 4)}, 1fr)` }}>
               {sec.photos.map((src, j) => (
                 <div key={j} className="rounded-xl overflow-hidden flex items-center justify-center" style={{ background: "transparent" }}>
                   <img src={src} alt="" className="block" style={{ width: "100%", height: "auto", maxHeight: 360, objectFit: "contain" }} />
@@ -497,7 +501,7 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
               ))}
             </div>
           ) : (
-            <div style={{ columns: "3 280px", gap: "12px" }}>
+            <div style={{ columns: "2 160px", gap: "12px" }}>
               {sec.photos.map((src, j) => (
                 <div key={j} className="rounded-xl overflow-hidden mb-3 break-inside-avoid">
                   <img src={src} alt="" className="w-full h-auto block" />

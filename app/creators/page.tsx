@@ -206,11 +206,13 @@ export default function CreatorsPage() {
                     : <div key={i} className="snap-start" style={cardStyle}>{inner}</div>;
                 })}
               </div>
-              {/* Swipe hint — mobile only */}
-              <div className="flex items-center gap-1.5 mt-2 md:hidden">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-taupe-500"><path d="M5 12h14M15 7l5 5-5 5"/></svg>
-                <span className="text-[9px] tracking-widest uppercase text-taupe-500">Swipe voor meer</span>
-              </div>
+              {/* Swipe hint — alleen als er meer dan 2 partnerships zijn */}
+              {merged.length > 2 && (
+                <div className="flex items-center gap-1.5 mt-2 md:hidden">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-taupe-500"><path d="M5 12h14M15 7l5 5-5 5"/></svg>
+                  <span className="text-[9px] tracking-widest uppercase text-taupe-500">Swipe voor meer</span>
+                </div>
+              )}
               </div>
                 );
               })()}
