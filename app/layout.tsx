@@ -17,6 +17,7 @@ export const metadata: Metadata = {
   description: "Wij creëren strategische samenwerkingen tussen merken en creators die impact maken en resultaten opleveren.",
   icons: {
     icon: "/favicon.png",
+    apple: "/favicon.png",
   },
 };
 
