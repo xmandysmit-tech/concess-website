@@ -58,7 +58,7 @@ export default function PartnershipTile({ p }: { p: PartnershipCase }) {
   );
 
   return p.slug ? (
-    <Link href={`/partnerships/${p.slug}`} className={cls} style={style}>
+    <Link href={p.href ?? `/partnerships/${p.slug}`} className={cls} style={style}>
       {inner}
     </Link>
   ) : (

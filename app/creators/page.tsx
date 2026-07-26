@@ -180,10 +180,10 @@ export default function CreatorsPage() {
                   ...manual.map((w) => ({ brand: w.brand, type: w.type, gradient: w.gradient, img: w.img, slug: w.slug, year: undefined })),
                 ].slice(0, 3);
                 return (
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              <div className="flex md:grid md:grid-cols-4 gap-3 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-2 md:pb-0" style={{ scrollbarWidth: "none" }}>
                 {merged.map((w, i) => {
                   const inner = (
-                    <div className={`relative overflow-hidden rounded-2xl bg-gradient-to-br ${w.gradient}`} style={{ aspectRatio: "3/4" }}>
+                    <div className={`relative overflow-hidden rounded-2xl bg-gradient-to-br ${w.gradient} snap-start`} style={{ aspectRatio: "3/4", minWidth: "200px" }}>
                       {w.img && <img src={w.img} alt={w.brand} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />}
                       <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%)" }} />
                       <div className="absolute bottom-0 left-0 right-0 p-5 flex items-end justify-between">

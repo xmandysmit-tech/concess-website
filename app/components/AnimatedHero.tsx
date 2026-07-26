@@ -4,18 +4,27 @@ import { useEffect, useState } from "react";
 const words = ["Campagnes", "die", "mensen", "onthouden."];
 
 const polaroids = [
-  { src: "/images/402-AutoMotive-x-Enzo-Knol-1.png",   rot: -8,  top: "-2%",  left: "-2%" },
-  { src: "/images/Vrouwmishow_Concess.png",             rot:  5,  top: "-4%",  left: "14%" },
-  { src: "/images/Bennies-x-Air-up.png",               rot: -3,  top: "-3%",  left: "30%" },
-  { src: "/images/creators/Myron_banner.png",                    rot:  7,  top: "-5%",  left: "47%" },
-  { src: "/images/Vrouwmibo-x-Subway.png",             rot: -6,  top: "-2%",  left: "63%" },
-  { src: "/images/De-bennies-concess.jpg",             rot:  4,  top: "-4%",  left: "79%" },
-  { src: "/images/creators/enzo_banner.png",                    rot:  9,  top: "38%",  left: "-3%" },
-  { src: "/images/Bookbeattest-1.png",                 rot: -5,  top: "36%",  left: "13%" },
-  { src: "/images/Snuggstest-1.png",                   rot:  3,  top: "40%",  left: "29%" },
-  { src: "/images/EnzoKnol_Concess.png",               rot: -7,  top: "35%",  left: "46%" },
-  { src: "/images/Vrouwmibo-concess-1024x756.jpg",     rot:  6,  top: "38%",  left: "63%" },
-  { src: "/images/LOGtest-1.png",                      rot: -4,  top: "36%",  left: "80%" },
+  // Rij 1
+  { src: "/images/studio/De-bennies-concess.jpg",                        rot: -8, top: "-3%",  left: "-2%" },
+  { src: "/images/studio/Vrouwmishow_Concess.png",                       rot:  5, top: "-5%",  left: "14%" },
+  { src: "/images/Partnerships/de-bennies/air-up/cover.png",             rot: -3, top: "-4%",  left: "30%" },
+  { src: "/images/creators/Myron_banner.png",                            rot:  7, top: "-5%",  left: "47%" },
+  { src: "/images/Partnerships/vrouwmibo/Vrouwmibo x Subway.png",        rot: -6, top: "-3%",  left: "63%" },
+  { src: "/images/Partnerships/Enzo/402-AutoMotive-x-Enzo-Knol-1.png",  rot:  4, top: "-4%",  left: "80%" },
+  // Rij 2
+  { src: "/images/creators/enzo_banner.png",                             rot:  9, top: "34%",  left: "-3%" },
+  { src: "/images/Partnerships/Myron/Myron-x-Bookbeat.png",             rot: -5, top: "32%",  left: "13%" },
+  { src: "/images/Partnerships/Myron/Snuggs-x-Myron.png",              rot:  3, top: "36%",  left: "29%" },
+  { src: "/images/studio/Vrouwmibo-concess-1024x756.jpg",               rot: -7, top: "31%",  left: "46%" },
+  { src: "/images/Partnerships/Noel-x-Milka.gif",                       rot:  6, top: "34%",  left: "63%" },
+  { src: "/images/Partnerships/Enzo/LOG-x-Enzo.png",                   rot: -4, top: "32%",  left: "80%" },
+  // Rij 3
+  { src: "/images/Partnerships/Chahid-x-Verraders.png",                 rot: -7, top: "67%",  left: "-2%" },
+  { src: "/images/Partnerships/Myron/Myron-x-Robijn-1.gif",            rot:  4, top: "65%",  left: "14%" },
+  { src: "/images/studio/Tantoe-Muzikaal-thumbnail-concess.jpg",        rot: -2, top: "68%",  left: "30%" },
+  { src: "/images/Partnerships/Xbox-x-Chahid.gif",                      rot:  8, top: "65%",  left: "47%" },
+  { src: "/images/studio/Thumbnail-StukTV.jpg",                         rot: -5, top: "68%",  left: "63%" },
+  { src: "/images/Partnerships/Enzo/Bristol-x-Enzo-Knol.gif",          rot:  3, top: "66%",  left: "80%" },
 ];
 
 export default function AnimatedHero() {

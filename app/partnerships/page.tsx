@@ -41,11 +41,15 @@ const brandLogos = [
 
 const doubled = [...brandLogos, ...brandLogos];
 const PAGE_SIZE = 9;
+const MOBILE_INITIAL = 9;
 
 export default function PartnershipsPage() {
   const [visible, setVisible] = useState(PAGE_SIZE);
+  const [mobileVisible, setMobileVisible] = useState(MOBILE_INITIAL);
   const shown = extraProjects.slice(0, visible);
   const hasMore = visible < extraProjects.length;
+  const shownCases = partnershipCases.slice(0, mobileVisible);
+  const hasMoreCases = mobileVisible < partnershipCases.length;
 
   return (
     <main style={{ background: "var(--color-linen-100)", minHeight: "100vh" }}>
@@ -69,11 +73,20 @@ export default function PartnershipsPage() {
       <section className="py-12 md:py-20 max-w-7xl mx-auto px-6 md:px-12">
         <span className="text-[10px] tracking-widest uppercase text-taupe-500 block mb-10">Partnerships</span>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 items-start">
-          {/* Klikbare cases met optionele hover video */}
-          {partnershipCases.map((p) => (
-            <PartnershipTile key={p.slug} p={p} />
-          ))}
+        {/* Mobile: limited cases with Load More; desktop: all cases */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 items-start">
+          {/* Mobile view: paginated */}
+          <div className="contents md:hidden">
+            {shownCases.map((p, i) => (
+              <PartnershipTile key={p.slug ?? i} p={p} />
+            ))}
+          </div>
+          {/* Desktop view: all */}
+          <div className="hidden md:contents">
+            {partnershipCases.map((p, i) => (
+              <PartnershipTile key={p.slug ?? i} p={p} />
+            ))}
+          </div>
 
           {/* Reguliere projecten */}
           {shown.map((p, i) => (
@@ -94,6 +107,18 @@ export default function PartnershipsPage() {
             </div>
           ))}
         </div>
+
+        {/* Mobile Load More for cases */}
+        {hasMoreCases && (
+          <div className="flex justify-center mt-8 md:hidden">
+            <button
+              onClick={() => setMobileVisible((v) => v + PAGE_SIZE)}
+              className="inline-flex items-center gap-3 border border-linen-300 text-dark-700 px-8 py-3.5 rounded-full text-xs tracking-widest uppercase transition-all hover:border-dark-900 hover:text-dark-900"
+            >
+              Meer laden
+            </button>
+          </div>
+        )}
 
         {hasMore && (
           <div className="flex justify-center mt-12">

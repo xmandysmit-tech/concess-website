@@ -24,28 +24,20 @@ export const featuredProjects = projects.slice(0, 5);
 // ------------------------------------------------------------
 export const homepageFeatured = [
   {
+    brand: "De Bennies",
+    creator: "Podcast",
+    img: "/images/Tegels/De Bennies - tegel.png",
+    gradient: "from-neutral-700 to-neutral-950",
+    slug: "de-bennies-podcast",
+    type: "studio" as const,
+  },
+  {
     brand: "Vrouwmibo",
     creator: "de podcast",
     img: "/images/Tegels/Vrouwmibo - tegel v2.png",
     gradient: "from-stone-700 to-stone-950",
     slug: "vrouwmibo-podcast",
     type: "studio" as const,
-  },
-  {
-    brand: "De Bennies",
-    creator: "× Podimo",
-    img: "/images/Tegels/De Bennies - tegel.png",
-    gradient: "from-neutral-700 to-neutral-950",
-    slug: "podimo-de-bennies",
-    type: "partnership" as const,
-  },
-  {
-    brand: "'t Zusje",
-    creator: "× Vrouwmibo",
-    img: "/images/Partnerships/vrouwmibo/zusje x vrouwmibo.jpg",
-    gradient: "from-amber-900 to-stone-950",
-    slug: "zusje-vrouwmibo",
-    type: "partnership" as const,
   },
   {
     brand: "Vrouwmishow",
@@ -56,11 +48,19 @@ export const homepageFeatured = [
     type: "studio" as const,
   },
   {
-    brand: "De Bennies",
-    creator: "Podcast",
-    img: "/images/Tegels/De Bennies - tegel.png",
+    brand: "402 Automotive",
+    creator: "× Enzo Knol",
+    img: "/images/Partnerships/Enzo/402-AutoMotive-x-Enzo-Knol-1.png",
     gradient: "from-neutral-700 to-neutral-950",
-    slug: "de-bennies-podcast",
+    slug: undefined,
+    type: "partnership" as const,
+  },
+  {
+    brand: "KP Active",
+    creator: "Fotografie",
+    img: "/images/Tegels/KP active Fotografie.jpg",
+    gradient: "from-neutral-700 to-neutral-950",
+    slug: "kp-active-fotografie",
     type: "studio" as const,
   },
 ];
@@ -139,6 +139,7 @@ export type CaseStat = { value: string; label: string };
 
 export type PartnershipCase = {
   slug?: string;
+  href?: string;
   brand: string;
   creator: string;
   category: string;
@@ -247,6 +248,8 @@ export const partnershipCases: PartnershipCase[] = [
     gallery: [],
   },
   {
+    slug: "kinderpostzegelactie-pieter-valley",
+    href: "/studio/kinderpostzegelactie",
     brand: "Kinderpostzegelactie",
     creator: "Pieter Valley",
     category: "Brand Partnership",
@@ -492,6 +495,8 @@ export const partnershipCases: PartnershipCase[] = [
     gallery: [],
   },
   {
+    slug: "kinderpostzegelactie-dylan-haegens",
+    href: "/studio/kinderpostzegelactie",
     brand: "Kinderpostzegelactie",
     creator: "Dylan Haegens",
     category: "Brand Partnership",
@@ -503,6 +508,8 @@ export const partnershipCases: PartnershipCase[] = [
     gallery: [],
   },
   {
+    slug: "kinderpostzegelactie-lisanne-dijkstra",
+    href: "/studio/kinderpostzegelactie",
     brand: "Kinderpostzegelactie",
     creator: "Lisanne Dijkstra",
     category: "Brand Partnership",
@@ -514,6 +521,8 @@ export const partnershipCases: PartnershipCase[] = [
     gallery: [],
   },
   {
+    slug: "kinderpostzegelactie-meester-jesper",
+    href: "/studio/kinderpostzegelactie",
     brand: "Kinderpostzegelactie",
     creator: "Meester Jesper",
     category: "Brand Partnership",
