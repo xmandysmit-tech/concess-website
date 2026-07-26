@@ -39,9 +39,17 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
           <div className="flex flex-col lg:flex-row lg:items-stretch gap-8 lg:gap-16">
             {/* Artwork */}
             <div className="flex-shrink-0">
-              <div className="rounded-2xl overflow-hidden shadow-2xl" style={{ width: "clamp(200px, 28vw, 340px)", aspectRatio: "1/1" }}>
-                <img src={project.heroImage ?? project.cover} alt={project.title} className={`w-full h-full ${project.coverFit === "contain" ? "object-contain" : "object-cover"}`} />
-              </div>
+              {project.heroImage ? (
+                <img
+                  src={project.heroImage}
+                  alt={project.title}
+                  style={{ width: "clamp(180px, 24vw, 300px)", maxHeight: 420, objectFit: "contain", display: "block" }}
+                />
+              ) : (
+                <div className="rounded-2xl overflow-hidden shadow-2xl" style={{ width: "clamp(200px, 28vw, 340px)", aspectRatio: "1/1" }}>
+                  <img src={project.cover} alt={project.title} className={`w-full h-full ${project.coverFit === "contain" ? "object-contain" : "object-cover"}`} />
+                </div>
+              )}
             </div>
 
             {/* Info */}

@@ -863,7 +863,7 @@ export const studioCases: StudioCase[] = [
   {
     slug: "whip-my-hair",
     title: "Whip My Hair",
-    tags: ["Productie", "AR Filter"],
+    tags: ["Productie", "AR Filters"],
     year: "2021",
     cover: "/images/studio/Whip My Hair/whip-my-hair-thumbnail-concess.png",
     heroImage: "/images/studio/Whip My Hair/Whip-my-hair-filter.png",
@@ -880,7 +880,7 @@ export const studioCases: StudioCase[] = [
     ],
     extraSections: [
       {
-        label: "AR Filter",
+        label: "AR Filters",
         title: "Whip My Hair Filter",
         text: "Met de 'Whip My Hair' AR Filter kan je meedoen aan de winacties in samenwerking met L'Oréal Professionnel! Klik op het scherm zodat het rad begint te draaien. Het product waarop het rad eindigt kan jij winnen door de story te plaatsen en Randy hierin te taggen.",
         photos: ["/images/studio/Whip My Hair/Whip-my-hair-filter.png"],
@@ -936,7 +936,7 @@ export const studioCases: StudioCase[] = [
   {
     slug: "youtune",
     title: "YouTune",
-    tags: ["Productie", "AR Filter"],
+    tags: ["Productie", "AR Filters"],
     year: "2021",
     cover: "/images/studio/YouTune/YouTune-thumbnail-concess.jpg",
     heroImage: "/images/studio/YouTune/YouTune-filter.png",
@@ -954,7 +954,7 @@ export const studioCases: StudioCase[] = [
     ],
     extraSections: [
       {
-        label: "AR Filter",
+        label: "AR Filters",
         title: "YouTune Filter",
         text: "Met de 'YouTune' AR Filter kan je het spel YouTune zelf spelen! Je krijgt 5 woorden die een artiest omschrijven of 1 hint en een stukje van de lyrics die een nummer omschrijven. Raad zo snel mogelijk wie de artiest is of over welk nummer de hints gaan!",
         photos: ["/images/studio/YouTune/YouTune-filter.png"],
@@ -965,7 +965,7 @@ export const studioCases: StudioCase[] = [
   {
     slug: "grote-jongens",
     title: "Grote Jongens",
-    tags: ["Productie", "AR Filter"],
+    tags: ["Productie", "AR Filters"],
     year: "2021",
     cover: "/images/studio/Grote jongens/Grote-Jongens-thumbnail-concess.jpg",
     heroImage: "/images/studio/Grote jongens/Grote-jongens-filters.png",
@@ -982,7 +982,7 @@ export const studioCases: StudioCase[] = [
     ],
     extraSections: [
       {
-        label: "AR Filter",
+        label: "AR Filters",
         title: "Grote Jongens Filter",
         text: "Met de 'Grote Jongens' AR Filter krijg je een sportieve opdracht om thuis uit te voeren. Hiermee willen we de fans van Nesim motiveren thuis fit te blijven. Met de 'Muscle Meter' AR Filter meet Instagram het percentage van je spieren.",
         photos: ["/images/studio/Grote jongens/Grote-jongens-filters.png"],
@@ -994,7 +994,7 @@ export const studioCases: StudioCase[] = [
     slug: "snelle-in-mn-bloed",
     title: "Snelle",
     subtitle: "In M'n Bloed",
-    tags: ["AR Filter"],
+    tags: ["AR Filters"],
     year: "2022",
     cover: "/images/studio/AR Filters/Snelle - In m'n bloed/Tegel_snelle_inmnbloed.png",
     heroImage: "/images/studio/AR Filters/Snelle - In m'n bloed/Snelle-In-mn-bloed-filter-concess.png",
@@ -1007,7 +1007,7 @@ export const studioCases: StudioCase[] = [
     slug: "nina-warink-wazig",
     title: "Nina Warink",
     subtitle: "Wazig",
-    tags: ["AR Filter"],
+    tags: ["AR Filters"],
     year: "2022",
     cover: "/images/studio/AR Filters/Nina Warink - Wazig/nina-warink-wazig-tegel.jpg",
     heroImage: "/images/studio/AR Filters/Nina Warink - Wazig/Nina-warink-adoa-wazig-filters.png",
@@ -1020,7 +1020,7 @@ export const studioCases: StudioCase[] = [
     slug: "nick-simon-waarom",
     title: "Nick & Simon",
     subtitle: "Waarom",
-    tags: ["AR Filter"],
+    tags: ["AR Filters"],
     year: "2022",
     cover: "/images/studio/AR Filters/Nick & Simon - Waarom/Nick-simon-thumbnail-concess.jpg",
     heroImage: "/images/studio/AR Filters/Nick & Simon - Waarom/nick-en-simon-waarom-filter-concess.png",
@@ -1032,7 +1032,7 @@ export const studioCases: StudioCase[] = [
   {
     slug: "miljuschka-magazine",
     title: "Miljuschka Magazine",
-    tags: ["AR Filter"],
+    tags: ["AR Filters"],
     year: "2022",
     cover: "/images/studio/AR Filters/Miljuschka Magazine/Miljuschka-Magazine-thumbnail-concess.jpg",
     heroImage: "/images/studio/AR Filters/Miljuschka Magazine/Miljuschka-Magazine-Miljuschka-Witzenhausen-AR-filters.png",
@@ -1045,7 +1045,7 @@ export const studioCases: StudioCase[] = [
     slug: "nina-warink-simpel-sexy",
     title: "Nina Warink",
     subtitle: "Simpel & Sexy",
-    tags: ["AR Filter"],
+    tags: ["AR Filters"],
     year: "2022",
     cover: "/images/studio/AR Filters/Nina Warink - Simpel & Sexy/Nina-Warink-Simpel-En-Sexy-thumbnail-concess.jpg",
     heroImage: "/images/studio/AR Filters/Nina Warink - Simpel & Sexy/Nina-Warink-Simpel-Sexy.png",
@@ -1058,7 +1058,7 @@ export const studioCases: StudioCase[] = [
     slug: "nina-warink-mijn-tweede-liefde",
     title: "Nina Warink",
     subtitle: "Mijn Tweede Liefde",
-    tags: ["AR Filter"],
+    tags: ["AR Filters"],
     year: "2021",
     cover: "/images/studio/AR Filters/Nina Warink - Mijn tweede liefde/Mijn-Tweede-liefde-nina-warink-thumbnail-concess.jpg",
     heroImage: "/images/studio/AR Filters/Nina Warink - Mijn tweede liefde/Nina-Warink-Simpel-Sexy.png",
@@ -1071,7 +1071,7 @@ export const studioCases: StudioCase[] = [
     slug: "mollenstreken-lavezzi-rutjes",
     title: "Mollenstreken",
     subtitle: "Lavezzi Rutjes",
-    tags: ["AR Filter"],
+    tags: ["AR Filters"],
     year: "2022",
     cover: "/images/studio/AR Filters/Mollenstreken - Lavezzi Rutjes/Mollenstreken-Lavezzi-Rutjes-thumbnail-concess.jpg",
     heroImage: "/images/studio/AR Filters/Mollenstreken - Lavezzi Rutjes/Mollenstreken-Lavezzi-Rutjes.png",
@@ -1083,7 +1083,7 @@ export const studioCases: StudioCase[] = [
   {
     slug: "viral-festival-amsterdam",
     title: "Viral Festival Amsterdam",
-    tags: ["AR Filter"],
+    tags: ["AR Filters"],
     year: "2022",
     cover: "/images/studio/AR Filters/Viral Festival/Viral-Festival-Concess-Thumbnail.png",
     heroImage: "/images/studio/AR Filters/Viral Festival/Viral-Festival-1.png",
@@ -1095,10 +1095,10 @@ export const studioCases: StudioCase[] = [
   {
     slug: "the-wardrobe-organizer",
     title: "The Wardrobe Organizer",
-    tags: ["AR Filter"],
+    tags: ["AR Filters"],
     year: "2022",
-    cover: "/images/studio/AR Filters/The Wardrobe Organizer/Filters-The-Wardrobe-Organizer.png",
-    heroImage: "/images/studio/AR Filters/The Wardrobe Organizer/The-Wardrobe-Organizer-Filter-Concess.png",
+    cover: "/images/studio/AR Filters/The Wardrobe Organizer/The-Wardrobe-Organizer-Filter-Concess.png",
+    heroImage: "/images/studio/AR Filters/The Wardrobe Organizer/Filters-The-Wardrobe-Organizer.png",
     gradient: "from-teal-900 to-neutral-950",
     tagline: "Concess Studio",
     description: "Voor The Wardrobe Organizer heeft Concess 2 Instagram AR Filters mogen maken. Het eerste filter hebben we gemaakt met het logo van The Wardrobe Organizer. Daarnaast hebben we een spelelement gemaakt met de vraag 'Welke organizer ben jij?' waarna verschillende soorten organizers te zien zijn.",
@@ -1107,7 +1107,7 @@ export const studioCases: StudioCase[] = [
   {
     slug: "wout",
     title: "WOUT",
-    tags: ["AR Filter"],
+    tags: ["AR Filters"],
     year: "2022",
     cover: "/images/studio/AR Filters/WOUT/Wout-Filters-Concess.png",
     heroImage: "/images/studio/AR Filters/WOUT/Filter-WOUT.png",
