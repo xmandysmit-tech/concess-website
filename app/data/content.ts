@@ -56,12 +56,12 @@ export const homepageFeatured = [
     type: "partnership" as const,
   },
   {
-    brand: "KP Active",
-    creator: "Fotografie",
-    img: "/images/Tegels/KP active Fotografie.jpg",
-    gradient: "from-neutral-700 to-neutral-950",
-    slug: "kp-active-fotografie",
-    type: "studio" as const,
+    brand: "Myron",
+    creator: "× Robijn",
+    img: "/images/Partnerships/Myron/Myron-x-Robijn-1.gif",
+    gradient: "from-blue-900 to-neutral-950",
+    slug: "myron-robijn",
+    type: "partnership" as const,
   },
 ];
 

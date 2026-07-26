@@ -102,12 +102,12 @@ export default function ContactPage() {
           {/* Left — polaroid collage */}
           <div className="relative w-full" style={{ height: 460 }}>
             {[
-              { src: "/images/Vrouwmibo-concess-1024x756.jpg",  alt: "Vrouwmibo",   rotate: -14, left: 20,  top: 30,  z: 1 },
-              { src: "/images/EnzoKnol_Concess.png",            alt: "Enzo Knol",   rotate: 9,   left: 210, top: 10,  z: 2 },
-              { src: "/images/De-bennies-concess.jpg",          alt: "De Bennies",  rotate: -7,  left: 130, top: 160, z: 3 },
-              { src: "/images/Vrouwmishow_Concess.png",         alt: "Vrouwmishow", rotate: 13,  left: 300, top: 120, z: 4 },
-              { src: "/images/Bennies-x-Air-up.png",            alt: "Air Up",      rotate: -4,  left: 60,  top: 270, z: 5 },
-              { src: "/images/Vrouwmibo-x-Subway.png",          alt: "Subway",      rotate: 11,  left: 250, top: 270, z: 6 },
+              { src: "/images/studio/Vrouwmibo-concess-1024x756.jpg",         alt: "Vrouwmibo",   rotate: -14, left: 20,  top: 30,  z: 1 },
+              { src: "/images/creators/enzo_banner.png",                       alt: "Enzo Knol",   rotate: 9,   left: 210, top: 10,  z: 2 },
+              { src: "/images/studio/De-bennies-concess.jpg",                  alt: "De Bennies",  rotate: -7,  left: 130, top: 160, z: 3 },
+              { src: "/images/studio/Vrouwmishow_Concess.png",                 alt: "Vrouwmishow", rotate: 13,  left: 300, top: 120, z: 4 },
+              { src: "/images/Partnerships/de-bennies/air-up/cover.png",       alt: "Air Up",      rotate: -4,  left: 60,  top: 270, z: 5 },
+              { src: "/images/Partnerships/vrouwmibo/Vrouwmibo x Subway.png",  alt: "Subway",      rotate: 11,  left: 250, top: 270, z: 6 },
             ].map((p) => (
               <div
                 key={p.src}
