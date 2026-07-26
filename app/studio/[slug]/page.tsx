@@ -490,6 +490,14 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
               </div>}
             </div>
             )
+          ) : sec.grid ? (
+            <div style={{ display: "grid", gridTemplateColumns: `repeat(${sec.photos.length}, 1fr)`, gap: "12px", alignItems: "center" }}>
+              {sec.photos.map((src, j) => (
+                <div key={j} className="rounded-xl overflow-hidden flex items-center justify-center" style={{ background: "transparent" }}>
+                  <img src={src} alt="" className="block" style={{ width: "100%", height: "auto", maxHeight: 360, objectFit: "contain" }} />
+                </div>
+              ))}
+            </div>
           ) : (
             <div style={{ columns: "3 280px", gap: "12px" }}>
               {sec.photos.map((src, j) => (

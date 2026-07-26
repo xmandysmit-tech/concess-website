@@ -22,22 +22,84 @@ const filters = [
   { label: "Podcasts",           type: "Podcasts" },
 ];
 
+const CASE_ORDER = [
+  "de-bennies-podcast",
+  "tantoe-muzikaal",
+  "vrouwmibo-podcast",
+  "dionne-slagter",
+  "open-kaart",
+  "stuktv-fotografie",
+  "kinderpostzegelactie",
+  "lash-paris",
+  "taboe-nesim",
+  "paul-sinha",
+  "milans-throwback-thursday",
+  "britt-scholte-graphic-design",
+  "kp-active-fotografie",
+  "ronnie-flex-8-tour",
+  "boef-tour",
+  "gogo-podcast-vormgeving",
+  "logos",
+  "sophie-milzink-fotografie",
+  "nickelodeon-festival",
+  "oscar-jane-britt-scholte",
+  "the-roast-of-ali-b",
+  "fotografie",
+  "bootje-antoon-paul-sinha",
+  "whip-my-hair",
+  "kes-van-den-broek",
+  "getekend-voor-het-leven",
+  "the-roast-of-dutch-performante",
+  "youtune",
+  "grote-jongens",
+  "snelle-in-mn-bloed",
+  "nick-simon-waarom",
+  "nina-warink-wazig",
+  "miljuschka-magazine",
+  "nina-warink-simpel-sexy",
+  "nina-warink-mijn-tweede-liefde",
+  "mollenstreken-lavezzi-rutjes",
+  "viral-festival-amsterdam",
+  "the-wardrobe-organizer",
+  "wout",
+  "tante-soof",
+  "iconic-by-dyson",
+  "dutch-performante-emma-sleep",
+  "dutch-performante-vpcars-bmw",
+  "milan-knol-focus-drink",
+  "bram-in-controle",
+  "milan-knol-world-of-warships",
+];
+
+const orderedCases = [
+  ...CASE_ORDER.map((slug) => studioCases.find((c) => c.slug === slug)).filter(Boolean) as typeof studioCases,
+  ...studioCases.filter((c) => !c.slug || !CASE_ORDER.includes(c.slug)),
+];
+
+const LOAD_MORE_INITIAL = 12;
+
 function StudioContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const [activeFilter, setActiveFilter] = useState<string | null>(
     searchParams.get("filter") ?? null
   );
+  const [visibleCount, setVisibleCount] = useState(LOAD_MORE_INITIAL);
 
   function handleFilter(type: string | null) {
     setActiveFilter(type);
+    setVisibleCount(LOAD_MORE_INITIAL);
     const url = type ? `/studio?filter=${encodeURIComponent(type)}` : "/studio";
     router.replace(url, { scroll: false });
   }
 
-  const shownCases = activeFilter === null
-    ? studioCases
-    : studioCases.filter((c) => c.tags.includes(activeFilter));
+  const filteredCases = activeFilter === null
+    ? orderedCases
+    : orderedCases.filter((c) => c.tags.includes(activeFilter));
+
+  const shownCases = activeFilter !== null
+    ? filteredCases
+    : filteredCases.slice(0, visibleCount);
 
   const shown = activeFilter === null
     ? studioProjects
@@ -149,6 +211,19 @@ function StudioContent() {
               </div>
             ))}
           </div>
+
+          {/* Laad Meer knop */}
+          {activeFilter === null && visibleCount < filteredCases.length && (
+            <div className="mt-12 flex justify-center">
+              <button
+                onClick={() => setVisibleCount((v) => v + LOAD_MORE_INITIAL)}
+                className="text-[10px] tracking-widest uppercase px-8 py-3 rounded-full border transition-all duration-200"
+                style={{ borderColor: "var(--color-linen-300)", color: "var(--color-taupe-500)", background: "transparent" }}
+              >
+                Laad Meer
+              </button>
+            </div>
+          )}
         </div>
       </section>
 
