@@ -459,6 +459,7 @@ export type StudioCase = {
   instagramEmbed?: string;
   coverFit?: "cover" | "contain";
   heroImage?: string;
+  heroImageLarge?: boolean;
   tileTitle?: string;
   videos?: string[];
   photos?: string[];
@@ -1012,6 +1013,7 @@ export const studioCases: StudioCase[] = [
     year: "2022",
     cover: "/images/studio/AR Filters/Nina Warink - Wazig/nina-warink-wazig-tegel.jpg",
     heroImage: "/images/studio/AR Filters/Nina Warink - Wazig/Nina-warink-adoa-wazig-filters.png",
+    heroImageLarge: true,
     gradient: "from-neutral-700 to-neutral-950",
     tagline: "Concess Studio",
     description: "Ter promotie van Nina Warink haar documentaire 'WAZIG – Leven met ADOA' heeft Concess 2 Instagram AR filters mogen maken. Wanneer je het filter 'Leven met ADOA' gebruikt, kan je zien hoe het zicht is van een persoon met deze aandoening van de oogzenuw. Voor het filter 'Wazig' hebben we de poster van deze documentaire omgezet in een filter.",
@@ -1037,6 +1039,7 @@ export const studioCases: StudioCase[] = [
     year: "2022",
     cover: "/images/studio/AR Filters/Miljuschka Magazine/Miljuschka-Magazine-thumbnail-concess.jpg",
     heroImage: "/images/studio/AR Filters/Miljuschka Magazine/Miljuschka-Magazine-Miljuschka-Witzenhausen-AR-filters.png",
+    heroImageLarge: true,
     gradient: "from-orange-900 to-neutral-950",
     tagline: "Concess Studio",
     description: "Voor Miljuschka Witzenhausen heeft Concess 3 Instagram AR Filters mogen maken. De eerste is gemaakt ter promotie van haar Magazine. Daarnaast hebben we een Cheesecake spelelement gemaakt met de vraag 'Welke cheesecake maak jij vandaag?' waarna alle cheesecake recepten van Miljuschka te zien zijn. Ook hebben we een filter gemaakt met het logo van Miljuschka.",
@@ -1050,6 +1053,7 @@ export const studioCases: StudioCase[] = [
     year: "2022",
     cover: "/images/studio/AR Filters/Nina Warink - Simpel & Sexy/Nina-Warink-Simpel-En-Sexy-thumbnail-concess.jpg",
     heroImage: "/images/studio/AR Filters/Nina Warink - Simpel & Sexy/Nina-Warink-Simpel-Sexy.png",
+    heroImageLarge: true,
     gradient: "from-pink-900 to-neutral-950",
     tagline: "Concess Studio",
     description: "Ter promotie van Nina Warink haar 2e kookboek 'Simpel & Sexy' heeft Concess 4 Instagram AR Filters mogen maken. Naast het rad 'Welk borrelhapje?', waarin je verschillende borrelhapjes uit haar boek kan zien, hebben we ook het logo van het boek in verschillende filters verwerkt.",
@@ -1063,6 +1067,7 @@ export const studioCases: StudioCase[] = [
     year: "2021",
     cover: "/images/studio/AR Filters/Nina Warink - Mijn tweede liefde/Mijn-Tweede-liefde-nina-warink-thumbnail-concess.jpg",
     heroImage: "/images/studio/AR Filters/Nina Warink - Mijn tweede liefde/Nina-Warink-Simpel-Sexy.png",
+    heroImageLarge: true,
     gradient: "from-rose-900 to-neutral-950",
     tagline: "Concess Studio",
     description: "Voor Nina Warink heeft Concess 3 Instagram AR Filters mogen maken. De 3 filters zijn gemaakt ter promotie van haar eigen kookboek; 'Mijn Tweede Liefde'. We hebben de gerechten en snacks uit het boek verwerkt in een randomizer boven het hoofd. Daarnaast hebben we in een filter het logo van het boek rond het hoofd laten vliegen.",
@@ -1076,6 +1081,7 @@ export const studioCases: StudioCase[] = [
     year: "2022",
     cover: "/images/studio/AR Filters/Mollenstreken - Lavezzi Rutjes/Mollenstreken-Lavezzi-Rutjes-thumbnail-concess.jpg",
     heroImage: "/images/studio/AR Filters/Mollenstreken - Lavezzi Rutjes/Mollenstreken-Lavezzi-Rutjes.png",
+    heroImageLarge: true,
     gradient: "from-yellow-900 to-neutral-950",
     tagline: "Concess Studio",
     description: "Voor Lavezzi Rutjes heeft Concess 2 Instagram AR Filters mogen maken. De filters zijn gemaakt ter promotie van zijn eigen TV-programma; Mollenstreken.",
@@ -1088,6 +1094,7 @@ export const studioCases: StudioCase[] = [
     year: "2022",
     cover: "/images/studio/AR Filters/Viral Festival/Viral-Festival-Concess-Thumbnail.png",
     heroImage: "/images/studio/AR Filters/Viral Festival/Viral-Festival-1.png",
+    heroImageLarge: true,
     gradient: "from-purple-900 to-neutral-950",
     tagline: "Concess Studio",
     description: "Voor het evenement 'Viral Festival' heeft Concess 2 Instagram AR Filters mogen maken. De filters worden gebruikt ter promotie van het festival.",
@@ -1100,6 +1107,7 @@ export const studioCases: StudioCase[] = [
     year: "2022",
     cover: "/images/studio/AR Filters/The Wardrobe Organizer/The-Wardrobe-Organizer-Filter-Concess.png",
     heroImage: "/images/studio/AR Filters/The Wardrobe Organizer/Filters-The-Wardrobe-Organizer.png",
+    heroImageLarge: true,
     gradient: "from-teal-900 to-neutral-950",
     tagline: "Concess Studio",
     description: "Voor The Wardrobe Organizer heeft Concess 2 Instagram AR Filters mogen maken. Het eerste filter hebben we gemaakt met het logo van The Wardrobe Organizer. Daarnaast hebben we een spelelement gemaakt met de vraag 'Welke organizer ben jij?' waarna verschillende soorten organizers te zien zijn.",
