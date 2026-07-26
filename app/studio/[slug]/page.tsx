@@ -22,23 +22,35 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
 
   const youtubeId = project.hoverVideo ? getYouTubeId(project.hoverVideo) : null;
 
+  const hasContentBelow = !!(
+    (project.stats && project.stats.length > 0) ||
+    (project.photos && project.photos.length > 0) ||
+    (project.videos && project.videos.length > 0) ||
+    (project.extraSections && project.extraSections.length > 0) ||
+    (project.guests && project.guests.length > 0) ||
+    project.milestoneImg ||
+    (project.posters && project.posters.length > 0)
+  );
+
+  const lightHero = !!project.heroImage || (project.heroIsTrailer && !hasContentBelow);
+
   return (
     <main style={{ background: "var(--color-linen-100)", minHeight: "100vh" }}>
       <Navbar forceDark />
 
-      {/* ── HERO: licht (AR filters) ── */}
-      {project.heroImage ? (
+      {/* ── HERO: licht (AR filters + heroIsTrailer zonder extra content) ── */}
+      {lightHero ? (
         <section style={{ background: "var(--color-linen-100)" }}>
           <div className="max-w-5xl mx-auto px-6 md:px-16 w-full pt-20 pb-4">
             <BackButton />
           </div>
 
           <div className="max-w-5xl mx-auto px-6 md:px-16 w-full py-10">
-            <div className="flex flex-col lg:flex-row lg:items-center gap-12 lg:gap-24 w-full">
+            <div className="flex flex-col lg:flex-row lg:items-center gap-12 lg:gap-16 w-full">
               {/* Tekst links */}
               <div className="flex-1 min-w-0">
                 <span className="text-[10px] tracking-widest uppercase block mb-4" style={{ color: "var(--color-taupe-400)" }}>
-                  AR Filter{project.year ? ` · ${project.year}` : ""}
+                  {project.tagline ?? "Concess Studio"}{project.tags.length ? ` · ${project.tags.join(" · ")}` : ""}{project.year ? ` · ${project.year}` : ""}
                 </span>
                 <h1 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(2rem, 3.5vw, 3.2rem)", lineHeight: "1.1", color: "var(--color-dark-900)" }}>
                   {project.title}{project.subtitle && <span className="italic" style={{ color: "var(--color-taupe-400)" }}><br />{project.subtitle}</span>}
@@ -50,7 +62,7 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
                   <div className="flex flex-wrap items-center gap-3 mt-8">
                     {project.platformLink && (
                       <a href={project.platformLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs tracking-widest uppercase" style={{ background: "var(--color-dark-900)", color: "white", fontWeight: 600 }}>
-                        {project.platformLinkLabel ?? "Bekijk filter"}
+                        {project.platformLinkLabel ?? "Bekijk"}
                         <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 8L8 2M8 2H3.5M8 2V6.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
                       </a>
                     )}
@@ -69,14 +81,20 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
                 </div>
               </div>
 
-              {/* Telefoon rechts */}
-              <div className="flex-shrink-0 flex justify-center lg:justify-end">
-                <img
-                  src={project.heroImage}
-                  alt={project.title}
-                  style={{ width: project.heroImageLarge ? "clamp(280px, 38vw, 580px)" : "clamp(180px, 22vw, 340px)", objectFit: "contain", display: "block" }}
-                />
-              </div>
+              {/* Rechts: telefoon (AR filter) of trailer embed */}
+              {project.heroImage ? (
+                <div className="flex-shrink-0 flex justify-center lg:justify-end">
+                  <img
+                    src={project.heroImage}
+                    alt={project.title}
+                    style={{ width: project.heroImageLarge ? "clamp(280px, 38vw, 580px)" : "clamp(180px, 22vw, 340px)", objectFit: "contain", display: "block" }}
+                  />
+                </div>
+              ) : youtubeId ? (
+                <div className="flex-shrink-0 rounded-2xl overflow-hidden shadow-lg" style={{ width: "clamp(280px, 42vw, 520px)", aspectRatio: "16/9" }}>
+                  <TrailerEmbed youtubeId={youtubeId} />
+                </div>
+              ) : null}
             </div>
           </div>
         </section>
@@ -396,9 +414,9 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
                 {sec.photos.length > 1 && (
                   <div>
                   <span className="text-[10px] tracking-widest uppercase block mb-4" style={{ color: "var(--color-taupe-500)" }}>Fotografie</span>
-                  <div style={{ columns: "3 200px", gap: "12px" }}>
+                  <div style={{ display: "grid", gridTemplateColumns: `repeat(${sec.photos.length - 1}, 1fr)`, gap: "12px" }}>
                     {sec.photos.slice(1).map((src, j) => (
-                      <div key={j} className="rounded-xl overflow-hidden mb-3 break-inside-avoid">
+                      <div key={j} className="rounded-xl overflow-hidden">
                         <img src={src} alt="" className="w-full h-auto block" />
                       </div>
                     ))}
@@ -436,18 +454,6 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
           )}
         </section>
       ))}
-
-      {/* ── CREAM BUFFER voor heroIsTrailer projecten zonder inhoud eronder ── */}
-      {project.heroIsTrailer && !project.heroImage && (() => {
-        const hasContent = (project.stats && project.stats.length > 0)
-          || (project.photos && project.photos.length > 0)
-          || (project.videos && project.videos.length > 0)
-          || (project.extraSections && project.extraSections.length > 0)
-          || (project.guests && project.guests.length > 0)
-          || project.milestoneImg
-          || (project.posters && project.posters.length > 0);
-        return !hasContent ? <section style={{ background: "var(--color-linen-100)", paddingTop: "3rem", paddingBottom: "3rem" }} /> : null;
-      })()}
 
       <CTAFooter />
     </main>
