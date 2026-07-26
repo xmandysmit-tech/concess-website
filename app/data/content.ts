@@ -465,6 +465,7 @@ export type StudioCase = {
   photos?: string[];
   photosLabel?: string;
   photosGrid?: boolean;
+  photosBanner?: string[];
   photosFit?: "cover" | "contain";
   trailerLabel?: string;
   trailerSeparate?: boolean;
@@ -591,15 +592,18 @@ export const studioCases: StudioCase[] = [
     tagline: "Concess Studio",
     description: "Voor StukTV heeft Concess de fotografie mogen verzorgen van verschillende projecten zoals de overstap van StukTV naar Talpa, het optreden bij Paaspop en de clipshoot van 'Marguareth'.",
     photosLabel: "Fotografie",
-    photos: [
-      "/images/studio/StukTV/img-2546_1_orig.jpg",
-      "/images/studio/StukTV/img-2557_2_orig.jpg",
-      "/images/studio/StukTV/img-2593.jpg",
+    photosGrid: true,
+    photosBanner: [
       "/images/studio/StukTV/img-5019_orig-1.jpg",
+      "/images/studio/StukTV/YbbfsBCA-scaled-1-1920x1280.png",
+    ],
+    photos: [
       "/images/studio/StukTV/7t-17ZAg-1920x2880-1-scaled.jpeg",
       "/images/studio/StukTV/eLOivFgQ-1920x2880-1-scaled.jpeg",
       "/images/studio/StukTV/ip1z9FbQ-1920x2880-1-scaled.jpeg",
-      "/images/studio/StukTV/YbbfsBCA-scaled-1-1920x1280.png",
+      "/images/studio/StukTV/img-2546_1_orig.jpg",
+      "/images/studio/StukTV/img-2557_2_orig.jpg",
+      "/images/studio/StukTV/img-2593.jpg",
     ],
     gallery: [],
   },
