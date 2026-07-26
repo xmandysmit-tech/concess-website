@@ -100,21 +100,21 @@ export default function ContactPage() {
         <div className="grid md:grid-cols-2 gap-12 items-start">
 
           {/* Left — polaroid collage */}
-          <div className="relative w-full" style={{ height: 460 }}>
+          <div className="relative w-full overflow-hidden rounded-xl h-[280px] sm:h-[320px] md:h-[480px]">
             {[
-              { src: "/images/studio/Vrouwmibo-concess-1024x756.jpg",         alt: "Vrouwmibo",   rotate: -14, left: 20,  top: 30,  z: 1 },
-              { src: "/images/creators/enzo_banner.png",                       alt: "Enzo Knol",   rotate: 9,   left: 210, top: 10,  z: 2 },
-              { src: "/images/studio/De-bennies-concess.jpg",                  alt: "De Bennies",  rotate: -7,  left: 130, top: 160, z: 3 },
-              { src: "/images/studio/Vrouwmishow_Concess.png",                 alt: "Vrouwmishow", rotate: 13,  left: 300, top: 120, z: 4 },
-              { src: "/images/Partnerships/de-bennies/air-up/cover.png",       alt: "Air Up",      rotate: -4,  left: 60,  top: 270, z: 5 },
-              { src: "/images/Partnerships/vrouwmibo/Vrouwmibo x Subway.png",  alt: "Subway",      rotate: 11,  left: 250, top: 270, z: 6 },
+              { src: "/images/studio/Fotografie/instasave.website_660158213_18207132739327547_1739720419197374265_n.jpg", alt: "Fotografie",   rotate: -14, left: "4%",  top: "5%",  z: 1, pos: "center center" },
+              { src: "/images/Partnerships/De Bennies/Podimo x De Bennies - Seizoen 4/Bennies-post.png",               alt: "De Bennies",   rotate: 9,   left: "38%", top: "2%",  z: 2, pos: "center top" },
+              { src: "/images/Partnerships/Myron/Myron-x-Bookbeat.png",                                                alt: "Myron",        rotate: -7,  left: "23%", top: "34%", z: 3, pos: "center top" },
+              { src: "/images/Projecten/5K8A1501.jpeg",                                                                alt: "5K8A1501",     rotate: 13,  left: "53%", top: "26%", z: 4, pos: "center top" },
+              { src: "/images/Projecten/Dylan x Shoeby.png",                                                           alt: "Dylan Shoeby", rotate: -4,  left: "10%", top: "57%", z: 5, pos: "center center" },
+              { src: "/images/Partnerships/Enzo/402-AutoMotive-x-Enzo-Knol-1.png",                                    alt: "402 Enzo",     rotate: 11,  left: "44%", top: "57%", z: 6, pos: "center center" },
             ].map((p) => (
               <div
                 key={p.src}
                 className="absolute bg-white"
                 style={{
-                  width: 160,
-                  padding: "8px 8px 28px 8px",
+                  width: "30%",
+                  padding: "1.5% 1.5% 7% 1.5%",
                   left: p.left,
                   top: p.top,
                   transform: `rotate(${p.rotate}deg)`,
@@ -123,7 +123,7 @@ export default function ContactPage() {
                 }}
               >
                 <div className="relative w-full" style={{ aspectRatio: "1/1" }}>
-                  <Image src={p.src} alt={p.alt} fill className="object-cover" />
+                  <Image src={p.src} alt={p.alt} fill className="object-cover" style={{ objectPosition: p.pos }} />
                 </div>
               </div>
             ))}
