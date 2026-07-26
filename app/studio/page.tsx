@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, Suspense } from "react";
 import Link from "next/link";
 import { useSearchParams, useRouter } from "next/navigation";
 import Navbar from "../components/Navbar";
@@ -22,7 +22,7 @@ const filters = [
   { label: "Podcasts",           type: "Podcasts" },
 ];
 
-export default function StudioPage() {
+function StudioContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const [activeFilter, setActiveFilter] = useState<string | null>(
@@ -154,5 +154,13 @@ export default function StudioPage() {
 
       <CTAFooter />
     </main>
+  );
+}
+
+export default function StudioPage() {
+  return (
+    <Suspense>
+      <StudioContent />
+    </Suspense>
   );
 }
