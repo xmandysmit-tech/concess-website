@@ -160,20 +160,19 @@ function StudioContent() {
               const tileInner = (
                 <>
                   <img src={c.cover} alt={c.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                  {/* Frosted glass balk */}
-                  <div className="absolute bottom-0 left-0 right-0 flex items-end justify-between gap-2 px-3 py-2.5 md:px-4 md:py-3" style={{ background: "rgba(14,11,9,0.58)", backdropFilter: "blur(10px)", WebkitBackdropFilter: "blur(10px)", borderTop: "1px solid rgba(255,255,255,0.07)" }}>
+                  {/* Desktop: frosted glass balk met titel */}
+                  <div className="hidden md:flex absolute bottom-0 left-0 right-0 items-end justify-between gap-2 px-4 py-3" style={{ background: "rgba(14,11,9,0.58)", backdropFilter: "blur(10px)", WebkitBackdropFilter: "blur(10px)", borderTop: "1px solid rgba(255,255,255,0.07)" }}>
                     <div style={{ minWidth: 0 }}>
-                      <span className="text-[8px] md:text-[9px] tracking-wider uppercase block mb-0.5" style={{ color: "rgba(255,255,255,0.45)", fontWeight: 600 }}>
-                        <span className="md:hidden">{c.tags[0]}</span>
-                        <span className="hidden md:inline">{c.tags.slice(0, 2).join(" · ")}{c.tags.length > 2 ? ` +${c.tags.length - 2}` : ""}</span>
+                      <span className="text-[9px] tracking-wider uppercase block mb-0.5" style={{ color: "rgba(255,255,255,0.45)", fontWeight: 600 }}>
+                        {c.tags.slice(0, 2).join(" · ")}{c.tags.length > 2 ? ` +${c.tags.length - 2}` : ""}
                       </span>
-                      <h3 className="text-white" style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(0.82rem, 3.8vw, 1.15rem)", lineHeight: 1.2, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}>
+                      <h3 className="text-white" style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "1.1rem", lineHeight: 1.2, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}>
                         {c.tileTitle ?? (c.title + (c.subtitle ? ` – ${c.subtitle}` : ""))}
                       </h3>
                     </div>
                     {c.slug && (
-                      <div className="flex-shrink-0 w-6 h-6 md:w-7 md:h-7 rounded-full flex items-center justify-center" style={{ border: "1px solid rgba(255,255,255,0.3)", background: "rgba(255,255,255,0.06)" }}>
-                        <svg width="9" height="9" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L7.5 2.5M12 7L7.5 11.5" stroke="white" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                      <div className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center" style={{ border: "1px solid rgba(255,255,255,0.3)", background: "rgba(255,255,255,0.06)" }}>
+                        <svg width="10" height="10" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L7.5 2.5M12 7L7.5 11.5" stroke="white" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/></svg>
                       </div>
                     )}
                   </div>
