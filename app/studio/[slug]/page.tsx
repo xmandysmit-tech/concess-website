@@ -28,15 +28,15 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
       {/* ── HERO: licht (AR filters) ── */}
       {project.heroImage ? (
         <section style={{ background: "var(--color-linen-100)", minHeight: "100vh", display: "flex", flexDirection: "column", justifyContent: "center" }}>
-          <div className="max-w-7xl mx-auto px-6 md:px-16 w-full pt-28 pb-16">
+          <div className="max-w-5xl mx-auto px-6 md:px-16 w-full pt-28 pb-16">
             <Link href="/studio" className="inline-flex items-center gap-2 transition-colors text-xs tracking-widest uppercase mb-14" style={{ color: "var(--color-taupe-400)" }}>
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 2L4 7l5 5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
               Studio
             </Link>
 
-            <div className="flex flex-col lg:flex-row lg:items-center gap-12 lg:gap-20">
+            <div className="flex flex-col lg:flex-row lg:items-center gap-12 lg:gap-24">
               {/* Tekst links */}
-              <div className="flex-1 min-w-0 max-w-md">
+              <div className="flex-1 min-w-0">
                 <span className="text-[10px] tracking-widest uppercase block mb-4" style={{ color: "var(--color-taupe-400)" }}>
                   AR Filter{project.year ? ` · ${project.year}` : ""}
                 </span>
@@ -74,7 +74,7 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
                 <img
                   src={project.heroImage}
                   alt={project.title}
-                  style={{ width: "clamp(200px, 26vw, 400px)", objectFit: "contain", display: "block" }}
+                  style={{ width: "clamp(180px, 22vw, 340px)", objectFit: "contain", display: "block" }}
                 />
               </div>
             </div>
