@@ -459,6 +459,7 @@ export type StudioCase = {
   instagramEmbed?: string;
   coverFit?: "cover" | "contain";
   heroImage?: string;
+  tileTitle?: string;
   videos?: string[];
   photos?: string[];
   photosLabel?: string;
@@ -479,6 +480,7 @@ export const studioCases: StudioCase[] = [
     slug: "de-bennies-podcast",
     title: "De Bennies Podcast",
     subtitle: "Productie van begin tot eind",
+    tileTitle: "De Bennies Podcast",
     tags: ["Podcasts", "Graphic Design", "Marketing & Social", "Fotografie"],
     year: "2022 – 2026",
     cover: "/images/Tegels/De Bennies - tegel.png",
@@ -555,6 +557,7 @@ export const studioCases: StudioCase[] = [
     slug: "kp-active-fotografie",
     title: "KP Active",
     subtitle: "fotografie",
+    tileTitle: "KP Active",
     tags: ["Fotografie"],
     year: "2026",
     cover: "/images/Tegels/KP active Fotografie.jpg",
@@ -574,6 +577,7 @@ export const studioCases: StudioCase[] = [
     slug: "fotografie",
     title: "Fotografie",
     subtitle: "shoots & campagnes",
+    tileTitle: "Fotografie",
     tags: ["Fotografie"],
     year: "2020 – heden",
     cover: "/images/studio/fotografie.jpg",
@@ -737,6 +741,7 @@ export const studioCases: StudioCase[] = [
     slug: "bootje-antoon-paul-sinha",
     title: "Bootje",
     subtitle: "Antoon & Paul Sinha",
+    tileTitle: "Bootje – Antoon & Paul",
     tags: ["Marketing & Social"],
     year: "2021",
     cover: "/images/studio/Bootje/Bootje tegel V2.jpg",
@@ -827,6 +832,7 @@ export const studioCases: StudioCase[] = [
     slug: "kinderpostzegelactie",
     title: "Kinderpostzegelactie",
     subtitle: "Dylan Haegens",
+    tileTitle: "Kinderpostzegelactie",
     tags: ["Marketing & Social", "Conceptontwikkeling", "Videoproductie", "Productie"],
     year: "2021",
     cover: "/images/studio/Kinderpostzegels-Dylan-Haegens-1thumbnail-concess.jpg",

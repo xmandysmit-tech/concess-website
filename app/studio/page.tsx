@@ -90,7 +90,7 @@ export default function StudioPage() {
                   <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%)" }} />
                   <div className="absolute bottom-0 left-0 right-0 p-5 flex items-end justify-between">
                     <div>
-                      <h3 className="text-white" style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "1.2rem" }}>{c.title}{c.subtitle ? ` – ${c.subtitle}` : ""}</h3>
+                      <h3 className="text-white" style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "1.2rem" }}>{c.tileTitle ?? (c.title + (c.subtitle ? ` – ${c.subtitle}` : ""))}</h3>
                       <span className="text-[9px] tracking-wider uppercase block mt-0.5" style={{ color: "rgba(255,255,255,0.5)" }}>
                         {c.tags.slice(0, 2).join(" · ")}{c.tags.length > 2 ? ` +${c.tags.length - 2}` : ""}
                       </span>
