@@ -1,6 +1,7 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useSearchParams, useRouter } from "next/navigation";
 import Navbar from "../components/Navbar";
 import CTAFooter from "../components/CTAFooter";
 import { projects, studioCases } from "../data/content";
@@ -22,7 +23,17 @@ const filters = [
 ];
 
 export default function StudioPage() {
-  const [activeFilter, setActiveFilter] = useState<string | null>(null);
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const [activeFilter, setActiveFilter] = useState<string | null>(
+    searchParams.get("filter") ?? null
+  );
+
+  function handleFilter(type: string | null) {
+    setActiveFilter(type);
+    const url = type ? `/studio?filter=${encodeURIComponent(type)}` : "/studio";
+    router.replace(url, { scroll: false });
+  }
 
   const shownCases = activeFilter === null
     ? studioCases
@@ -66,7 +77,7 @@ export default function StudioPage() {
                 return (
                   <button
                     key={f.label}
-                    onClick={() => setActiveFilter(f.type)}
+                    onClick={() => handleFilter(f.type)}
                     className="text-[10px] tracking-widest uppercase px-4 py-2 rounded-full border transition-all duration-200"
                     style={{
                       background: isActive ? "var(--color-dark-900)" : "transparent",

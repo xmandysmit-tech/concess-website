@@ -43,7 +43,7 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
                 <img
                   src={project.heroImage}
                   alt={project.title}
-                  style={{ width: "clamp(180px, 24vw, 300px)", maxHeight: 420, objectFit: "contain", display: "block" }}
+                  style={{ width: "clamp(220px, 32vw, 420px)", maxHeight: 520, objectFit: "contain", display: "block" }}
                 />
               ) : (
                 <div className="rounded-2xl overflow-hidden shadow-2xl" style={{ width: "clamp(200px, 28vw, 340px)", aspectRatio: "1/1" }}>
