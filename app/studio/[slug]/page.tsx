@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Navbar from "../../components/Navbar";
+import BackButton from "../../components/BackButton";
 import CTAFooter from "../../components/CTAFooter";
 import TrailerEmbed from "../../components/TrailerEmbed";
 import VideoGrid from "../../components/VideoGrid";
@@ -29,10 +30,7 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
       {project.heroImage ? (
         <section style={{ background: "var(--color-linen-100)" }}>
           <div className="max-w-5xl mx-auto px-6 md:px-16 w-full pt-20 pb-4">
-            <Link href="/studio" className="inline-flex items-center gap-2 transition-colors text-xs tracking-widest uppercase" style={{ color: "var(--color-taupe-400)" }}>
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 2L4 7l5 5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-              Studio
-            </Link>
+            <BackButton />
           </div>
 
           <div className="max-w-5xl mx-auto px-6 md:px-16 w-full py-10">
@@ -90,10 +88,7 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
         <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(30,28,26,0.5) 0%, var(--color-dark-900) 100%)" }} />
 
         <div className="relative max-w-7xl mx-auto px-6 md:px-12 pt-24 md:pt-32 pb-12">
-          <Link href="/studio" className="inline-flex items-center gap-2 hover:text-white/60 transition-colors text-xs tracking-widest uppercase mb-10" style={{ color: "rgba(255,255,255,0.3)" }}>
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 2L4 7l5 5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-            Studio
-          </Link>
+          <div className="mb-10"><BackButton dark /></div>
 
           <div className="flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-12">
             {project.heroIsTrailer && youtubeId ? (
@@ -441,6 +436,18 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
           )}
         </section>
       ))}
+
+      {/* ── CREAM BUFFER voor heroIsTrailer projecten zonder inhoud eronder ── */}
+      {project.heroIsTrailer && !project.heroImage && (() => {
+        const hasContent = (project.stats && project.stats.length > 0)
+          || (project.photos && project.photos.length > 0)
+          || (project.videos && project.videos.length > 0)
+          || (project.extraSections && project.extraSections.length > 0)
+          || (project.guests && project.guests.length > 0)
+          || project.milestoneImg
+          || (project.posters && project.posters.length > 0);
+        return !hasContent ? <section style={{ background: "var(--color-linen-100)", paddingTop: "3rem", paddingBottom: "3rem" }} /> : null;
+      })()}
 
       <CTAFooter />
     </main>
