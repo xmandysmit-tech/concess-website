@@ -24,12 +24,23 @@ function AutoVideo({ src }: { src: string }) {
 
 export default function VideoGrid({ videos }: { videos: string[] }) {
   return (
-    <div className="grid gap-3" style={{ gridTemplateColumns: `repeat(${videos.length}, 1fr)` }}>
-      {videos.map((src, i) => (
-        <div key={i} className="rounded-2xl overflow-hidden" style={{ aspectRatio: "9/16", background: "var(--color-dark-900)" }}>
-          <AutoVideo src={src} />
-        </div>
-      ))}
-    </div>
+    <>
+      {/* Mobile: horizontal scroll */}
+      <div className="flex md:hidden gap-3 overflow-x-auto snap-x snap-mandatory pb-2" style={{ scrollbarWidth: "none" }}>
+        {videos.map((src, i) => (
+          <div key={i} className="rounded-2xl overflow-hidden snap-start shrink-0" style={{ aspectRatio: "9/16", width: "45vw", background: "var(--color-dark-900)" }}>
+            <AutoVideo src={src} />
+          </div>
+        ))}
+      </div>
+      {/* Desktop: grid */}
+      <div className="hidden md:grid gap-3" style={{ gridTemplateColumns: `repeat(${videos.length}, 1fr)` }}>
+        {videos.map((src, i) => (
+          <div key={i} className="rounded-2xl overflow-hidden" style={{ aspectRatio: "9/16", background: "var(--color-dark-900)" }}>
+            <AutoVideo src={src} />
+          </div>
+        ))}
+      </div>
+    </>
   );
 }

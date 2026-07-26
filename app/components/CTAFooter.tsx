@@ -36,12 +36,12 @@ export default function CTAFooter() {
             Concess.
           </span>
 
-          <div className="flex flex-wrap justify-center gap-8">
+          <div className="flex flex-nowrap justify-center gap-3 md:gap-8">
             {["Creators", "Partnerships", "Studio", "Over ons", "Contact"].map((item) => (
               <a
                 key={item}
                 href={`/${item.toLowerCase().replace(/ /g, "-")}`}
-                className="text-[10px] tracking-widest uppercase text-linen-300/50 hover:text-linen-300 transition-colors"
+                className="text-[9px] md:text-[10px] tracking-widest uppercase text-linen-300/50 hover:text-linen-300 transition-colors whitespace-nowrap"
               >
                 {item}
               </a>

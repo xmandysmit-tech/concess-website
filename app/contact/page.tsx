@@ -100,14 +100,14 @@ export default function ContactPage() {
         <div className="grid md:grid-cols-2 gap-12 items-start">
 
           {/* Left — polaroid collage */}
-          <div className="relative w-full overflow-hidden rounded-xl h-[280px] sm:h-[320px] md:h-[480px]">
+          <div className="relative w-full overflow-hidden rounded-xl h-[370px] sm:h-[370px] md:h-[520px]">
             {[
-              { src: "/images/studio/Fotografie/instasave.website_660158213_18207132739327547_1739720419197374265_n.jpg", alt: "Fotografie",   rotate: -14, left: "4%",  top: "5%",  z: 1, pos: "center center" },
+              { src: "/images/studio/Fotografie/instasave.website_660158213_18207132739327547_1739720419197374265_n.jpg", alt: "Fotografie",   rotate: -14, left: "4%",  top: "4%",  z: 1, pos: "center center" },
               { src: "/images/Partnerships/De Bennies/Podimo x De Bennies - Seizoen 4/Bennies-post.png",               alt: "De Bennies",   rotate: 9,   left: "38%", top: "2%",  z: 2, pos: "center top" },
-              { src: "/images/Partnerships/Myron/Myron-x-Bookbeat.png",                                                alt: "Myron",        rotate: -7,  left: "23%", top: "34%", z: 3, pos: "center top" },
-              { src: "/images/Projecten/5K8A1501.jpeg",                                                                alt: "5K8A1501",     rotate: 13,  left: "53%", top: "26%", z: 4, pos: "center top" },
-              { src: "/images/Projecten/Dylan x Shoeby.png",                                                           alt: "Dylan Shoeby", rotate: -4,  left: "10%", top: "57%", z: 5, pos: "center center" },
-              { src: "/images/Partnerships/Enzo/402-AutoMotive-x-Enzo-Knol-1.png",                                    alt: "402 Enzo",     rotate: 11,  left: "44%", top: "57%", z: 6, pos: "center center" },
+              { src: "/images/Partnerships/Myron/Myron-x-Bookbeat.png",                                                alt: "Myron",        rotate: -7,  left: "23%", top: "32%", z: 3, pos: "center top" },
+              { src: "/images/Projecten/5K8A1501.jpeg",                                                                alt: "5K8A1501",     rotate: 13,  left: "53%", top: "24%", z: 4, pos: "center top" },
+              { src: "/images/Projecten/Dylan x Shoeby.png",                                                           alt: "Dylan Shoeby", rotate: -4,  left: "10%", top: "52%", z: 5, pos: "center center" },
+              { src: "/images/Partnerships/Enzo/402-AutoMotive-x-Enzo-Knol-1.png",                                    alt: "402 Enzo",     rotate: 11,  left: "44%", top: "52%", z: 6, pos: "center center" },
             ].map((p) => (
               <div
                 key={p.src}

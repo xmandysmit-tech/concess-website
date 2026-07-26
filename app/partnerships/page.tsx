@@ -40,8 +40,8 @@ const brandLogos = [
 ];
 
 const doubled = [...brandLogos, ...brandLogos];
-const PAGE_SIZE = 9;
-const MOBILE_INITIAL = 9;
+const PAGE_SIZE = 12;
+const MOBILE_INITIAL = 12;
 
 export default function PartnershipsPage() {
   const [visible, setVisible] = useState(PAGE_SIZE);

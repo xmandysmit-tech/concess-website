@@ -180,10 +180,11 @@ export default function CreatorsPage() {
                   ...manual.map((w) => ({ brand: w.brand, type: w.type, gradient: w.gradient, img: w.img, slug: w.slug, year: undefined })),
                 ].slice(0, 3);
                 return (
-              <div className="flex md:grid md:grid-cols-4 gap-3 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-2 md:pb-0" style={{ scrollbarWidth: "none" }}>
+              <div>
+              <div className="flex md:grid md:grid-cols-4 gap-3 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-3 md:pb-0" style={{ scrollbarWidth: "none" }}>
                 {merged.map((w, i) => {
                   const inner = (
-                    <div className={`relative overflow-hidden rounded-2xl bg-gradient-to-br ${w.gradient} snap-start`} style={{ aspectRatio: "3/4", minWidth: "200px" }}>
+                    <div className={`relative overflow-hidden rounded-2xl bg-gradient-to-br ${w.gradient} snap-start`} style={{ aspectRatio: "3/4", minWidth: "calc(50% - 6px)" }}>
                       {w.img && <img src={w.img} alt={w.brand} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />}
                       <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%)" }} />
                       <div className="absolute bottom-0 left-0 right-0 p-5 flex items-end justify-between">
@@ -203,6 +204,12 @@ export default function CreatorsPage() {
                     ? <a key={i} href={`/partnerships/${w.slug}`} className="group">{inner}</a>
                     : <div key={i}>{inner}</div>;
                 })}
+              </div>
+              {/* Swipe hint — mobile only */}
+              <div className="flex items-center gap-1.5 mt-2 md:hidden">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-taupe-500"><path d="M5 12h14M15 7l5 5-5 5"/></svg>
+                <span className="text-[9px] tracking-widest uppercase text-taupe-500">Swipe voor meer</span>
+              </div>
               </div>
                 );
               })()}

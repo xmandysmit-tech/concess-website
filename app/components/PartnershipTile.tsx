@@ -41,7 +41,7 @@ export default function PartnershipTile({ p }: { p: PartnershipCase }) {
       )}
       <div className="absolute bottom-0 left-0 right-0 p-4 flex items-end justify-between">
         <div>
-          <span className="text-[9px] tracking-widest uppercase text-white/60 block mb-0.5" style={{ fontWeight: 600 }}>
+          <span className="text-[8px] tracking-widest uppercase text-white/60 block mb-0.5 truncate" style={{ fontWeight: 600 }}>
             {p.creator} · {p.year}
           </span>
           <h3 className="text-white" style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "1.1rem", lineHeight: 1.2 }}>
