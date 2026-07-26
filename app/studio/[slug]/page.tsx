@@ -25,7 +25,64 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
     <main style={{ background: "var(--color-linen-100)", minHeight: "100vh" }}>
       <Navbar forceDark />
 
-      {/* ── HERO ── */}
+      {/* ── HERO: licht (AR filters) ── */}
+      {project.heroImage ? (
+        <section style={{ background: "var(--color-linen-100)", minHeight: "100vh", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+          <div className="max-w-7xl mx-auto px-6 md:px-16 w-full pt-28 pb-16">
+            <Link href="/studio" className="inline-flex items-center gap-2 transition-colors text-xs tracking-widest uppercase mb-14" style={{ color: "var(--color-taupe-400)" }}>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 2L4 7l5 5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+              Studio
+            </Link>
+
+            <div className="flex flex-col lg:flex-row lg:items-center gap-12 lg:gap-20">
+              {/* Tekst links */}
+              <div className="flex-1 min-w-0 max-w-md">
+                <span className="text-[10px] tracking-widest uppercase block mb-4" style={{ color: "var(--color-taupe-400)" }}>
+                  AR Filter{project.year ? ` · ${project.year}` : ""}
+                </span>
+                <h1 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(2rem, 3.5vw, 3.2rem)", lineHeight: "1.1", color: "var(--color-dark-900)" }}>
+                  {project.title}{project.subtitle && <span className="italic" style={{ color: "var(--color-taupe-400)" }}><br />{project.subtitle}</span>}
+                </h1>
+                <p className="mt-5 text-sm leading-relaxed" style={{ color: "var(--color-taupe-500)", fontFamily: "'Playfair Display', Georgia, serif" }}>
+                  {project.description}
+                </p>
+                {(project.platformLink || project.platformLink2) && (
+                  <div className="flex flex-wrap items-center gap-3 mt-8">
+                    {project.platformLink && (
+                      <a href={project.platformLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs tracking-widest uppercase" style={{ background: "var(--color-dark-900)", color: "white", fontWeight: 600 }}>
+                        {project.platformLinkLabel ?? "Bekijk filter"}
+                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 8L8 2M8 2H3.5M8 2V6.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                      </a>
+                    )}
+                    {project.platformLink2 && (
+                      <a href={project.platformLink2} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs tracking-widest uppercase" style={{ border: "1px solid var(--color-taupe-300)", color: "var(--color-taupe-500)", fontWeight: 600 }}>
+                        {project.platformLinkLabel2 ?? "Bekijk"}
+                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 8L8 2M8 2H3.5M8 2V6.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                      </a>
+                    )}
+                  </div>
+                )}
+                <div className="flex flex-wrap gap-2 mt-6">
+                  {project.tags.map((t) => (
+                    <span key={t} className="text-[9px] tracking-wider uppercase px-3 py-1 rounded-full" style={{ background: "var(--color-linen-200)", color: "var(--color-taupe-400)" }}>{t}</span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Telefoon rechts */}
+              <div className="flex-shrink-0 flex justify-center lg:justify-end">
+                <img
+                  src={project.heroImage}
+                  alt={project.title}
+                  style={{ width: "clamp(280px, 42vw, 600px)", objectFit: "contain", display: "block" }}
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+      ) : (
+
+      /* ── HERO: donker (productie / podcast) ── */
       <section className="relative overflow-hidden" style={{ background: "var(--color-dark-900)" }}>
         <div className="absolute inset-0 opacity-15" style={{ backgroundImage: `url(${project.cover})`, backgroundSize: "cover", backgroundPosition: "center", filter: "blur(40px)", transform: "scale(1.1)" }} />
         <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(30,28,26,0.5) 0%, var(--color-dark-900) 100%)" }} />
@@ -37,29 +94,19 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
           </Link>
 
           <div className="flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-12">
-            {/* Artwork */}
             <div className="flex-shrink-0">
-              {project.heroImage ? (
-                <img
-                  src={project.heroImage}
-                  alt={project.title}
-                  style={{ width: "clamp(320px, 55vw, 720px)", objectFit: "contain", display: "block" }}
-                />
-              ) : (
-                <div className="rounded-2xl overflow-hidden shadow-2xl" style={{ width: "clamp(200px, 28vw, 340px)", aspectRatio: "1/1" }}>
-                  <img src={project.cover} alt={project.title} className={`w-full h-full ${project.coverFit === "contain" ? "object-contain" : "object-cover"}`} />
-                </div>
-              )}
+              <div className="rounded-2xl overflow-hidden shadow-2xl" style={{ width: "clamp(200px, 28vw, 340px)", aspectRatio: "1/1" }}>
+                <img src={project.cover} alt={project.title} className={`w-full h-full ${project.coverFit === "contain" ? "object-contain" : "object-cover"}`} />
+              </div>
             </div>
 
-            {/* Info */}
-            <div style={{ maxWidth: project.heroImage ? "300px" : undefined }} className="min-w-0">
+            <div className="flex-1 min-w-0">
               {project.tagline && (
                 <span className="text-[10px] tracking-widest uppercase block mb-2" style={{ color: "var(--color-taupe-400)" }}>
                   {project.tagline} <span style={{ opacity: 0.4, fontWeight: 700 }}>|</span> {project.tags.join(" · ")} · {project.year}
                 </span>
               )}
-              <h1 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: project.heroImage ? "clamp(1.1rem, 1.6vw, 1.5rem)" : "clamp(2rem, 4.5vw, 4rem)", lineHeight: "1.15", color: "white" }}>
+              <h1 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "clamp(2rem, 4.5vw, 4rem)", lineHeight: "1.15", color: "white" }}>
                 {project.title}{project.subtitle && <span className="italic" style={{ color: "var(--color-taupe-300)" }}>, {project.subtitle}</span>}
               </h1>
               <p className="mt-3 text-sm leading-relaxed max-w-lg" style={{ color: "rgba(255,255,255,0.35)", fontFamily: "'Playfair Display', Georgia, serif" }}>
@@ -85,7 +132,6 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
                 ))}
               </div>
 
-              {/* Hosts */}
               {project.creatorProfiles && (
                 <div className="flex items-center gap-5 mt-7 pt-6" style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
                   {project.creatorProfiles.map((c) => (
@@ -99,7 +145,6 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
                 </div>
               )}
 
-              {/* Socials */}
               {project.socials && project.socials.length > 0 && (
                 <div className="flex flex-wrap gap-2 mt-5 pt-5" style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
                   {project.socials.map((s) => (
@@ -115,6 +160,7 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
           </div>
         </div>
       </section>
+      )}
 
       {/* ── STATS ── */}
       {project.stats && (
