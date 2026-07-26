@@ -74,7 +74,7 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
                 <img
                   src={project.heroImage}
                   alt={project.title}
-                  style={{ width: "clamp(240px, 32vw, 480px)", objectFit: "contain", display: "block" }}
+                  style={{ width: "clamp(200px, 26vw, 400px)", objectFit: "contain", display: "block" }}
                 />
               </div>
             </div>
