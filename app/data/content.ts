@@ -904,11 +904,6 @@ export const studioCases: StudioCase[] = [
     gradient: "from-rose-900 to-neutral-950",
     tagline: "Concess Studio",
     description: "Kes van den Broek heeft in 2020 meegedaan aan het RTL-programma 'The Voice of Holland'. Haar battle 'Menak Wla Meni Verleden Tijd' met Ayoub Maach heeft meer dan 600.000 views gehaald op YouTube en meer dan 3 miljoen streams op Spotify. Nadat Kes in de halve finale het programma heeft verlaten, heeft ze met Ayoub Maach en Ali B. een nummer uitgebracht genaamd 'Zina'. Dit nummer heeft 1,9 miljoen views op YouTube en meer dan 2 miljoen streams op Spotify.\n\nVoor Kes van den Broek heeft Concess haar totale content management verzorgd van maart tot december 2020. Dit houdt in dat wij Kes hebben geholpen bij het bedenken, produceren, filmen en editen van haar YouTube video's, samenwerkingen voor social media en heeft Concess haar vormgeving verzorgt.",
-    stats: [
-      { value: "600.000+", label: "Views op YouTube (battle)" },
-      { value: "3M+", label: "Streams op Spotify (battle)" },
-      { value: "1,9M", label: "Views op YouTube (Zina)" },
-    ],
     gallery: [],
   },
   {
