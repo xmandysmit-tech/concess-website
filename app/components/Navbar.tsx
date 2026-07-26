@@ -18,7 +18,7 @@ export default function Navbar({ forceDark = false }: { forceDark?: boolean }) {
     setMenuOpen(false);
   }, [pathname]);
 
-  const dark = scrolled || forceDark || menuOpen;
+  const dark = true || scrolled || forceDark || menuOpen;
 
   const navItems = ["Home", "Creators", "Partnerships", "Studio", "Over ons"];
 
