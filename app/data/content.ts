@@ -1243,7 +1243,6 @@ export const studioCases: StudioCase[] = [
     gallery: [],
   },
   {
-  {
     slug: "tante-soof",
     title: "Tante Soof",
     tags: ["Productie"],
