@@ -183,8 +183,9 @@ export default function CreatorsPage() {
               <div>
               <div className="flex md:grid md:grid-cols-4 gap-3 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-3 md:pb-0" style={{ scrollbarWidth: "none" }}>
                 {merged.map((w, i) => {
+                  const cardStyle = { aspectRatio: "3/4", minWidth: "calc(50% - 6px)", flexShrink: 0 };
                   const inner = (
-                    <div className={`relative overflow-hidden rounded-2xl bg-gradient-to-br ${w.gradient} snap-start`} style={{ aspectRatio: "3/4", minWidth: "calc(50% - 6px)" }}>
+                    <div className={`relative overflow-hidden rounded-2xl bg-gradient-to-br ${w.gradient}`} style={{ aspectRatio: "3/4", width: "100%", height: "100%" }}>
                       {w.img && <img src={w.img} alt={w.brand} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />}
                       <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%)" }} />
                       <div className="absolute bottom-0 left-0 right-0 p-5 flex items-end justify-between">
@@ -201,8 +202,8 @@ export default function CreatorsPage() {
                     </div>
                   );
                   return w.slug
-                    ? <a key={i} href={`/partnerships/${w.slug}`} className="group">{inner}</a>
-                    : <div key={i}>{inner}</div>;
+                    ? <a key={i} href={`/partnerships/${w.slug}`} className="group snap-start" style={cardStyle}>{inner}</a>
+                    : <div key={i} className="snap-start" style={cardStyle}>{inner}</div>;
                 })}
               </div>
               {/* Swipe hint — mobile only */}

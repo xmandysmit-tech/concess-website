@@ -32,7 +32,7 @@ function WorkCard({
         )}
       </div>
       <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 60%, transparent 100%)" }} />
-      <div className={`relative z-10 flex flex-col justify-end h-full ${large ? "min-h-[230px] md:min-h-[480px] p-5 md:p-8" : "min-h-[230px] p-5"}`}>
+      <div className={`relative z-10 flex flex-col justify-end h-full min-h-[230px] ${large ? "md:min-h-[480px] p-5 md:p-8" : "p-5"}`}>
         <div style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}>
           <p className={`text-white m-0 font-bold ${large ? "text-xl md:text-3xl lg:text-4xl" : "text-xl"}`} style={{ lineHeight: 1 }}>{work.brand}</p>
           <p className={`text-white opacity-70 italic m-0 font-bold ${large ? "text-xl md:text-3xl lg:text-4xl" : "text-xl"}`} style={{ lineHeight: 1, marginTop: "0.05em" }}>{work.creator}</p>
@@ -83,7 +83,7 @@ export default function SelectedWork() {
         </a>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 grid-rows-2 gap-3 md:h-[500px]">
+      <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-3 md:h-[500px]">
         <WorkCard work={homepageFeatured[0]} large />
         {homepageFeatured.slice(1).map((w, i) => (
           <WorkCard key={i} work={w} />

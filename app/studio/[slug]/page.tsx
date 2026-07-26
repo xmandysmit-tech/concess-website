@@ -309,22 +309,20 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
         </section>
       )}
 
-      {/* ── TRAILER + SHORT-FORM naast elkaar (geen foto's) ── */}
+      {/* ── TRAILER + SHORT-FORM: gestapeld op mobile, naast elkaar op desktop ── */}
       {project.videos && project.videos.length > 0 && youtubeId && (!project.photos || project.photos.length === 0) && (
         <section className="pt-10 pb-6 max-w-7xl mx-auto px-6 md:px-12">
-          <div className="flex gap-5 items-stretch" style={{ height: 340 }}>
-            <div className="flex flex-col gap-2" style={{ width: "52%" }}>
-              <span className="text-[10px] tracking-widest uppercase" style={{ color: "var(--color-taupe-500)" }}>{project.trailerLabel ?? "Trailer"}</span>
-              <div className="rounded-2xl overflow-hidden flex-1" style={{ background: "var(--color-dark-900)" }}>
-                <TrailerEmbed youtubeId={youtubeId} />
-              </div>
+          {/* Trailer */}
+          <div className="mb-6">
+            <span className="text-[10px] tracking-widest uppercase block mb-2" style={{ color: "var(--color-taupe-500)" }}>{project.trailerLabel ?? "Trailer"}</span>
+            <div className="rounded-2xl overflow-hidden w-full" style={{ background: "var(--color-dark-900)" }}>
+              <TrailerEmbed youtubeId={youtubeId} />
             </div>
-            <div className="flex flex-col gap-2 flex-1">
-              <span className="text-[10px] tracking-widest uppercase" style={{ color: "var(--color-taupe-500)" }}>Short-form content</span>
-              <div className="flex-1">
-                <VideoGrid videos={project.videos} />
-              </div>
-            </div>
+          </div>
+          {/* Short-form */}
+          <div>
+            <span className="text-[10px] tracking-widest uppercase block mb-2" style={{ color: "var(--color-taupe-500)" }}>Short-form content</span>
+            <VideoGrid videos={project.videos} />
           </div>
         </section>
       )}
