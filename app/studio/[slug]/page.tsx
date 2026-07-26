@@ -38,12 +38,12 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
 
           <div className="flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-12">
             {/* Artwork */}
-            <div className={project.heroImage ? "flex-shrink-0" : "flex-shrink-0"}>
+            <div className="flex-shrink-0">
               {project.heroImage ? (
                 <img
                   src={project.heroImage}
                   alt={project.title}
-                  style={{ width: "clamp(280px, 45vw, 600px)", objectFit: "contain", display: "block" }}
+                  style={{ width: "clamp(320px, 55vw, 720px)", objectFit: "contain", display: "block" }}
                 />
               ) : (
                 <div className="rounded-2xl overflow-hidden shadow-2xl" style={{ width: "clamp(200px, 28vw, 340px)", aspectRatio: "1/1" }}>
@@ -53,13 +53,13 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
             </div>
 
             {/* Info */}
-            <div className="flex-1 min-w-0">
+            <div style={{ maxWidth: project.heroImage ? "300px" : undefined }} className="min-w-0">
               {project.tagline && (
                 <span className="text-[10px] tracking-widest uppercase block mb-2" style={{ color: "var(--color-taupe-400)" }}>
                   {project.tagline} <span style={{ opacity: 0.4, fontWeight: 700 }}>|</span> {project.tags.join(" · ")} · {project.year}
                 </span>
               )}
-              <h1 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: project.heroImage ? "clamp(1.4rem, 2.2vw, 2rem)" : "clamp(2rem, 4.5vw, 4rem)", lineHeight: "1.15", color: "white" }}>
+              <h1 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: project.heroImage ? "clamp(1.1rem, 1.6vw, 1.5rem)" : "clamp(2rem, 4.5vw, 4rem)", lineHeight: "1.15", color: "white" }}>
                 {project.title}{project.subtitle && <span className="italic" style={{ color: "var(--color-taupe-300)" }}>, {project.subtitle}</span>}
               </h1>
               <p className="mt-3 text-sm leading-relaxed max-w-lg" style={{ color: "rgba(255,255,255,0.35)", fontFamily: "'Playfair Display', Georgia, serif" }}>

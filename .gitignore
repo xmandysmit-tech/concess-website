@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+public/images/Partnerships/De Bennies/Air up x De Bennies/*.mp4
+public/images/Partnerships/De Bennies/Podimo x De Bennies - Seizoen 2/*.mp4
+public/images/Partnerships/TikTok meme.MP4
