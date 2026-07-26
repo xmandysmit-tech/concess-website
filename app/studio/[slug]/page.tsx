@@ -380,7 +380,7 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
       )}
 
       {/* ── EXTRA FOTO'S (masonry, vanaf foto 2) ── */}
-      {project.photos && project.photos.length > 1 && !project.trailerSeparate && (
+      {project.photos && project.photos.length > 1 && !project.trailerSeparate && youtubeId && (
         <section className="pt-10 pb-12 max-w-7xl mx-auto px-6 md:px-12">
           <span className="text-[10px] tracking-widest uppercase block mb-4" style={{ color: "var(--color-taupe-500)" }}>Fotografie</span>
           <div style={{ columns: "3 280px", gap: "12px" }}>
