@@ -405,13 +405,23 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
       {project.photos && project.photos.length > 0 && !youtubeId && (
         <section className="pt-12 pb-12 max-w-7xl mx-auto px-6 md:px-12">
           <span className="text-[10px] tracking-widest uppercase block mb-4" style={{ color: "var(--color-taupe-500)" }}>{project.photosLabel ?? "Beelden"}</span>
-          <div style={{ columns: "3 280px", gap: "12px" }}>
-            {project.photos.map((src, i) => (
-              <div key={i} className="rounded-xl overflow-hidden mb-3 break-inside-avoid">
-                <img src={src} alt="" className="w-full h-auto block" />
-              </div>
-            ))}
-          </div>
+          {project.photosGrid ? (
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "12px" }}>
+              {project.photos.map((src, i) => (
+                <div key={i} className="rounded-xl overflow-hidden">
+                  <img src={src} alt="" className="w-full h-auto block" />
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div style={{ columns: "3 280px", gap: "12px" }}>
+              {project.photos.map((src, i) => (
+                <div key={i} className="rounded-xl overflow-hidden mb-3 break-inside-avoid">
+                  <img src={src} alt="" className="w-full h-auto block" />
+                </div>
+              ))}
+            </div>
+          )}
         </section>
       )}
 

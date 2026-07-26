@@ -464,6 +464,7 @@ export type StudioCase = {
   videos?: string[];
   photos?: string[];
   photosLabel?: string;
+  photosGrid?: boolean;
   photosFit?: "cover" | "contain";
   trailerLabel?: string;
   trailerSeparate?: boolean;
@@ -634,12 +635,14 @@ export const studioCases: StudioCase[] = [
     tagline: "Concess Studio",
     description: "Voor Sophie Milzink heeft Concess haar social media content mogen fotograferen van 2018 tot 2020.",
     photosLabel: "Fotografie",
+    photosGrid: true,
     photos: [
       "/images/studio/Sophie Milzink/IMG_2145-2-1920x2880-1-scaled.jpg",
       "/images/studio/Sophie Milzink/IMG_2150-2-1920x2880-1-scaled.jpg",
-      "/images/studio/Sophie Milzink/IMG_6633-1920x2880-1-scaled.jpg",
-      "/images/studio/Sophie Milzink/IMG_8004-2-1920x2880-1-scaled.jpg",
       "/images/studio/Sophie Milzink/Schermafbeelding-2021-03-13-om-21.05.06.png",
+      "/images/studio/Sophie Milzink/IMG_8004-2-1920x2880-1-scaled.jpg",
+      "/images/studio/Sophie Milzink/IMG_6633-1920x2880-1-scaled.jpg",
+      "/images/studio/Sophie Milzink/IMG_6633-kopie.png",
     ],
     gallery: [],
   },
