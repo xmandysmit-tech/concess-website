@@ -399,12 +399,15 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
                 </div>
                 {/* Foto's eronder */}
                 {sec.photos.length > 1 && (
+                  <div>
+                  <span className="text-[10px] tracking-widest uppercase block mb-4" style={{ color: "var(--color-taupe-500)" }}>Fotografie</span>
                   <div style={{ columns: "3 200px", gap: "12px" }}>
                     {sec.photos.slice(1).map((src, j) => (
                       <div key={j} className="rounded-xl overflow-hidden mb-3 break-inside-avoid">
                         <img src={src} alt="" className="w-full h-auto block" />
                       </div>
                     ))}
+                  </div>
                   </div>
                 )}
               </div>

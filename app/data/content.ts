@@ -885,7 +885,7 @@ export const studioCases: StudioCase[] = [
     platformLinkLabel: "Bekijk op YouTube",
     extraSections: [
       {
-        label: "AR Filters",
+        label: "AR Filter",
         title: "Whip My Hair Filter",
         text: "Met de 'Whip My Hair' AR Filter kan je meedoen aan de winacties in samenwerking met L'Oréal Professionnel! Klik op het scherm zodat het rad begint te draaien. Het product waarop het rad eindigt kan jij winnen door de story te plaatsen en Randy hierin te taggen.",
         photos: [
