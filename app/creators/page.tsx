@@ -73,7 +73,7 @@ export default function CreatorsPage() {
       </section>
 
       {/* Sticky creator nav */}
-      <div className="sticky top-16 z-40" style={{ background: "var(--color-dark-900)", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+      <div className="sticky top-0 md:top-16 z-40" style={{ background: "var(--color-dark-900)", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex gap-2 pt-3 pb-6">
           {creators.map((c) => {
             const isActive = activeCreator === c.name;
