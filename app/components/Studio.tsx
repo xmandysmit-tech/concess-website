@@ -23,7 +23,7 @@ const services = [
   {
     num: "04", title: "AR Filters", desc: "Instagram & TikTok",
     gradient: "from-stone-700 to-stone-900", accent: "#C9B99A",
-    img: "/images/studio/ar_filter.png",
+    img: "/images/studio/AR Filters/ar_filter.png",
     icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" className="w-6 h-6"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" /></svg>,
   },
   {
