@@ -15,6 +15,9 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://concess.nl"),
+  verification: {
+    google: "FQbrnYhnRikb_wnLQJKM_KLk6tuo1MUlLZzUShQ3-dQ",
+  },
   title: {
     default: "Concess | Social Agency & Influencer Management Nederland",
     template: "%s | Concess",
