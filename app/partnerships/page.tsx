@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import Navbar from "../components/Navbar";
 import CTAFooter from "../components/CTAFooter";
 import PartnershipTile from "../components/PartnershipTile";
 import { projects, partnershipCases } from "../data/content";
@@ -53,7 +52,7 @@ export default function PartnershipsPage() {
 
   return (
     <main style={{ background: "var(--color-linen-100)", minHeight: "100vh" }}>
-      <Navbar forceDark />
+      
 
       {/* Hero */}
       <section className="relative overflow-hidden" style={{ background: "var(--color-dark-900)" }}>

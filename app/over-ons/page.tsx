@@ -1,4 +1,3 @@
-import Navbar from "../components/Navbar";
 import CTAFooter from "../components/CTAFooter";
 
 const services = ["Creator Management", "Brand Partnerships", "Video & Productie", "Fotografie", "Event Organisatie", "AR Filters", "Graphic Design", "Marketing & Social", "Web Design", "Podcasts"];
@@ -13,7 +12,7 @@ const socials = [
 export default function OverOnsPage() {
   return (
     <main style={{ background: "var(--color-linen-100)", minHeight: "100vh" }}>
-      <Navbar forceDark />
+      
 
       {/* Header — compact dark, matching other pages */}
       <section className="relative overflow-hidden" style={{ background: "var(--color-dark-900)" }}>

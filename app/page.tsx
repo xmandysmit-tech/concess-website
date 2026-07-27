@@ -1,4 +1,3 @@
-import Navbar from "./components/Navbar";
 import AnimatedHero from "./components/AnimatedHero";
 import SelectedWork from "./components/SelectedWork";
 import Creators from "./components/Creators";
@@ -10,7 +9,7 @@ import ScrollReveal from "./components/ScrollReveal";
 export default function Home() {
   return (
     <main>
-      <Navbar />
+      
       <AnimatedHero />
       <ScrollReveal><SelectedWork /></ScrollReveal>
       <ScrollReveal delay={100}><Creators /></ScrollReveal>

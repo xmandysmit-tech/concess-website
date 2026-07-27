@@ -1,6 +1,5 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
-import Navbar from "../components/Navbar";
 import CTAFooter from "../components/CTAFooter";
 import { creators, partnershipCases } from "../data/content";
 
@@ -57,7 +56,7 @@ export default function CreatorsPage() {
 
   return (
     <main style={{ background: "var(--color-linen-100)", minHeight: "100vh" }}>
-      <Navbar forceDark />
+      
 
       {/* Hero header */}
       <section className="relative overflow-hidden" style={{ background: "var(--color-dark-900)" }}>

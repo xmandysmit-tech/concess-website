@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import Navbar from "../../components/Navbar";
 import CTAFooter from "../../components/CTAFooter";
 import TrailerEmbed from "../../components/TrailerEmbed";
 import { partnershipCases } from "../../data/content";
@@ -33,7 +32,7 @@ export default async function PartnershipPage({ params }: { params: Promise<{ sl
 
   return (
     <main style={{ background: "var(--color-linen-100)", minHeight: "100vh" }}>
-      <Navbar forceDark />
+      
 
       {/* ── HERO ── */}
       <section className="relative overflow-hidden" style={{ background: "var(--color-dark-900)" }}>

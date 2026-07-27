@@ -3,11 +3,12 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-export default function Navbar({ forceDark = false }: { forceDark?: boolean }) {
+export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
+  const isHomepage = pathname === "/";
 
   useEffect(() => {
     setIsMobile(window.innerWidth < 768);
@@ -20,7 +21,7 @@ export default function Navbar({ forceDark = false }: { forceDark?: boolean }) {
     setMenuOpen(false);
   }, [pathname]);
 
-  const dark = isMobile || scrolled || forceDark || menuOpen;
+  const dark = isMobile || scrolled || !isHomepage || menuOpen;
 
   const navItems = ["Home", "Creators", "Partnerships", "Studio", "Over ons"];
 

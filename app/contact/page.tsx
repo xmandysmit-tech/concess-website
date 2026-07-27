@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-import Navbar from "../components/Navbar";
 import CTAFooter from "../components/CTAFooter";
 
 const socials = [
@@ -84,7 +83,7 @@ export default function ContactPage() {
 
   return (
     <main style={{ background: "var(--color-linen-100)", minHeight: "100vh" }}>
-      <Navbar forceDark />
+      
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 pt-28 pb-20">
 

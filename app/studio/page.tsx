@@ -2,7 +2,6 @@
 import { useState, Suspense } from "react";
 import Link from "next/link";
 import { useSearchParams, useRouter } from "next/navigation";
-import Navbar from "../components/Navbar";
 import CTAFooter from "../components/CTAFooter";
 import { projects, studioCases } from "../data/content";
 
@@ -107,7 +106,7 @@ function StudioContent() {
 
   return (
     <main style={{ background: "var(--color-linen-100)", minHeight: "100vh" }}>
-      <Navbar forceDark />
+      
 
       {/* Header */}
       <section className="relative overflow-hidden" style={{ background: "var(--color-dark-900)" }}>

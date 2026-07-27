@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import Navbar from "../components/Navbar";
 import CTAFooter from "../components/CTAFooter";
 import HorizontalScroll from "../components/HorizontalScroll";
 import { projects, featuredProjects } from "../data/content";
@@ -15,7 +14,7 @@ export default function WerkPage() {
 
   return (
     <main style={{ background: "var(--color-linen-100)", minHeight: "100vh" }}>
-      <Navbar forceDark />
+      
 
       {/* Header */}
       <section className="pt-24 md:pt-36 pb-10 max-w-7xl mx-auto px-6 md:px-12">

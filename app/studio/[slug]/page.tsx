@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import Navbar from "../../components/Navbar";
 import BackButton from "../../components/BackButton";
 import CTAFooter from "../../components/CTAFooter";
 import TrailerEmbed from "../../components/TrailerEmbed";
@@ -36,7 +35,7 @@ export default async function StudioCasePage({ params }: { params: Promise<{ slu
 
   return (
     <main style={{ background: "var(--color-linen-100)", minHeight: "100vh" }}>
-      <Navbar forceDark />
+      
 
       {/* ── HERO: licht (AR filters + heroIsTrailer zonder extra content) ── */}
       {lightHero ? (
