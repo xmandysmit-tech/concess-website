@@ -161,17 +161,18 @@ export default async function PartnershipPage({ params }: { params: Promise<{ sl
       {(youtubeId && project.instagramEmbed) && (
         <section className="pb-12 max-w-7xl mx-auto px-6 md:px-12">
           <span className="text-[10px] tracking-widest uppercase block mb-3" style={{ color: "var(--color-taupe-500)" }}>Recap</span>
-          <div className="flex gap-4 items-start">
-            {/* YouTube — neemt alle resterende ruimte */}
-            <div className="flex-1 rounded-2xl overflow-hidden" style={{ aspectRatio: "16/9", background: "var(--color-dark-900)" }}>
+          {/* Mobile: gestapeld, Desktop: naast elkaar */}
+          <div className="flex flex-col md:flex-row gap-4 md:items-start">
+            {/* YouTube — full width op mobile, flex-1 op desktop */}
+            <div className="w-full md:flex-1 rounded-2xl overflow-hidden" style={{ aspectRatio: "16/9", background: "var(--color-dark-900)" }}>
               <iframe
                 src={`https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1&mute=1&rel=0&modestbranding=1&loop=1&playlist=${youtubeId}&controls=0&disablekb=1&iv_load_policy=3`}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 className="w-full h-full border-0"
               />
             </div>
-            {/* Instagram — portrait formaat, gelijke hoogte als YouTube, witruimte rechts */}
-            <div className="flex-shrink-0 rounded-2xl overflow-hidden" style={{ width: 280, aspectRatio: "9/16", background: "var(--color-dark-900)" }}>
+            {/* Instagram — portrait formaat */}
+            <div className="rounded-2xl overflow-hidden mx-auto md:mx-0 md:flex-shrink-0" style={{ width: 280, aspectRatio: "9/16", background: "var(--color-dark-900)" }}>
               <iframe
                 src={`${project.instagramEmbed}embed/`}
                 className="border-0 w-full h-full"
