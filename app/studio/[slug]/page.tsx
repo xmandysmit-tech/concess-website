@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import BackButton from "../../components/BackButton";
@@ -8,6 +9,26 @@ import { studioCases } from "../../data/content";
 
 export function generateStaticParams() {
   return studioCases.filter((c) => c.slug).map((c) => ({ slug: c.slug }));
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const project = studioCases.find((c) => c.slug === slug);
+  if (!project) return {};
+  const title = `${project.title} | Studio Concess`;
+  const description = `${project.description.slice(0, 150)}… — een productie van Concess Studio. ${project.year}`;
+  return {
+    title,
+    description,
+    keywords: [project.title, ...project.tags, "Concess Studio", "productiehuis Nederland", "video productie"].filter(Boolean),
+    alternates: { canonical: `https://concess.nl/studio/${slug}` },
+    openGraph: {
+      title,
+      description,
+      url: `https://concess.nl/studio/${slug}`,
+      images: project.cover ? [{ url: project.cover, alt: project.title }] : [],
+    },
+  };
 }
 
 function getYouTubeId(url: string) {

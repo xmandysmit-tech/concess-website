@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import CTAFooter from "../../components/CTAFooter";
@@ -6,6 +7,26 @@ import { partnershipCases } from "../../data/content";
 
 export function generateStaticParams() {
   return partnershipCases.filter((p) => p.slug).map((p) => ({ slug: p.slug }));
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const project = partnershipCases.find((p) => p.slug === slug);
+  if (!project) return {};
+  const title = `${project.brand} × ${project.creator} | Brand Partnership Concess`;
+  const description = `Bekijk de ${project.category} samenwerking tussen ${project.brand} en ${project.creator} via Concess. ${project.year}.`;
+  return {
+    title,
+    description,
+    keywords: [project.brand, project.creator, "influencer samenwerking", "brand partnership", "Concess", "social agency Nederland"],
+    alternates: { canonical: `https://concess.nl/partnerships/${slug}` },
+    openGraph: {
+      title,
+      description,
+      url: `https://concess.nl/partnerships/${slug}`,
+      images: project.cover ? [{ url: project.cover, alt: `${project.brand} × ${project.creator}` }] : [],
+    },
+  };
 }
 
 function getYouTubeId(url: string) {
