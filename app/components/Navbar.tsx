@@ -28,7 +28,7 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+        className="relative md:fixed md:top-0 md:left-0 md:right-0 md:z-50 z-50 transition-all duration-300"
         style={
           dark
             ? { backgroundColor: "rgba(250,248,245,0.97)", backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)", borderBottom: "1px solid var(--color-linen-300)" }
