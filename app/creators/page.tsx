@@ -90,7 +90,7 @@ export default function CreatorsPage() {
                 <div className="w-7 h-7 rounded-full overflow-hidden shrink-0" style={{ border: `1.5px solid ${isActive ? c.accentColor : "rgba(255,255,255,0.15)"}` }}>
                   <img src={creatorPortraits[c.name]} alt={c.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }} />
                 </div>
-                <span className="text-[11px] tracking-widest uppercase transition-colors" style={{ color: isActive ? "white" : "rgba(255,255,255,0.4)" }}>
+                <span className="text-[9px] md:text-[11px] tracking-widest uppercase transition-colors whitespace-nowrap" style={{ color: isActive ? "white" : "rgba(255,255,255,0.4)" }}>
                   {c.name}
                 </span>
               </a>
