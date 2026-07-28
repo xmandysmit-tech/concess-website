@@ -60,7 +60,7 @@ export const homepageFeatured = [
     creator: "× Myron Koops",
     img: "/images/Partnerships/Myron/Myron-x-Robijn-1.gif",
     gradient: "from-blue-900 to-neutral-950",
-    slug: "myron-robijn",
+    slug: undefined,
     type: "partnership" as const,
   },
 ];
