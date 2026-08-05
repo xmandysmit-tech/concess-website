@@ -18,15 +18,15 @@ const polaroids: Polaroid[] = [
   { src: "/images/Partnerships/Myron/Myron-x-Bookbeat.png",             rot: -5,  top: "15%",  left: "13%" },
   { src: "/images/Partnerships/Myron/Snuggs-x-Myron.png",               rot:  3,  top: "18%",  left: "29%" },
   { src: "/images/studio/Vrouwmibo-concess-1024x756.jpg",                rot: -7,  top: "14%",  left: "46%" },
-  { src: "/images/Partnerships/Noel-x-Milka.gif",                        rot:  6,  top: "17%",  left: "63%" },
+  { src: "/images/Partnerships/Noel-x-Milka.mp4",                        rot:  6,  top: "17%",  left: "63%" },
   { src: "/images/Partnerships/Enzo/LOG-x-Enzo.png",                    rot: -4,  top: "15%",  left: "80%" },
   // Rij 3 — zichtbaar op mobile + desktop
   { src: "/images/Partnerships/Chahid-x-Verraders.png",                  rot: -6,  top: "37%",  left: "-2%" },
-  { src: "/images/Partnerships/Myron/Myron-x-Robijn-1.gif",             rot:  4,  top: "35%",  left: "14%" },
+  { src: "/images/Partnerships/Myron/Myron-x-Robijn-1.mp4",             rot:  4,  top: "35%",  left: "14%" },
   { src: "/images/studio/Tantoe-Muzikaal-thumbnail-concess.jpg",         rot: -2,  top: "38%",  left: "30%" },
-  { src: "/images/Partnerships/Xbox-x-Chahid.gif",                       rot:  8,  top: "35%",  left: "47%" },
+  { src: "/images/Partnerships/Xbox-x-Chahid.mp4",                       rot:  8,  top: "35%",  left: "47%" },
   { src: "/images/studio/Thumbnail-StukTV.jpg",                          rot: -5,  top: "37%",  left: "63%" },
-  { src: "/images/Partnerships/Enzo/Bristol-x-Enzo-Knol.gif",           rot:  3,  top: "36%",  left: "80%" },
+  { src: "/images/Partnerships/Enzo/Bristol-x-Enzo-Knol.mp4",           rot:  3,  top: "36%",  left: "80%" },
   // Rij 4 — alleen desktop
   { src: "/images/Partnerships/Shoeby-x-Dylan.png",                      rot: -9,  top: "57%",  left: "-2%",  mobileHidden: true },
   { src: "/images/Partnerships/vrouwmibo/zusje x vrouwmibo.jpg",         rot:  6,  top: "55%",  left: "14%",  mobileHidden: true },
@@ -37,7 +37,7 @@ const polaroids: Polaroid[] = [
   // Rij 5 — alleen desktop
   { src: "/images/Partnerships/vrouwmibo/EOTB x Vrouwmibo.png",          rot: -7,  top: "77%",  left: "-2%",  mobileHidden: true },
   { src: "/images/Partnerships/Pokemon x Dylan Haegens.jpg",             rot:  5,  top: "75%",  left: "14%",  mobileHidden: true },
-  { src: "/images/Partnerships/Body-Fit-x-Nesim.gif",                    rot: -2,  top: "78%",  left: "30%",  mobileHidden: true },
+  { src: "/images/Partnerships/Body-Fit-x-Nesim.mp4",                    rot: -2,  top: "78%",  left: "30%",  mobileHidden: true },
   { src: "/images/Partnerships/Loreal-x-Randy.png",                      rot:  9,  top: "75%",  left: "47%",  mobileHidden: true },
   { src: "/images/Partnerships/Veilig op Weg x Dylan Haegens.png",       rot: -4,  top: "77%",  left: "63%",  mobileHidden: true },
   { src: "/images/Partnerships/Enzo/Enzo-x-Active-pixel.png",            rot:  3,  top: "76%",  left: "80%",  mobileHidden: true },
@@ -87,12 +87,23 @@ export default function AnimatedHero() {
             }}
           >
             <div style={{ width: "100%", height: "165px", overflow: "hidden", background: "#2a2724" }}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={p.src}
-                alt=""
-                style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", pointerEvents: "none" }}
-              />
+              {p.src.endsWith(".mp4") ? (
+                <video
+                  src={p.src}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", pointerEvents: "none" }}
+                />
+              ) : (
+                /* eslint-disable-next-line @next/next/no-img-element */
+                <img
+                  src={p.src}
+                  alt=""
+                  style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", pointerEvents: "none" }}
+                />
+              )}
             </div>
           </div>
         ))}
