@@ -1,7 +1,19 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
+import Script from "next/script";
 import CTAFooter from "../components/CTAFooter";
+
+declare global {
+  interface Window {
+    turnstile: {
+      render: (container: string | HTMLElement, options: Record<string, unknown>) => string;
+      reset: (widgetId: string) => void;
+    };
+  }
+}
+
+const TURNSTILE_SITE_KEY = "0x4AAAAAAEHAQg1bbVNw2jwA";
 
 const socials = [
   {
@@ -63,27 +75,65 @@ const inputStyle: React.CSSProperties = {
 export default function ContactPage() {
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
   const [form, setForm] = useState({ naam: "", email: "", nummer: "", bedrijf: "", bericht: "" });
+  const turnstileRef = useRef<HTMLDivElement>(null);
+  const widgetIdRef = useRef<string | null>(null);
+  const tokenRef = useRef<string>("");
 
   function set(field: string, value: string) {
     setForm((f) => ({ ...f, [field]: value }));
   }
 
+  // Render Turnstile widget nadat script geladen is
+  function onTurnstileLoad() {
+    if (!turnstileRef.current || widgetIdRef.current) return;
+    widgetIdRef.current = window.turnstile.render(turnstileRef.current, {
+      sitekey: TURNSTILE_SITE_KEY,
+      size: "invisible",
+      callback: (token: string) => { tokenRef.current = token; },
+    });
+  }
+
+  // Cleanup
+  useEffect(() => {
+    return () => { widgetIdRef.current = null; };
+  }, []);
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    setError("");
+
+    if (!tokenRef.current) {
+      setError("Verificatie mislukt. Probeer opnieuw.");
+      if (widgetIdRef.current) window.turnstile.reset(widgetIdRef.current);
+      return;
+    }
+
     setLoading(true);
-    await fetch("/api/contact", {
+    const res = await fetch("/api/contact", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(form),
+      body: JSON.stringify({ ...form, turnstileToken: tokenRef.current }),
     });
     setLoading(false);
-    setSent(true);
+
+    if (res.ok) {
+      setSent(true);
+    } else {
+      setError("Er is iets misgegaan. Probeer het opnieuw.");
+      if (widgetIdRef.current) window.turnstile.reset(widgetIdRef.current);
+      tokenRef.current = "";
+    }
   }
 
   return (
     <main style={{ background: "var(--color-linen-100)", minHeight: "100vh" }}>
-      
+      <Script
+        src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+        strategy="lazyOnload"
+        onLoad={onTurnstileLoad}
+      />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 pt-28 pb-20">
 
@@ -170,6 +220,13 @@ export default function ContactPage() {
                   <label className="text-[9px] tracking-widest uppercase text-taupe-500 block mb-1" style={{ fontFamily: "var(--font-sans)" }}>Bericht *</label>
                   <textarea rows={3} placeholder="Bericht" required value={form.bericht} onChange={(e) => set("bericht", e.target.value)} style={{ ...inputStyle, resize: "none" }} onFocus={(e) => (e.target.style.borderBottomColor = "var(--color-dark-900)")} onBlur={(e) => (e.target.style.borderBottomColor = "var(--color-linen-400)")} />
                 </div>
+
+                {/* Turnstile invisible widget */}
+                <div ref={turnstileRef} />
+
+                {error && (
+                  <p className="text-xs text-red-500" style={{ fontFamily: "var(--font-sans)" }}>{error}</p>
+                )}
 
                 {/* Bottom row: socials + button */}
                 <div className="flex items-center justify-between pt-2">
