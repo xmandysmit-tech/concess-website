@@ -90,14 +90,18 @@ export default function ContactPage() {
     if (!turnstileRef.current || widgetIdRef.current) return;
     widgetIdRef.current = window.turnstile.render(turnstileRef.current, {
       sitekey: TURNSTILE_SITE_KEY,
-      size: "invisible",
       callback: (token: string) => { tokenRef.current = token; },
+      "error-callback": () => { tokenRef.current = ""; },
     });
   }
 
-  // Cleanup
   useEffect(() => {
+    // Als script al geladen is vóór component mount
+    if (typeof window !== "undefined" && window.turnstile && !widgetIdRef.current) {
+      onTurnstileLoad();
+    }
     return () => { widgetIdRef.current = null; };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   async function handleSubmit(e: React.FormEvent) {
@@ -105,8 +109,7 @@ export default function ContactPage() {
     setError("");
 
     if (!tokenRef.current) {
-      setError("Verificatie mislukt. Probeer opnieuw.");
-      if (widgetIdRef.current) window.turnstile.reset(widgetIdRef.current);
+      setError("Verificatie nog bezig, even wachten en opnieuw proberen.");
       return;
     }
 
@@ -131,7 +134,7 @@ export default function ContactPage() {
     <main style={{ background: "var(--color-linen-100)", minHeight: "100vh" }}>
       <Script
         src="https://challenges.cloudflare.com/turnstile/v0/api.js"
-        strategy="lazyOnload"
+        strategy="afterInteractive"
         onLoad={onTurnstileLoad}
       />
 
